@@ -1,0 +1,120 @@
+.cDash-adm{
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+
+	/* HEADERTOP DEL DASHBOARD */
+	&--containRight{
+		padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    margin-top: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    overflow: hidden;
+
+    @media (min-width: 1024px){
+    	padding-left: 1.5rem;
+    }
+
+		&--cTop{
+			margin-bottom: 0.8rem;
+			&--cont{
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				height: 37px;
+				&--item{
+					&__liveWeb{
+						cursor: pointer;
+						background-color: $primary-color;
+				    padding: 0.35rem 2rem;
+				    border-radius: 0.3rem;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    text-align: center;
+				    margin-right: 1rem;
+				    
+				    svg{
+				    	fill: #fff;
+				    }
+					}
+
+					&--user{
+						width: 36px;
+				    height: 36px;
+				    margin-left: auto;
+				    cursor: pointer;
+						img{
+							width: 100%;
+					    height: 100%;
+					    object-fit: contain;
+					    object-position: center;
+						}
+					}
+
+					&--m{
+						display: none;
+						background-color: $primary-color;
+						list-style: none;
+						margin-top: 0.5rem;
+						padding-top: 0;
+						padding-left: 1rem;
+						padding-right: 1rem;
+						padding-bottom: 0;
+						position: absolute;
+						text-align: left;
+						width: auto;
+						right: 1rem;
+						border-radius: .4rem;
+						z-index: 99;
+
+						@media (min-width: 1024px){
+							width: 200px;
+							min-height: 75px;
+						}
+
+						&.active{
+							display: block;
+						}
+
+						&--item{
+							line-height: 2.5;
+						}
+						
+						&--link{
+							display: block;
+							color: $color-paragraph;
+							font-size: 0.95rem;
+							font-weight: 500;
+
+							&:hover{
+								color: #000 !important;
+							}
+
+							&[href="logout"]{
+								border-top: 1px solid rgba(0,0,0,.15);
+							}
+
+							@media (min-width: 1024px){
+								padding: 0  1.5rem;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/* CONTENIDO DEL DASHBOARD */
+		&--cContain{
+			&--cTpage{
+
+			}
+		}
+	}
+}

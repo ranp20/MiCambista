@@ -1,0 +1,31 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteBase /micambista/
+
+############RENAME PRINCIPAL FILES
+RewriteRule ^/?$ index.php
+RewriteRule signin?$ views/login.php
+RewriteRule signup?$ views/account.php
+RewriteRule complete-register?$ views/complete-register.php
+RewriteRule logout?$ php/process_logout-client.php
+RewriteRule recover-password?$ views/recover-password.php
+RewriteRule politicas-de-privacidad?$ views/policy-privacy.php
+
+############RENAME PAGES FOR ADMIN
+RewriteRule admin?$ admin/index.php
+RewriteRule dashboard?$ admin/dashboard.php
+RewriteRule clientes?$ admin/client.php
+RewriteRule paises?$ admin/countries.php
+RewriteRule bancos?$ admin/banks.php
+RewriteRule transbanks?$ admin/my-banks.php
+
+############RENAME ACTION IN PAGES OF THE CLIENT
+RewriteRule control-panel?$ views/control-panel.php
+RewriteRule welcome?$ views/welcome.php
+RewriteRule tablero?$ views/dashboard.php
+RewriteRule convert-divise?$ views/convert-divise.php
+RewriteRule complete-exchange?$ views/complete-exchange.php
+RewriteRule my-accounts?$ views/my-accounts.php
+RewriteRule my-profile?$ views/my-profile.php
+RewriteRule validation-biometric?$ views/validation-biometric.php

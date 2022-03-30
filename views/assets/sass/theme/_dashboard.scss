@@ -1,0 +1,335 @@
+#genCont-cli-dashboard{
+	min-height: unset;
+	height: 100%;
+  background-color: #eee;
+  position: relative;
+  top: 80px;
+
+  .cControlP__cont--containDash--c{
+		position: relative;
+		padding-top: 3rem;
+
+		&--cCDashboard{
+			max-width: $max-width-client;
+			width: 90%;
+			height: auto;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			flex-direction: column;
+
+			@media (min-width: 991px){
+				flex-direction: row;
+				width: 97%;
+			}
+
+			&--cLeftBoxsLandscape{
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-column-gap: 1.5rem;
+				grid-row-gap: 1.5rem;
+				width: 100%;
+				height: auto;	
+
+				@media (min-width: 1400px){
+					grid-template-columns: 1fr 1fr;
+				}
+
+				&--cUChange{
+					height: auto;
+					max-width: 400px;
+					width: 100%;
+					margin-left: auto;
+    			margin-right: auto;
+    			display: none;
+
+					@media (min-width: 991px){
+						max-width: unset;
+						margin-left: unset;
+						margin-right: unset;
+						width: max-content;
+						display: block;
+					}
+
+					@media (min-width: 1400px){
+						width: auto;
+					}
+
+					&--cTitle{
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin-bottom: .5rem;
+						&--cIcon{
+							svg{
+								stroke: $color-links;
+								margin-right: 0.2rem;
+							}
+							span{
+								position: relative;
+								top: -2px;
+								font-size: 1.1rem;
+								color: $color-links;
+							}
+						}
+					}
+
+					&--cList{
+						background-color: #fff;
+						border-radius: 1.2rem;
+						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
+						padding: 1.8rem;
+
+						&--cDollarsToSoles{
+							margin-bottom: 2rem;
+							h3{
+								padding-bottom: 0.5rem;
+								color: $color-paragraph;
+							}
+						}
+
+						&--cSolesToDollars{
+							margin-bottom: 1rem;
+							h3{
+								padding-bottom: 0.5rem;
+								color: $color-paragraph;
+							}
+						}
+					}
+				}
+				&--cLastChange{
+					height: auto;
+					max-width: 400px;
+					width: 100%;
+					margin-left: auto;
+    			margin-right: auto;
+
+					@media (min-width: 991px){
+						max-width: unset;
+						margin-left: unset;
+						margin-right: unset;
+						width: max-content;
+					}
+
+					@media (min-width: 1400px){
+						width: auto;
+					}
+
+					&--cTitle{
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin-bottom: .5rem;
+						&--cIcon{
+							svg{
+								stroke: $color-links;
+								margin-right: 0.5rem;
+							}
+							span{
+								position: relative;
+								top: -2px;
+								font-size: 1.1rem;
+								color: $color-links;
+							}
+						}
+						a{
+							color: $color-links;
+							font-size: 0.8rem;
+							text-decoration: underline;
+						}
+					}
+					&--cList{
+						background-color: #fff;
+						border-radius: 1.2rem;
+						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
+						padding: .65rem 1rem;
+
+						&--m{
+							&--item{
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								margin-bottom: 1.2rem;
+								flex-wrap: wrap;
+
+								/* MENSAJE CUANDO NO HAY REGISTROS */
+								&--itemanybanks{
+									padding: 2rem 1rem;
+							    display: flex;
+							    align-items: center;
+							    justify-content: center;
+							    text-align: center;
+
+									&--desc{
+										color: $color-paragraph;
+									}
+								}
+
+								&:last-child{
+									margin-bottom: 0;
+								}
+
+								&--cLeft{
+									display: flex;
+									align-items: center;
+									&--status{
+										width: 18px;
+										height: 18px;
+										border-radius: 50%;
+										background-color: #E8E226;
+
+										&.complete{
+											background-color: #60E266;
+										}
+										&.process{
+											background-color: #E8E226;
+										}
+										&.cancel{
+											background-color: #E26066;
+										}
+									}
+
+									&--codemount{
+										margin-left: 0.5rem;
+										p{
+											&:first-child{
+												margin-bottom: 0.2rem;
+											}
+
+											&:nth-child(2){
+												color: $color-links;
+											}
+										}
+									}
+
+								}
+
+								&--showDetail{
+									background-color: yellow;
+									color: $color-paragraph;
+									padding: 0.5rem 1.1rem;
+									border-radius: .6rem;
+									font-size: 0.8rem;
+									align-self: self-end;
+							    justify-self: flex-end;
+							    margin-left: auto;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&--cLeftBoxsPortrait{
+				max-width: 400px;
+				width: 100%;
+				margin-top: 2rem;
+				margin-left: 0;
+				padding-bottom: 2rem;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				grid-row-gap: 1.5rem;
+				margin-left: auto;
+				margin-right: auto;
+
+				@media (min-width: 991px){
+					margin-top: 0;
+					margin-left: 1.5rem;
+					margin-right: unset;
+				}
+
+				&--totalKash{
+					background-color: #fffbdb;
+					text-align: center;
+					padding: 2rem 1rem;
+					border-radius: 1.2rem;
+					box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
+					overflow: hidden;
+
+					img{
+						margin-bottom: 0.5rem;
+					}
+
+					h2{
+						font-size: 1.2rem;
+						font-weight: bold;
+						color: $color-links;
+					}
+				}
+
+				&--SolesChanges{
+					&--cTitle{
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						margin-bottom: .8rem;	
+						&--cIcon{
+							svg{
+								stroke: $color-links;
+								margin-right: 0.5rem;
+							}
+
+							span{
+								position: relative;
+								top: -2px;
+								font-size: 1.1rem;
+								color: $color-links;
+							}
+						}
+					}
+					&--cList{
+						background-color: #fff;
+						border-radius: 1.2rem;
+						overflow: hidden;
+						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
+						padding: 2rem 1rem;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						h2{
+							color: $color-links;
+						}
+					}
+				}
+
+				&--SolesDollars{
+					&--cTitle{
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						margin-bottom: .8rem;	
+						&--cIcon{
+							svg{
+								stroke: $color-links;
+								margin-right: 0.2rem;
+							}
+
+							span{
+								position: relative;
+								top: -2px;
+								font-size: 1.1rem;
+								color: $color-links;
+							}
+						}
+					}
+					&--cList{
+						background-color: #fff;
+						border-radius: 1.2rem;
+						overflow: hidden;
+						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
+						padding: 2rem 1rem;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						h2{
+							color: $color-links;
+						}
+					}
+				}
+			}
+		}
+  }
+}

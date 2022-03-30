@@ -1,0 +1,470 @@
+#cont-complete-divise{
+	position: relative;
+	padding-top: 3rem;
+	opacity: 0;
+	display: none;
+	pointer-events: none;
+
+	&.sendShow{
+		opacity: 1;
+		display: block;
+		pointer-events: auto;
+		animation-name: sendShowConvert;
+		animation-duration: .2;
+		animation-timing-function: ease-in-out .3s;
+	}
+
+	@keyframes sendShowConvert{
+		0%{
+			opacity: 0;
+			display: none;
+			pointer-events: none;
+		}
+		100%{
+			opacity: 1;
+			display: block;
+			pointer-events: auto;
+		}
+	}
+	.cControlP__cont--containDash--c--cCdivise{
+		text-align: center;
+		
+		&--cTitle{
+			margin-bottom: 3rem;
+			width: 95%;
+			margin-left: auto;
+			margin-right: auto;
+			&--title{
+				color: $color-links;
+			}
+		}
+
+		&--cF{
+			max-width: 410px;
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			&--cControl{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+			  text-align: left;
+			  margin-bottom: 1rem;
+
+			  /* MENSAJE DE ERROR - BANCO DESDE DONDE SE ENVÍA */
+				#msgerrorNounSelBankSend_CData{
+			    color: red;
+			    font-size: 0.9rem;
+			    padding-top: 0.3rem;
+				}
+				/* MENSAJE DE ERROR - BANCO A DONDE SE ENVÍA */
+				#msgerrorNounSelAccountBankReceived_CData{
+					color: red;
+			    font-size: 0.9rem;
+			    padding-top: 0.3rem;	
+				}
+
+			  /* LISTADO DE BANCOS */
+			  &--cSelItem{
+					width: 100%;
+					border: thin solid #ddd;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					background-color: #fff;
+					padding: 0.8rem 1rem;
+					border-radius: .6rem;
+					line-height: 1.5;
+					cursor: pointer;
+					position: relative;
+
+					&--cInputFake_CData{
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
+						width: 100%;
+						&--placeholder{
+							color: $color-paragraph;
+						}
+						&--imgbank{
+							width: 4.1rem;
+						}
+					}
+
+					&--inputVal_CData{
+						cursor: pointer;
+						outline: none;
+						font-size: 1rem;
+	    			border: thin solid transparent;
+	    			width: 0;
+					}
+
+					/* LISTADO DE BANCOS */
+					&--MenuListBanks_CData{
+				    display: none;
+						overflow: hidden;
+						position: absolute;
+				    top: 50px;
+				    background-color: #fff;
+				    width: 100%;
+				    left: 0;
+				    border-radius: 0 0 .6rem .6rem;
+				    border-top: none;
+				    border-left: none;
+				    border-right: none;
+				    border-bottom: none;
+
+				    &.show{
+				    	border-top: thin solid transparent;
+				    	border-left: thin solid #ddd;
+					    border-right: thin solid #ddd;
+					    border-bottom: thin solid #ddd;
+							box-shadow: 0 10px 10px 1px rgba(0, 0, 0, .1);
+				    	display: block;
+				    	z-index: 9;
+				    }
+
+				    &--item{
+				    	display: flex;
+				    	align-items: center;
+				    	justify-content: flex-start;
+				    	padding: .9rem 1rem;
+
+				    	&:hover{
+				    		background-color: #CFEADE;
+				    	}
+
+				    	&--cImg{
+				    		width: 4.5rem;
+				    		margin-right: 1rem;
+				    		img{
+				    			width: 100%;
+				    			height: 100%;
+				    		}
+				    	}
+				    }
+
+				    &--itemanybanks_CData{
+				    	display: flex;
+				    	align-items: center;
+				    	justify-content: flex-start;
+				    	padding: .9rem 1rem;
+				    	background-color: #eee;
+				    	&--desc{
+				    		color: $color-paragraph;
+				    	}
+				    }
+					}
+				}
+
+				&--label{
+					display: block;
+			    width: 100%;
+			    margin-bottom: 0.5rem;
+			    color: $color-paragraph;
+			    font-size: 0.95rem;
+				}
+
+				&--clistaddBanks{
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: space-between;	
+					line-height: 1.5;
+					border-radius: .5rem;
+					margin-bottom: 1rem;
+					position: relative;
+
+					/* LISTADO DE CUENTAS BANCARIAS */
+				  &--cSelItem{
+						width: 100%;
+						border: thin solid #ddd;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						background-color: #fff;
+						padding: 0.8rem 1rem;
+						border-radius: .6rem;
+						line-height: 1.5;
+						cursor: pointer;
+						position: relative;
+
+						/* MENSAJE DE ERROR - NOMBRE DE BANCO */
+						#msgerrorNounSelBank{
+					    color: red;
+					    font-size: .9rem;
+							position: absolute;
+					    bottom: -22px;
+					    left: 10px;
+						}
+
+						&--cInputFake_CData{
+							display: flex;
+							align-items: center;
+							justify-content: flex-start;
+							width: 100%;
+							&--placeholder{
+								color: $color-paragraph;
+							}
+							&--imgbank{
+								width: 4.1rem;
+							}
+						}
+
+						&--inputVal_CData{
+							cursor: pointer;
+							outline: none;
+							font-size: 1rem;
+		    			border: thin solid transparent;
+		    			width: 0;
+						}
+
+						/* LISTADO DE CUENTAS */
+						&--MenuListAccountsBanks_CData{
+					    display: none;
+							overflow: hidden;
+							position: absolute;
+					    top: 50px;
+					    background-color: #fff;
+					    width: 100%;
+					    left: 0;
+					    border-radius: 0 0 .6rem .6rem;
+					    border-top: none;
+					    border-left: none;
+					    border-right: none;
+					    border-bottom: none;
+
+					    &.show{
+					    	border-top: thin solid transparent;
+					    	border-left: thin solid #ddd;
+						    border-right: thin solid #ddd;
+						    border-bottom: thin solid #ddd;
+								box-shadow: 0 10px 10px 1px rgba(0, 0, 0, .1);
+					    	display: block;
+					    	z-index: 9;
+					    	max-height: 172px;
+					    	overflow-y: auto;
+    						height: auto;
+					    }
+
+					    &--item{
+					    	display: flex;
+					    	align-items: center;
+					    	justify-content: space-between;
+					    	padding: .9rem 1rem;
+
+					    	&:hover{
+					    		background-color: #CFEADE;
+					    	}
+
+					    	&--cInfoBank{
+					    		font-size: 0.9rem;
+					    		&--numaccountbank{
+					    			color: $color-paragraph;
+					    		}
+					    		&--guion{
+					    			color: $color-links;
+					    		}
+					    		&--aliasccountbank{
+					    			color: $color-links;
+					    		}
+					    	}
+
+					    	&--cImg{
+					    		width: 4.5rem;
+					    		img{
+					    			width: 100%;
+					    			height: 100%;
+					    		}
+					    	}
+					    }
+
+					    &--itemanybanks_CData{
+					    	display: flex;
+					    	align-items: center;
+					    	justify-content: flex-start;
+					    	padding: .9rem 1rem;
+					    	background-color: #eee;
+					    	&--desc{
+					    		color: $color-paragraph;
+					    	}
+					    }
+						}
+					}
+
+
+					&--input{
+						display: block;
+						width: 100%;
+						outline: none;
+						border: none;
+						line-height: 2;
+						font-size: 1rem;
+					}
+
+					&--icon{
+						width: 29px;
+				    top: 0;
+				    position: absolute;
+				    right: 0;
+				    cursor: pointer;
+				    padding: 0 0.5rem 0 0.5rem;
+				    height: 100%;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    text-align: center;
+				    vertical-align: middle;
+
+				    @media (min-width: 768px){
+							padding: 0 0.8rem 0 0.5rem;
+							width: 31px;
+							margin-bottom: 1.3rem;
+						}
+					}
+				}
+
+				&--clistaddBanks{
+					width: 100%;
+					background-color: transparent;
+					border-radius: .5rem;
+					margin-bottom: 1rem;
+					&--clistBanks{
+						width: 100%;
+						background-color: #fff;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;	
+						line-height: 1.5;
+						padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+						border-radius: .5rem;
+						box-shadow: 0 5px 10px 1px rgba(0,0,0,.06);
+						position: relative;
+
+						@media (min-width: 768px){
+							padding: 0.8rem 0.7rem 0.8rem 0.7rem;
+						}
+
+						&--input{
+							display: block;
+							width: 100%;
+							outline: none;
+							border: none;
+							line-height: 2;
+							font-size: 1rem;
+						}
+
+						&--icon{
+							width: 29px;
+					    top: 0;
+					    position: absolute;
+					    right: 0;
+					    cursor: pointer;
+					    padding: 0 0.5rem 0 0.5rem;
+					    height: 100%;
+					    display: flex;
+					    align-items: center;
+					    justify-content: center;
+					    text-align: center;
+					    vertical-align: middle;
+
+					    @media (min-width: 768px){
+								padding: 0 0.8rem 0 0.5rem;
+								width: 31px;
+								margin-bottom: 1.3rem;
+							}
+						}
+					}
+
+					&--caddBanks{
+						display: block;
+						text-align: left;
+				    padding: 1rem 0.8rem 1rem 0.8rem;
+				    border-radius: 0 0 0.5rem 0.5rem;
+				    color: $color-links;
+				    border: none;
+				    width: 100%;
+				    background-color: #E1F2EC;
+				    cursor: pointer;
+				    position: relative;
+				    top: -4px;
+				    box-shadow: 0 5px 10px 1px rgba(0,0,0,.06);
+
+    				&:hover{
+    					background-color: #CFEADE;
+    				}
+
+    				span{
+
+    				}
+
+    				svg{
+    					vertical-align: middle;
+					    position: relative;
+					    top: -2px;
+    				}
+					}
+				}
+			}
+
+			&--cBtnsActions{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				&--submitConvert{
+					display: inline-block;
+					width: 80%;
+					cursor: pointer;
+					border: none;
+					background-color: yellow;
+					border-radius: .5rem;
+					padding: 1rem 2rem;
+					color: $color-paragraph;
+					margin-bottom: 1rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&.sendShowComplete{
+						opacity: .4;
+						cursor: not-allowed;
+					}
+
+					&--contloader{
+						position: relative;
+				    width: auto;
+				    height: auto;
+						display: none;
+				    align-items: center;
+				    justify-content: center;
+				    margin-left: 0.5rem;
+
+						&.show{
+							display: flex;
+						}
+
+						&--loader{
+							@include loader(white, 16px);
+						}
+					}
+				}
+
+				&--btnCancel{
+					display: inline-block;
+					width: 80%;
+					cursor: pointer;
+					border: thin solid #000;
+					background-color: #fff;
+					border-radius: .5rem;
+					padding: 0.8rem 2rem;
+					color: $color-paragraph;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+}

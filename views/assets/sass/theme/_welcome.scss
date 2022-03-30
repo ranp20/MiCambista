@@ -1,0 +1,251 @@
+#cont-welcome{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	.cControlP__cont--containDash--c--cWelcome{
+		padding: 2rem 0;
+		width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+		min-height: 100vh;
+		height: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: "welcome welcome"
+												 "convert convert"
+												 "recomend recomend";
+		grid-column-gap: 2rem;
+		grid-row-gap: 2rem;
+
+		@media (min-width: 1200px){
+			grid-template-areas: "welcome welcome"
+												 	 "convert recomend";
+		}
+
+		&--cMsgWelcome{
+			grid-area: welcome;
+			background-color: #fffbdb;
+			background-image: url("../../assets/img/svg/welcome-mobile-1.svg");
+			border-radius: 1.25rem;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: 100% 100%;
+	    background-size: 70%;
+	    padding: 1.7rem 2rem;
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			min-height: 15rem;
+
+			@media (min-width: 768px){
+				background-image: url("../../assets/img/svg/welcome-desktop-1.svg");
+				align-items: center;
+				min-height: 23rem;
+			}
+
+			&--cTitle{
+				width: 73%;
+
+				&--title{
+					color: $color-paragraph;
+					margin-bottom: 0.5rem;
+					font-size: 1.2rem;
+					line-height: 1.5;
+
+					@media (min-width: 768px){
+						font-size: 1.5rem;
+					}
+				}
+
+				&--desc{
+					line-height: 1.5;
+					font-size: 0.9rem;
+					@media (min-width: 768px){
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+
+		&--cGotoConvert{
+			grid-area: convert;
+			background-color: #fff;
+			background-image: url("../../assets/img/svg/card-2.svg");
+			border-radius: 1.25rem;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: left bottom;
+	    background-size: 70%;
+	    padding: 1.5rem 1rem;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			min-height: 15rem;
+
+			@media (min-width: 768px){
+				max-width: 36rem;
+    		min-height: 19rem;
+    		margin: 0 auto;
+    		padding: 2rem;
+			}
+
+			&--cTitle{
+				&--title{
+					color: $color-links;
+					margin-bottom: 0.5rem;
+					line-height: 1.5;
+					font-size: 1.1rem;
+
+					@media (min-width: 768px){
+						font-size: 1.3rem;
+					}
+				}
+
+				&--desc{
+					margin-bottom: 1rem;
+					line-height: 1.5;
+					font-size: 0.9rem;
+
+					@media (min-width: 768px){
+						font-size: 1rem;
+					}
+				}
+
+				&--btnlinkmobile{
+					display: inline-block;
+					padding: 0.8rem 1.5rem;
+					border-radius: .6rem;
+					background-color: yellow;
+					color: $color-paragraph;
+
+					&:hover{
+						opacity: .4;
+					}
+
+					@media (min-width: 991px){
+						display: none;
+					}
+				}
+
+				&--btnlinkdesktop{
+					display: none;
+					padding: 0.8rem 1.5rem;
+					border-radius: .6rem;
+					background-color: yellow;
+					color: $color-paragraph;
+
+					&:hover{
+						opacity: .4;
+					}
+
+					@media (min-width: 991px){
+						display: inline-block;
+					}
+				}
+			}
+			img{
+				position: relative;
+		    top: 1.1rem;
+		    left: 1rem;
+		    width: 8rem;	
+		    align-self: flex-end;
+
+		    @media (min-width: 768px){
+		    	width: 13rem;
+		    }
+			}
+		}
+
+		&--cMsgRecomend{
+			grid-area: recomend;
+			background-color: #fff;
+			background-image: url("../../assets/img/svg/card-3.svg");
+			border-radius: 1.25rem;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: 100% 100%;
+	    background-size: 70%;
+	    padding: 1.5rem 1rem;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			min-height: 15rem;
+
+			@media (min-width: 768px){
+				max-width: 36rem;
+    		min-height: 19rem;
+    		margin: 0 auto;
+    		padding: 2rem;
+			}
+
+			&--cTitle{
+				&--title{
+					color: $color-links;
+					margin-bottom: 0.5rem;
+					line-height: 1.5;
+					font-size: 1.1rem;
+
+					@media (min-width: 768px){
+						font-size: 1.3rem;
+					}
+				}
+
+				&--desc{
+					margin-bottom: 1rem;
+					line-height: 1.5;
+					font-size: 0.9rem;
+
+					@media (min-width: 768px){
+						font-size: 1rem;
+					}
+				}
+
+				&--btnlinkmobile{
+					display: inline-block;
+					padding: 0.8rem 1.5rem;
+					border-radius: .6rem;
+					background-color: yellow;
+					color: $color-paragraph;
+
+					&:hover{
+						opacity: .4;
+					}
+
+					@media (min-width: 991px){
+						display: none;
+					}
+				}
+
+				&--btnlinkdesktop{
+					display: none;
+					padding: 0.8rem 1.5rem;
+					border-radius: .6rem;
+					background-color: yellow;
+					color: $color-paragraph;
+
+					&:hover{
+						opacity: .4;
+					}
+
+					@media (min-width: 991px){
+						display: inline-block;
+					}
+				}
+			}
+
+			img{
+				position: relative;
+		    top: 1.1rem;
+		    left: 1rem;
+		    width: 8rem;	
+		    align-self: flex-end;
+
+		    @media (min-width: 768px){
+		    	width: 13rem;
+		    	top: 1.9rem;
+		    }
+			}
+		}
+	}
+}

@@ -1,0 +1,133 @@
+.cLoginAdm{
+	min-height: 100vh;
+	height: 100%;
+
+	&__cont{
+		min-height: 100vh;
+		height: 100%;
+		display: grid;
+		grid-template-rows: auto;
+		grid-template-columns: 1fr;
+
+		@media (min-width: 682px){
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&--imgbanner{
+			display: none;
+
+			@media (min-width: 682px){
+				display: block;
+			}
+		}
+
+		&--fLogin{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			text-align: center;
+			padding: 3rem 0;
+
+			@media (min-width: 692px){
+				justify-content: center;
+				padding: 0;
+			}
+
+			&--cTitle{
+				margin-bottom: 2.5rem;
+				&--title{
+					font-size: 2.2rem;
+					color: limegreen;
+				}
+			}
+			&--form{
+				max-width: 355px;
+				width: 90%;
+				&--controls{
+					position: relative;
+					margin-bottom: 2rem;
+
+					&--cIcon{
+						position: absolute;
+						right: .5rem;
+						top: 50%;
+						transform: translateY(-50%);
+						width: 33px;
+						height: 33px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						text-align: center;
+
+						&--email{
+							fill: #ccc;
+						}
+						&--pass{
+							fill: #ccc;
+						}
+					}
+					&--label{
+
+					}
+					&--input{
+						padding: 0.7rem 2.35rem 0.7rem .5rem;
+						border-top: none;
+						border-bottom: thin solid #ccc;
+						border-left: none;
+						border-right: none;
+						font-size: 1rem;
+						width: 100%;
+
+						&.focus{
+							border-bottom: thin solid $color-paragraph;
+						}
+						&.alert{
+							border-bottom: thin solid red;
+						}
+						&.complete{
+							border-bottom: thin solid green;
+						}
+					}
+				}
+				&--cBtnsActions{
+					display: block;
+					&--recovPass{
+						display: block;
+						text-align: left;
+						padding-top: 0.8rem;
+						margin-bottom: 1rem;
+						text-decoration: underline;
+						color: steelblue;
+					}
+					&--btnLogin{
+						cursor: pointer;
+						display: block;
+						width: 100%;
+						background-color: yellow;
+						border: none;
+						color: $color-paragraph;
+						padding: 0.8rem .5rem;
+						border-radius: .5rem;
+						margin-bottom: 1rem;
+						font-size: .95rem;
+						transition: ease-out .2s;  
+						line-height: 1.5;
+
+						&:hover{
+							opacity: .4; 		
+						}
+					}
+					&--btnAccount{
+						padding-top: 0.5rem;
+						&--link{
+							margin-left: 0.4rem;
+							text-decoration: underline;
+							color: steelblue;
+						}
+					}
+				}
+			}
+		}
+	}
+}

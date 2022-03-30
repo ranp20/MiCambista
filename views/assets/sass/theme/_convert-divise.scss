@@ -1,0 +1,342 @@
+#cont-convert-divise{
+	position: relative;
+	padding-top: 3rem;
+	opacity: 1;
+	display: block;
+	pointer-events: auto;
+
+	&.sendShow{
+		opacity: 0;
+		display: none;
+		pointer-events: none;
+		animation-name: sendShowConvert;
+		animation-duration: .2;
+		animation-timing-function: ease-in-out .3s;
+	}
+
+	@keyframes sendShowConvert{
+		0%{
+			opacity: 1;
+			display: block;
+			pointer-events: auto;
+		}
+		100%{
+			opacity: 0;
+			display: none;
+			pointer-events: none;
+		}
+	}
+
+	.cControlP__cont--containDash--c--cConvertDivise{
+		&--cF{
+			text-align: center;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 2rem;
+
+			&--cT{
+				margin-bottom: 2rem;
+				width: 95%;
+		    margin-left: auto;
+		    margin-right: auto;
+
+		    @media (min-width: 768px){
+					width: 100%;
+				}
+
+				&--title{
+					color: $color-links;
+					margin-bottom: 0.4rem;
+
+					@media (min-width: 768px){
+						font-size: 1.6rem;
+					}
+				}
+
+				&--desc{
+					color: #000;
+					margin-bottom: 0.6rem;
+				}
+
+				&--cValDivise{
+					&--m{
+						margin-left: auto;
+						margin-right: auto;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						&--item{
+							background-color: #fff;
+							padding: 0.8rem 1.25rem;
+							&:first-child{
+								border-radius: .5rem 0 0 .5rem;
+								border-right: thin solid $color-links;
+							}
+
+							&:nth-child(2){
+								border-radius: 0 .5rem .5rem 0;
+							}
+
+							p{
+								color: $color-links;
+
+								&:first-child{
+									margin-bottom: 0.3rem;
+								}
+
+								&:nth-child(2){
+									font-weight: bold;
+									font-size: 1.35rem;
+								}
+
+								span{
+
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&--cform{
+				max-width: 450px;
+    		width: 90%;
+    		margin-left: auto;
+    		margin-right: auto;
+
+				&--cTimeChangeDivise{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-bottom: 0.5rem;
+
+					p{
+
+						&:first-child{
+							color: $color-links;
+						}
+
+						&:nth-child(2){
+							display: flex;
+							align-items: center;
+							color: $color-paragraph;
+
+							svg{
+								position: relative;
+								margin-right: 0.35rem;
+							}
+						}
+					}
+				}
+
+				&--Cc{
+					padding: 0;
+					position: relative;
+					margin-bottom: 1.5rem;
+					&--controls{
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin-bottom: 1rem;
+
+						@media (min-width: 991px){
+							&:first-child{
+								margin-bottom: 1.35rem;
+							}
+						}
+
+						&--ChangeVal{
+							text-align: center;
+							background-color: $color-links;
+							border-radius: 9px 0 0 9px;
+							color: #fff;
+							width: 110px;
+							padding: 1.65rem 0;
+
+							@media (min-width: 991px){
+								font-size: 1.2rem;
+								width: 120px;
+							}
+
+							@media (min-width: 1440px){
+								width: 135px;
+							}
+						}
+
+						&--cValues{
+							display: flex;
+					    flex-direction: column;
+					    align-items: flex-end;
+					    justify-content: center;
+					    line-height: 1.2;
+					    width: 100%;
+					    position: relative;
+
+							&--label{
+								display: flex;
+						    position: absolute;
+						    top: 7px;
+						    font-size: 0.8rem;
+								right: 13px;
+								color: $color-links;
+
+								@media (min-width: 991px){
+									top: 10px;
+								}
+
+							}
+							&--input{
+								display: block;
+						    width: 100%;
+						    height: auto;
+						    padding: 1rem .9rem .5rem 3.05rem;
+						    border: transparent;
+						    text-align: right;
+						    font-size: 1.7rem;
+						    line-height: 1.75;
+						    background-color: #fff;
+						    border-radius: 0 9px 9px 0;
+						    color: $color-links;
+
+						    &[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
+						    	-webkit-appearance: none;
+						    	margin: 0;
+						    }
+								&[type=number]{ 
+									-moz-appearance:textfield;
+								}
+
+								@media (min-width: 991px){
+									font-size: 1.9rem;
+									line-height: 1.7;
+								}
+
+							}
+							span{
+						    display: flex;
+						    position: absolute;
+						    top: 50%;
+						    font-size: 1.7rem;
+						    left: 0;
+						    transform: translateY(-50%);
+						    padding: 0 0 0 .9rem;
+						    color: $color-links;
+							}
+						}
+					}
+
+					&--btnChangeCurrency{
+						cursor: pointer;
+						position: absolute;
+				    border: none;
+				    border-radius: 50%;
+				    padding: 0.5rem;
+				    width: 45px;
+				    height: 45px;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    text-align: center;
+				    background-color: yellow;
+				    box-shadow: 0 0 0 4px #fff;
+				    top: 50%;
+				    transform: translateY(-50%);
+				    left: 20px;
+
+
+				    img{
+				    	width: 95%;
+				    	transition: ease-in-out .3s;
+					    
+					    &.active{
+					    	transform: rotate(180deg);
+					    }
+				    }
+					}
+				}
+
+				&--cCoupon{
+					margin-bottom: 1.5rem;
+					&--cTitle{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin-bottom: 0.5rem;
+						span{
+							font-size: 1rem;
+							color: $color-links;
+						}
+						svg{
+							margin-left: 0.5rem;
+							fill: none;
+							stroke: $color-links;
+						}
+					}
+					&--control{
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						position: relative;
+						input{
+							outline: none;
+							display: block;
+					    width: 100%;
+					    height: 100%;
+					    padding: .8rem 1rem;
+					    border: thin solid #ccc;
+					    border-radius: .5rem;
+							background-color: #fff;
+						}
+						button{
+							cursor: pointer;
+							border: none;
+							background-color: $color-links;
+							color: #fff;
+							padding: .85rem 2rem;
+							position: absolute;
+							right: 0;
+							border-radius: 0 .5rem .5rem 0;
+						}
+					}
+				}
+
+				&--btnSendConvert{
+					cursor: pointer;
+					width: 80%;
+					margin: 0 auto 0 auto;
+					border: none;
+					background-color: yellow;
+					border-radius: .5rem;
+					padding: 1rem 2rem;
+					color: $color-paragraph;
+				  display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&.sendShowComplete{
+						opacity: .4;
+						cursor: not-allowed;
+					}
+
+					&--contloader{
+						position: relative;
+				    width: auto;
+				    height: auto;
+						display: none;
+				    align-items: center;
+				    justify-content: center;
+				    margin-left: 0.5rem;
+
+						&.show{
+							display: flex;
+						}
+
+						&--loader{
+							@include loader(white, 16px);
+						}
+					}
+				}
+			}
+		}
+	}
+}

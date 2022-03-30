@@ -1,0 +1,166 @@
+#cont-valid-biometric{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	
+	.cControlP__cont--containDash--c--validBiom{
+		padding: 2rem 0;
+		width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+		min-height: 100vh;
+		height: 100%;
+
+		&--cont{
+			background-color: #fff;
+			border-radius: 1.5rem;
+			box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
+			padding: 1.5rem;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 1rem;
+
+			@media (min-width: 768px){
+				padding: 2rem 2.5rem;
+			}
+
+			/************************** ESTADO O PROGRESO DE LA VALIDACIÓN **************************/
+			&--cLeftStatus{
+				&--pointStep{
+					span{
+						display: flex;
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						margin-right: 0.75rem;
+						border: thin solid $color-links-gradient;
+						background-color: transparent;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					&--linestep{
+						display: block;
+						width: 1px;
+						height: 70px;
+						background-color: $color-links-gradient;
+						transform: translateX(14px);
+					}
+
+					&--namestep{
+						display: flex;
+						align-items: center;
+
+						p{
+							color: $color-links-gradient;
+						}
+					}
+					
+					&.step-complete{
+						span{
+							background-color: $color-links;
+							position: relative;
+
+							&:after{
+								content: "";
+								position: absolute;
+								width: 15px;
+								height: 15px;
+								border-radius: 50%;
+								background-color: #fff;
+							}
+						}
+
+						p{
+							color: $color-links;
+							font-weight: bold;
+						}
+					}
+				}
+			}
+
+			/************************** CONTENIDO DE CADA PASO DE LA VALIDACIÓN **************************/
+			&--cRightValIdentity{
+				text-align: center;
+
+				&--step{
+					/* TÍTULO DEL STEP */
+					&--cTitle{
+						margin-bottom: 3.5rem;
+						width: 75%;
+						margin-left: auto;
+						margin-right: auto;
+						&--title{
+							color: $color-links;
+							margin-bottom: 1rem;
+							font-size: 1.7rem;
+						}
+
+						&--desc{
+							font-size: 1.1rem;
+						}
+					}
+
+					/* CONTENEDOR DE FOTOS DE DOCUMENTO DE IDENTIDAD */
+					&--cPhoto{
+						display: flex;
+						align-items: flex-start;
+						gap: 1rem;
+
+						@media (min-width: 991px){
+							gap: 4rem;
+						}
+
+						&--item{
+							&--cImg{
+								max-width: 17rem;
+								margin-bottom: 2rem;
+								img{
+
+								}
+							}	
+
+							/* DESCRIPCIÓN DE FOTOGRAFÍA */
+							&--cDesc{
+								a{
+									display: block;
+									margin-bottom: 0.5rem;
+									padding: 0.7rem 3rem;
+									border-radius: 1.5rem;
+									background-color: $color-links-photo;
+									color: $color-links;
+									font-weight: 600;
+									font-size: 0.9rem;
+								}
+
+								span{
+									color: $color-paragraph;
+									font-size: 0.8rem;
+								}
+							}
+						}
+					}
+
+					/* SIGUIENTE PASO - PASO #1 */
+					&--btnOneToNextStep{
+						margin-top: 2rem;
+						cursor: pointer;
+						border: none;
+						padding: .8rem 3rem;
+				    display: inline-block;
+				    background-image: linear-gradient(45deg,
+																							$color-links, 
+																							deepskyblue);
+				    color: #fff;
+				    border-radius: 1.5rem;
+				    text-transform: uppercase;
+				    font-weight: 600;
+				    letter-spacing: 0.2rem;
+					}
+				}
+			}
+		}
+	}
+}

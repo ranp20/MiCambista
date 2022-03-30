@@ -1,0 +1,19 @@
+/* IMPORTAR LAS BASES DEL THEMA */
+	@import 'base/bases';
+	@import 'base/variables';
+	@import 'base/mixins';
+/* IMPORTAR LOS ARCHIVOS GENERALES DEL TEMA */
+	@import 'theme/login';
+	@import 'theme/account';
+	@import 'theme/landingpage';
+	@import 'theme/recover-password';
+	@import 'theme/control-panel';
+	@import 'theme/welcome';
+	@import 'theme/convert-divise';
+	@import 'theme/complete-divise';
+	@import 'theme/my-accounts';
+	@import 'theme/complete-register';
+	@import 'theme/complete-exchange';
+	@import 'theme/dashboard';
+	@import 'theme/my-profile';
+	@import 'theme/validation-biometric';

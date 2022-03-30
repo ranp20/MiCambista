@@ -1,0 +1,9 @@
+/* IMPORTAR LAS BASES DEL THEMA */
+	@import 'base/bases';
+	@import 'base/variables';
+	@import 'base/mixins';
+/* IMPORTAR LOS ARCHIVOS GENERALES DEL TEMA */
+	@import 'theme/login';
+	@import 'theme/sidebar-left';
+	@import 'theme/dashboard';
+	@import 'theme/registerforms';

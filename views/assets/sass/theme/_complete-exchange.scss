@@ -1,0 +1,198 @@
+#cont-complete-exchange{
+	position: relative;
+	padding-top: 4rem;
+
+	.cControlP__cont--containDash--c--cCFinalDivise{
+		max-width: 420px;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+
+		&--cTitle{
+			margin-bottom: 2rem;
+			&--title{
+				color: $color-links;
+				margin-bottom: 1rem;
+				font-size: 1.7rem;
+			}
+
+			&--cIcon{
+				margin-bottom: 0.5rem;
+				img{
+
+				}
+			}
+
+			&--textdesc{
+				margin-bottom: 1rem;
+			}
+
+			&--textvalchange{
+				font-size: 1.45rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				span{
+					color: $color-links;
+				}
+				svg{
+					cursor: pointer;
+					stroke: $color-links;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+
+		&--cContInfo{
+			text-align: left;
+			&--subtitle{
+				margin-bottom: 0.5rem;
+				color: $color-paragraph;
+			}
+
+			&--cTopbankMiCambistainfo{
+				background-color: #fff;
+				padding: .9rem;
+				border-radius: .7rem;
+				box-shadow: 0 7px 10px 1px rgba(0,0,0,.08);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 1.5rem;
+
+				&:nth-child(2){
+					padding: .9rem;
+				}
+
+				&:nth-child(3){
+					padding: .7rem 1rem;
+				}
+
+				svg{
+					stroke: $color-links;
+					cursor: pointer;
+				}
+
+				&--cImg{
+					width: 6rem;
+
+					img{
+						width: 100%;
+					}
+				}
+
+				&--cinfo{
+					text-align: right;
+
+					&--top{
+						color: $color-links;
+						margin-bottom: 0.5rem;
+						font-size: 0.85rem;
+					}
+
+					&--bottom{
+						color: $color-links;
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
+						font-weight: 600;
+
+						svg{
+							stroke: $color-links;
+							margin-left: 0.5rem;
+							cursor: pointer;
+						}
+					}
+				}
+
+				&--ruc{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					color: $color-links;
+					font-size: 1.05rem;
+				}
+			}
+
+			&--infoStepInit{
+				line-height: 1.5;
+			}
+
+			&--showTitleinfo{
+				text-align: right;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				margin-bottom: 1rem;
+				a{
+					text-decoration: underline;
+					color: $color-paragraph;
+				}
+
+				svg{
+					cursor: pointer;
+					fill: transparent;
+					stroke: $color-links;
+					margin-left: 0.5rem;
+				}
+			}
+
+			&--cFormSendtransac{
+				&--form{
+					&--input{
+						outline: none;
+						background-color: #fff;
+						border: thin solid #ccc;
+						border-radius: .6rem;
+						padding: .85rem;
+						line-height: 1.5;
+						width: 100%;
+						margin-bottom: 0.65rem;
+						font-size: 0.95rem;
+					}
+
+					&--Step{
+						color: $color-paragraph;
+						font-size: 1.1rem;
+						font-weight: 600;
+						margin-bottom: 1rem;
+					}
+
+					&--cBtns{
+						text-align: center;
+						&--btnTransac{
+							cursor: pointer;
+							display: block;
+							max-width: 330px;
+							width: 100%;
+							margin-left: auto;
+							margin-right: auto;
+							padding: 1rem;
+							border: thin solid transparent;
+							border-radius: .5rem;
+							background-color: yellow;
+							color: $color-paragraph;
+							margin-bottom: 1.2rem;
+						}
+
+						&--cancelLink{
+							cursor: pointer;
+							display: block;
+							max-width: 330px;
+							width: 100%;
+							margin-left: auto;
+							margin-right: auto;
+							padding: 1rem;
+							border: thin solid #000;
+							border-radius: .5rem;
+							background-color: #fff;
+							color: $color-paragraph;
+						}
+					}
+				}
+			}
+		}
+	}
+}

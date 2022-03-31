@@ -94,6 +94,8 @@
 					    }
 						}
 						&--m{
+							padding: 0;
+							margin: 0;
 
 							@media (min-width: 991px){
 								display: flex;
@@ -1293,7 +1295,8 @@
 				}
 
 				&--c{
-					&--logo{
+					&--logo,
+					&--img{
 						margin-bottom: 0.85rem;
 						width: 13rem;
 					}

@@ -1,4 +1,4 @@
 <?php 
 session_start();
-unset($_SESSION["client"]);
+unset($_SESSION["cli_micambista"]);
 header('location: ./');

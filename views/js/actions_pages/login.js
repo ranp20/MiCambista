@@ -1,4 +1,4 @@
-/************************** MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 2 **************************/
+// ------------  MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 2
 $(document).on("click", "#icon-loginPassControl", function(){
 	var inploginPass = $(this).parent().find("input").attr("type");
 	if(inploginPass == "password" && $(this).parent().find("input").val() != ""){
@@ -17,30 +17,19 @@ $(document).on("click", "#icon-loginPassControl", function(){
 		`);
 	}
 });
-$(document).on("click", "#btn-loginCliMiCambista", function(e){
+// ------------ LOGIN DE CLIENTE
+$(document).on("submit", "#Login-PInstakash", function(e){
 	e.preventDefault();
-
-	var obj_loginCli = {
-		email: $("#email-instk").val(),
-		password: $("#pass-instk").val(),
-	};
-	
-	var formdata = new FormData();
-
-	formdata.append("email", obj_loginCli['email']);
-	formdata.append("password", obj_loginCli['password']);
-
+	var form = $(this).serializeArray();
   $.ajax({
-    url: "php/process_login-client.php",
+    url: "./php/process_login-client.php",
     method: "POST",
-    data: formdata,
-    contentType: false,
-    cache: false,
-    processData: false,
-  }).done((res) => {
-  	
-  	if(res == "incomplete"){
-
+    dataType: 'JSON',
+    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+    data: form
+  }).done((e) => {
+  	//$('#Login-PInstakash')[0].reset();
+  	if(e.response == "reg_incomplete"){
   		$("#msgAlertLogin").html(`<div class="msgAlertLogin--success">
 																	<div class="msgAlertLogin--success--loader"></div>
 																</div>
@@ -49,9 +38,7 @@ $(document).on("click", "#btn-loginCliMiCambista", function(e){
 			setTimeout(function(){
 				window.location.replace("complete-register");
 			}, 500);
-
-  	}else if(res == "complete"){
-
+  	}else if(e.response == "reg_complete"){
   		$("#msgAlertLogin").html(`<div class="msgAlertLogin--success">
 																	<div class="msgAlertLogin--success--loader"></div>
 																</div>
@@ -60,9 +47,7 @@ $(document).on("click", "#btn-loginCliMiCambista", function(e){
 			setTimeout(function(){
 				window.location.replace("control-panel");
 			}, 500);
-
-  	}else if(res == "ErrorData"){
-  		
+  	}else{
   		$("#msgAlertLogin").html(`<div class="msgAlertLogin--error">
 																	<div class="msgAlertLogin--error--c">
 																		<span class="msgAlertLogin--error--c--close" id="btnCloseErr"></span>
@@ -75,25 +60,18 @@ $(document).on("click", "#btn-loginCliMiCambista", function(e){
 			setTimeout(function(){
 				$('.msgAlertLogin--error').addClass('disabled');
 			}, 4500);
-
-			/* CERRAR EL MENSAJE DE ERROR */
+			// ------------  CERRAR EL MENSAJE DE ERROR
 			let containermodal = document.querySelector('.msgAlertLogin--error');
 			containermodal.addEventListener('click', e => {
 				if(e.target === containermodal)	containermodal.classList.add('disabled');
 			});
-
 			$("#btnCloseErr").on("click", function(){
 				$(".msgAlertLogin--error").addClass("disabled");
 			});
-
-  	}else{
-  		console.log('Error al validar los datos');
   	}
   });
-
 });
-
-// 	/************************** REGISTRO CON GOOGLE **************************/
+// ------------  REGISTRO CON GOOGLE
 // 	const btnLogwithGoogle = d.querySelector("#btnLognWithGoogleAuth");
 
 // 	btnLogwithGoogle.addEventListener("click", function(e){
@@ -117,5 +95,4 @@ $(document).on("click", "#btn-loginCliMiCambista", function(e){
 
 // 		ajaxG.send(dataG);
 // 	});	
-
 // })(document);

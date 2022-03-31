@@ -1,6 +1,5 @@
 var idClient = $("#input-idClientValEnterprise").val();
-
-/************************** MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE EMPRESAS **************************/
+// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE EMPRESAS 
 document.querySelector("#btn-addAccountEnterpriseShow").addEventListener("click", function(){
 	document.querySelector(".cformAddAccountEnterprise").classList.add("show");
 	document.querySelector(".cformAddAccountEnterprise--form").classList.add("show");
@@ -9,8 +8,7 @@ let contformRegEnterprise = document.querySelector('.cformAddAccountEnterprise')
 contformRegEnterprise.addEventListener('click', e => {
 	if(e.target === contformRegEnterprise)	contformRegEnterprise.classList.remove('show');
 });
-
-/************************** LIMITAR EL MÁXIMO DE NÚMEROS EN RUC **************************/
+// ------------ LIMITAR EL MÁXIMO DE NÚMEROS EN RUC 
 $("#rucenpterprise-cli").on('keyup keypress blur change', function(e) {
     //return false if not 0-9
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -22,27 +20,26 @@ $("#rucenpterprise-cli").on('keyup keypress blur change', function(e) {
         }
     }
 });
-/************************** VALIDAR SI EL NOMBRE DE EMPRESA ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL NOMBRE DE EMPRESA ESTÁ VACÍO 
 $(document).on("keyup", "#nameenpterprise-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNameEnterprise").text("") : $("#msgerrorNounNameEnterprise").text("Debes ingresar el nombre de tu empresa");
 });
-/************************** VALIDAR SI EL RUC DE EMPRESA ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL RUC DE EMPRESA ESTÁ VACÍO 
 $(document).on("keyup", "#rucenpterprise-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounRUCEnterprise").text("") : $("#msgerrorNounRUCEnterprise").text("Debes ingresar el RUC de tu empresa");
 });
-/************************** VALIDAR SI LA DIRECCIÓN DE LA EMPRESA ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI LA DIRECCIÓN DE LA EMPRESA ESTÁ VACÍO 
 $(document).on("keyup", "#addressenpterprise-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounAddressEnterprise").text("") : $("#msgerrorNounAddressEnterprise").text("Debes colocar la dirección fiscal");
 });
-/************************** VALIDAR SI ESTÁ MARCADO EL CHECKBOX **************************/
+// ------------ VALIDAR SI ESTÁ MARCADO EL CHECKBOX 
 $(document).on("click", "#checkenterprise-cli", function(){
 	($(this).is(':checked')) ? $("#msgerrorNouncheckedEnterprise").text("") : $("#msgerrorNouncheckedEnterprise").text("Debes aceptar que eres el representante legal");
 });
-/************************** AGREGAR CUENTA BANCARIA **************************/
+// ------------ AGREGAR CUENTA BANCARIA 
 $(document).on("click", "#btn-addAccountEnterprise", function(e){
 	e.preventDefault();
-
-	/************************** AGREGAR MENSAJE EN LOS SPAN **************************/
+	// ------------ AGREGAR MENSAJE EN LOS SPAN 
 	($("#nameenpterprise-cli").val() != "") ? $("#msgerrorNounNameEnterprise").text("") : $("#msgerrorNounNameEnterprise").text("Debes ingresar el nombre de tu empresa");
 	($("#rucenpterprise-cli").val() != "") ? $("#msgerrorNounRUCEnterprise").text("") : $("#msgerrorNounRUCEnterprise").text("Debes ingresar el RUC de tu empresa");
 	($("#addressenpterprise-cli").val() != "") ? $("#msgerrorNounAddressEnterprise").text("") : $("#msgerrorNounAddressEnterprise").text("Debes colocar la dirección fiscal");
@@ -57,7 +54,6 @@ $(document).on("click", "#btn-addAccountEnterprise", function(e){
 		};
 
 		var formdata = new FormData();
-
 		formdata.append("name", obj_form['nameenterprise']);
 		formdata.append("ruc", obj_form['rucenterprise']);
 		formdata.append("address", obj_form['addressenterprise']);
@@ -70,15 +66,15 @@ $(document).on("click", "#btn-addAccountEnterprise", function(e){
 	    contentType: false,
 	    cache: false,
 	    processData: false,
-	  }).done((res) => {
-
-	  	if(res == "true"){
-		  	
-	     	/************************** LIMPIAR FORMULARIO **************************/
+	  }).done((e) => {
+	  	console.log(e);
+	  	/*
+	  	if(res == "true"){		  	
+	     	// ------------ LIMPIAR FORMULARIO 
 		  	$(".cformAddAccountEnterprise").removeClass("show");
 				$(".cformAddAccountEnterprise--form").removeClass("show");
 	     	$('#form-AddAccountEnterprise')[0].reset();
-				/************************** ALERTA **************************/	      
+				// ------------ ALERTA 
 				$("#msgAlertLogin").html(`
   			<div class='message-success'>
 					<div class='message-success__content'>
@@ -88,16 +84,14 @@ $(document).on("click", "#btn-addAccountEnterprise", function(e){
 					</div>
 				</div>
 	  		`);
-
 				setTimeout(function(){
 					location.replace("control-panel");
 				}, 500);
-
 	  	}else{
 	  		console.log('Error, no se insertó');
 	  	}
+	  	*/
 	  });
-
 	}else{
 		console.log('No hay datos');
 	}

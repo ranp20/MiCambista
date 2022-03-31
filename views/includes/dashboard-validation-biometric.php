@@ -30,7 +30,7 @@
 			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto">
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item">
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cImg">
-						<img src="assets/img/utilities/imagen_frontal-DNI.png" alt="">
+						<img src="<?= $url ?>views/assets/img/utilities/imagen_frontal-DNI.png" alt="">
 					</div>
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cDesc">
 						<a href="#">FOTO DE ID FRONTAL</a>
@@ -39,7 +39,7 @@
 				</div>
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item">
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cImg">
-						<img src="assets/img/utilities/imagen_trasero-DNI.png" alt="">
+						<img src="<?= $url ?>views/assets/img/utilities/imagen_trasero-DNI.png" alt="">
 					</div>
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cDesc">
 						<a href="#">FOTO DE ID POSTERIOR</a>

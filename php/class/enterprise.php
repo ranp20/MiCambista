@@ -1,5 +1,5 @@
 <?php 
-require_once 'connection.php';
+require_once 'db/connection.php';
 class Enterprise extends Connection{
 	
 	private $table = "tbl_enterprise";

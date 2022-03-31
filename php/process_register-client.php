@@ -1,49 +1,69 @@
 <?php 
 if(isset($_POST) && count($_POST) > 0){
-	$params = count($_POST);
-	$statusaccount = $params * 4;
-
-	$arr_datacli = [
-		"email" => $_POST['email'],
-		"password" => $_POST['password'],
-		"telephone" => $_POST['telephone'],
-		"completeaccount" => $statusaccount,
-	];
-
-	require_once '../controllers/c_add-client.php';
-	$addCli = new Add_client();
-	$add = $addCli->add($arr_datacli);
-
-	if(!empty($add)){
-		if(is_numeric($add[0]['res'])){
-
-			require_once '../controllers/c_list_byIdClient.php';
-
-			$idcli = $add[0]['res'];
-
-			$user = new List_byIdClient();
-			$getbyid = $user->list($idcli);
-
-			if($getbyid > 0){
-				session_start();
-				$_SESSION['client'] = $getbyid; 
-				
-				echo "insertado";
-
-			}else{
-				echo "No se ha podido agregar al usuario";
-			}
-
-		}else if($add[0]['res'] == "yaexiste"){
+	if (preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['u-email'])) {
+		if (preg_match('/^[0-9a-zA-Z]+$/', $_POST['u-password'])) {
 			
-			echo "yaexiste";
-	
+			require_once '../php/class/client.php';
+      $user       = new Client();
+      $verifymail = $user->verify_email($_POST['u-email']);
+
+      if($verifymail == "true") {
+        $res = array(
+          'response' => 'err_equals',
+        );
+      }else{
+
+      	$_token = md5($_POST['u-email'] . $_POST['u-password']);
+
+      	$params = count($_POST);
+				$statusaccount = $params * 4;
+
+				$arr_datacli = [
+					'_token'   				=> $_token,
+					'email' 					=> $_POST['u-email'],
+					'password' 				=> $_POST['u-password'],
+					'telephone' 			=> $_POST['u-telephone'],
+					'complete_account' => $statusaccount,
+				];
+
+				require_once '../controllers/c_add-client.php';
+				$addCli = new Add_client();
+				$add = $addCli->add($arr_datacli);
+
+				if ($add == "true") {
+          $getdata = $user->get_clients($arr_datacli['email']);
+          if (count($getdata) > 0) {
+            session_start();
+            $_SESSION['cli_micambista'] = $getdata[0];
+
+            $res = array(
+              'response' => 'true',
+              'received' => $getdata[0],
+            );
+          } else {
+            $res = array(
+              'response' => 'errinsert',
+            );
+          }
+        } else {
+          $res = array(
+            'response' => 'errinsert',
+          );
+        }
+      }
 		}else{
-			echo "Ocurrió un error al agregar al usuario";
+			$res = array(
+        'response' => 'error_pass',
+      );
 		}
 	}else{
-		echo "No se validó el SP";
+		$res = array(
+      'response' => 'error_email',
+    );
 	}
 }else{
-	echo "Error al enviar los datos";
+	$res = array(
+    'response' => 'false',
+  );
 }
+die(json_encode($res));

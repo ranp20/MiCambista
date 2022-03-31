@@ -10,7 +10,7 @@
 	<div class="cControlP__cont--hTop--c">
 		<div class="cControlP__cont--hTop--c--cLogHorario">
 			<div class="cControlP__cont--hTop--c--cLogHorario--cLogo">
-				<img src="./assets/img/svg/logo.svg" alt="">
+				<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
 			</div>
 			<div class="cControlP__cont--hTop--c--cLogHorario--cHorario">
 				<p>Lunes a Viernes: 9am 7:00pm </br> Sábadosy Feriados: 9am a 2:30pm</p>
@@ -18,17 +18,17 @@
 		</div>
 		<div class="cControlP__cont--hTop--c--cWpsNameCli">
 			<a href="#" class="cControlP__cont--hTop--c--cWpsNameCli--wpsMobile">
-				<img src="./assets/img/svg/whatsapp-green.svg" alt="">
+				<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="">
 			</a>
 			<a href="#" class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb">
 				<p>927 013 800</p>
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb--cIcon">
-					<img src="./assets/img/svg/whatsapp-green.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="">
 				</div>
 			</a>
 			<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli">
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIcon">
-					<img src="./assets/img/svg/user-male.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="">
 				</div>
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cNamecli">
 					<p>
@@ -37,7 +37,7 @@
 					</p>
 				</div>
 				<button type="button" class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIconArrow" id="btnShowSideRight">
-					<img src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
 				</button>
 			</div>
 		</div>

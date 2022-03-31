@@ -1,11 +1,9 @@
 <?php 
-
 	session_start();
-	if(!isset($_SESSION['client'])){
+	if(!isset($_SESSION['cli_micambista'])){
 		header("Location: signin");
 	}
 	require_once '../php/process_data-list.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +33,7 @@
 								<a href="convert-divise" class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--btnlinkmobile">Hacer cambio</a>
 								<a href="convert-divise" class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--btnlinkdesktop">Quiero cambiar</a>
 							</div>
-							<img src="./assets/img/svg/exchange-2.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/exchange-2.svg" alt="">
 						</div>
 						<div class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend">
 							<div class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend--cTitle">
@@ -44,13 +42,13 @@
 								<a href="#" class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend--cTitle--btnlinkmobile">Saber más</a>
 								<a href="#" class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend--cTitle--btnlinkdesktop">Quiero saber más</a>
 							</div>
-							<img src="./assets/img/svg/affiliate-3.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/affiliate-3.svg" alt="">
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>		
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
 </body>
 </html>

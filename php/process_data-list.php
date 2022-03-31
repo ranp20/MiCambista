@@ -1,6 +1,5 @@
 <?php 
-
-$idclient = $_SESSION['client'][0]['id'];
+$idclient = $_SESSION['cli_micambista']['id'];
 
 require_once 'class/client.php';
 $client = new Client();

@@ -1,11 +1,10 @@
 <?php 
-require_once '../php/class/connection.php';
+require_once '../php/class/db/connection.php';
 class Complete_RegClient extends Connection{
 	function update(){
 
 		$params = count($_POST);
 		$statusaccount = $params * 2;
-
 		$arr_upregister = [
 			"name" => $_POST['name'],
 			"lastname" => $_POST['lastname'],
@@ -16,7 +15,6 @@ class Complete_RegClient extends Connection{
 			"complete_account" => $statusaccount,
 			"id_client" => $_POST['id_client'],
 		];
-
 		try{
 			$sql = "CALL sp_update_complete_register(:name, :lastname, :n_document, :sex, :id_type_document, :id_type_sex, :complete_account, :id_client)";
 			$stm = $this->con->prepare($sql);

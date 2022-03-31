@@ -3,7 +3,7 @@
   $url =  $actual_link . "/micambista/";
   $url_defaultURL =  $actual_link . "/micambista";
 ?>
-<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta name="description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
 <meta name="theme-color" content="#FFF394">

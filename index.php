@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | centro de cambio en línea con las mejores tasas</title>
 	<?php require_once 'views/includes/header_links.php' ?> 
+	<title>Mi Cambista | centro de cambio en línea con las mejores tasas</title>
 </head>
 <body>
 	<?php require_once 'views/includes/api_whatsapp.php';?>

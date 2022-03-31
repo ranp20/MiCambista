@@ -1,7 +1,5 @@
-<?php 
-
+<?php
   require_once '../php/process_session.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

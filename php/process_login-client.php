@@ -1,52 +1,55 @@
 <?php 
+if (isset($_POST) && count($_POST) > 0) {
+	if (preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['u-email'])) {
+		$arr_data_client = [
+			"email" 	=> $_POST['u-email'],
+			"password" 		=> $_POST['u-password']
+		];
+		require_once '../controllers/c_login-client.php';
+		$login = new Login();
+		$verify = $login->verify($arr_data_client);
+		
+		if(!empty($verify)){
+			require_once '../controllers/c_list_byIdClient.php';
+			$idcli = $verify[0]['id'];
+			$user = new List_byIdClient();
+			$getbyid = $user->list($idcli);
 
-if(isset($_POST)){
-
-	$arr_data_client = [
-		"email" => $_POST['email'],
-		"pass" => $_POST['password']
-	];
-
-	require_once '../controllers/c_login-client.php';
-	$login = new Login();
-	$verify = $login->verify($arr_data_client);
-
-	if(!empty($verify)){
-
-		require_once '../controllers/c_list_byIdClient.php';
-
-		$idcli = $verify[0]['id'];
-		$user = new List_byIdClient();
-		$getbyid = $user->list($idcli);
-
-		if($getbyid > 0){
-				
-			$status = round($getbyid[0]['complete_account']);
-			
-			if($status <= 16){
-
-				session_start();
-				$_SESSION['client'] = $getbyid;
-				
-				echo "incomplete";
-
+			if($getbyid > 0){
+				$status = round($getbyid[0]['complete_account']);
+				if($status <= 16){
+					session_start();
+					$_SESSION['cli_micambista'] = $getbyid[0];
+					$res = array(
+            'response' => 'reg_incomplete',
+            'received' => $getbyid[0],
+          );
+				}else{
+					session_start();
+					$_SESSION['cli_micambista'] = $getbyid;
+					$res = array(
+            'response' => 'reg_complete',
+            'received' => $getbyid[0],
+          );
+				}
 			}else{
-				
-				session_start();
-				$_SESSION['client'] = $getbyid;
-				
-				echo "complete";
+				$res = array(
+			    'response' => 'false',
+			  );
 			}
-
 		}else{
-
-			echo "ErrorData";
+			$res = array(
+		    'response' => 'false',
+		  );
 		}
-
 	}else{
-		echo "ErrorData";
+		$res = array(
+      'response' => 'error_email',
+    );
 	}
-
 }else{
-	echo "ErrorData";
+	$res = array(
+    'response' => 'false',
+  );
 }
+die(json_encode($res));

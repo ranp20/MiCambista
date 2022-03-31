@@ -136,6 +136,8 @@
 					    border-left: none;
 					    border-right: none;
 					    border-bottom: none;
+					    padding: 0;
+					    margin: 0 0 0 0;
 
 					    &.show{
 					    	border-top: thin solid transparent;
@@ -424,6 +426,8 @@
 						    border-right: none;
 						    border-bottom: none;
 						    min-width: 125px;
+						    padding: 0;
+						    margin: 0 0 0 0;
 
 						    &.show{
 						    	border-top: thin solid transparent;

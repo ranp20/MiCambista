@@ -1,5 +1,5 @@
 var idClientInitial = $("#val-cliid_session").val();
-/************************** LISTAR LOS TIPOS DE DOCUMENTOS **************************/
+// ------------ LISTAR LOS TIPOS DE DOCUMENTOS
 $(document).on("click", "#selListallTypeDocuments", function(e){
 	var btnshow = $("#listtypesDocuments");
 	$.ajax({
@@ -7,9 +7,8 @@ $(document).on("click", "#selListallTypeDocuments", function(e){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((res) => {
 		var ttypeaccount = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -35,7 +34,7 @@ $(document).on("click", "#selListallTypeDocuments", function(e){
 		}
 	});
 });
-/************************** FIJAR EL TIPO DE DOCUMENTO **************************/
+// ------------ FIJAR EL TIPO DE DOCUMENTO 
 $(document).on("click", ".cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--MenuListTypeDocuments--item", function(e){
 	e.preventDefault();
 	//$("#msgerrorNounSelBank").text("");
@@ -49,8 +48,7 @@ $(document).on("click", ".cCRegister__cont--fCRegister--form--controlsTwo--c--cS
 		$("#selListtypeDocument--input").attr("idtypedocument", gettypedocument['typedocumentid']);
 	});
 });
-
-/************************** LISTAR LOS TIPOS DE SEXO **************************/
+// ------------ LISTAR LOS TIPOS DE SEXO 
 $(document).on("click", "#selListallTypeSex", function(e){
 	var btnshow = $("#listtypesSex");
 	$.ajax({
@@ -58,9 +56,8 @@ $(document).on("click", "#selListallTypeSex", function(e){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((res) => {
 		var ttypesex = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -86,7 +83,7 @@ $(document).on("click", "#selListallTypeSex", function(e){
 		}
 	});
 });
-/************************** FIJAR EL TIPO DE DOCUMENTO **************************/
+// ------------ FIJAR EL TIPO DE DOCUMENTO 
 $(document).on("click", ".cCRegister__cont--fCRegister--form--controls--cSelItem--MenuListTypeSex--item", function(e){
 	e.preventDefault();
 	$("#msgerrorNounSelTypeSex").text("");
@@ -102,21 +99,20 @@ $(document).on("click", ".cCRegister__cont--fCRegister--form--controls--cSelItem
 		$("#selListtypeSex--input").attr("typesexprefix", gettypesex['typesexprefix']);
 	});
 });
-/************************** VALIDAR SI EL CAMPO DE NOMBRES ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL CAMPO DE NOMBRES ESTÁ VACÍO 
 $(document).on("keyup", "#names-micambista", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
 });
-/************************** VALIDAR SI EL CAMPO DE APELLIDOS ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL CAMPO DE APELLIDOS ESTÁ VACÍO 
 $(document).on("keyup", "#lastnames-micambista", function(){
 	($(this).val() != 0) ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
 });
-/************************** VALIDAR SI EL CAMPO DE NÚMERO DE DOCUMENTO ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL CAMPO DE NÚMERO DE DOCUMENTO ESTÁ VACÍO 
 $(document).on("keyup", "#nrodocument-micambista", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
 });
 $(document).on("click", "#btn-CompleteRegister", function(e){
 	e.preventDefault();
-
 	($("#names-micambista").val() != "") ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
 	($("#lastnames-micambista").val() != "") ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
 	($("#nrodocument-micambista").val() != "") ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
@@ -131,11 +127,7 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 			typesexcli: $("#selListtypeSex--input").attr("idtypesex"),
 			prefixtypesex: $("#selListtypeSex--input").attr("typesexprefix"),
 		};
-
-		console.log(obj_cClient);
-
 		var formdata = new FormData();
-
 		formdata.append("name", obj_cClient['namescli']);
 		formdata.append("lastname", obj_cClient['lastnamescli']);
 	  formdata.append("n_document", obj_cClient['num_documentcli']);
@@ -151,23 +143,20 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 	    contentType: false,
 	    cache: false,
 	    processData: false,
-	  }).done((res) => {
-
-	  	if(res == "true"){
+	  }).done((e) => {
+	  	if(e == "true"){
 	  		$("#msgAlertLogin").html(`
-  			<div class='message-success'>
-					<div class='message-success__content'>
-						<div class='message-success__content--btnclosed' id='btnclosed'></div>
-						<h2 class='message-success__content--title'>Registro Completo!</h2>
-						<p class='message-success__content--text'>Felicidades, has completado el registro correctamente!</p>
+	  			<div class='message-success'>
+						<div class='message-success__content'>
+							<div class='message-success__content--btnclosed' id='btnclosed'></div>
+							<h2 class='message-success__content--title'>Registro Completo!</h2>
+							<p class='message-success__content--text'>Felicidades, has completado el registro correctamente!</p>
+						</div>
 					</div>
-				</div>
-  		`);
-
-			setTimeout(function(){
-				location.replace("control-panel");
-			}, 500);
-
+	  		`);
+				setTimeout(function(){
+					location.replace("control-panel");
+				}, 500);
 	  	}else{
 	  		$("#msgAlertLogin").html(`
   			<div class="msgAlertLogin--error">
@@ -178,13 +167,10 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 					</div>
 				</div>
 	  		`);
-
 	  		setTimeout(function(){
 					$('.msgAlertLogin--error').addClass('disabled');
 				}, 5500);
-
-				/************************** CERRAR MODALES DE ALERTAS - VANILLA JS **************************/
-				/* CERRAR EL MENSAJE DE ERROR */
+				// ------------ CERRAR EL MENSAJE DE ERROR 
 				let containermodal = document.querySelector('.msgAlertLogin--error');
 				containermodal.addEventListener('click', e => {
 					if(e.target === containermodal)	containermodal.classList.add('disabled');
@@ -194,7 +180,6 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 				});
 	  	}
 		});
-
 	}else{
 		console.log('Error, no hay datos.');
 	}

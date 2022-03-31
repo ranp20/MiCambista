@@ -5,7 +5,7 @@
 		</div>
 		<div class="cControlP__cont--sdRight--c--cNamecli">
 			<div class="cControlP__cont--sdRight--c--cNamecli--cImg">
-				<img src="./assets/img/svg/user-male.svg" alt="">
+				<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="">
 			</div>
 			<div class="cControlP__cont--sdRight--c--cNamecli--cnamcli">
 				<p><?= $name; ?></p>
@@ -15,19 +15,19 @@
 		<ul class="cControlP__cont--sdRight--c--m">
 			<li class="cControlP__cont--sdRight--c--m--item">
 				<a href="my-profile" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
-					<img src="./assets/img/svg/profiles-3.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/profiles-3.svg" alt="">
 					<span>Ver perfil</span>
 				</a>
 			</li>
 			<li class="cControlP__cont--sdRight--c--m--item">
 				<a href="#" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
-					<img src="./assets/img/svg/profiles-1.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/profiles-1.svg" alt="">
 					<span>Cambiar perfil</span>
 				</a>
 			</li>
 			<li class="cControlP__cont--sdRight--c--m--item">
 				<a href="logout" class="cControlP__cont--sdRight--c--m--link">
-					<img src="./assets/img/svg/profiles-2.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/profiles-2.svg" alt="">
 					<span>Cerrar sesión</span>
 				</a>
 			</li>

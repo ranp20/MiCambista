@@ -1,11 +1,9 @@
-<?php 
-
+<?php
 	session_start();
-	if(!isset($_SESSION['client'])){
+	if(!isset($_SESSION['cli_micambista'])){
 		header("Location: signin");
 	}
 	require_once '../php/process_data-list.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,7 +24,7 @@
 				<div class="cControlP__cont--hTop--c">
 					<div class="cControlP__cont--hTop--c--cLogHorario">
 						<div class="cControlP__cont--hTop--c--cLogHorario--cLogo">
-							<img src="./assets/img/svg/logo.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
 						</div>
 						<div class="cControlP__cont--hTop--c--cLogHorario--cHorario">
 							<p>Lunes a Viernes: 9am 7:00pm </br> Sábadosy Feriados: 9am a 2:30pm</p>
@@ -34,17 +32,17 @@
 					</div>
 					<div class="cControlP__cont--hTop--c--cWpsNameCli">
 						<a href="#" class="cControlP__cont--hTop--c--cWpsNameCli--wpsMobile">
-							<img src="./assets/img/svg/whatsapp-green.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="">
 						</a>
 						<a href="#" class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb">
 							<p>927 013 800</p>
 							<div class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb--cIcon">
-								<img src="./assets/img/svg/whatsapp-green.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="">
 							</div>
 						</a>
 						<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli">
 							<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIcon">
-								<img src="./assets/img/svg/user-male.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="">
 							</div>
 							<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cNamecli">
 								<p>
@@ -53,7 +51,7 @@
 								</p>
 							</div>
 							<button type="button" class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIconArrow" id="btnShowSideRight">
-								<img src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
 							</button>
 						</div>
 					</div>
@@ -62,30 +60,30 @@
 			<section class="cControlP__cont--sdLeft">
 				<div class="cControlP__cont--sdLeft--c">
 					<div class="cControlP__cont--sdLeft--c--cIconMobile">
-						<img src="./assets/img/svg/logo.svg" alt="">
+						<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
 					</div>
 					<ul class="cControlP__cont--sdLeft--c--m">
 						<li class="cControlP__cont--sdLeft--c--m--item">
 							<a href="#" class="cControlP__cont--sdLeft--c--m--link">
-								<img src="./assets/img/svg/dashboard-item-1.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/dashboard-item-1.svg" alt="">
 								<span>Mi actividad</span>
 							</a>
 						</li>
 						<li class="cControlP__cont--sdLeft--c--m--item">
 							<a href="#" class="cControlP__cont--sdLeft--c--m--link">
-								<img src="./assets/img/svg/dashboard-item-2.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/dashboard-item-2.svg" alt="">
 								<span>Cambio de divisas</span>
 							</a>
 						</li>
 						<li class="cControlP__cont--sdLeft--c--m--item">
 							<a href="#" class="cControlP__cont--sdLeft--c--m--link">
-								<img src="./assets/img/svg/dashboard-item-3.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/dashboard-item-3.svg" alt="">
 								<span>Mis cuentas</span>
 							</a>
 						</li>
 						<li class="cControlP__cont--sdLeft--c--m--item">
 							<a href="#" class="cControlP__cont--sdLeft--c--m--link">
-								<img src="./assets/img/svg/dashboard-item-4.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/dashboard-item-4.svg" alt="">
 								<span>Recomienda y gana</span>
 							</a>
 						</li>
@@ -99,7 +97,7 @@
 					</div>
 					<div class="cControlP__cont--sdRight--c--cNamecli">
 						<div class="cControlP__cont--sdRight--c--cNamecli--cImg">
-							<img src="./assets/img/svg/user-male.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="">
 						</div>
 						<div class="cControlP__cont--sdRight--c--cNamecli--cnamcli">
 							<p><?= $name; ?></p>
@@ -109,13 +107,13 @@
 					<ul class="cControlP__cont--sdRight--c--m">
 						<li class="cControlP__cont--sdRight--c--m--item">
 							<a href="#" class="cControlP__cont--sdRight--c--m--link">
-								<img src="./assets/img/svg/profiles-1.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/profiles-1.svg" alt="">
 								<span>Cambiar perfil</span>
 							</a>
 						</li>
 						<li class="cControlP__cont--sdRight--c--m--item">
 							<a href="logout" class="cControlP__cont--sdRight--c--m--link">
-								<img src="./assets/img/svg/profiles-2.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/profiles-2.svg" alt="">
 								<span>Cerrar sesión</span>
 							</a>
 						</li>
@@ -134,7 +132,7 @@
 								echo "
 									<li class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
 										<a href='welcome' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-											<img src='./assets/img/svg/user-male.svg' alt=''>
+											<img src='{$url}views/assets/img/svg/user-male.svg' alt=''>
 										</a>
 										<span>{$name}</span>
 									</li>
@@ -143,13 +141,13 @@
 								echo "
 									<li class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
 										<a href='welcome' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-											<img src='./assets/img/svg/user-male.svg' alt=''>
+											<img src='{$url}views/assets/img/svg/user-male.svg' alt=''>
 										</a>
 										<span>{$name}</span>
 									</li>
 									<li class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
 										<button type='button' id='btn-addAccountEnterpriseShow' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-											<img src='./assets/img/svg/add-profile.svg' alt=''>
+											<img src='{$url}views/assets/img/svg/add-profile.svg' alt=''>
 										</button>
 										<span>Agregar empresa</span>
 									</li>
@@ -162,7 +160,7 @@
 			<?php require_once 'includes/dashboard-formaddenterprise.php'; ?>
 		</div>
 	</div>		
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>js/actions_pages/add-enterprise.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/add-enterprise.js"></script>
 </body>
 </html>

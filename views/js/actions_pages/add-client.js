@@ -1,4 +1,4 @@
-// =============== LISTAR LOS PAÍSES JUNTO AL NOMBRE Y PREFIJO =============== //
+// ------------ LISTAR LOS PAÍSES JUNTO AL NOMBRE Y PREFIJO
 $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect", function(e){
 	var btnshow = $("#list-prefixtocountryflags");
 	$.ajax({
@@ -23,7 +23,6 @@ $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix
           </li>
 				`;
 			});
-
 			$("#list-prefixtocountryflags").html(template);
 		}else{
 			btnshow.removeClass("show");
@@ -31,7 +30,7 @@ $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix
 		}
 	});
 });
-// =============== MOSTRAR/OCULTAR EL LISTADO DE PAÍSES =============== //
+// ------------ MOSTRAR/OCULTAR EL LISTADO DE PAÍSES
 $(document).on("click", ".list-prefixtocountryflags__m__item", function(e){
 	e.preventDefault();
 	$.each($(this), function(i, v){
@@ -45,7 +44,7 @@ $(document).on("click", ".list-prefixtocountryflags__m__item", function(e){
 		$(".cAccount__cont--fAccount--form--controls--g-Listprefix").find("input").val(getinfocountries['countryprefix']);
 	});
 });
-// =============== VERIFICAR SI LAS CONTRASEÑAS COINCIDEN =============== //
+// ------------ VERIFICAR SI LAS CONTRASEÑAS COINCIDEN
 $(document).on('keyup', '#pass-repeatinstkreg', function() {
   if($(this).val().length <= 0 || $(this).val() == ""){
   	$(this).removeClass("success");
@@ -68,19 +67,19 @@ $(document).on('keyup', '#pass-repeatinstkreg', function() {
   }
   $(this).blur(function (){$("#msgalertinputpass").text('');});
 });
-// =============== VALIDAR SI SE ECRIBIÓ EN EMAIL =============== //
+// ------------ VALIDAR SI SE ECRIBIÓ EN EMAIL 
 $(document).on("keyup", "#email-instkreg", function(){
 	($(this).val() != 0) ? $("#errorNounEmailAcc").text("") : $("#errorNounEmailAcc").text("Debes colocar un correo electrónico");
 });
-// =============== VALIDAR SI SE ECRIBIÓ EN TELÉFONO =============== //
+// ------------ VALIDAR SI SE ECRIBIÓ EN TELÉFONO 
 $(document).on("keyup", "#telephone-instkreg", function(){
 	($(this).val() != 0) ? $("#errorNounTelephoneAcc").text("") : $("#errorNounTelephoneAcc").text("Debes colocar un teléfono válido");
 });
-// =============== VALIDAR SI SE ECRIBIÓ EN PASSWORD =============== //
+// ------------ VALIDAR SI SE ECRIBIÓ EN PASSWORD 
 $(document).on("keyup", "#pass-instkreg", function(){
 	($(this).val() != 0) ? $("#errorNounPasswordAcc").text("") : $("#errorNounPasswordAcc").text("Debes colocar una contraseña");
 });
-// =============== MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 1 =============== //
+// ------------ MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 1 
 $(document).on("click", "#icon-firstPassControl", function(){
 	var inputTypeControlPass1 = $(this).parent().find("input").attr("type");
 	if(inputTypeControlPass1 == "password" && $(this).parent().find("input").val() != ""){
@@ -99,7 +98,7 @@ $(document).on("click", "#icon-firstPassControl", function(){
 		`);
 	}
 });
-// =============== MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 2 =============== //
+// ------------ MOSTRAR/OCULTAR LA CONTRASEÑA DEL INPUT DE PASSWORD 2 
 $(document).on("click", "#icon-secondPassControl", function(){
 	var inputTypeControlPass2 = $(this).parent().find("input").attr("type");
 	if(inputTypeControlPass2 == "password" && $(this).parent().find("input").val() != ""){
@@ -118,10 +117,9 @@ $(document).on("click", "#icon-secondPassControl", function(){
 		`);
 	}
 });
-// =============== REGISTRO DE CLIENTE =============== //
+// ------------ REGISTRO DE CLIENTE 
 $(document).on("click", "#btn-register", function(e){
 	e.preventDefault();
-
 	($("#email-instkreg").val() != "") ? $("#errorNounEmailAcc").text("") : $("#errorNounEmailAcc").text("Debes colocar un correo electrónico");
 	($("#telephone-instkreg").val().length > 0 || $("#telephone-instkreg").val() != "") ? $("#errorNounTelephoneAcc").text("") : $("#errorNounTelephoneAcc").text("Debes colocar un teléfono válido");
 	($("#pass-instkreg").val() != "") ? $("#errorNounPasswordAcc").text("") : $("#errorNounPasswordAcc").text("Debes colocar una contraseña");
@@ -129,27 +127,23 @@ $(document).on("click", "#btn-register", function(e){
 	if($("#email-instkreg").val() != "" && $("#pass-instkreg").val() != ""){
 		
 		var formData = new FormData();
-
 		var telephone = $("#telephone-instkreg").val();
 		var telwithoutspace = telephone.replace(/ /g, "");
-
-	  formData.append("email", $("#email-instkreg").val());
-	  formData.append("id_country", $("#flag--numbercountryselect").find("img").attr("id"));
-	  formData.append("telephone", telwithoutspace);
-	  formData.append("password", $("#pass-instkreg").val());
+	  formData.append("u-email", $("#email-instkreg").val());
+	  formData.append("u-id_country", $("#flag--numbercountryselect").find("img").attr("id"));
+	  formData.append("u-telephone", telwithoutspace);
+	  formData.append("u-password", $("#pass-instkreg").val());
 
 	  $.ajax({
-	  	url: "../php/process_register-client.php",
+	  	url: "./php/process_register-client.php",
 	    method: "POST",
 	    data: formData,
 	    contentType: false,
 	    cache: false,
 	    processData: false,
-	  }).done(function(res){
-	  	
-	  	console.log(res);
-	  	if(res == "insertado"){
-	  		
+	  }).done(function(e){
+	  	var res = JSON.parse(e);
+	  	if(res.response == "true"){
 	  		$("#msgAlertLogin").html(`
 	  			<div class='message-success'>
 						<div class='message-success__content'>
@@ -159,12 +153,10 @@ $(document).on("click", "#btn-register", function(e){
 						</div>
 					</div>
 	  		`);
-
 				setTimeout(function(){
 					location.replace("complete-register");
 				}, 500);
-
-	  	}else if(res == "yaexiste"){
+	  	}else if(res.response == "err_equals"){
 	  		$("#msgAlertLogin").html(`
 	  			<div class="msgAlertLogin--error">
 						<div class="msgAlertLogin--error--c">
@@ -174,12 +166,10 @@ $(document).on("click", "#btn-register", function(e){
 						</div>
 					</div>
 	  		`);
-
 	  		setTimeout(function(){
 					$('.msgAlertLogin--error').addClass('disabled');
 				}, 5500);
-
-				// =============== CERRAR MODALES DE ALERTAS - VANILLA JS =============== //
+				// ------------ CERRAR MODALES DE ALERTAS - VANILLA JS 
 				let containermodal = document.querySelector('.msgAlertLogin--error');
 				containermodal.addEventListener('click', e => {
 					if(e.target === containermodal)	containermodal.classList.add('disabled');
@@ -187,7 +177,6 @@ $(document).on("click", "#btn-register", function(e){
 				document.querySelector("#btnCloseErr").addEventListener("click", function(){
 					document.querySelector(".msgAlertLogin--error").classList.add("disabled");
 				});
-
 	  	}else{
 	  		console.log('Error!, No se pudo registrar al usuario.');
 	  	}

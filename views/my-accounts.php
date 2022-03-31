@@ -1,12 +1,9 @@
 <?php 
-
 	session_start();
-	if(!isset($_SESSION['client'])){
+	if(!isset($_SESSION['cli_micambista'])){
 		header("Location: signin");
 	}
 	require_once '../php/process_data-list.php';
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

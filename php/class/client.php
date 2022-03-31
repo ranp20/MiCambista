@@ -1,5 +1,5 @@
 <?php 
-require_once 'connection.php';
+require_once 'db/connection.php';
 class Client extends Connection{
 	
 	private $table = "tbl_client";
@@ -7,7 +7,7 @@ class Client extends Connection{
 	function __contruct(){
 		parent::__contruct();
 	}
-
+	/************************** LISTAR - USERS **************************/
 	function get_data(){
 		try{
 			$sql = "SELECT * FROM {$this->table}";
@@ -18,6 +18,7 @@ class Client extends Connection{
 			return $e->getMessage();
 		}
 	}
+	/************************** OBTENER USUARIO POR ID **************************/
 	function get_data_by_id($id){
 		try{
 			$sql = "SELECT * FROM {$this->table} WHERE id = :id";
@@ -29,4 +30,27 @@ class Client extends Connection{
 			return $e->getMessage();
 		}
 	}
+	/************************** VALIDAR EL USUARIO **************************/
+  function verify_email($email){
+    try{
+      $sql = "SELECT * FROM {$this->table} WHERE email = :email";
+      $stm = $this->con->prepare($sql);
+      $stm->bindValue(':email', $email);
+      $stm->execute();
+      return $stm->rowCount() > 0 ? 'true' : 'false';
+    }catch(PDOEXception $e){
+      return $e->getMessage();
+    }
+  }
+  function get_clients($email){
+  	try{
+      $sql = "SELECT * FROM {$this->table} WHERE email = :email";
+      $stm = $this->con->prepare($sql);
+      $stm->bindValue(':email', $email);
+      $stm->execute();
+      return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }catch(PDOEXception $e){
+      return $e->getMessage();
+    }
+  }
 }

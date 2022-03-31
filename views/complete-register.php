@@ -1,10 +1,8 @@
-<?php 
-  
+<?php
   session_start();
-  if(!isset($_SESSION['client'])){
+  if(!isset($_SESSION['cli_micambista'])){
     header("Location: signin");
   }
-
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +13,7 @@
 <body>
   <div class="cCRegister">
     <div class="msgAlertLogin" id="msgAlertLogin"></div>
-    <input type="hidden" id="val-cliid_session" value="<?= $_SESSION['client'][0]['id'];?>">
+    <input type="hidden" id="val-cliid_session" value="<?= $_SESSION['cli_micambista']['id'];?>">
     <div class="cCRegister__cont">
       <div class="cCRegister__cont--fCRegister box">
         <div class="cCRegister__cont--fCRegister--cTitle">
@@ -44,7 +42,7 @@
                   <span class="cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--cInputFake--placeholder">DNI</span>
                 </div>
                 <input type="text" class="cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--inputVal" readonly id="selListtypeDocument--input">
-                <img class="cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--icon"src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+                <img class="cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--icon"src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
                 <span id="msgerrorNounSelTypeAccount"></span>
                 <ul class="cCRegister__cont--fCRegister--form--controlsTwo--c--cSelItem--MenuListTypeDocuments" id="listtypesDocuments"></ul>
               </div>
@@ -63,7 +61,7 @@
                 <span class="cCRegister__cont--fCRegister--form--controls--cSelItem--cInputFake--placeholder">Selecciona tu sexo</span>
               </div>
               <input type="text" class="cCRegister__cont--fCRegister--form--controls--cSelItem--inputVal" readonly id="selListtypeSex--input">
-              <img class="cCRegister__cont--fCRegister--form--controls--cSelItem--icon"src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+              <img class="cCRegister__cont--fCRegister--form--controls--cSelItem--icon" src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
               <span id="msgerrorNounSelTypeSex"></span>
               <ul class="cCRegister__cont--fCRegister--form--controls--cSelItem--MenuListTypeSex" id="listtypesSex"></ul>
             </div>
@@ -79,7 +77,6 @@
       </div>
     </div>
   </div>
-  <script src="<?= $url ?>js/jquery/jquery-3.3.1.min.js"></script>
-  <script src="<?= $url ?>js/actions_pages/complete-register.js"></script>
+  <script src="<?= $url ?>views/js/actions_pages/complete-register.js"></script>
 </body>
 </html>

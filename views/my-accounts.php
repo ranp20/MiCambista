@@ -21,7 +21,7 @@
 				<div class="cControlP__cont--containDash--c" id="cont-my-accounts">
 					<div class="cControlP__cont--containDash--c--myAccounts">
 						<div class="cControlP__cont--containDash--c--myAccounts--msgCKash">
-							<img src="./assets/img/svg/kash-my-accounts.svg" alt="">
+							<img src="<?= $url ?>views/assets/img/svg/kash-my-accounts.svg" alt="">
 							<div class="cControlP__cont--containDash--c--myAccounts--msgCKash--cTitle">
 								<h2 class="cControlP__cont--containDash--c--myAccounts--msgCKash--cTitle--title">No posees ningún KASH</h2>
 								<p class="cControlP__cont--containDash--c--myAccounts--msgCKash--cTitle--descDesktop">Puedes <b>retirar</b> tus <b>KASH</b> o usarlos en tus próximas <b>operaciones</b> de tus cambios de divisas.</p>
@@ -61,8 +61,8 @@
 			<?php require_once 'includes/dashboard-details-accountbanks.php'; ?>
 		</div>
 	</div>		
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>js/actions_pages/add-account-bank.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/add-account-bank.js"></script>
 	<script type="text/javascript">
 		$(".cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle").on("click", function(){
 			$(this).toggleClass("active");

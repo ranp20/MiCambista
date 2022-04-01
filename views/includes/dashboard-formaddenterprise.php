@@ -4,7 +4,7 @@
 			<h3 class="cformAddAccountEnterprise--form--cTitle--title">Agrega tu perfil de empresa</h3>
 		</div>
 		<div class="cformAddAccountEnterprise--form--cControl">
-			<input type="hidden" id="input-idClientValEnterprise" value="<?= $_SESSION['client'][0]['id']; ?>">
+			<input type="hidden" id="input-idClientValEnterprise" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
 			<label for="nameenpterprise-cli" class="cformAddAccountEnterprise--form--cControl--label">Ingresa el nombre de tu empresa</label>
 			<input type="text" id="nameenpterprise-cli" required name="nameenpterprise-cli" class="cformAddAccountEnterprise--form--cControl--input" placeholder="Nombre de la empresa">
 			<span id="msgerrorNounNameEnterprise"></span>

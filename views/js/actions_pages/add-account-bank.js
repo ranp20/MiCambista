@@ -1,10 +1,8 @@
 $(function(){
 	listAccountsUser();
 });
-
 var idClient = $("#input-idClientVal").val();
-
-/************************** LISTAR LOS BANCOS JUNTO AL NOMBRE **************************/
+// ------------ LISTAR LOS BANCOS JUNTO AL NOMBRE 
 $(document).on("click", "#selListallBanks", function(e){
 	var btnshow = $("#listAllsBanks");
 	$.ajax({
@@ -12,9 +10,8 @@ $(document).on("click", "#selListallBanks", function(e){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((res) => {
 		var template = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -25,12 +22,12 @@ $(document).on("click", "#selListallBanks", function(e){
 					`;
 				$("#listAllsBanks").html(template);
 			}else{
-				res.forEach((e) => {
-					var pathimgbank = "./admin/assets/img/banks/"+e.photo;
+				$.each(res, function(i,e){
+					var pathimgbank = "./admin/views/assets/img/banks/"+e.photo;
 					template += `
 						<li class="cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item" id="${e.id}">
 							<div class="cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item--cImg">
-								<img src="${pathimgbank}" alt="">
+								<img src="${pathimgbank}" alt="img_bank-${i}">
 							</div>
 							<span class="cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item--namebank">${e.name}</span>
 						</li>
@@ -44,7 +41,7 @@ $(document).on("click", "#selListallBanks", function(e){
 		}
 	});
 });
-/************************** FIJAR EL BANCO **************************/
+// ------------ FIJAR EL BANCO 
 $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item", function(e){
 	e.preventDefault();
 	$("#msgerrorNounSelBank").text("");
@@ -59,7 +56,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 		$("#selListallBanks").find("input").attr("idbank", getinfobanks['bankid']);
 	});
 });
-/************************** LISTAR LOS TIPOS DE CUENTA **************************/
+// ------------ LISTAR LOS TIPOS DE CUENTA 
 $(document).on("click", "#selListallTypeAccouts", function(e){
 	var btnshow = $("#listtypesAccount");
 	$.ajax({
@@ -67,9 +64,8 @@ $(document).on("click", "#selListallTypeAccouts", function(e){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((res) => {
 		var ttypeaccount = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -80,7 +76,7 @@ $(document).on("click", "#selListallTypeAccouts", function(e){
 					`;
 				$("#listtypesAccount").html(ttypeaccount);
 			}else{
-				res.forEach((e) => {
+				$.each(res, function(i,e){
 					ttypeaccount += `
 						<li class="cformAddAccountBank--form--cControl--cSelItem--MenuListTypeAccounts--item" id="${e.id}">
 							<span class="cformAddAccountBank--form--cControl--cSelItem--MenuListTypeAccounts--item--typeaccount">${e.type}</span>
@@ -95,7 +91,7 @@ $(document).on("click", "#selListallTypeAccouts", function(e){
 		}
 	});
 });
-/************************** FIJAR EL TIPO DE CUENTA **************************/
+// ------------ FIJAR EL TIPO DE CUENTA 
 $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuListTypeAccounts--item", function(e){
 	e.preventDefault();
 	$("#msgerrorNounSelTypeAccount").text("")
@@ -108,7 +104,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 		$("#selListallTypeAccouts").find("input").attr("idtypeaccount", gettypeaccount['typeaccountid']);
 	});
 });
-/************************** LISTAR LOS TIPOS DE MONEDA **************************/
+// ------------ LISTAR LOS TIPOS DE MONEDA 
 $(document).on("click", "#selListallCurrencyTypes", function(e){
 	var btnshow = $("#listcurrencytypes");
 	$.ajax({
@@ -116,9 +112,8 @@ $(document).on("click", "#selListallCurrencyTypes", function(e){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((res) => {
 		var tcurrencytype = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -129,7 +124,7 @@ $(document).on("click", "#selListallCurrencyTypes", function(e){
 					`;
 				$("#listcurrencytypes").html(tcurrencytype);
 			}else{
-				res.forEach((e) => {
+				$.each(res, function(i,e){
 					tcurrencytype += `
 						<li class="cformAddAccountBank--form--cControl--cSelItem--MenuListCurrencyTypes--item" id="${e.id}">
 							<span class="cformAddAccountBank--form--cControl--cSelItem--MenuListCurrencyTypes--item--currencytype">${e.name} (${e.prefix})</span>
@@ -144,7 +139,7 @@ $(document).on("click", "#selListallCurrencyTypes", function(e){
 		}
 	});
 });
-/************************** FIJAR EL TIPO DE MONEDA **************************/
+// ------------ FIJAR EL TIPO DE MONEDA 
 $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuListCurrencyTypes--item", function(e){
 	e.preventDefault();
 	$("#msgerrorNounSelCurrentType").text("");
@@ -157,23 +152,22 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 		$("#selListallCurrencyTypes").find("input").attr("idcurrencytype", getcurrencytype['currencytypeid']);
 	});
 });
-/************************** VALIDAR SI EL NÚMERO DE CUENTA ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL NÚMERO DE CUENTA ESTÁ VACÍO 
 $(document).on("keyup", "#numaccount-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNumAccount").text("") : $("#msgerrorNounNumAccount").text("Debes ingresar tu número de cuenta");
 });
-/************************** VALIDAR SI EL ALIAS DE LA CUENTA ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL ALIAS DE LA CUENTA ESTÁ VACÍO 
 $(document).on("keyup", "#aliasaccount-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounAliasAccount").text("") : $("#msgerrorNounAliasAccount").text("Debes ingresar un alias");
 });
-/************************** VALIDAR SI ESTÁ MARCADO EL CHECKBOX **************************/
+// ------------ VALIDAR SI ESTÁ MARCADO EL CHECKBOX 
 $(document).on("click", "#checkaccount-cli", function(){
 	($(this).is(':checked')) ? $("#msgerrorNouncheckedAccount").text("") : $("#msgerrorNouncheckedAccount").text("Debes declarar que es tu cuenta personal");
 });
-/************************** AGREGAR CUENTA BANCARIA **************************/
+// ------------ AGREGAR CUENTA BANCARIA 
 $(document).on("click", "#btn-AddAccountBank", function(e){
 	e.preventDefault();
-
-	/************************** AGREGAR MENSAJE EN LOS SPAN **************************/
+	// ------------ AGREGAR MENSAJE EN LOS SPAN 
 	($("#selListallBanks--input").attr("idbank")) ? $("#msgerrorNounSelBank").text("") : $("#msgerrorNounSelBank").text("Debes seleccionar un banco");
 	($("#numaccount-cli").val() != "") ? $("#msgerrorNounNumAccount").text("") : $("#msgerrorNounNumAccount").text("Debes ingresar tu número de cuenta");
 	($("#selListtypeAccount--input").attr("idtypeaccount")) ? $("#msgerrorNounSelTypeAccount").text("") : $("#msgerrorNounSelTypeAccount").text("Debes seleccionar un tipo de cuenta");
@@ -190,9 +184,7 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 			idcurrenttype: $("#selListcurrencyType--input").attr("idcurrencytype"),
 			aliasaccount: $("#aliasaccount-cli").val(),
 		};
-
 		var formdata = new FormData();
-
 		formdata.append("id_client", obj_form['idclient']);
 		formdata.append("id_bank", obj_form['idbank']);
 	  formdata.append("numaccount", obj_form['numaccount']);
@@ -212,9 +204,9 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	  	if(res = "insertado"){
 		  	$(".cformAddAccountBank").removeClass("show");
 				$(".cformAddAccountBank--form").removeClass("show");
-	     	/************************** LISTAR LAS CUENTAS **************************/
+	     	// ------------ LISTAR LAS CUENTAS 
 	     	listAccountsUser();
-				/************************** RESETEAR EL FORMULARIO **************************/
+				// ------------ RESETEAR EL FORMULARIO 
 	     	$("#selListAllBanks--img").find("span").css({"display":"block"});
 	     	$("#selListAllBanks--img").find("img").attr("src", "");
 	     	$("#selListallBanks--input").attr("idbank", "");
@@ -227,14 +219,14 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	     	$("#aliasaccount-cli").val("")
 	     	$('#form-AddAccountBank')[0].reset();
 	      
-	     	/************************** LISTAR LAS CUENTA DEL USUARIO **************************/
+	     	// ------------ LISTAR LAS CUENTA DEL USUARIO 
 	      
 	  	}else{
 	  		console.log('Error, no se insertó');
 	  	}
 	  });
 	}else{
-		console.log('No ahy datos');
+		console.log('No hay datos');
 	}
 });
 
@@ -246,14 +238,11 @@ function listAccountsUser(){
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
     data: { id_client : idClient}
   }).done( function (res) {
-
-
+  	console.log(res);
     var response = JSON.parse(res);
-
     var templateGeneral = "";
     var tempSoles = "";
     var tempDolares = "";
-
     if(response.length == 0){
       // template = `
       //   <tr>
@@ -318,7 +307,7 @@ function listAccountsUser(){
       $("#accounts-SolesList").html(tempSoles);
     }
 		
-		/************************** MOSTRAR Y OCULAR EL DETALLE DE LA CUENTA BANCARIA **************************/
+		// ------------ MOSTRAR Y OCULAR EL DETALLE DE LA CUENTA BANCARIA 
 		$(document).on("click", ".btn-ShowDetailsAccount", function(){
 			$("#val-idaccountdetail").val($(this).parent().parent().attr("id"));
 			$(".cformDetailsAccount").addClass("show");
@@ -328,8 +317,8 @@ function listAccountsUser(){
   });
 }
 
-/************************** TROZO DE VANILLA JS **************************/
-/************************** MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS **************************/
+// ------------ TROZO DE VANILLA JS 
+// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS 
 document.querySelector("#btn-addAccountform").addEventListener("click", function(){
 	document.querySelector(".cformAddAccountBank").classList.add("show");
 	document.querySelector(".cformAddAccountBank--form").classList.add("show");
@@ -338,21 +327,15 @@ let contformRegAccount = document.querySelector('.cformAddAccountBank');
 contformRegAccount.addEventListener('click', e => {
 	if(e.target === contformRegAccount)	contformRegAccount.classList.remove('show');
 });
-
-/*****************************************************************************************/
-/************************** ACTUALIZACIÓN DEL DETALLE DE LA CUENTA BANCARIA **************************/
-/*****************************************************************************************/
-/************************** CERRAR MODAL DEL DETALLE DE LA CUENTA **************************/
+// ------------ ACTUALIZACIÓN DEL DETALLE DE LA CUENTA BANCARIA 
+// ------------ CERRAR MODAL DEL DETALLE DE LA CUENTA 
 let contformUpdAccount = document.querySelector('.cformDetailsAccount');
 contformUpdAccount.addEventListener('click', e => {
 	if(e.target === contformUpdAccount)	contformUpdAccount.classList.remove('show');
 });
-
-/************************** LISTAR EL DETALLE DE LA CUENTA **************************/
+// ------------ LISTAR EL DETALLE DE LA CUENTA 
 function listAccountDetails(){
-	
 	var idaccountdetail = $("#val-idaccountdetail").val();
-
 	$.ajax({
 	  url: "controllers/c_list-details-account-bank.php",
 	  method: "POST",
@@ -360,13 +343,9 @@ function listAccountDetails(){
 	  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 	  data: { id_client : idClient, id_account : idaccountdetail}
 	}).done( function (res){
-		
 		var response = JSON.parse(res);
-		
 		response.forEach( e => {
-
 			var pathimgbanco = "admin/assets/img/banks/"+e.imgbanco;
-
 			$("#imgbank-accountdetail").attr("src", pathimgbanco);
 			$("#namebank-accountdetail").text(e.banco);
 			$("#typeaccount-accountdetail").text(e.tipo);
@@ -378,18 +357,18 @@ function listAccountDetails(){
 		});
 	});
 }
-/************************** MOSTRAR FORMULARIO DE EDITAR CUENTA **************************/
+// ------------ MOSTRAR FORMULARIO DE EDITAR CUENTA 
 $(document).on("click", "#btn-ShowUpdateAccount", function(){
 	$("#menuListUpdateAccount").addClass("hidden");
 	$("#formListUpdateAccount").addClass("show");
 });
-/************************** CANCELAR LA ACTUALIZACIÓN DE LA CUENTA **************************/
+// ------------ CANCELAR LA ACTUALIZACIÓN DE LA CUENTA 
 $(document).on("click", "#btn-HiddenupdateDetailsAccount", function(){
 	$("#menuListUpdateAccount").removeClass("hidden");
 	$("#formListUpdateAccount").removeClass("show");
 	listAccountDetails();
 });
-/************************** LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA **************************/
+// ------------ LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA 
 $("#numaccountupdate-cli").on('keyup keypress blur change', function(e) {
     //return false if not 0-9
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -401,15 +380,15 @@ $("#numaccountupdate-cli").on('keyup keypress blur change', function(e) {
         }
     }
 });
-/************************** VALIDAR SI SE HA ESCRITO EN NÚMERO DE CUENTA **************************/
+// ------------ VALIDAR SI SE HA ESCRITO EN NÚMERO DE CUENTA 
 $(document).on("keyup", "#numaccountupdate-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNumbDetailAccount").text("") : $("#msgerrorNounNumbDetailAccount").text("Debes colocar un numero de cuenta");
 });
-/************************** VALIDAR SI SE HA ESCRITO EN ALIAS DE CUENTA **************************/
+// ------------ VALIDAR SI SE HA ESCRITO EN ALIAS DE CUENTA 
 $(document).on("keyup", "#aliasacccountupdate-cli", function(){
 	($(this).val() != 0) ? $("#msgerrorNounAliasDetailAccount").text("") : $("#msgerrorNounAliasDetailAccount").text("Debes colocar un numero de cuenta");
 });
-/************************** FORMULARIO DE ACTUALIZACIÓN DE DETALLE DE CUENTA **************************/
+// ------------ FORMULARIO DE ACTUALIZACIÓN DE DETALLE DE CUENTA 
 $(document).on("click", "#btn-updateDetailsAccount", function(e){
 	e.preventDefault();
 
@@ -442,7 +421,7 @@ $(document).on("click", "#btn-updateDetailsAccount", function(e){
 		console.log('No hay registros que actualizar');
 	}
 });
-/************************** MOSTRAR LA ALERTA DE ELIMINAR CUENTA **************************/
+// ------------ MOSTRAR LA ALERTA DE ELIMINAR CUENTA 
 $(document).on("click", "#btn-ShowDeleteAccount", function(e){
 	e.preventDefault();
 	var aliasaccountdetail = $("#aliasacccountupdate-cli").val();
@@ -450,7 +429,7 @@ $(document).on("click", "#btn-ShowDeleteAccount", function(e){
 	$(".alert-DeleteAccount").addClass("show");
 	$(".alert-DeleteAccount--c").addClass("show");	
 });
-/************************** CERRAR LA ALERTA DE ELIMINACIÓN **************************/
+// ------------ CERRAR LA ALERTA DE ELIMINACIÓN 
 $(document).on("click", "#btn-cancelDeleteAccount", function(){
 	$(".alert-DeleteAccount").removeClass("show");
 	$(".alert-DeleteAccount--c").removeClass("show");
@@ -459,7 +438,7 @@ let contformDelAccount = document.querySelector('.alert-DeleteAccount');
 contformDelAccount.addEventListener('click', e => {
 	if(e.target === contformDelAccount)	contformDelAccount.classList.remove('show');
 });
-/************************** ELIMINAR UNA CUENTA **************************/
+// ------------ ELIMINAR UNA CUENTA 
 $(document).on("click", "#btn-AceptDeleteAccount", function(e){
 	e.preventDefault();
 	var idaccountdetail = $("#val-idaccountdetail").val();

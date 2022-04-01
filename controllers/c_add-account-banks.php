@@ -1,6 +1,5 @@
 <?php 
-require_once '../php/class/connection.php';
-
+require_once '../php/class/db/connection.php';
 class Add_Account_Bank extends Connection{
 	function add(){
 

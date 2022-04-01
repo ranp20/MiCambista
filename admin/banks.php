@@ -1,27 +1,23 @@
 <?php
-	
-	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-  $url =  $actual_link . "/" ."micambista/admin/";
-
-session_start();
-	
-if(!isset($_SESSION['admin'])){
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$url =  $actual_link . "/" ."micambista/admin/";
+session_start();	
+if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Instakash | Bancos</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>
 	<main class="cDash-adm">
 		<div class="result"></div>
-		<?php require_once 'includes/sidebar_left.php';?>
+		<?php require_once 'views/includes/sidebar_left.php';?>
 		<div class="cDash-adm--containRight">
-			<?php require_once 'includes/headertop.php';?>
+			<?php require_once 'views/includes/headertop.php';?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">BANCOS</h2>
@@ -123,7 +119,7 @@ if(!isset($_SESSION['admin'])){
 					      <h2 class="text-message-modalAlt">¿Seguro que desea eliminar este registro?</h2>
 				      	<div class="cont-modalbootstrapupdate">
 					        <form action="" id="form-delete-bank" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
-					        	<input type="text" id="iddelete-bank">
+					        	<input type="hidden" id="iddelete-bank">
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
 							        <button type="submit" class="cont-modalbootstrapupdate__footer--btndelete" id="btndelete-bank">ELIMINAR</button>
@@ -138,7 +134,7 @@ if(!isset($_SESSION['admin'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?php echo $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?php echo $url ?>js/actions_pages/banks.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/banks.js"></script>
 </body>
 </html>

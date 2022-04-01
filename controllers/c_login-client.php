@@ -10,7 +10,6 @@ class Login extends Connection{
 			}
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_ASSOC);
-
 		}catch(PDOException $e){
 				return $e->getMessage();
 		}

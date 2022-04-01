@@ -1,16 +1,14 @@
 <?php 
 session_start();
-
-if(isset($_SESSION['admin'])){
+if(isset($_SESSION['admin_micambista'])){
 	header("Location: dashboard.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Instakash | Login Admin</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>
 	<div class="cLoginAdm">
@@ -44,6 +42,6 @@ if(isset($_SESSION['admin'])){
 			</div>
 		</div>
 	</div>
-	<script src="<?= $url ?>js/actions_pages/login-adm.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/login-adm.js"></script>
 </body>
 </html>

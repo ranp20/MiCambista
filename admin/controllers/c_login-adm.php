@@ -1,9 +1,6 @@
 <?php 
-
-require_once '../../php/class/connection.php';
-
+require_once '../../php/class/db/connection.php';
 class Login_Admin extends Connection{
-	
 	function verify_admin($arr_data_adm){
 		try{
 			$sql = "CALL sp_login_admin(:email, :password)";
@@ -13,7 +10,6 @@ class Login_Admin extends Connection{
 			}
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_ASSOC);
-
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}

@@ -15,13 +15,13 @@
 <meta property="og:url" name="twitter.url" content="https://localhost/MiCambista/admin">
 <meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Mi Cambista"/>
 <meta property="og:description" name="twitter.description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
-<meta property="og:image" name="twitter.image" content="assets/img/svg/logo.svg"/>
-<link rel="icon" type="image/x-icon" href="assets/img/svg/logo.svg"/>
-<link rel="apple-touch-icon" href="assets/img/svg/logo.svg">
+<meta property="og:image" name="twitter.image" content="views/assets/img/svg/logo.svg"/>
+<link rel="icon" type="image/x-icon" href="views/assets/img/svg/logo.svg"/>
+<link rel="apple-touch-icon" href="views/assets/img/svg/logo.svg">
 <link rel="canonical" href="https://localhost/MiCambista/admin">
-<link rel="stylesheet" href="<?= $url ?>assets/css/styles.min.css">
+<link rel="stylesheet" href="<?= $url ?>views/assets/css/styles.min.css">
 <!-- JQUERY UNCOMPRESSED -->
-<script src="<?= $url ?>js/jquery/jquery-3.6.0.min.js"></script>
+<script src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>
 <!-- BOOTSTRAP UNCOMPRESSED -->
-<link rel="stylesheet" href="<?php echo $url ?>js/bootstrap/css/bootstrap.min.css">
-<script src="<?php echo $url ?>js/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<?php echo $url ?>views/js/bootstrap/css/bootstrap.min.css">
+<script src="<?php echo $url ?>views/js/bootstrap/js/bootstrap.min.js"></script>

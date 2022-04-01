@@ -1,15 +1,11 @@
 <?php
-	
-	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-  $url =  $actual_link . "/" ."micambista/admin/";
-
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$url =  $actual_link . "/" ."micambista/admin/";
 session_start();
-	
-if(!isset($_SESSION['admin'])){
+if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

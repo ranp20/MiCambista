@@ -1,9 +1,6 @@
 <?php 
-
-require_once '../../php/class/connection.php';
-
+require_once '../../php/class/db/connection.php';
 class List_byIdAdmin extends Connection{
-	
 	function list($id){
 		try{
 			$sql = "SELECT * FROM tbl_admin WHERE id = :id";

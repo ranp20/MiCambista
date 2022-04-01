@@ -61,7 +61,7 @@
 										</div>
 									</div>
 									<button type="button" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--btnChangeCurrency" id="btn-Changecurr">
-										<img src="./assets/img/svg/circleArrows.svg" alt="">
+										<img src="<?= $url ?>views/assets/img/svg/circleArrows.svg" alt="">
 									</button>
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls">
 										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal" id="txtDivise-two">Dólares</div>
@@ -117,7 +117,7 @@
 										<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--imgbank">
 									</div>
 									<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
-									<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--icon_CData" src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+									<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--icon_CData" src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
 									<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData" id="listAllsBanks_CData"></ul>
 								</div>
 								<span id="msgerrorNounSelBankSend_CData"></span>
@@ -135,7 +135,7 @@
 											<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--imgbank">
 										</div>
 										<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
-										<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--icon_CData" src="./assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+										<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--icon_CData" src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
 										<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData" id="listAllsAccountsBanks_CData"></ul>
 									</div>
 									<span id="msgerrorNounSelAccountBankReceived_CData"></span>
@@ -163,8 +163,8 @@
 			<?php require_once 'includes/dashboard-formaddaccountbank.php'; ?>
 		</div>
 	</div>		
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>js/actions_pages/convert-divise.js"></script>
-	<script src="<?= $url ?>js/actions_pages/complete-divise.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/convert-divise.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/complete-divise.js"></script>
 </body>
 </html>

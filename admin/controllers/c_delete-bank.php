@@ -1,9 +1,8 @@
-<?php 
-require_once '../../php/class/connection.php';
+<?php
+require_once '../../php/class/db/connection.php';
 class Delete extends Connection{
 	function delete_bank(){
 		$id = $_POST['id'];
-
 		try{
 			$sql = "DELETE FROM tbl_bank WHERE id = :id";
 			$stm = $this->con->prepare($sql);

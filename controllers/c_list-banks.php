@@ -1,5 +1,5 @@
 <?php 
-require_once '../php/class/connection.php';
+require_once '../php/class/db/connection.php';
 class List_Banks extends Connection{
 	function list(){
 		try{

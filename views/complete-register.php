@@ -1,6 +1,12 @@
 <?php
   session_start();
-  if(!isset($_SESSION['cli_micambista'])){
+  if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
+    $id_client = $_SESSION['cli_micambista'][0]['id'];
+    $compl_account = intval($_SESSION['cli_micambista'][0]['complete_account']);
+    if ($compl_account > 16) {
+      header("Location: signin");
+    }
+  }else{
     header("Location: signin");
   }
  ?>
@@ -13,7 +19,7 @@
 <body>
   <div class="cCRegister">
     <div class="msgAlertLogin" id="msgAlertLogin"></div>
-    <input type="hidden" id="val-cliid_session" value="<?= $_SESSION['cli_micambista']['id'];?>">
+    <input type="hidden" id="val-cliid_session" value="<?= $id_client;?>">
     <div class="cCRegister__cont">
       <div class="cCRegister__cont--fCRegister box">
         <div class="cCRegister__cont--fCRegister--cTitle">

@@ -101,7 +101,7 @@
 			</section>
 		</div>
 	</div>
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>js/actions_pages/my-profile.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/my-profile.js"></script>
 </body>
 </html>

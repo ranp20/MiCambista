@@ -33,6 +33,7 @@ img{
 }
 p{
 	color: $color-paragraph;
+	margin-bottom: 0;
 }
 /* UTILITIES EXTENDS */
 %color-letter-white{
@@ -485,6 +486,8 @@ p{
 			    border-left: none;
 			    border-right: none;
 			    border-bottom: none;
+			    padding: 0;
+			    margin: 0;
 
 			    &.show{
 			    	border-top: thin solid transparent;
@@ -542,6 +545,8 @@ p{
 			    border-left: none;
 			    border-right: none;
 			    border-bottom: none;
+			    padding: 0;
+			    margin: 0;
 
 			    &.show{
 			    	border-top: thin solid transparent;
@@ -590,6 +595,8 @@ p{
 			    border-left: none;
 			    border-right: none;
 			    border-bottom: none;
+			    padding: 0;
+			    margin: 0;
 
 			    &.show{
 			    	border-top: thin solid transparent;

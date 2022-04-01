@@ -1,3 +1,7 @@
+<?php 
+  $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+  $urlAdmin =  $actual_link . "/MiCambista/admin/";
+?>
 <div class="cDash-adm--containRight--cTop">
 	<div class="cDash-adm--containRight--cTop--cont">
 		<div class="cDash-adm--containRight--cTop--cont--item"></div>
@@ -8,12 +12,12 @@
 		</div>
 		<div class="cDash-adm--containRight--cTop--cont--item">
 			<div class="cDash-adm--containRight--cTop--cont--item--user" id="menu-Optsuser">
-				<img src="<?= $url ?>views/assets/img/images/user_default.png" alt="">
+				<img src="<?= $url ?>assets/img/images/user_default.png" alt="">
 			</div>
 			<ul class="cDash-adm--containRight--cTop--cont--item--m">
 				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="#" class="cDash-adm--containRight--cTop--cont--item--m--link">Mi perfil</a>
 				</li>
-				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="<?= $url ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>
+				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="<?= $urlAdmin ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>
 				</li>
 			</ul>
 		</div>

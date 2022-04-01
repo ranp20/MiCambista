@@ -4,7 +4,7 @@
 		<div class="cDash-adm--csidebarLeftC__cList">
 			<div class="cDash-adm--csidebarLeftC__cList--cLogo">
 				<a href="./admin">
-					<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
+					<img src="<?= $url ?>assets/img/svg/logo.svg" alt="">
 				</a>
 			</div>
 			<div class="cDash-adm--csidebarLeftC__cList--cListOpts">

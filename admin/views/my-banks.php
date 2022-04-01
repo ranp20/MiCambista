@@ -1,6 +1,6 @@
 <?php
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-$url =  $actual_link . "/" ."micambista/admin/";
+//COMPRIMIR ARCHIVOS DE TEXTO...
+(substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
 if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
@@ -10,14 +10,14 @@ if(!isset($_SESSION['admin_micambista'])){
 <html lang="es">
 <head>
 	<title>Instakash | Bancos de transferencia</title>
-	<?php require_once 'views/includes/header_links.php' ?> 
+	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
 	<main class="cDash-adm">
 		<div class="result"></div>
-		<?php require_once 'views/includes/sidebar_left.php';?>
+		<?php require_once 'includes/sidebar_left.php';?>
 		<div class="cDash-adm--containRight">
-			<?php require_once 'views/includes/headertop.php';?>
+			<?php require_once 'includes/headertop.php';?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">CUENTAS DE TRANSACCIONES</h2>
@@ -213,7 +213,7 @@ if(!isset($_SESSION['admin_micambista'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
-	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/transbanks.js"></script>
+	<script type="text/javascript" src="<?= $url ?>js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>js/actions_pages/transbanks.js"></script>
 </body>
 </html>

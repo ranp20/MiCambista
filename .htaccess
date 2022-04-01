@@ -1,7 +1,7 @@
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-RewriteBase /micambista/
+RewriteBase /MiCambista/
 
 ############RENAME PRINCIPAL FILES
 RewriteRule ^/?$ index.php
@@ -14,11 +14,11 @@ RewriteRule politicas-de-privacidad?$ views/policy-privacy.php
 
 ############RENAME PAGES FOR ADMIN
 RewriteRule admin?$ admin/index.php
-RewriteRule dashboard?$ admin/dashboard.php
-RewriteRule clientes?$ admin/client.php
-RewriteRule paises?$ admin/countries.php
-RewriteRule bancos?$ admin/banks.php
-RewriteRule transbanks?$ admin/my-banks.php
+RewriteRule dashboard?$ admin/views/dashboard.php
+RewriteRule clientes?$ admin/views/client.php
+RewriteRule paises?$ admin/views/countries.php
+RewriteRule bancos?$ admin/views/banks.php
+RewriteRule transbanks?$ admin/views/my-banks.php
 
 ############RENAME ACTION IN PAGES OF THE CLIENT
 RewriteRule control-panel?$ views/control-panel.php

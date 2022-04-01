@@ -1,8 +1,7 @@
 <?php 
-require_once '../../php/class/connection.php';
+require_once '../../php/class/db/connection.php';
 class Currency extends Connection{
 	function list(){
-
 		try{
 			$sql = "SELECT * FROM tbl_currency ORDER BY id DESC";
 			$stm = $this->con->query($sql);
@@ -17,6 +16,5 @@ class Currency extends Connection{
 		}
 	}
 }
-
 $currency = new Currency();
 echo $currency->list();

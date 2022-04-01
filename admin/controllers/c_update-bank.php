@@ -3,9 +3,11 @@ require_once '../../php/class/db/connection.php';
 class Update extends Connection{
 	function update_bank(){
 
+		$img = (isset($_FILES['imagen']['name'])) ? strtolower($_FILES['imagen']['name']) : "";
+
 		$arr = [
 			"name" => $_POST['name'],
-			"imagen" => strtolower($_FILES['imagen']['name']),
+			"imagen" => $img,
 			"id" => $_POST['id']
 		];
 
@@ -23,9 +25,7 @@ class Update extends Connection{
 					$stm->bindValue($key, $value);
 				}
 				$stm->execute();
-				$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-				$res = json_decode($data);
-
+				return $stm->rowCount() > 0 ? "true" : "false";
 			}else{
 
 				$file_origin = $_FILES['imagen']['name'];
@@ -40,14 +40,12 @@ class Update extends Connection{
 						$stm->bindValue($key, $value);
 					}
 					$stm->execute();
-					$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-					$res = json_decode($data);
-					
+					return $stm->rowCount() > 0 ? "true" : "false";					
 				}else{
-					echo "Error fatal";
+					return "false";
 				}
 			}
-			echo $res;
+			//echo $res;
 		}catch(PDOException $e){
 			return $e->getMessage();
 		}

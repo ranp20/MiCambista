@@ -1,9 +1,6 @@
 <?php 
-
-require_once '../../php/class/connection.php';
-
+require_once '../../php/class/db/connection.php';
 class Clients extends Connection{
-
 	function list(){
 
 		try{
@@ -28,16 +25,13 @@ class Clients extends Connection{
 
 			$stm = $this->con->query($sql);
 			$stm->execute();
-			
 			$data = $stm->fetchAll(PDO::FETCH_ASSOC); 
 			$res = json_encode($data);
-
 			echo $res;
 		}catch(PDOException $e){
 			return $e->getMessage();
 		}
 	}
 }
-
 $clients = new Clients();
 echo $clients->list();

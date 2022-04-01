@@ -1,10 +1,9 @@
-/************************** DEVOLVER LOS VALORES DECIMALES SIN REDONDEO **************************/
+// ------------ DEVOLVER LOS VALORES DECIMALES SIN REDONDEO
 function twodecimals(n) {
   let t = n.toString();
   let regex = /(\d*.\d{0,2})/;
   return t.match(regex)[0];
 }
-
 function filter(__val__){
   var preg = /^([0-9]+\.?[0-9]{0,2})$/; 
   if(preg.test(__val__) === true){
@@ -13,8 +12,7 @@ function filter(__val__){
      return false;
   } 
 }
-
-/************************** VALIDAR QUE SE INGRESEN SOLO NUMEROS **************************/
+// ------------ VALIDAR QUE SE INGRESEN SOLO NUMEROS
 // $("#inputval-one").on({
 //     "focus": function (event) {
 //         $(event.target).select();
@@ -94,11 +92,11 @@ $("#inputval-one").on("keyup", function(){
 //   }
 // });
 
-/************************** VALOR DE INICIO DE LA CONVERSIÓN **************************/
+// ------------ VALOR DE INICIO DE LA CONVERSIÓN
 monto = parseFloat($("#refer_solesdivise").text()).toFixed(3);
 //montoformat = monto.replace(/[$.]/g,'');
 $("#inputval-one").val(monto);
-/************************** VALORES DE CONVERSIÓN (INICIO) **************************/
+// ------------ VALORES DE CONVERSIÓN (INICIO)
 let diviseDollar = parseFloat($("#refer_solesdivise").text());
 let diviseSoles = parseFloat($("#refer_dollardivise").text());
 /* CONTROLES DE VISTA */
@@ -108,10 +106,10 @@ let valresDollar = inputOne / diviseDollar;
 let valresSoles = inputOne * diviseSoles;
 /* CON O SIN DECIMALES */
 $("#inputval-two").val(valresDollar.toFixed(3));
-/************************** VALORES DE CONVERSIÓN (FIN) **************************/
+// ------------ VALORES DE CONVERSIÓN (FIN)
 let convertSoles = valresSoles.toFixed(0);
 
-/************************** JUEGO DE CAMBIO DE DIVISAS(TEXTOS Y VALORES) **************************/
+// ------------ JUEGO DE CAMBIO DE DIVISAS(TEXTOS Y VALORES)
 $("#btn-Changecurr").on("click", function(){
 	
 	var typeCurr = $(this).parent().find("#cont-DiviseOne").find("#txtDivise-one").text();
@@ -170,14 +168,14 @@ $("#btn-Changecurr").on("click", function(){
 	}
 });
 
-/************************** CONVERTIR-ENVIAR SIEMPRE EL PRIMER VALOR - PRIMER INPUT **************************/
+// ------------ CONVERTIR-ENVIAR SIEMPRE EL PRIMER VALOR - PRIMER INPUT
 $("#inputval-one").on("keyup input change", function(e){
 	var typecurrency = $(this).parent().parent().find("#txtDivise-one").text();
 	var valueDollar = parseFloat($("#refer_solesdivise").text());
 	var valueSoles = parseFloat($("#refer_dollardivise").text());
 	var firstinput = parseFloat($(this).val());
 
-	/************************** CONVERTIR A FORMATO DE MONEDA - DÓLARES **************************/
+	// ------------ CONVERTIR A FORMATO DE MONEDA - DÓLARES
 	var formatDollar = new Intl.NumberFormat('en-US').format($(this).val());
 	var changeDollar = formatDollar / valueDollar;
 	var changeSoles = firstinput * valueSoles;
@@ -188,7 +186,7 @@ $("#inputval-one").on("keyup input change", function(e){
 		$("#inputval-two").val(changeSoles);
 	}
 
-	/************************** VALIDAR SI ESTÁ VACÍO EL INPUT **************************/
+	// ------------ VALIDAR SI ESTÁ VACÍO EL INPUT
 	if($(this).val() == ""){
 		$("#inputval-two").val(0);
 	}else{
@@ -196,7 +194,7 @@ $("#inputval-one").on("keyup input change", function(e){
 	}
 
 });
-/************************** CONVERTIR EL SEGUNDO VALOR **************************/
+// ------------ CONVERTIR EL SEGUNDO VALOR
 $("#inputval-two").on("keyup input change", function(){
 	var typecurrency = $(this).parent().parent().find("#txtDivise-two").text();
 	var valueDollar = parseFloat($("#refer_solesdivise").text());
@@ -211,17 +209,16 @@ $("#inputval-two").on("keyup input change", function(){
 		$("#inputval-one").val(changeDollar);
 	}
 
-	/************************** VALIDAR SI ESTÁ VACÍO EL INPUT **************************/
+	// ------------ VALIDAR SI ESTÁ VACÍO EL INPUT
 	if($(this).val() == ""){
 		$("#inputval-one").val(0);
 	}else{
 		e.target.value;
 	}
 });
-/************************** CONVESIÓN DE CAMBIO - JQUERY **************************/
+// ------------ CONVESIÓN DE CAMBIO - JQUERY
 $(document).on("click", "#btn-initConvertPlatform", function(e){
 	e.preventDefault();
-
 	$(this).attr("disabled","disabled");
 	$(this).addClass("sendShowComplete");
 	$(this).find("div").addClass("show");
@@ -257,24 +254,19 @@ $(document).on("click", "#btn-initConvertPlatform", function(e){
     cache: false,
     processData: false,
 	}).done(function(res){
-
 		if(res != ""){
-
 			$("#changecurridcli").val(res.cambioval);
 			$("#prefixcurridcli").val(res.prefix);
 			$("#typechangecurridcli").val(res.divise);
 			$("#quantitycurridcli").val(res.quantity);
 			$("#type_receivedcli").val(res.type_received);
 			$("#prefix_receivedcli").val(res.prefix_received);
-
 			setTimeout(function(){
 				$("#cont-convert-divise").addClass("sendShow");
 				$("#cont-complete-divise").addClass("sendShow");
 			}, 2000);
-
 		}else{
 			console.log('No se envió la respuesta');
 		}
-
 	});
 });

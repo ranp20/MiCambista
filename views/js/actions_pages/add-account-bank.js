@@ -199,9 +199,8 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	    contentType: false,
 	    cache: false,
 	    processData: false,
-	  }).done((res) => {
-
-	  	if(res = "insertado"){
+	  }).done((e) => {
+	  	if(e == "true"){
 		  	$(".cformAddAccountBank").removeClass("show");
 				$(".cformAddAccountBank--form").removeClass("show");
 	     	// ------------ LISTAR LAS CUENTAS 
@@ -237,39 +236,30 @@ function listAccountsUser(){
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
     data: { id_client : idClient}
-  }).done( function (res) {
-  	console.log(res);
+  }).done((res) => {
     var response = JSON.parse(res);
     var templateGeneral = "";
     var tempSoles = "";
     var tempDolares = "";
-    if(response.length == 0){
+    if(res.length == 0){
       // template = `
       //   <tr>
       //     <td colspan="7">
       //       <div class="msg-non-results-res">
-      //         <img src="admin/assets/img/icons/icon-sad-face.svg" alt="" class="msg-non-results-res__icon">
+      //         <img src="admin/views/assets/img/icons/icon-sad-face.svg" alt="" class="msg-non-results-res__icon">
       //         <h3 class="msg-non-results-res__title">No se encontraron resultados...</h3>
       //       </div>
       //     </td>
       //   </tr>
       // `;
-
       // $("#tbl_countries").html(template);
-
       console.log('No hay registros de cuentas');
-
     }else{
-      
-      response.forEach(e => {
-      	
+    	$.each(response, function(i,e){
       	var cuentabank = e.cuenta;
       	var limitecuenta = (cuentabank.length >= 4) ? cuentabank.replace(cuentabank.substring(0, 10), "*******") : cuentabank;
-
-      	var img_route = "admin/assets/img/banks/"+e.imgbanco;
-
+      	var img_route = "admin/views/assets/img/banks/"+e.imgbanco;
 	    	if(e.moneda == "Soles"){
-	    		
 		      tempSoles += `
 		        <li class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--m--item" id="${e.id}">
 							<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--m--item--cIconLink">
@@ -284,7 +274,6 @@ function listAccountsUser(){
 							</div>
 						</li>
 		        `;
-
 	    	}else{
 	    		tempDolares += `
 	    			<li class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--m--item" id="${e.id}">
@@ -301,12 +290,10 @@ function listAccountsUser(){
 						</li>
 	    		`;
 	    	}	
-      });
-      
+    	});
       $("#accounts-DollarsList").html(tempDolares);
       $("#accounts-SolesList").html(tempSoles);
     }
-		
 		// ------------ MOSTRAR Y OCULAR EL DETALLE DE LA CUENTA BANCARIA 
 		$(document).on("click", ".btn-ShowDetailsAccount", function(){
 			$("#val-idaccountdetail").val($(this).parent().parent().attr("id"));
@@ -316,7 +303,6 @@ function listAccountsUser(){
 		});
   });
 }
-
 // ------------ TROZO DE VANILLA JS 
 // ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS 
 document.querySelector("#btn-addAccountform").addEventListener("click", function(){
@@ -345,7 +331,7 @@ function listAccountDetails(){
 	}).done( function (res){
 		var response = JSON.parse(res);
 		response.forEach( e => {
-			var pathimgbanco = "admin/assets/img/banks/"+e.imgbanco;
+			var pathimgbanco = "admin/views/assets/img/banks/"+e.imgbanco;
 			$("#imgbank-accountdetail").attr("src", pathimgbanco);
 			$("#namebank-accountdetail").text(e.banco);
 			$("#typeaccount-accountdetail").text(e.tipo);
@@ -416,7 +402,6 @@ $(document).on("click", "#btn-updateDetailsAccount", function(e){
 				console.log('No se actualizó');
 			}
 		});
-
 	}else{
 		console.log('No hay registros que actualizar');
 	}

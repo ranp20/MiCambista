@@ -2,7 +2,6 @@
 require_once '../../php/class/db/connection.php';
 class Add_Bank extends Connection{	
 	function add(){
-		
 		$arr_bank = [
 			"name" => $_POST['name'],
 			"imagen" => strtolower($_FILES['imagen']['name']),
@@ -16,7 +15,6 @@ class Add_Bank extends Connection{
 			if(move_uploaded_file($file_temp, $file_folder . $file_lowercase)){
 				$sql = "CALL sp_add_bank (:name, :imagen)";
 				$stm = $this->con->prepare($sql);
-				
 				foreach ($arr_bank as $key => $value) {
 					$stm->bindValue($key, $value);
 				}

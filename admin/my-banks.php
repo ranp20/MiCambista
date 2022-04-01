@@ -10,14 +10,14 @@ if(!isset($_SESSION['admin_micambista'])){
 <html lang="es">
 <head>
 	<title>Instakash | Bancos de transferencia</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>
 	<main class="cDash-adm">
 		<div class="result"></div>
-		<?php require_once 'includes/sidebar_left.php';?>
+		<?php require_once 'views/includes/sidebar_left.php';?>
 		<div class="cDash-adm--containRight">
-			<?php require_once 'includes/headertop.php';?>
+			<?php require_once 'views/includes/headertop.php';?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">CUENTAS DE TRANSACCIONES</h2>
@@ -105,7 +105,7 @@ if(!isset($_SESSION['admin_micambista'])){
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
 							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="button" class="cont-modalbootstrap__footer--btnadd" id="btnadd-transferbank" type="submit">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrap__footer--btnadd" id="btnadd-transferbank">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>
@@ -125,7 +125,7 @@ if(!isset($_SESSION['admin_micambista'])){
 				      </div>
 				      <div class="modal-body cont-total-update-items">
 				      	<div class="cont-modalbootstrapupdate">
-					        <form action="" id="form-update-bank" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
+					        <form action="" id="form-update-transferbank" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
 					        	<input type="hidden" id="idupdate-transferbank">
 					        	<div class="cont-modalbootstrapupdate__form--control">
 					        		<label for="nameAccBank-update" class="cont-modalbootstrapupdate__form--control__label complete">Nombre del Banco</label>
@@ -213,7 +213,7 @@ if(!isset($_SESSION['admin_micambista'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?php echo $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?php echo $url ?>js/actions_pages/transbanks.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/transbanks.js"></script>
 </body>
 </html>

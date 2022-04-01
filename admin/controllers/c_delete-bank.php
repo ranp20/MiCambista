@@ -8,11 +8,7 @@ class Delete extends Connection{
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":id", $id);
 			$stm->execute();
-
-			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-			$response = json_decode($data);
-			echo $response;
-
+			return $stm->rowCount() > 0 ? "true" : "false";
 		}catch(PDOException $e){
 			return $e->getMessage();
 		}

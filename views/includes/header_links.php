@@ -4,7 +4,7 @@
   $url_defaultURL =  $actual_link . "/micambista";
 ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 <meta name="description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
 <meta name="theme-color" content="#FFF394">
 <meta name="author" content="R@np-2021"/>
@@ -20,10 +20,10 @@
 <link rel="icon" type="image/x-icon" href="views/assets/img/svg/logo.svg"/>
 <link rel="apple-touch-icon" href="views/assets/img/svg/logo.svg">
 <link rel="canonical" href="https://localhost/MiCambista">
+<!-- JQUERY UNCOMPRESSED -->
+<script type="text/javascript" src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>
 <!-- BOOSTRAP DOWNLOADED -->
 <link rel="stylesheet" href="<?= $url ?>views/js/bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="<?= $url ?>views/js/bootstrap/js/bootstrap.min.js"></script>
 <!-- STYLESSHEET -->
 <link rel="stylesheet" href="<?= $url ?>views/assets/css/styles.min.css">
-<!-- JQUERY UNCOMPRESSED -->
-<script type="text/javascript" src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>

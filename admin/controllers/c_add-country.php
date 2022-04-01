@@ -1,12 +1,14 @@
 <?php 
-require_once '../../php/class/connection.php';
+require_once '../../php/class/db/connection.php';
 class Add_Country extends Connection{	
 	function add(){
-		
+
+		$img = (isset($_FILES['imagen']['name'])) ? strtolower($_FILES['imagen']['name']) : "";
+	
 		$arr_country = [
 			"name" => $_POST['name'],
 			"prefix" => "+ ".$_POST['prefix'],
-			"imagen" => strtolower($_FILES['imagen']['name']),
+			"imagen" => $img,
 		];
 
 		try{
@@ -14,7 +16,7 @@ class Add_Country extends Connection{
 			$file_origin = $_FILES['imagen']['name'];
 			$file_lowercase = strtolower($file_origin);
 			$file_temp = $_FILES['imagen']['tmp_name'];
-			$file_folder = "../assets/img/flags/";
+			$file_folder = "../views/assets/img/flags/";
 
 			if(move_uploaded_file($file_temp, $file_folder . $file_lowercase)){
 				$sql = "CALL sp_add_country (:name, :prefix, :imagen)";
@@ -25,24 +27,14 @@ class Add_Country extends Connection{
 				}
 
 				$stm->execute();
-				$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-				if(count($data) > 0){
-					$res = json_decode($data);
-					echo "Inserto";
-				}else{
-					$res = json_decode($data);
-					echo "No se ha insertado";
-				}
-
+				return $stm->rowCount() > 0 ? "true" : "false";
 			}else{
-				echo "error fatal";
+				echo "false";
 			}
-
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}
 	}
 }
-
 $add = new Add_Country();
 echo $add->add();

@@ -3,7 +3,7 @@
 	<div class="cDash-adm--csidebarLeftC">
 		<div class="cDash-adm--csidebarLeftC__cList">
 			<div class="cDash-adm--csidebarLeftC__cList--cLogo">
-				<a href="./">
+				<a href="./admin">
 					<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
 				</a>
 			</div>

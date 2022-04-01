@@ -1,27 +1,23 @@
 <?php
-	
-	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-  $url =  $actual_link . "/" ."micambista/admin/";
-
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$url =  $actual_link . "/" ."micambista/admin/";
 session_start();
-	
-if(!isset($_SESSION['admin'])){
+if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Instakash | Países</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>
 	<main class="cDash-adm">
 		<div class="result"></div>
-		<?php require_once 'includes/sidebar_left.php';?>
+		<?php require_once 'views/includes/sidebar_left.php';?>
 		<div class="cDash-adm--containRight">
-			<?php require_once 'includes/headertop.php';?>
+			<?php require_once 'views/includes/headertop.php';?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">PAÍSES</h2>
@@ -68,7 +64,7 @@ if(!isset($_SESSION['admin'])){
 					        		<label for="prefix" class="cont-modalbootstrap__form--control__label">Prefijo numérico del país</label>
 					        		<div class="cont-modalbootstrap__form--control__contIconLeft">
 					        			<div class="cont-modalbootstrap__form--control__contIconLeft--icon">+</div>
-					        			<input id="prefix" class="cont-modalbootstrap__form--control__input" name="prefix" type="text" required  maxlength="5" placeholder="Ingrese el prefijo numérico del país">
+					        			<input id="prefix" class="cont-modalbootstrap__form--control__input" name="prefix" type="text" required  maxlength="2" placeholder="Ingrese el prefijo numérico del país">
 					        		</div>
 					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
@@ -77,7 +73,7 @@ if(!isset($_SESSION['admin'])){
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
 							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="button" class="cont-modalbootstrap__footer--btnadd" id="btnadd-country" type="submit">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrap__footer--btnadd" id="btnadd-country">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>
@@ -153,7 +149,7 @@ if(!isset($_SESSION['admin'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?php echo $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?php echo $url ?>js/actions_pages/countries.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/countries.js"></script>
 </body>
 </html>

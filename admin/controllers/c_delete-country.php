@@ -1,19 +1,14 @@
 <?php 
-require_once '../../php/class/connection.php';
+require_once '../../php/class/db/connection.php';
 class Delete extends Connection{
 	function delete_country(){
 		$id = $_POST['id'];
-
 		try{
 			$sql = "DELETE FROM tbl_country WHERE id = :id";
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":id", $id);
 			$stm->execute();
-
-			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-			$response = json_decode($data);
-			echo $response;
-
+			return $stm->rowCount() > 0 ? "true" : "false";
 		}catch(PDOException $e){
 			return $e->getMessage();
 		}

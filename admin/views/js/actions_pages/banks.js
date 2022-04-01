@@ -2,7 +2,7 @@ $(function(){
   listBanks();
 });
 // ------------ AGREGAR BANCO
-$(document).on('click', '#btnadd-bank', function(e){
+$(document).on('submit', '#form-add-bank', function(e){
   e.preventDefault();
   var formdata = new FormData();
   var filelength = $('.images')[0].files.length;
@@ -17,10 +17,14 @@ $(document).on('click', '#btnadd-bank', function(e){
     contentType: false,
     cache: false,
     processData: false,
-  }).done((res) => {
-    $('#form-add-bank')[0].reset();
-    listBanks();
-    $('#addbankModal').modal("hide");
+  }).done((e) => {
+    if(e == "true"){
+      $('#form-add-bank')[0].reset();
+      listBanks();
+      $('#addbankModal').modal("hide");
+    }else{
+      console.log("Error, no se pudo guardar el registro.");
+    }
   });
 });
 // ------------ LISTAR RESULTADOS
@@ -101,7 +105,7 @@ $(document).on('click', '.btn-update-bank', function(e){
   });
 });
 // ------------ ACTUALIZAR POR ID
-$(document).on('click', '#btnupdate-bank', function(e){
+$(document).on('submit', '#form-update-bank', function(e){
   e.preventDefault();
   var formdata = new FormData();
   var filelength = $('.images-update')[0].files.length;
@@ -118,9 +122,13 @@ $(document).on('click', '#btnupdate-bank', function(e){
     contentType: false,
     cache: false,
     processData: false
-  }).done((res) => {
-    listBanks();
-    $('#updateModal').modal("hide");
+  }).done((e) => {
+    if(e == "true"){
+      listBanks();
+      $('#updateModal').modal("hide");
+    }else{
+      console.log("Error, no se pudo actualizar el registro.");
+    }
   });
 });
 // ------------ LISTAR ID DEL PAÍS EN EL MODAL
@@ -138,7 +146,12 @@ $(document).on('click', '#btndelete-bank', function(e){
     method: "POST",
     data: {id : id},
   }).done((e) => {
-    $("#item-" + id).remove();
-    $('#deleteModal').modal("hide");
+    if(e == "true"){
+      $("#item-" + id).remove();
+      $('#deleteModal').modal("hide");
+      listBanks();
+    }else {
+      console.log("Error, no se pudo eliminar el registro");
+    }
   });
 });

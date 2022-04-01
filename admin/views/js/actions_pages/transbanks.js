@@ -1,10 +1,7 @@
 $(function(){
   listTranferBanks();
 });
-/*==========================================================================
-=            FUNCIONES PARA EL FORMULARIO DE AGREGAR TRANSBANKS            =
-==========================================================================*/
-/************************** LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA **************************/
+// ------------ LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA
 $("#rucAccBank").on('keyup keypress blur change', function(e) {
     //return false if not 0-9
     ($(this).val() != 0) ? $("#msgErrNounNumbRUC").text("") : $("#msgErrNounNumbRUC").text("Debes ingresar el RUC");
@@ -29,38 +26,33 @@ $("#n_account").on('keyup keypress blur change', function(e) {
         }
     }
 });
-/************************** ABRIR/CERRAR EL LISTADO DE MONEDAS - AGREGAR **************************/
+// ------------ ABRIR/CERRAR EL LISTADO DE MONEDAS - AGREGAR
 $(document).on("click", "#btn-FakeListTypeCurr", function(){
   $("#c-listitems-typecurrency").addClass("show");
-
    $.ajax({
-    url: "admin/controllers/c_list-currency.php",
+    url: "../admin/controllers/c_list-currency.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
   }).done((res) => {
-
     var result = JSON.parse(res);
     var template = "";
     if(result.length > 0){
-      
       result.forEach( (e) => {
         template += `
           <li class="cont-modalbootstrap__form--controlSelect--m--item" id="${e.id}" typeacc="${e.name}">${e.prefix}</li>
         `;
       });
-
       $("#c-listitems-typecurrency").html(template);
     }else{
       template += `
         <li class="cont-modalbootstrap__form--controlSelect--m--item">No se enconraron datos</li>
       `;
-
       $("#c-listitems-typecurrency").html(template);
     }
   });
 });
-/************************** FIJAR EL PREFIJO EN EL FAKE SELECT **************************/
+// ------------ FIJAR EL PREFIJO EN EL FAKE SELECT
 $(document).on("click", ".cont-modalbootstrap__form--controlSelect--m--item", function(){
   $("#msgErrNounTypeCurr").text("");
   $("#c-listitems-typecurrency").removeClass("show");
@@ -68,50 +60,45 @@ $(document).on("click", ".cont-modalbootstrap__form--controlSelect--m--item", fu
   $("#SelectedItem-inputfakesel").attr("typeacc", $(this).attr("typeacc"));
   $("#SelectedItem-inputfakesel").attr("idtypecurrency", $(this).attr("id"));
 });
-/************************** ABRIR/CERRAR EL LISTADO DE TIPOS DE CUENTA - ACTUALIZAR **************************/
+// ------------ ABRIR/CERRAR EL LISTADO DE TIPOS DE CUENTA - ACTUALIZAR
 $(document).on("click", "#btn-FakeListTypeAccount", function(){
   $("#c-listitems-typeaccount").addClass("show");
-
    $.ajax({
-    url: "admin/controllers/c_list-type-accounts.php",
+    url: "../admin/controllers/c_list-type-accounts.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
   }).done((res) => {
-
     var result = JSON.parse(res);
     var template = "";
     if(result.length > 0){
-      
       result.forEach( (e) => {
         template += `
           <li class="cont-modalbootstrap__form--controlSelect--m--itemAccount" id="${e.id}">${e.type}</li>
         `;
       });
-
       $("#c-listitems-typeaccount").html(template);
     }else{
       template += `
         <li class="cont-modalbootstrap__form--controlSelect--m--itemAccount">No se enconraron datos</li>
       `;
-
       $("#c-listitems-typeaccount").html(template);
     }
   });
 });
-/************************** FIJAR EL PREFIJO EN EL FAKE SELECT **************************/
+// ------------ FIJAR EL PREFIJO EN EL FAKE SELECT
 $(document).on("click", ".cont-modalbootstrap__form--controlSelect--m--itemAccount", function(){
   $("#msgErrNounTypeAccount").text("");
   $("#c-listitems-typeaccount").removeClass("show");
   $("#selectedItemAccount-fakeSel").text($(this).text());
   $("#SelectedItemAccount-inputfakesel").attr("idtypeaccount", $(this).attr("id"));
 });
-/************************** VALIDAR SI EL NOMBRE DE BANCO ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL NOMBRE DE BANCO ESTÁ VACÍO
 $(document).on("keyup", "#nameAccBank", function(){
   ($(this).val() != 0) ? $("#msgErrNounNombBank").text("") : $("#msgErrNounNombBank").text("Debes ingresar un banco");
 });
-/************************** AGREGAR BANCO DE TRANSACCIONES **************************/
-$(document).on('click', '#btnadd-transferbank', function(e){
+// ------------ AGREGAR BANCO DE TRANSACCIONES
+$(document).on('submit', '#form-add-transferbank', function(e){
   e.preventDefault();
 
   ($("#SelectedItem-inputfakesel").attr("idtypecurrency")) ? $("#msgErrNounTypeCurr").text("") : $("#msgErrNounTypeCurr").text("Debes seleccionar la moneda");
@@ -128,15 +115,17 @@ $(document).on('click', '#btnadd-transferbank', function(e){
     }
 
     formdata.append("name", $('#nameAccBank').val());
-    formdata.append("ruc", $('#rucAccBank').val());
-    formdata.append("id_type_account", $("#SelectedItemAccount-inputfakesel").attr("idtypeaccount"));
     formdata.append("n_account", $('#n_account').val());
+    formdata.append("id_type_account", $("#SelectedItemAccount-inputfakesel").attr("idtypeaccount"));
     formdata.append("id_curr", $("#SelectedItem-inputfakesel").attr("idtypecurrency"));
+    formdata.append("ruc", $('#rucAccBank').val());
+    /*
     formdata.append("type_curr", $("#SelectedItem-inputfakesel").attr("typeacc"));
     formdata.append("prefix_curr", $("#selectedItem-fakeSel").text());
+    */
 
     $.ajax({
-      url: "admin/controllers/c_add-transferbank.php",
+      url: "../admin/controllers/c_add-transferbank.php",
       method: "POST",
       data: formdata,
       contentType: false,
@@ -159,37 +148,32 @@ $(document).on('click', '#btnadd-transferbank', function(e){
   }
 
 });
-// /************************** LISTAR TRANFERBANKS **************************/
+// ------------ LISTAR TRANFERBANKS
 function listTranferBanks(searchVal){ 
   $.ajax({
-    url: "admin/controllers/c_list-transferbanks.php",
+    url: "../admin/controllers/c_list-transferbanks.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
     data: {searchList : searchVal},
-  }).done( function (res) {
-
+  }).done((res) => {
     var response = JSON.parse(res);
     var template = "";
-
     if(response.length == 0){
       template = `
         <tr>
           <td colspan="9">
             <div class="msg-non-results-res">
-              <img src="admin/assets/img/icons/icon-sad-face.svg" alt="" class="msg-non-results-res__icon">
+              <img src="../admin/views/assets/img/icons/icon-sad-face.svg" alt="" class="msg-non-results-res__icon">
               <h3 class="msg-non-results-res__title">No se encontraron resultados...</h3>
             </div>
           </td>
         </tr>
       `;
-
       $("#tbl_my-transferbanks").html(template);
     }else{
       response.forEach(e => {
-      
-      var img_route = "admin/assets/img/transferbanks/"+e.photo;
-
+      var img_route = "../admin/views/assets/img/transferbanks/"+e.photo;
       template += `
         <tr id="item-${e.id}">
           <td class='center'>${e.id}</td>
@@ -225,57 +209,46 @@ function listTranferBanks(searchVal){
         </tr>
         `;
       });
-      
       $("#tbl_my-transferbanks").html(template);
     }
-
   });
 }
-// /************************** BUSCADOR DE TRANSFBANKS **************************/
+// ------------ BUSCADOR DE TRANSFBANKS
 $(document).on('keyup', '#searchtransferbanks', function() {
   var searchVal = $(this).val();
-
   if(searchVal != ""){
     listTranferBanks(searchVal);
   }else{
     listTranferBanks();
   }
 });
-/*================================================================================
-=            FUNCIONES PARA EL FORMULARIO DE ACTUALIZAR TRANSFERBANKS            =
-================================================================================*/
-/************************** ABRIR/CERRAR EL LISTADO DE MONEDAS - ACTUALIZAR **************************/
+// ------------ ABRIR/CERRAR EL LISTADO DE MONEDAS - ACTUALIZAR
 $(document).on("click", "#btn-FakeListTypeCurr-Update", function(){
   $("#c-listitems-typecurrency-Update").addClass("show");
-
    $.ajax({
-    url: "admin/controllers/c_list-currency.php",
+    url: "../admin/controllers/c_list-currency.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
   }).done((res) => {
-
     var result = JSON.parse(res);
     var template = "";
     if(result.length > 0){
-      
       result.forEach( (e) => {
         template += `
           <li class="cont-modalbootstrapupdate__form--controlSelect--m--item" id="${e.id}" typeacc="${e.name}">${e.prefix}</li>
         `;
       });
-
       $("#c-listitems-typecurrency-Update").html(template);
     }else{
       template += `
         <li class="cont-modalbootstrapupdate__form--controlSelect--m--item">No se enconraron datos</li>
       `;
-
       $("#c-listitems-typecurrency-Update").html(template);
     }
   });
 });
-/************************** FIJAR EL PREFIJO EN EL FAKE SELECT - ACTUALIZAR MONEDA **************************/
+// ------------ FIJAR EL PREFIJO EN EL FAKE SELECT - ACTUALIZAR MONEDA
 $(document).on("click", ".cont-modalbootstrapupdate__form--controlSelect--m--item", function(){
   $("#msgErrNounTypeCurr-update").text("");
   $("#c-listitems-typecurrency-Update").removeClass("show");
@@ -283,48 +256,42 @@ $(document).on("click", ".cont-modalbootstrapupdate__form--controlSelect--m--ite
   $("#SelectedItem-inputfakesel-Update").attr("typeacc", $(this).attr("typeacc"));
   $("#SelectedItem-inputfakesel-Update").attr("idtypecurrency", $(this).attr("id"));
 });
-/************************** ABRIR/CERRAR EL LISTADO DE TIPOS DE CUENTA - ACTUALIZAR **************************/
+// ------------ ABRIR/CERRAR EL LISTADO DE TIPOS DE CUENTA - ACTUALIZAR
 $(document).on("click", "#btn-FakeListTypeAccount-Update", function(){
   $("#c-listitems-typeaccount-Update").addClass("show");
-
    $.ajax({
-    url: "admin/controllers/c_list-type-accounts.php",
+    url: "../admin/controllers/c_list-type-accounts.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
   }).done((res) => {
-
     var result = JSON.parse(res);
     var template = "";
     if(result.length > 0){
-      
       result.forEach( (e) => {
         template += `
           <li class="cont-modalbootstrapupdate__form--controlSelect--m--itemAccount" id="${e.id}">${e.type}</li>
         `;
       });
-
       $("#c-listitems-typeaccount-Update").html(template);
     }else{
       template += `
         <li class="cont-modalbootstrapupdate__form--controlSelect--m--itemAccount">No se enconraron datos</li>
       `;
-
       $("#c-listitems-typeaccount-Update").html(template);
     }
   });
 });
-/************************** FIJAR EL PREFIJO EN EL FAKE SELECT - ACTUALIZAR MONEDA **************************/
+// ------------ FIJAR EL PREFIJO EN EL FAKE SELECT - ACTUALIZAR MONEDA
 $(document).on("click", ".cont-modalbootstrapupdate__form--controlSelect--m--itemAccount", function(){
   $("#msgErrNounTypeAccount-update").text("");
   $("#c-listitems-typeaccount-Update").removeClass("show");
   $("#selectedItemAccount-fakeSel-update").text($(this).text());
   $("#SelectedItemAccount-inputfakesel-update").attr("idtypeaccount", $(this).attr("id"));
 });
-// // // /************************** LISTAR DATOS DEL TRANSFERBANKS EN EL MODAL**************************/
+// ------------ LISTAR DATOS DEL TRANSFERBANKS EN EL MODAL
 $(document).on('click', '.btn-update-transferbank', function(e){
   e.preventDefault();
-
   $.each($(this), function(i, v){
     var item_data = {
       id: $(this).attr('data-id'),
@@ -338,29 +305,23 @@ $(document).on('click', '.btn-update-transferbank', function(e){
       prefixcurr: $(this).attr('data-prefixcurr'),
       photo: $(this).attr('data-photo'),
     };
-
-    console.log(item_data);
-
     $('#idupdate-transferbank').val(item_data['id']);
     $('#nameAccBank-update').val(item_data['name']);
     $('#rucAccBank-update').val(item_data['ruc']);
-
     $("#SelectedItemAccount-inputfakesel-update").attr("idtypeaccount", item_data['idtypeacc']);
     $("#selectedItemAccount-fakeSel-update").text(item_data['typeacc']);
-
     $('#n_account-update').val(item_data['n_account']);
     $("#SelectedItem-inputfakesel-Update").attr("typeacc", item_data['typecurr']);
     $("#SelectedItem-inputfakesel-Update").attr("idtypecurrency", item_data['idcurr']);
     $("#selectedItem-fakeSel-Update").text(item_data['prefixcurr']);
     $('#photo-update').attr('href', item_data['photo']);
-
   });
 });
-/************************** VALIDAR SI EL NOMBRE DE BANCO ESTÁ VACÍO **************************/
+// ------------ VALIDAR SI EL NOMBRE DE BANCO ESTÁ VACÍO
 $(document).on("keyup", "#nameAccBank-update", function(){
   ($(this).val() != 0) ? $("#msgErrNounNombBank-update").text("") : $("#msgErrNounNombBank-update").text("Debes ingresar un banco");
 });
-/************************** LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA **************************/
+// ------------ LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA
 $("#rucAccBank-update").on('keyup keypress blur change', function(e) {
     //return false if not 0-9
     ($(this).val() != 0) ? $("#msgErrNounNumbRUC-update").text("") : $("#msgErrNounNumbRUC-update").text("Debes ingresar el RUC");
@@ -385,8 +346,8 @@ $("#n_account-update").on('keyup keypress blur change', function(e) {
         }
     }
 });
-// // /************************** ACTUALIZAR TRANSFERBANKS POR ID **************************/
-$(document).on('click', '#btnupdate-transferbank', function(e){
+// ------------ ACTUALIZAR TRANSFERBANKS POR ID
+$(document).on('submit', '#form-update-transferbank', function(e){
   e.preventDefault();
 
   ($("#SelectedItem-inputfakesel-Update").attr("idtypecurrency")) ? $("#msgErrNounTypeCurr-update").text("") : $("#msgErrNounTypeCurr-update").text("Debes seleccionar la moneda");
@@ -401,55 +362,57 @@ $(document).on('click', '#btnupdate-transferbank', function(e){
     for (var i = 0;i < filelength; i ++) {
       formdata.append("imagen", $('.images-update')[0].files[i]);
     }
-
     formdata.append("name", $('#nameAccBank-update').val());
-    formdata.append("ruc", $('#rucAccBank-update').val());
-    formdata.append("idtypeacc", $("#SelectedItemAccount-inputfakesel-update").attr("idtypeaccount"));
     formdata.append("n_account", $('#n_account-update').val());
+    formdata.append("idtypeacc", $("#SelectedItemAccount-inputfakesel-update").attr("idtypeaccount"));
     formdata.append("id_curr", $("#SelectedItem-inputfakesel-Update").attr("idtypecurrency"));
+    formdata.append("ruc", $('#rucAccBank-update').val());
+    /*
     formdata.append("type_curr", $("#SelectedItem-inputfakesel-Update").attr("typeacc"));
     formdata.append("prefix_curr", $("#selectedItem-fakeSel-Update").text());
+    */
     formdata.append("id", $("#idupdate-transferbank").val());
 
     $.ajax({
-      url: "admin/controllers/c_update-transferbanks.php",
+      url: "../admin/controllers/c_update-transferbanks.php",
       method: "POST",
       data: formdata,
       contentType: false,
       cache: false,
       processData: false
-    }).done((res) => {
-      listTranferBanks();
-      $('#updateModal').modal("hide");
+    }).done((e) => {
+      if(e == "true"){
+        listTranferBanks();
+        $('#updateModal').modal("hide");
+      }else{
+        console.log('Error, no se pudo actualizar el registro.');
+      }
     });
-
   }else{
     console.log('No hay datos');
   }
 });
-/*==============================================================================
-=            FUNCIONES PARA EL FORMULARIO DE ELIMINAR TRANSFERBANKS            =
-==============================================================================*/
-/************************** LISTAR ID DEL TRANSFERBANK EN EL MODAL **************************/
+// ------------ LISTAR ID DEL TRANSFERBANK EN EL MODAL
 $(document).on('click', '.btn-delete-transferbank', function(e){
   e.preventDefault();
-
   var id = $(this).attr('data-id');
   $('#iddelete-transferbank').val(id);
 });
-// /************************** ELIMINAR TRANSFERBANK **************************/
+// ------------ ELIMINAR TRANSFERBANK
 $(document).on('click', '#btndelete-transferbank', function(e){
   e.preventDefault();
-
 	var id = $('#iddelete-transferbank').val();
-
   $.ajax({
-    url: "admin/controllers/c_delete-transferbanks.php",
+    url: "../admin/controllers/c_delete-transferbanks.php",
     method: "POST",
     data: {id : id},
   }).done((e) => {
-    
-    $("#item-" + id).remove();
-    $('#deleteModal').modal("hide");
+    if(e == "true"){
+      $("#item-" + id).remove();
+      $('#deleteModal').modal("hide");
+      listTranferBanks();
+    }else{
+      console.log("Error, no se pudo eliminar el registro");
+    }
   });
 });

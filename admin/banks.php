@@ -65,7 +65,7 @@ if(!isset($_SESSION['admin_micambista'])){
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
 							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="button" class="cont-modalbootstrap__footer--btnadd" id="btnadd-bank" type="submit">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrap__footer--btnadd" id="btnadd-bank">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>

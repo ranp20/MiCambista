@@ -11,6 +11,7 @@ if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
 }else{
   header("Location: signin");
 }
+require_once '../php/process_data-list.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

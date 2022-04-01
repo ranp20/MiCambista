@@ -1,15 +1,17 @@
 <?php
-  session_start();
-  if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
-    $id_client = $_SESSION['cli_micambista'][0]['id'];
-    $compl_account = intval($_SESSION['cli_micambista'][0]['complete_account']);
-    if ($compl_account > 16) {
-      header("Location: signin");
-    }
-  }else{
+//COMPRIMIR ARCHIVOS DE TEXTO...
+(substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
+session_start();
+if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
+  $id_client = $_SESSION['cli_micambista'][0]['id'];
+  $compl_account = intval($_SESSION['cli_micambista'][0]['complete_account']);
+  if ($compl_account > 16) {
     header("Location: signin");
   }
- ?>
+}else{
+  header("Location: signin");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

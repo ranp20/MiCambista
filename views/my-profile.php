@@ -1,9 +1,11 @@
 <?php 
-	session_start();
-	if(!isset($_SESSION['cli_micambista'])){
-		header("Location: signin");
-	}
-	require_once '../php/process_data-list.php';
+//COMPRIMIR ARCHIVOS DE TEXTO...
+(substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
+session_start();
+if(!isset($_SESSION['cli_micambista'])){
+	header("Location: signin");
+}
+require_once '../php/process_data-list.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

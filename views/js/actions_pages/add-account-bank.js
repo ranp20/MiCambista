@@ -6,7 +6,7 @@ var idClient = $("#input-idClientVal").val();
 $(document).on("click", "#selListallBanks", function(e){
 	var btnshow = $("#listAllsBanks");
 	$.ajax({
-		url: "controllers/c_list-banks.php",
+		url: "./controllers/c_list-banks.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -60,7 +60,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 $(document).on("click", "#selListallTypeAccouts", function(e){
 	var btnshow = $("#listtypesAccount");
 	$.ajax({
-		url: "controllers/c_list-type-account-bank.php",
+		url: "./controllers/c_list-type-account-bank.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -108,7 +108,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 $(document).on("click", "#selListallCurrencyTypes", function(e){
 	var btnshow = $("#listcurrencytypes");
 	$.ajax({
-		url: "controllers/c_list-currency.php",
+		url: "./controllers/c_list-currency.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -193,7 +193,7 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	  formdata.append("aliasaccount", obj_form['aliasaccount']);
 
 	  $.ajax({
-	    url: "controllers/c_add-account-banks.php",
+	    url: "./controllers/c_add-account-banks.php",
 	    method: "POST",
 	    data: formdata,
 	    contentType: false,
@@ -231,7 +231,7 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 
 function listAccountsUser(){
 	$.ajax({
-    url: "controllers/c_list-account-banks.php",
+    url: "./controllers/c_list-account-banks.php",
     method: "POST",
     datatype: "JSON",
     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -323,7 +323,7 @@ contformUpdAccount.addEventListener('click', e => {
 function listAccountDetails(){
 	var idaccountdetail = $("#val-idaccountdetail").val();
 	$.ajax({
-	  url: "controllers/c_list-details-account-bank.php",
+	  url: "./controllers/c_list-details-account-bank.php",
 	  method: "POST",
 	  datatype: "JSON",
 	  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -331,7 +331,7 @@ function listAccountDetails(){
 	}).done( function (res){
 		var response = JSON.parse(res);
 		response.forEach( e => {
-			var pathimgbanco = "admin/views/assets/img/banks/"+e.imgbanco;
+			var pathimgbanco = "./admin/views/assets/img/banks/"+e.imgbanco;
 			$("#imgbank-accountdetail").attr("src", pathimgbanco);
 			$("#namebank-accountdetail").text(e.banco);
 			$("#typeaccount-accountdetail").text(e.tipo);
@@ -381,19 +381,22 @@ $(document).on("click", "#btn-updateDetailsAccount", function(e){
 	($("#numaccountupdate-cli").val() != "") ? $("#msgerrorNounNumbDetailAccount").text("") : $("#msgerrorNounNumbDetailAccount").text("Debes colocar un numero de cuenta");
 	($("#aliasacccountupdate-cli").val() != "") ? $("#msgerrorNounAliasDetailAccount").text("") : $("#msgerrorNounAliasDetailAccount").text("Debes colocar un alias");
 	if($("#numaccountupdate-cli").val() != "" && $("#aliasacccountupdate-cli").val() != ""){
-		
-		var numberaccountdetail = $("#numaccountupdate-cli").val();
-		var aliasaccountdetail = $("#aliasacccountupdate-cli").val();
-		var idaccountdetail = $("#val-idaccountdetail").val();
+
+		var formdata = new FormData();
+		formdata.append("n_account", $("#numaccountupdate-cli").val());
+		formdata.append("a_account", $("#aliasacccountupdate-cli").val());
+	  formdata.append("id_client", idClient);
+	  formdata.append("id_account", $("#val-idaccountdetail").val());
 
 		$.ajax({
-		  url: "controllers/c_update-account-bank.php",
+		  url: "./controllers/c_update-account-bank.php",
 		  method: "POST",
-		  datatype: "JSON",
-		  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-		  data: { n_account : numberaccountdetail, a_account : aliasaccountdetail, id_client : idClient, id_account : idaccountdetail}
-		}).done( function (res){
-			if(res == "true"){
+		  data: formdata,
+	    contentType: false,
+	    cache: false,
+	    processData: false,
+		}).done((e) => {
+			if(e == "true"){
 				$("#menuListUpdateAccount").removeClass("hidden");
 				$("#formListUpdateAccount").removeClass("show");
 				listAccountDetails();
@@ -428,7 +431,7 @@ $(document).on("click", "#btn-AceptDeleteAccount", function(e){
 	e.preventDefault();
 	var idaccountdetail = $("#val-idaccountdetail").val();
 	$.ajax({
-		  url: "controllers/c_delete-account-bank.php",
+		  url: "./controllers/c_delete-account-bank.php",
 		  method: "POST",
 		  datatype: "JSON",
 		  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',

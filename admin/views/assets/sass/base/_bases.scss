@@ -25,6 +25,11 @@ select{
 p{
 	color: $color-paragraph;
 }
+img{
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
 /* UTILITIES CLASS */
 .box{
 	@include max-width($max-width);

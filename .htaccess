@@ -25,7 +25,8 @@ RewriteRule control-panel?$ views/control-panel.php
 RewriteRule welcome?$ views/welcome.php
 RewriteRule tablero?$ views/dashboard.php
 RewriteRule convert-divise?$ views/convert-divise.php
-RewriteRule complete-exchange?$ views/complete-exchange.php
+RewriteRule convert-divise/step-2?$ views/step-two.php
+RewriteRule convert-divise/complete?$ views/complete-exchange.php
 RewriteRule my-accounts?$ views/my-accounts.php
 RewriteRule my-profile?$ views/my-profile.php
 RewriteRule validation-biometric?$ views/validation-biometric.php

@@ -8,13 +8,13 @@
 	&--containRight{
 		padding-top: 0;
     padding-bottom: 0;
-    height: 100%;
+    width: 100%;
+    height: auto;
     margin-top: 0.5rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
 		margin-left: 0;
     margin-right: auto;
-    width: 100%;
     overflow: hidden;
     transition: all .5s;
 

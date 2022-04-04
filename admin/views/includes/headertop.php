@@ -17,7 +17,7 @@
 			<div class="cDash-adm--containRight--cTop--cont--item--user" id="menu-Optsuser">
 				<img src="<?= $url ?>assets/img/images/user_default.png" alt="">
 			</div>
-			<ul class="cDash-adm--containRight--cTop--cont--item--m">
+			<ul class="cDash-adm--containRight--cTop--cont--item--m" id="m-OptsuserList">
 				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="#" class="cDash-adm--containRight--cTop--cont--item--m--link">Mi perfil</a>
 				</li>
 				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="<?= $urlAdmin ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>

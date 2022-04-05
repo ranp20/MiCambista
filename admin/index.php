@@ -11,7 +11,7 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Instakash | Login Admin</title>
+	<title>Mi Cambista | Login Admin</title>
 	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>

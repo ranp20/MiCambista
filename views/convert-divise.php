@@ -36,11 +36,15 @@ require_once '../php/process_data-list.php';
 									<ul class="cControlP__cont--containDash--c--cConvertDivise--cF--cT--cValDivise--m">
 										<li class="cControlP__cont--containDash--c--cConvertDivise--cF--cT--cValDivise--m--item">
 											<p>Compramos a</p>
-											<p>S/. <span id="refer_dollardivise">3.976</span></p>
+											<p>
+												<span id="refval_buy_at"></span>
+											</p>
 										</li>
 										<li class="cControlP__cont--containDash--c--cConvertDivise--cF--cT--cValDivise--m--item">
 											<p>Vendemos a</p>
-											<p>S/. <span id="refer_solesdivise">3.990</span></p>
+											<p>
+												<span id="refval_sell_at"></span>
+											</p>
 										</li>
 									</ul>
 								</div>
@@ -49,7 +53,7 @@ require_once '../php/process_data-list.php';
 								<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--cTimeChangeDivise">
 									<p>Se actualizará el tipo de cambio en:</p>
 									<p>
-										<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+										<svg class="MuiSvgIcon-root mr-2" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path></svg>
 										<span>4:31</span>
 									</p>
 								</div>
@@ -62,7 +66,7 @@ require_once '../php/process_data-list.php';
 											<span id="spanprefix-one">S/.</span>
 										</div>
 									</div>
-									<button type="button" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--btnChangeCurrency" id="btn-Changecurr">
+									<button type="button" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--btnChangeCurrency" id="btn-ChangeRotaeDivise">
 										<img src="<?= $url ?>views/assets/img/svg/circleArrows.svg" alt="">
 									</button>
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls">
@@ -77,7 +81,7 @@ require_once '../php/process_data-list.php';
 								<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--cCoupon">
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--cCoupon--cTitle">
 										<span>¿Montos mayores a $ 5,000.00?</span>
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+										<svg class="MuiSvgIcon-root ml-3" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
 									</div>
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--cCoupon--control">
 										<input type="text" maxlength="20" placeholder="Cupón de descuento">
@@ -111,8 +115,6 @@ require_once '../php/process_data-list.php';
 							<input type="hidden" id="valIdUser_sess" value="<?= $idclient; ?>">
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
 								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿Desde qué banco nos envía su dinero?</label>
-
-
 								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem" id="selListallBanks_CData">
 									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData" id="selListAllBanks--img_CData">
 										<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--placeholder">Selecciona un banco</span>
@@ -123,8 +125,6 @@ require_once '../php/process_data-list.php';
 									<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData" id="listAllsBanks_CData"></ul>
 								</div>
 								<span id="msgerrorNounSelBankSend_CData"></span>
-
-
 							</div>
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
 								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿En qué cuenta recibirás tu dinero?</label>

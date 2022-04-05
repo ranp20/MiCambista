@@ -1,3 +1,4 @@
+/*
 // ------------ DEVOLVER LOS VALORES DECIMALES SIN REDONDEO
 function twodecimals(n) {
   let t = n.toString();
@@ -99,12 +100,12 @@ $("#inputval-one").val(monto);
 // ------------ VALORES DE CONVERSIÓN (INICIO)
 let diviseDollar = parseFloat($("#refer_solesdivise").text());
 let diviseSoles = parseFloat($("#refer_dollardivise").text());
-/* CONTROLES DE VISTA */
+// ------------ CONTROLES DE VISTA 
 let inputOne = parseFloat($("#inputval-one").val());
-/* IMPRESIÓN */
+// ------------ IMPRESIÓN 
 let valresDollar = inputOne / diviseDollar;
 let valresSoles = inputOne * diviseSoles;
-/* CON O SIN DECIMALES */
+// ------------ CON O SIN DECIMALES 
 $("#inputval-two").val(valresDollar.toFixed(3));
 // ------------ VALORES DE CONVERSIÓN (FIN)
 let convertSoles = valresSoles.toFixed(0);
@@ -118,7 +119,7 @@ $("#btn-Changecurr").on("click", function(){
 
 		$(this).addClass("active");
 
-		/* DE DÓLARES A SOLES */
+		// ------------ DE DÓLARES A SOLES
 		if(typeCurr != "Dólares"){
 
 			$("#inputval-two").val(convertSoles);
@@ -129,7 +130,7 @@ $("#btn-Changecurr").on("click", function(){
 			$("#spanprefix-one").text("$");
 			$("#spanprefix-two").text("S/.");
 
-		/* DE SOLES A DÓLARES */
+		// ------------ DE SOLES A DÓLARES
 		}else{
 
 			$("#inputval-two").val(valresDollar);
@@ -269,4 +270,32 @@ $(document).on("click", "#btn-initConvertPlatform", function(e){
 			console.log('No se envió la respuesta');
 		}
 	});
+});
+*/
+$(() => {
+	list_rates_convert_divise();
+});
+function list_rates_convert_divise(){
+	$.ajax({
+    url: "./controllers/c_list-rates-convert-divise.php",
+    method: "POST",
+    datatype: "JSON",
+    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+  }).done((e) => {
+    var res = JSON.parse(e);
+    var tmp_rates = "";
+    if(res.length == 0){
+    	console.log("No hay datos");
+    }else{
+    	$("#refval_buy_at").text("S/. " + res[0].buy_at);
+    	$("#refval_sell_at").text("S/. " + res[0].sell_at);
+    	console.log("Hay datos");
+    }
+  });
+}
+
+$(document).on("click", "#btn-ChangeRotaeDivise", function(e){
+	e.preventDefault();
+	const btnRotateDivise = $(this);
+	btnRotateDivise.toggleClass("active");
 });

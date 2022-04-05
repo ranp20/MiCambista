@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_micambista'])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Instakash | Bancos</title>
+	<title>Mi Cambista | Bancos</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
@@ -23,24 +23,26 @@ if(!isset($_SESSION['admin_micambista'])){
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">BANCOS</h2>
 					<button type="button" href="#" id="add-bank" class="cDash-adm--containRight--cContain__addtitle--btn-add" data-toggle="modal" data-target="#addbankModal"><span class="cDash-adm--containRight--cContain__addtitle--btn-add__hidden">Agregar&nbsp;</span>+</button>
 				</div>
-				<div class="cDash-adm--containRight--cContain__inputsearch-table">
-					<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchbanks" id="searchbanks" maxlength="100" placeholder="Buscar bancos...">
-				</div>
-				<div class="contain-table-responsive">
-					<table class="cDash-adm--containRight--cContain__list-results">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Nombre</th>
-								<th>Imagen</th>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody id="tbl_banks">
-								
-						</tbody>
-					</table>
+				<div class="cDash-adm--containRight--cContain__cBody">
+					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
+						<div class="cDash-adm--containRight--cContain__inputsearch-table">
+							<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchbanks" id="searchbanks" maxlength="100" placeholder="Buscar bancos...">
+						</div>
+						<div class="contain-table-responsive">
+							<table class="cDash-adm--containRight--cContain__list-results">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Nombre</th>
+										<th>Imagen</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody id="tbl_banks"></tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 				<!-- MODAL - AGREGAR NUEVO PAÍS -->
 				<div class="modal fade bootstrapmodal-custom" id="addbankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

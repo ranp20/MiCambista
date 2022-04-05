@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_micambista'])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Instakash | Dashboard Admin</title>
+	<title>Mi Cambista | Dashboard Admin</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
@@ -19,7 +19,7 @@ if(!isset($_SESSION['admin_micambista'])){
 			<?php require_once 'includes/headertop.php';	?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain--cTpage">
-					<h2>Dashboard <?= $_SESSION['admin_micambista'][0]['username']; ?></h2>
+					<h2>DASHBOARD</h2>
 				</div>
 			</div>
 		</div>

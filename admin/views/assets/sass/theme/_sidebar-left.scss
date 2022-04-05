@@ -3,152 +3,6 @@
 	width: 100%;
 	min-height: 100vh;
 	height: 100%;
-	/*
-	// FONDO DEL SIDEBARLEFT 
-	&--csidebarLeft{
-		background-color: rgba(0,0,0,.55);
-		left: -100%;
-		top: 0;
-		position: fixed;
-		height: 100%;
-		transition: .4s ease;
-		z-index: 999 !important;
-		display: flex;
-		flex-flow: nowrap row;
-		align-items: flex-start;
-		justify-content: flex-start;
-
-		&.active{
-			left: 0;
-		}
-
-		// TAMAÑO - PORTÁTIL(1024px)
-		@media (min-width: 991px){
-			left: 0;
-			position: relative;
-			min-height: 100vh;
-			height: auto;
-			background-color: transparent;
-
-			&.active{
-				width: 0;
-				left: 0;
-			}
-		}
-
-
-		// BOTÓN DE HAMBURGUESA - IBRIR SIDEBARLEFT 
-		// VARIABLES PARA EL BOTÓN DE CIERRE DEL SIDEBAR 
-		$close_sidebarleft: 99%;
-		$close_sidebarleft_inactive: -100%;
-		$close_sidebarleft_active: -23%;
-		$secondary-color: #fff;
-		// BOTÓN DE CIERRE DEL SIDEBARLEFT - MÓVIL
-
-		&--Lopen{
-			//left: 99%;
-	    pointer-events: auto;
-	    height: 19px;
-	    padding: .5rem 1.1rem 1.7rem 1.1rem;
-	    background-color: #fff;
-	    @include burgernav-fill(#000, 20px, 3px, 7px, 8px, 1px);
-
-	    @media (max-width: 991px){
-	    	&.non-Mobile{
-	    		display: none;
-	    		pointer-events: none;
-	    		opacity: 0;
-	    		visibility: hidden;
-	    	}
-	    }
-		}
-	}
-	// CONTENIDO DEL SIDEBARLEFT
-	&--csidebarLeftC{
-		position: relative;
-		max-width: 290px;
-		width: 90%;
-		display: inline-block;
-		min-height: 100vh;
-		height: 100%;
-		background-color: yellow;
-		transition: .4s ease;
-		opacity: 0;
-		padding: 1.5rem 0 0 0;
-		z-index: 9999;
-
-		@media (min-width: 991px){
-			width: 350px;
-			left: 0;
-			position: relative;
-			min-height: 100vh;
-			height: auto;
-			opacity: 1;
-			visibility: visible;
-			pointer-events: auto;
-		}
-		&.active{
-			//margin-right: 16%;
-			opacity: 1;
-
-			@media (min-width: 991px){
-				margin-right: -100%;
-				opacity: 0;
-				visibility: hidden;
-				pointer-events: none;
-			}
-		}
-
-		&--Lclose{
-			@include iconclose-fill(20px, 20px, #fff);
-			@media (min-width: 991px){
-    		display: none;
-    		pointer-events: none;
-    		opacity: 0;
-    		visibility: hidden;
-	    }	
-		}
-
-
-		&__cList{
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			&--cLogo{
-				text-align: center;
-				margin-bottom: 1.5rem;
-
-				@media (min-width: 768px){
-					margin-bottom: 2rem;
-				}
-
-				a{
-					img{
-
-					}				
-				}
-			}
-			&--cListOpts{
-				&--m{
-					&--item{
-
-					}
-					&--link{
-						display: block;
-				    padding: 1rem;
-				    line-height: 1.5;
-				    font-size: 1.2rem;
-				    color: $color-paragraph;
-
-				    @media (min-width: 768px){
-				    	padding: 1rem 1rem 1rem 2rem;
-				    }
-					}
-				}
-			}
-		}
-	}
-	*/
 
 	&--csidebarLeft{
 		background-color: rgba(0,0,0,.55);
@@ -190,11 +44,11 @@
 		  width: 95%;
 		  height: 100vh;
 		  text-align: center;
-		  padding-top: 30px;
+		  padding: 30px 0 0 0;
 		  position: fixed;
-		  transition:  all .5s ease;
+		  transition: all .5s ease;
 		  overflow-x: initial;
-		  overflow-y: scroll;
+		  overflow-y: auto;
 
 		  /* ANCHO DE LA BARRA DE SCROLL */
 			&::-webkit-scrollbar {width: 7px;}
@@ -246,20 +100,29 @@
 
 			&__mnav{
 				&--item {
-				  border-bottom: 1px solid #fff;
+				  border-bottom: thin solid #fff;
 				}
 
 				&--link{
 					display: block;
-				  padding: 20px 0;
+					text-align: left;
+				  padding: 1rem .5rem 1rem 1.5rem;
 				  color: $color-paragraph;
-				  font-size: 15px;
+				  font-size: .9rem;
 
 				  &:hover{
 				  	color: #333;
 					  background-color: #fff;
-					  font-weight: bold;
-					  border-right: 2px solid #ffffff;
+					  font-weight: 500;
+					  box-shadow: inset 3px 0 0 0 $border-color-btn-inset;
+				  }
+
+				  svg{
+				  	vertical-align: middle;
+				    width: 22px;
+				    height: 22px;
+				    margin-right: .5rem;
+				    fill: $color-paragraph;
 				  }
 				}
 			}
@@ -291,8 +154,8 @@
 }
 #openbtnToggSideNav_icon{
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: 37px;
+  height: 37px;
   position: absolute;
   left: 0;
   right: auto;

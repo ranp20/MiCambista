@@ -18,8 +18,8 @@ if(!isset($_SESSION['admin_micambista'])){
 		<div class="cDash-adm--containRight">
 			<?php require_once 'includes/headertop.php';	?>
 			<div class="cDash-adm--containRight--cContain">
-				<div class="cDash-adm--containRight--cContain--cTpage">
-					<h2>DASHBOARD</h2>
+				<div class="cDash-adm--containRight--cContain__addtitle">
+					<h2 class="cDash-adm--containRight--cContain__addtitle--title">DASHBOARD</h2>
 				</div>
 			</div>
 		</div>

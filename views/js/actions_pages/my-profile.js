@@ -1,8 +1,8 @@
-/************************** PREGUNTAR SI DE VERDAD DESEEA REGRESAR - SE PERDERÁN LOS CAMBIOS **************************/
+// ------------ PREGUNTAR SI DE VERDAD DESEEA REGRESAR - SE PERDERÁN LOS CAMBIOS
 // window.onbeforeunload = function(event) {
 //   event.returnValue = "¿Deseas salir?";
 // };
-/************************** MOSTRAR EL MODAL DE VALIDACIÓN **************************/
+// ------------ MOSTRAR EL MODAL DE VALIDACIÓN
 $(document).on("click", "#link-SValidModalAccBiometric", function(){
 	$("#box-ModalValidAccBiometric").addClass("show");
 	$("#box-ModalValidAccBiometric").html(`
@@ -14,7 +14,7 @@ $(document).on("click", "#link-SValidModalAccBiometric", function(){
 		</div>
 	`);
 });
-/************************** CERRAR EL MODAL DE VALIDACIÓN **************************/
+// ------------ CERRAR EL MODAL DE VALIDACIÓN
 $(document).on("click", "#icon-closeModalVAccBiometric", function(){$("#box-ModalValidAccBiometric").removeClass("show");});
 let contValidationBio = document.querySelector("#box-ModalValidAccBiometric");
 contValidationBio.addEventListener("click", e => {

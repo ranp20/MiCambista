@@ -1,6 +1,10 @@
 <?php 
 	//COMPRIMIR ARCHIVOS DE TEXTO...
   (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
+  session_start();
+  if(isset($_SESSION['cli_micambista'])){
+  	header("Location: control-panel");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">

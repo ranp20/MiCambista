@@ -1,8 +1,18 @@
 $(function(){
   listRates();
 });
+// ------------ FUNCIÓN - LIMITAR A DOS DECIMALES SIN REDONDEO
+function fourdecimals(n) {
+  let t = n.toString();
+  let regex = /(\d*.\d{0,4})/;
+  return t.match(regex)[0];
+}
+// ------------ LIMITAR A DOS DECIMALES CUALQUIER INPUT DE TIPO NÚMERO EN DONDE ESTÁ IMPORTADO ESTE ARCHIVO
+$(document).on("input","input[data-valformat='fourdecimal']",function(e){
+  ($(this).val() == "") ? $(this).val() : $(this).val(fourdecimals(e.target.value));
+});
 // ------------ LISTAR BANCOS
-function listRates(){ 
+function listRates(){
   $.ajax({
     url: "../admin/controllers/c_list-rates.php",
     method: "POST",
@@ -19,11 +29,11 @@ function listRates(){
       tmp_rates += `
         <div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem">
           <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Compra</label>
-          <input type="text" id="buy_at" name="buy_at" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].buy_at}" placeholder="precio de compra">
+          <input type="text" id="buy_at" name="buy_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].buy_at}" placeholder="precio de compra" minlength="3" maxlength="6">
         </div>
         <div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem">
           <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Venta</label>
-          <input type="text" id="sell_at" name="sell_at" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].sell_at}" placeholder="precio de venta">
+          <input type="text" id="sell_at" name="sell_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].sell_at}" placeholder="precio de venta" minlength="3" maxlength="6">
         </div>
       `;
 

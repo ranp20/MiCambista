@@ -138,6 +138,18 @@
 				    	z-index: 9;
 				    }
 
+				    &--itemanybanks{
+				    	display: flex;
+					    align-items: center;
+					    justify-content: flex-start;
+					    padding: .9rem 1rem;
+					    background-color: #eee;
+
+					    span{
+					    	color: $color-paragraph;
+					    }
+				    }
+
 				    &--item{
 				    	display: flex;
 				    	align-items: center;

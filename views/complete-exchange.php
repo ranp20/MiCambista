@@ -25,7 +25,7 @@ require_once '../php/process_data-list.php';
 						<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle">
 							<h2 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--title">¡Último paso!</h2>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--cIcon">
-								<img src="./assets/img/svg/transfer-complete-exchange.svg" alt="">
+								<img src="<?= $url ?>views/assets/img/svg/transfer-complete-exchange.svg" alt="">
 							</div>
 							<input type="hidden" id="vl-idUserSessFinal" value="<?= $idclient; ?>">
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textdesc">Transfiere desde tu banco por internet el monto de:</p>
@@ -77,7 +77,7 @@ require_once '../php/process_data-list.php';
 			<?php require_once 'includes/dashboard-formaddaccountbank.php'; ?>
 		</div>
 	</div>		
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>js/actions_pages/complete-exchange.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/complete-exchange.js"></script>
 </body>
 </html>

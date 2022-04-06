@@ -489,20 +489,21 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	    contentType: false,
 	    cache: false,
 	    processData: false,
-	  }).done((res) => {
-	  	
-	  	if(res == "true"){
-	  		
-	  		console.log('Se ha insertado');
-	  		$(this).attr("disabled","disabled");
-				$(this).addClass("sendShowComplete");
-				$(this).find("div").addClass("show");
-
-				setTimeout(function(){
-					window.location.replace("complete-exchange");
-				}, 2000);
+	  }).done((e) => {
+	  	if(e.length){
+		  	var r = JSON.parse(e);
+		  	if(r.res == "insert"){
+		  		$(this).attr("disabled","disabled");
+					$(this).addClass("sendShowComplete");
+					$(this).find("div").addClass("show");
+					setTimeout(function(){
+						window.location.replace("complete-divise");
+					}, 2000);
+		  	}else{
+		  		console.log('Error, ocurrió algo al momento de insertar el registro.');
+		  	}
 	  	}else{
-	  		console.log('No se insertó');
+	  		console.log('Error, lo sentimos hubo un error al insertar el registro.');
 	  	}
 	  });
 	}else{

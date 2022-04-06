@@ -35,6 +35,13 @@ p{
 	color: $color-paragraph;
 	margin-bottom: 0;
 }
+input[readonly]{
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	user-select: none;
+}
 /* UTILITIES EXTENDS */
 %color-letter-white{
 	color: #fff;
@@ -68,6 +75,43 @@ p{
 	pointer-events: none;
 	visibility: hidden;
 	opacity: 0;	
+}
+/* CLASS UTILITIES */
+.non-visvalipt{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
+}
+.h-alternative-shwnon{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
+}
+.s-fkeynone-step{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
 }
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{

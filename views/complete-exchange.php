@@ -10,7 +10,7 @@ require_once '../php/process_data-list.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Completado </title>
+	<title>Mi Cambista | Completar operación </title>
 	<?php require_once 'includes/header_links.php'; ?>
 </head>
 <body>
@@ -56,7 +56,7 @@ require_once '../php/process_data-list.php';
 							</div>
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo">
-								<a href="#">¿Dónde lo encuentro?</a>
+								<a href="javascript:void(0);">¿Dónde lo encuentro?</a>
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
 							</p>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">

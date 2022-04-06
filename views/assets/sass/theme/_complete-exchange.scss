@@ -50,6 +50,7 @@
 			&--subtitle{
 				margin-bottom: 0.5rem;
 				color: $color-paragraph;
+				font-size: 1.35rem;
 			}
 
 			&--cTopbankMiCambistainfo{
@@ -67,7 +68,7 @@
 				}
 
 				&:nth-child(3){
-					padding: .7rem 1rem;
+					padding: .75rem 1rem;
 				}
 
 				svg{
@@ -112,7 +113,9 @@
 					align-items: center;
 					justify-content: space-between;
 					color: $color-links;
+					margin: 0;
 					font-size: 1.05rem;
+					font-weight: 600;
 				}
 			}
 

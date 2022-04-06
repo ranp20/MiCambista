@@ -102,17 +102,17 @@ require_once '../php/process_data-list.php';
 				<div class="cControlP__cont--containDash--c" id="cont-complete-divise">
 					<div class="cControlP__cont--containDash--c--cCdivise">
 						<div class="cControlP__cont--containDash--c--cCdivise--cTitle">
-							<input type="text" readonly id="changecurridcli">
-							<input type="text" readonly id="typechangecurridcli">
-							<input type="text" readonly id="prefixcurridcli">
-							<input type="text" readonly id="quantitycurridcli">
-							<input type="text" readonly id="type_receivedcli">
-							<input type="text" readonly id="prefix_receivedcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="changecurridcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="typechangecurridcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefixcurridcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="quantitycurridcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="type_receivedcli">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefix_receivedcli">
 							<h2 class="cControlP__cont--containDash--c--cCdivise--cTitle--title">Completa los datos</h2>
 							<p class="cControlP__cont--containDash--c--cCdivise--cTitle--desc">Selecciona el banco de envío y la cuenta donde recibes</p>
 						</div>
 						<form method="POST" class="cControlP__cont--containDash--c--cCdivise--cF">
-							<input type="text" id="valIdUser_sess" value="<?= $idclient; ?>">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="valIdUser_sess" value="<?= $idclient; ?>">
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
 								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿Desde qué banco nos envía su dinero?</label>
 								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem" id="selListallBanks_CData">

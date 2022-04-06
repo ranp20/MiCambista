@@ -1,10 +1,10 @@
 <?php 
 require_once '../php/class/db/connection.php';
-class List_Accounts_PLatform_ByTypeCurrent extends Connection{
+class List_Currency_by_TypeCurrent extends Connection{
 	function list(){
 		$type_currency = $_POST['type_currency'];
 		try{
-			$sql = "CALL sp_list_account_platform_byTypeCurrent(:type_currency)";
+			$sql = "CALL sp_list_currency_byTypeCurrent(:type_currency)";
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":type_currency", $type_currency);
 			$stm->execute();
@@ -16,5 +16,5 @@ class List_Accounts_PLatform_ByTypeCurrent extends Connection{
 		}
 	}
 }
-$accountsplatform = new List_Accounts_PLatform_ByTypeCurrent();
-echo $accountsplatform->list();
+$accounts = new List_Currency_by_TypeCurrent();
+echo $accounts->list();

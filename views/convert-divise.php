@@ -25,7 +25,7 @@ require_once '../php/process_data-list.php';
 						<div class="sendBeforeCompleteDivise__charger--loader"></div>
 					</div>
 				</div>
-				<!-- CONTENIDO DE LA CALCULADORA-->
+				<!-- CONTENIDO - CONVERSOR DE DIVISAS-->
 				<div class="cControlP__cont--containDash--c" id="cont-convert-divise">
 					<div class="cControlP__cont--containDash--c--cConvertDivise">
 						<div class="cControlP__cont--containDash--c--cConvertDivise--cF">
@@ -70,7 +70,7 @@ require_once '../php/process_data-list.php';
 										<img src="<?= $url ?>views/assets/img/svg/circleArrows.svg" alt="">
 									</button>
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls">
-										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal">Dólares</div>
+										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal" id="txtDivise-two">Dólares</div>
 										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues">
 											<label for="inputval-two" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--label">Recibes</label>
 											<input type="text" name="val-amount_received" id="val-amount_received" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--input" min="0" maxlength="21">
@@ -98,21 +98,21 @@ require_once '../php/process_data-list.php';
 						</div>
 					</div>
 				</div>
-				<!-- CONTENIDO DEL FORMULARIO DE COMPLETADO DE CAMBIO -->
+				<!-- CONTENIDO - FORMULARIO DE COMPLETADO DE CAMBIO -->
 				<div class="cControlP__cont--containDash--c" id="cont-complete-divise">
 					<div class="cControlP__cont--containDash--c--cCdivise">
 						<div class="cControlP__cont--containDash--c--cCdivise--cTitle">
-							<input type="hidden" readonly id="changecurridcli">
-							<input type="hidden" readonly id="typechangecurridcli">
-							<input type="hidden" readonly id="prefixcurridcli">
-							<input type="hidden" readonly id="quantitycurridcli">
-							<input type="hidden" readonly id="type_receivedcli">
-							<input type="hidden" readonly id="prefix_receivedcli">
+							<input type="text" readonly id="changecurridcli">
+							<input type="text" readonly id="typechangecurridcli">
+							<input type="text" readonly id="prefixcurridcli">
+							<input type="text" readonly id="quantitycurridcli">
+							<input type="text" readonly id="type_receivedcli">
+							<input type="text" readonly id="prefix_receivedcli">
 							<h2 class="cControlP__cont--containDash--c--cCdivise--cTitle--title">Completa los datos</h2>
 							<p class="cControlP__cont--containDash--c--cCdivise--cTitle--desc">Selecciona el banco de envío y la cuenta donde recibes</p>
 						</div>
 						<form method="POST" class="cControlP__cont--containDash--c--cCdivise--cF">
-							<input type="hidden" id="valIdUser_sess" value="<?= $idclient; ?>">
+							<input type="text" id="valIdUser_sess" value="<?= $idclient; ?>">
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
 								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿Desde qué banco nos envía su dinero?</label>
 								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem" id="selListallBanks_CData">
@@ -158,7 +158,7 @@ require_once '../php/process_data-list.php';
 				</div>
 				<?php require_once 'includes/dashboard-contain-footer.php'; ?>
 			</section>
-			<?php require_once 'includes/dashboard-formaddaccountbank.php'; ?>
+			<?php require_once 'includes/dashboard-formaddaccountbank_by_tcurrent.php'; ?>
 		</div>
 	</div>		
 	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>

@@ -1,6 +1,5 @@
 <?php 
-
-if(isset($_POST)){
+if(isset($_POST) && $_POST > 0){
 	$arr_data = [
 		"cambioval" => $_POST['cambioval'],
 		"prefix" => $_POST['prefix'],
@@ -9,6 +8,10 @@ if(isset($_POST)){
 		"type_received" => $_POST['type_received'],
 		"prefix_received" => $_POST['prefix_received'],
 	];
+	/*
+	print_r($arr_data);
+	exit();
+	*/
 	$response = $arr_data;
 }else{
 	$response = $arr_data;

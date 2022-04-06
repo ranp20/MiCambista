@@ -14,7 +14,7 @@ function genId() {
   }, "E-".$format);
 }
 
-require_once '../php/class/connection.php';
+require_once '../php/class/db/connection.php';
 class Add_Transactions extends Connection{
 	function add(){
 

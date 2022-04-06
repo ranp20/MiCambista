@@ -13,7 +13,7 @@
 				<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
 			</div>
 			<div class="cControlP__cont--hTop--c--cLogHorario--cHorario">
-				<p>Lunes a Viernes: 9am 7:00pm </br> Sábados y Feriados: 9am a 2:30pm</p>
+				<p>Lunes a Viernes: 9am a 7:00pm </br> Sábados y Feriados: 9am a 2:30pm</p>
 			</div>
 		</div>
 		<div class="cControlP__cont--hTop--c--cWpsNameCli">

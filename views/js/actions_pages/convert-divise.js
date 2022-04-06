@@ -368,14 +368,20 @@ function list_rates_convert_divise(){
     var res = JSON.parse(e);
     var val_buy_at = res[0].buy_at;
     var val_sell_at = res[0].sell_at;
-    var convert_sell_at = putThousandsSeparators(res[0].sell_at);
+    var c_sell_at_one = putThousandsSeparators(res[0].sell_at);
+    var c_sell_at_two = c_sell_at_one.toString().split('.');
+    var c_sell_at_three = "";
+    if(c_sell_at_two[1].length > 3){
+    	c_sell_at_three = c_sell_at_two[0] + "," + c_sell_at_two[1].slice(0, 3) + "." + c_sell_at_two[1].slice(-1);
+    }
     var tmp_rates = "";
     if(res.length == 0){
     	console.log("No hay datos");
     }else{
-    	$("#refval_buy_at").text("S/. " + val_buy_at);
-    	$("#refval_sell_at").text("S/. " + val_sell_at);
-    	$("#val-amount_send").val(convert_sell_at);
+    	$("#refval_buy_at").html(`<span>S/. </span><span id='v-refRateBuyCurrent'>${val_buy_at}</span>`);
+    	$("#refval_sell_at").html(`<span>S/. </span><span id='v-refRateSellCurrent'>${val_sell_at}</span>`);
+    	$("#val-amount_send").val(c_sell_at_three);
+    	$("#val-amount_received").val(c_sell_at_three);
     }
   });
 }
@@ -385,62 +391,95 @@ $(document).on("click", "#btn-ChangeRotaeDivise", function(e){
 	const btnRotateDivise = $(this);
 	btnRotateDivise.toggleClass("active");
 });
-// ------------ ESCRIBIR EN EL INPUT DE ENVÍO
+// ------------ ESCRIBIR EN EL INPUT DE MONTO DE ENVÍO
 $(document).on("keyup", "#val-amount_send", function(e){
 	var thisval = e.target.value;
-	console.log(thisval);
+	var valreceived = $("#val-amount_received").val();
+	//console.log(thisval);
+	if(thisval != "" && thisval != 0 && thisval != 0.00 && thisval != null && valreceived != "" && valreceived != 0 && valreceived != 0.00 && valreceived != null){
+		$("#btn-initConvertPlatform").attr("type", "submit");
+		$("#btn-initConvertPlatform").removeAttr("disabled");
+		$("#btn-initConvertPlatform").addClass("completeFrm");
+	}else{
+		$("#btn-initConvertPlatform").attr("type", "button");
+		$("#btn-initConvertPlatform").attr("disabled", "disabled");
+		$("#btn-initConvertPlatform").removeClass("completeFrm");
+	}
+});
+// ------------ ESCRIBIR EN EL INPUT DE MONTO RECIBIR
+$(document).on("keyup", "#val-amount_received", function(e){
+	var thisval = e.target.value;
+	var valsend = $("#val-amount_send").val();
+	//console.log(thisval);
+	if(thisval != "" && thisval != 0 && thisval != 0.00 && thisval != null && valsend != "" && valsend != 0 && valsend != 0.00 && valsend != null){
+		$("#btn-initConvertPlatform").attr("type", "submit");
+		$("#btn-initConvertPlatform").removeAttr("disabled");
+		$("#btn-initConvertPlatform").addClass("completeFrm");
+	}else{
+		$("#btn-initConvertPlatform").attr("type", "button");
+		$("#btn-initConvertPlatform").attr("disabled", "disabled");
+		$("#btn-initConvertPlatform").removeClass("completeFrm");
+	}
 });
 // ------------ CONVESIÓN DE CAMBIO - HACIA EL PASO 2
-$(document).on("click", "#btn-initConvertPlatform", function(e){
+$(document).on("submit", "#frm-iConvDivi", function(e){
 	e.preventDefault();
-	$(this).attr("disabled","disabled");
-	$(this).addClass("sendShowComplete");
-	$(this).find("div").addClass("show");
+	$("#btn-initConvertPlatform").attr("disabled","disabled");
+	$("#btn-initConvertPlatform").removeClass("completeFrm");
+	$("#btn-initConvertPlatform").addClass("sendShowComplete");
+	$("#btn-initConvertPlatform").find("div").addClass("show");
 
-	var typeCURR = $(this).parent().parent().find("#txtDivise-one").text();
-	var quantityCURR = parseFloat($("#inputval-one").val());
-	var prefixCURR = $(this).parent().parent().find("#spanprefix-one").text();
-	var type_received = $(this).parent().parent().find("#txtDivise-two").text();
-	var prefix_received = $(this).parent().parent().find("#spanprefix-two").text();
-	
-	var valcambiocurr;
-	if(typeCURR == "Soles"){
-		valcambiocurr = $("#refer_solesdivise").text();
-	}else{
-		valcambiocurr = $("#refer_dollardivise").text();
-	}
+	if($("#val-amount_send").val() != "" && $("#val-amount_send").val() != 0 && $("#val-amount_send").val() != 0.00 &&
+		 $("#val-amount_received").val() != "" && $("#val-amount_received").val() != 0 && $("#val-amount_received").val() != 0.00){
 
-	var formData = new FormData();
-
-	formData.append("cambioval", valcambiocurr);
-	formData.append("prefix", prefixCURR);
-	formData.append("val_type", typeCURR);
-	formData.append("val_send", quantityCURR.toFixed(2));
-	formData.append("type_received", type_received);
-	formData.append("prefix_received", prefix_received);
-
-	$.ajax({
-		url: "php/process_convert-divise.php",
-		method: "POST",
-		dataType: "JSON",
-		data: formData,
-    contentType: false,
-    cache: false,
-    processData: false,
-	}).done(function(res){
-		if(res != ""){
-			$("#changecurridcli").val(res.cambioval);
-			$("#prefixcurridcli").val(res.prefix);
-			$("#typechangecurridcli").val(res.divise);
-			$("#quantitycurridcli").val(res.quantity);
-			$("#type_receivedcli").val(res.type_received);
-			$("#prefix_receivedcli").val(res.prefix_received);
-			setTimeout(function(){
-				$("#cont-convert-divise").addClass("sendShow");
-				$("#cont-complete-divise").addClass("sendShow");
-			}, 2000);
+		var typeCURR = $(this).parent().parent().find("#txtDivise-one").text();
+		var quantityCURR = $("#val-amount_send").val().replace(/[$,]/g,'');
+		var prefixCURR = $(this).parent().parent().find("#spanprefix-one").text();
+		var type_received = $(this).parent().parent().find("#txtDivise-two").text();
+		var prefix_received = $(this).parent().parent().find("#spanprefix-two").text();
+		
+		var valcambiocurr;
+		if(typeCURR == "Soles"){
+			valcambiocurr = $("#v-refRateBuyCurrent").text();
 		}else{
-			console.log('No se envió la respuesta');
+			valcambiocurr = $("#v-refRateSellCurrent").text();
 		}
-	});
+		var formData = new FormData();
+
+		formData.append("cambioval", valcambiocurr);
+		formData.append("prefix", prefixCURR);
+		formData.append("val_type", typeCURR);
+		formData.append("val_send", quantityCURR);
+		formData.append("type_received", type_received);
+		formData.append("prefix_received", prefix_received);
+
+		$.ajax({
+			url: "php/process_convert-divise.php",
+			method: "POST",
+			dataType: "JSON",
+			data: formData,
+	    contentType: false,
+	    cache: false,
+	    processData: false,
+		}).done(function(e){
+			if(e != ""){
+				$("#changecurridcli").val(e.cambioval);
+				$("#prefixcurridcli").val(e.prefix);
+				$("#typechangecurridcli").val(e.divise);
+				$("#quantitycurridcli").val(e.quantity);
+				$("#type_receivedcli").val(e.type_received);
+				$("#prefix_receivedcli").val(e.prefix_received);
+				setTimeout(function(){
+					$("#cont-convert-divise").addClass("sendShow");
+					$("#cont-complete-divise").addClass("sendShow");
+				}, 2000);
+			}else{
+				console.log('No se envió la respuesta');
+			}
+		});
+	}else{
+		$("#btn-initConvertPlatform").attr("type", "button");
+		$("#btn-initConvertPlatform").attr("disabled", "disabled");
+		$("#btn-initConvertPlatform").removeClass("completeFrm");
+	}
 });

@@ -1,4 +1,3 @@
-/*
 var idClient = $("#valIdUser_sess").val();
 // ------------ FORMATEAR A SOLO DOS DECIMALES
 function twodecimals(n) {
@@ -28,7 +27,7 @@ $(document).on("click", "#selListallBanks", function(e){
 				$("#listAllsBanks").html(template);
 			}else{
 				res.forEach((e) => {
-					var pathimgbank = "./admin/assets/img/banks/"+e.photo;
+					var pathimgbank = "./admin/views/assets/img/banks/"+e.photo;
 					template += `
 						<li class="cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item" id="${e.id}">
 							<div class="cformAddAccountBank--form--cControl--cSelItem--MenuListBanks--item--cImg">
@@ -111,13 +110,15 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 	});
 });
 // ------------ LISTAR LOS TIPOS DE MONEDA
-$(document).on("click", "#selListallCurrencyTypes", function(e){
+$(document).on("click", "#selListallCurrencyTypes_by_tcurrent", function(e){
 	var btnshow = $("#listcurrencytypes");
+	var tipocambio = $("#typechangecurridcli").val();
 	$.ajax({
-		url: "controllers/c_list-currency.php",
+		url: "controllers/c_list-currency-by-typecurrent.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+		data: { type_currency : tipocambio}
 	}).done( function (res) {
 		var tcurrencytype = "";
 
@@ -156,7 +157,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 			currencytypename: $(this).find("span").text(),
 		};
 		$("#newValCurrencyType").find("span").text(getcurrencytype['currencytypename']);
-		$("#selListallCurrencyTypes").find("input").attr("idcurrencytype", getcurrencytype['currencytypeid']);
+		$("#selListallCurrencyTypes_by_tcurrent").find("input").attr("idcurrencytype", getcurrencytype['currencytypeid']);
 	});
 });
 // ------------ VALIDAR SI EL NÚMERO DE CUENTA ESTÁ VACÍO
@@ -251,7 +252,6 @@ $(document).on("click", "#selListallBanks_CData", function(e){
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 		data: { type_currency : tipocambio}
 	}).done((res) => {
-		console.log(res);
 		var template = "";
 
 		if(!btnshow.hasClass("show")){
@@ -265,7 +265,7 @@ $(document).on("click", "#selListallBanks_CData", function(e){
 				$("#listAllsBanks_CData").html(template);
 			}else{
 				res.forEach((e) => {
-					var pathimgbank = "./admin/assets/img/transferbanks/"+e.photo;
+					var pathimgbank = "./admin/views/assets/img/transferbanks/"+e.photo;
 					template += `
 						<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData--item" id="${e.id}">
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData--item--cImg">
@@ -317,9 +317,7 @@ $(document).on("click", "#selListallaccountsBanks_CData", function(e){
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 		data: { id_client : idClient, type_currency : exchangeTypeCurrent}
 	}).done( function (res) {
-	
 		var template = "";
-
 		if(!btnshowaccounts.hasClass("show")){
 			btnshowaccounts.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -336,7 +334,7 @@ $(document).on("click", "#selListallaccountsBanks_CData", function(e){
       		var limitecuenta = (cuentabank.length >= 4) ? cuentabank.replace(cuentabank.substring(0, 10), "*******") : cuentabank;
       		var alias = e.alias;
       		var limitealias = (alias.length >= 15) ? alias.substring(15, 0) + "..." : alias;
-					var pathimgbank = "./admin/assets/img/banks/"+e.imgbanco;
+					var pathimgbank = "./admin/views/assets/img/banks/"+e.imgbanco;
 					template += `
 						<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData--item" id="${e.id}">
 							<input type="hidden" accname="${limitealias}" accnum="${limitecuenta}">
@@ -385,7 +383,7 @@ function listAccountsCDivise(){
     		var limitecuenta = (cuentabank.length >= 4) ? cuentabank.replace(cuentabank.substring(0, 10), "*******") : cuentabank;
     		var alias = e.alias;
     		var limitealias = (alias.length >= 15) ? alias.substring(15, 0) + "..." : alias;
-				var pathimgbank = "./admin/assets/img/banks/"+e.imgbanco;
+				var pathimgbank = "./admin/views/assets/img/banks/"+e.imgbanco;
 				template += `
 					<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData--item" id="${e.id}">
 						<input type="hidden" accname="${limitealias}" accnum="${limitecuenta}">
@@ -511,4 +509,3 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 		console.log('No se enviaron los datos');
 	}
 });
-*/

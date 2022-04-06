@@ -125,6 +125,8 @@
 				    border-left: none;
 				    border-right: none;
 				    border-bottom: none;
+				    padding: 0;
+				    margin: 0;
 
 				    &.show{
 				    	border-top: thin solid transparent;
@@ -246,6 +248,8 @@
 					    border-left: none;
 					    border-right: none;
 					    border-bottom: none;
+					    padding: 0;
+					    margin: 0;
 
 					    &.show{
 					    	border-top: thin solid transparent;

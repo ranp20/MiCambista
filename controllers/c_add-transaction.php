@@ -31,10 +31,11 @@ class Add_Transactions extends Connection{
 			"prefix_received" => $_POST['prefix_received'],
 			"amount_received" => $_POST['amount_received'],
 			"tasa_change" => $_POST['tasa_change'],
+			"status_send" => (isset($_POST['status_send'])) ? $_POST['status_send'] : "Pending"
 		];
 
 		try{
-			$sql = "CALL sp_add_transactions(:code_reg, :code_order, :id_client, :id_transfer_bank, :id_account_bank, :type_send, :prefix_send, :amount_send, :type_received, :prefix_received, :amount_received, :tasa_change)";
+			$sql = "CALL sp_add_transactions(:code_reg, :code_order, :id_client, :id_transfer_bank, :id_account_bank, :type_send, :prefix_send, :amount_send, :type_received, :prefix_received, :amount_received, :tasa_change, :status_send)";
 			$stm = $this->con->prepare($sql);
 			foreach ($arr_addtransac as $key => $value) {
 				$stm->bindValue($key, $value);

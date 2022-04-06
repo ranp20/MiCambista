@@ -145,6 +145,8 @@
 						padding: .65rem 1rem;
 
 						&--m{
+							padding: 0;
+							margin: 0;
 							&--item{
 								display: flex;
 								align-items: center;
@@ -173,19 +175,26 @@
 									display: flex;
 									align-items: center;
 									&--status{
-										width: 18px;
-										height: 18px;
-										border-radius: 50%;
-										background-color: #E8E226;
+										max-width: 18px;
+										width: auto;
+										height: auto;
+										overflow: hidden;
+										display: flex;
 
-										&.complete{
-											background-color: #60E266;
-										}
-										&.process{
-											background-color: #E8E226;
-										}
-										&.cancel{
-											background-color: #E26066;
+										span{
+											width: 18px;
+											height: 18px;
+											border-radius: 50%;
+											background-color: #E8E226;											
+											&.process{
+												background-color: #E8E226;
+											}
+											&.complete{
+												background-color: #60E266;
+											}
+											&.cancel{
+												background-color: #E26066;
+											}
 										}
 									}
 

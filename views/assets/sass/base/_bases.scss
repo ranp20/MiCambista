@@ -1635,6 +1635,8 @@ input[readonly]{
 						padding: 0;
 					}
 					&--m{
+						padding: 0;
+						margin: 0;
 						&--item{
 							display: flex;
 							align-items: center;
@@ -1657,10 +1659,21 @@ input[readonly]{
 							&--cStatus{
 								padding: 0.5rem 1rem;
 								border-radius: .6rem;
-								background-color: yellow;
 								color: $color-paragraph;
 								span{
 									font-size: 0.78rem;
+								}
+
+								&.process{
+									background-color: yellow;
+								}
+
+								&.cancel{
+									background-color: #e26066;
+								}
+
+								&.complete{
+									background-color: #60E266;
 								}
 							}
 

@@ -1,3 +1,4 @@
+/*
 var idClient = $("#valIdUser_sess").val();
 // ------------ FORMATEAR A SOLO DOS DECIMALES
 function twodecimals(n) {
@@ -214,7 +215,7 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 		  	$(".cformAddAccountBank").removeClass("show");
 				$(".cformAddAccountBank--form").removeClass("show");
 				listAccountsCDivise();
-				/************************** RESETEAR EL FORMULARIO **************************/
+				// ------------ RESETEAR EL FORMULARIO
 	     	$("#selListAllBanks--img").find("span").css({"display":"block"});
 	     	$("#selListAllBanks--img").find("img").attr("src", "");
 	     	$("#selListallBanks--input").attr("idbank", "");
@@ -510,3 +511,4 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 		console.log('No se enviaron los datos');
 	}
 });
+*/

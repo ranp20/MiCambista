@@ -90,7 +90,6 @@
       </div>
     </div>
   </div>
-  <script src="<?= $url ?>views/js/jquery/jquery-3.3.1.min.js"></script>
   <script src="<?= $url ?>views/js/actions_pages/add-client.js"></script>
 </body>
 </html>

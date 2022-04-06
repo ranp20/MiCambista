@@ -1,14 +1,21 @@
 #cont-convert-divise{
 	position: relative;
 	padding-top: 3rem;
-	opacity: 1;
 	display: block;
-	pointer-events: auto;
+	/*
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+	*/
 
 	&.sendShow{
-		opacity: 0;
 		display: none;
+		visibility: hidden;
+		opacity: 0;
 		pointer-events: none;
+		user-select: none;
 		animation-name: sendShowConvert;
 		animation-duration: .2;
 		animation-timing-function: ease-in-out .3s;
@@ -16,14 +23,18 @@
 
 	@keyframes sendShowConvert{
 		0%{
-			opacity: 1;
 			display: block;
+			visibility: visible;
+			opacity: 1;
 			pointer-events: auto;
+			user-select: auto;
 		}
 		100%{
-			opacity: 0;
 			display: none;
+			visibility: hidden;
+			opacity: 0;
 			pointer-events: none;
+			user-select: none;
 		}
 	}
 

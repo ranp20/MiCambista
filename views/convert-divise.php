@@ -49,20 +49,20 @@ require_once '../php/process_data-list.php';
 									</ul>
 								</div>
 							</div>
-							<form method="POST" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform">
+							<form action="" method="POST" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform" id="frm-iConvDivi">
 								<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--cTimeChangeDivise">
 									<p>Se actualizará el tipo de cambio en:</p>
 									<p>
 										<svg class="MuiSvgIcon-root mr-2" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path></svg>
-										<span>4:31</span>
+										<span id="countdownRates">5:00</span>
 									</p>
 								</div>
 								<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc">
-									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls" id="cont-DiviseOne">
+									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls">
 										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal" id="txtDivise-one">Soles</div>
 										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues">
 											<label for="inputval-one" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--label">Envías</label>
-											<input type="text" name="inputval-one" id="inputval-one" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--input" min="0" maxlength="21">
+											<input type="text" name="val-amount_send" id="val-amount_send" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--input" min="0" maxlength="21">
 											<span id="spanprefix-one">S/.</span>
 										</div>
 									</div>
@@ -70,10 +70,10 @@ require_once '../php/process_data-list.php';
 										<img src="<?= $url ?>views/assets/img/svg/circleArrows.svg" alt="">
 									</button>
 									<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls">
-										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal" id="txtDivise-two">Dólares</div>
+										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--ChangeVal">Dólares</div>
 										<div class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues">
 											<label for="inputval-two" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--label">Recibes</label>
-											<input type="text" name="inputval-two" id="inputval-two" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--input" min="0" maxlength="21">
+											<input type="text" name="val-amount_received" id="val-amount_received" class="cControlP__cont--containDash--c--cConvertDivise--cF--cform--Cc--controls--cValues--input" min="0" maxlength="21">
 											<span id="spanprefix-two">$</span>
 										</div>
 									</div>
@@ -129,8 +129,6 @@ require_once '../php/process_data-list.php';
 							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
 								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿En qué cuenta recibirás tu dinero?</label>
 								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks">
-									
-
 									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem" id="selListallaccountsBanks_CData">
 										<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData" id="selListAllaccountsBanks--img_CData">
 											<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--placeholder">Selecciona una de tus cuentas</span>
@@ -141,8 +139,6 @@ require_once '../php/process_data-list.php';
 										<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData" id="listAllsAccountsBanks_CData"></ul>
 									</div>
 									<span id="msgerrorNounSelAccountBankReceived_CData"></span>
-
-
 									<button type="button" id="btn-addAccountform" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--caddBanks">
 										<span>Agregar cuenta</span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>

@@ -1,14 +1,18 @@
 #cont-complete-divise{
 	position: relative;
 	padding-top: 3rem;
-	opacity: 0;
 	display: none;
+	visibility: hidden;
+	opacity: 0;
 	pointer-events: none;
+	user-select: none;
 
 	&.sendShow{
-		opacity: 1;
 		display: block;
+		visibility: visible;
+		opacity: 1;
 		pointer-events: auto;
+		user-select: auto;
 		animation-name: sendShowConvert;
 		animation-duration: .2;
 		animation-timing-function: ease-in-out .3s;
@@ -16,18 +20,25 @@
 
 	@keyframes sendShowConvert{
 		0%{
-			opacity: 0;
 			display: none;
+			visibility: hidden;
+			opacity: 0;
 			pointer-events: none;
+			user-select: none;
 		}
 		100%{
-			opacity: 1;
 			display: block;
+			visibility: visible;
+			opacity: 1;
 			pointer-events: auto;
+			user-select: auto;
 		}
 	}
 	.cControlP__cont--containDash--c--cCdivise{
 		text-align: center;
+		max-width: 450px;
+    width: 95%;
+    margin: 0 auto 0 auto;
 		
 		&--cTitle{
 			margin-bottom: 3rem;

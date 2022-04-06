@@ -47,7 +47,7 @@ require_once '../php/process_session.php';
             <button class="cLogin__cont--fLogin--form--cBtnsActions--btnLogin" id="btn-loginCliMiCambista" type="submit">Ingresar</button>
             <a href="#" id="btnLognWithGoogleAuth" class="cLogin__cont--fLogin--form--cBtnsActions--btnLoginWithGoogle">
                 <img src="<?= $url ?>views/assets/img/svg/google_icon-Instakash.svg" alt="logo_google">Acceder con Google</a>
-            <p class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount">¿Eres nuevo en Instakash?<a href="signup" class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount--link">Regístrate</a></p>
+            <p class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount">¿Eres nuevo en Mi Cambista?<a href="signup" class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount--link">Regístrate</a></p>
           </div>
         </form>
       </div>

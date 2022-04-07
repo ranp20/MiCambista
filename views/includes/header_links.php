@@ -1,7 +1,13 @@
 <?php
 	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+  // CONFIGURACIÓN - LOCALHOST
   $url =  $actual_link . "/micambista/";
   $url_defaultURL =  $actual_link . "/micambista";
+  // CONFIGURACIÓN - SERVIDOR
+  /*
+  $url =  $actual_link . "/";
+  $url_defaultURL =  $actual_link . "/";
+  */
 ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">

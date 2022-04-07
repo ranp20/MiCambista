@@ -1,6 +1,11 @@
 <?php 
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+  // CONFIGURACIÓN - LOCALHOST
   $urlAdmin =  $actual_link . "/MiCambista/admin/";
+  // CONFIGURACIÓN - SERVIDOR
+  /*
+  $urlAdmin =  $actual_link . "/admin/";
+  */
 ?>
 <div class="cDash-adm--containRight--cTop">
 	<div class="cDash-adm--containRight--cTop--cont">
@@ -21,7 +26,8 @@
 			<ul class="cDash-adm--containRight--cTop--cont--item--m" id="m-OptsuserList">
 				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="#" class="cDash-adm--containRight--cTop--cont--item--m--link">Mi perfil</a>
 				</li>
-				<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="<?= $urlAdmin ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>
+				<li class="cDash-adm--containRight--cTop--cont--item--m--item">
+					<a href="<?= $urlAdmin ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>
 				</li>
 			</ul>
 		</div>

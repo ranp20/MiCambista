@@ -1,3 +1,32 @@
+$(() => {
+	// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE AGREGAR CUENTA BANCARIA
+	const btn_frmOpenAddAccount = document.querySelector("#btn-addAccountform");
+	const btn_frmCloseAddAccount = document.querySelector("#icon_frmbtnClose");
+	const c_totalfrmAddAccount = document.querySelector(".cformAddAccountBank");
+	const c_containfrmAddAccount = document.querySelector(".cformAddAccountBank--form");
+
+	btn_frmOpenAddAccount.addEventListener("click", function(){
+		c_totalfrmAddAccount.classList.add("show");
+		c_containfrmAddAccount.classList.add("show");
+
+		$("#selListAllBanks--img_CData").find("span").text("Selecciona un banco");
+		$("#selListAllBanks--img_CData").find("img").attr("src", "");
+		$("#selListallBanks_CData").find("input").removeAttr("idbank");
+		$("#selListAllaccountsBanks--img_CData").find("span").text("Selecciona una de tus cuentas");
+		$("#selListAllaccountsBanks--img_CData").find("span").css({"margin-right":"0"});
+		$("#selListAllaccountsBanks--img_CData").find("img").attr("src", "");
+		$("#selListallaccountsBanks_CData").find("input").removeAttr("idaccountbank");
+	});
+	c_totalfrmAddAccount.addEventListener('click', e => {
+		if(e.target === c_totalfrmAddAccount){
+			c_totalfrmAddAccount.classList.remove('show');
+		}
+	});
+	btn_frmCloseAddAccount.addEventListener("click", function(){
+		c_totalfrmAddAccount.classList.remove("show");
+		c_containfrmAddAccount.classList.remove("show");
+	});
+});
 var idClient = $("#valIdUser_sess").val();
 // ------------ FORMATEAR A SOLO DOS DECIMALES
 function twodecimals(n) {
@@ -420,23 +449,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cContro
 		$("#selListallaccountsBanks_CData").find("input").attr("idaccountbank", getinfoaccountbanks['accountid']);
 	});
 });
-// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE AGREGAR CUENTA BANCARIA
-document.querySelector("#btn-addAccountform").addEventListener("click", function(){
-	document.querySelector(".cformAddAccountBank").classList.add("show");
-	document.querySelector(".cformAddAccountBank--form").classList.add("show");
 
-	$("#selListAllBanks--img_CData").find("span").text("Selecciona un banco");
-	$("#selListAllBanks--img_CData").find("img").attr("src", "");
-	$("#selListallBanks_CData").find("input").removeAttr("idbank");
-	$("#selListAllaccountsBanks--img_CData").find("span").text("Selecciona una de tus cuentas");
-	$("#selListAllaccountsBanks--img_CData").find("span").css({"margin-right":"0"});
-	$("#selListAllaccountsBanks--img_CData").find("img").attr("src", "");
-	$("#selListallaccountsBanks_CData").find("input").removeAttr("idaccountbank");
-});
-let contformRegAccount = document.querySelector('.cformAddAccountBank');
-contformRegAccount.addEventListener('click', e => {
-	if(e.target === contformRegAccount)	contformRegAccount.classList.remove('show');
-});
 // ------------ AGREGAR TRANSACCIÓN
 $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	e.preventDefault();

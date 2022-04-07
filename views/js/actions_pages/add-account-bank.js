@@ -1,5 +1,30 @@
 $(function(){
 	listAccountsUser();
+	// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS
+	const btn_frmOpenAddAccount = document.querySelector("#btn-addAccountform");
+	const btn_frmCloseAddAccount = document.querySelector("#icon_frmbtnClose");
+	const c_totalfrmAddAccount = document.querySelector(".cformAddAccountBank");
+	const c_containfrmAddAccount = document.querySelector(".cformAddAccountBank--form");
+	const contformUpdAccount = document.querySelector('.cformDetailsAccount');
+	btn_frmOpenAddAccount.addEventListener("click", function(){
+		c_totalfrmAddAccount.classList.add("show");
+		c_containfrmAddAccount.classList.add("show");
+	});
+	btn_frmCloseAddAccount.addEventListener("click", function(){
+		c_totalfrmAddAccount.classList.remove("show");
+		c_containfrmAddAccount.classList.remove("show");
+	});
+	c_totalfrmAddAccount.addEventListener('click', e => {
+		if(e.target === c_totalfrmAddAccount){
+			c_totalfrmAddAccount.classList.remove('show');
+			c_containfrmAddAccount.classList.remove("show");	
+		}
+	});
+	contformUpdAccount.addEventListener('click', e => {
+		if(e.target === contformUpdAccount){
+			contformUpdAccount.classList.remove('show');
+		}
+	});
 });
 var idClient = $("#input-idClientVal").val();
 // ------------ LISTAR LOS BANCOS JUNTO AL NOMBRE 
@@ -303,22 +328,7 @@ function listAccountsUser(){
 		});
   });
 }
-// ------------ TROZO DE VANILLA JS 
-// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS 
-document.querySelector("#btn-addAccountform").addEventListener("click", function(){
-	document.querySelector(".cformAddAccountBank").classList.add("show");
-	document.querySelector(".cformAddAccountBank--form").classList.add("show");
-});
-let contformRegAccount = document.querySelector('.cformAddAccountBank');
-contformRegAccount.addEventListener('click', e => {
-	if(e.target === contformRegAccount)	contformRegAccount.classList.remove('show');
-});
-// ------------ ACTUALIZACIÓN DEL DETALLE DE LA CUENTA BANCARIA 
-// ------------ CERRAR MODAL DEL DETALLE DE LA CUENTA 
-let contformUpdAccount = document.querySelector('.cformDetailsAccount');
-contformUpdAccount.addEventListener('click', e => {
-	if(e.target === contformUpdAccount)	contformUpdAccount.classList.remove('show');
-});
+
 // ------------ LISTAR EL DETALLE DE LA CUENTA 
 function listAccountDetails(){
 	var idaccountdetail = $("#val-idaccountdetail").val();
@@ -356,15 +366,15 @@ $(document).on("click", "#btn-HiddenupdateDetailsAccount", function(){
 });
 // ------------ LIMITAR EL MÁXIMO DE NÚMEROS EN NÚMERO DE CUENTA 
 $("#numaccountupdate-cli").on('keyup keypress blur change', function(e) {
-    //return false if not 0-9
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-       return false;
-    }else{
-        //limit length but allow backspace so that you can still delete the numbers.
-        if( $(this).val().length >= parseInt($(this).attr('maxlength')) && (e.which != 8 && e.which != 0)){
-            return false;
-        }
+  //return false if not 0-9
+  if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+    return false;
+  }else{
+    //limit length but allow backspace so that you can still delete the numbers.
+    if( $(this).val().length >= parseInt($(this).attr('maxlength')) && (e.which != 8 && e.which != 0)){
+        return false;
     }
+  }
 });
 // ------------ VALIDAR SI SE HA ESCRITO EN NÚMERO DE CUENTA 
 $(document).on("keyup", "#numaccountupdate-cli", function(){
@@ -413,7 +423,7 @@ $(document).on("click", "#btn-updateDetailsAccount", function(e){
 $(document).on("click", "#btn-ShowDeleteAccount", function(e){
 	e.preventDefault();
 	var aliasaccountdetail = $("#aliasacccountupdate-cli").val();
-	$("#aliasAccount-delete").text(aliasaccountdetail);
+	$("#aliasAccount-delete").text('"'+aliasaccountdetail+'"');
 	$(".alert-DeleteAccount").addClass("show");
 	$(".alert-DeleteAccount--c").addClass("show");	
 });
@@ -424,7 +434,9 @@ $(document).on("click", "#btn-cancelDeleteAccount", function(){
 });
 let contformDelAccount = document.querySelector('.alert-DeleteAccount');
 contformDelAccount.addEventListener('click', e => {
-	if(e.target === contformDelAccount)	contformDelAccount.classList.remove('show');
+	if(e.target === contformDelAccount){
+		contformDelAccount.classList.remove('show');
+	}
 });
 // ------------ ELIMINAR UNA CUENTA 
 $(document).on("click", "#btn-AceptDeleteAccount", function(e){

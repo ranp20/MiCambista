@@ -1,62 +1,67 @@
-((d) => {
-	
-	/************************** MOSTRAR/OCULTAR EL SIDEBAR DE LA IZQUIERDA **************************/
-	d.querySelector("#m-show-hpagepanel").addEventListener("click", function(){
-		d.querySelector(".cControlP__cont--sdLeft").classList.toggle("show");
-		d.querySelector(".cControlP__cont--sdLeft--c").classList.toggle("show");
+$(() => {
+	const btn_OpensideLeftpanel = document.querySelector("#m-show-hpagepanel");
+	const c_totalSideLeft = document.querySelector(".cControlP__cont--sdLeft");
+	const c_containSideLeft = document.querySelector(".cControlP__cont--sdLeft--c");
+	const btn_OpensideRightpanel = document.querySelector("#btnShowSideRight");
+	const btn_ClosesideRightpanel = document.querySelector("#btnCloseSdRight");
+	const c_totalSideRight = document.querySelector(".cControlP__cont--sdRight");
+	const c_containSideRight = document.querySelector(".cControlP__cont--sdRight--c");
+	// ------------ MOSTRAR/OCULTAR EL SIDEBAR DE LA IZQUIERDA
+	btn_OpensideLeftpanel.addEventListener("click", function(){
+		c_totalSideLeft.classList.toggle("show");
+		c_containSideLeft.classList.toggle("show");
 	});
-	d.addEventListener("click", e => {
+	document.addEventListener("click", e => {
 		if(!e.target.matches('.cControlP__cont--sdLeft--c--m a')) return false;
-		d.querySelector(".cControlP__cont--sdLeft").classList.remove("show");
-		d.querySelector(".cControlP__cont--sdLeft--c").classList.remove("show");
+		c_totalSideLeft.classList.remove("show");
+		c_containSideLeft.classList.remove("show");
 	});
-	let contsidebarLeft = document.querySelector('.cControlP__cont--sdLeft');
-	contsidebarLeft.addEventListener('click', e => {
-		if(e.target === contsidebarLeft)	contsidebarLeft.classList.remove('show');
+	c_totalSideLeft.addEventListener('click', e => {
+		if(e.target === c_totalSideLeft){
+			c_totalSideLeft.classList.remove('show');
+			c_containSideLeft.classList.remove('show');
+		}
 	});
-
-	/************************** MOSTRAR/OCULTAR EL SIDEBAR DE LA ABAJO/DERECHA **************************/
-	d.querySelector("#btnShowSideRight").addEventListener("click", function(){
-		d.querySelector(".cControlP__cont--sdRight").classList.add("show");
-		d.querySelector(".cControlP__cont--sdRight--c").classList.add("show");
+	// ------------ MOSTRAR/OCULTAR EL SIDEBAR DE LA ABAJO/DERECHA
+	btn_OpensideRightpanel.addEventListener("click", function(){
+		c_totalSideRight.classList.add("show");
+		c_containSideRight.classList.add("show");
 	});
-	d.querySelector("#btnCloseSdRight").addEventListener("click", function(){
-		d.querySelector(".cControlP__cont--sdRight").classList.remove("show");
-		d.querySelector(".cControlP__cont--sdRight--c").classList.remove("show");
+	btn_ClosesideRightpanel.addEventListener("click", function(){
+		c_totalSideRight.classList.remove("show");
+		c_containSideRight.classList.remove("show");
 	});
-	d.addEventListener("click", e => {
+	document.addEventListener("click", e => {
 		if(!e.target.matches('.cControlP__cont--sdRight--c--m a')) return false;
-		d.querySelector(".cControlP__cont--sdRight").classList.remove("show");
-		d.querySelector(".cControlP__cont--sdRight--c").classList.remove("show");
+		c_totalSideRight.classList.remove("show");
+		c_containSideRight.classList.remove("show");
 	});
-	let contsidebarRight = document.querySelector('.cControlP__cont--sdRight');
-	contsidebarRight.addEventListener('click', e => {
-		if(e.target === contsidebarRight)	contsidebarRight.classList.remove('show');
+	c_totalSideRight.addEventListener('click', e => {
+		if(e.target === c_totalSideRight){
+			c_totalSideRight.classList.remove('show');
+			c_containSideRight.classList.remove("show");
+		}
 	});
-
-
-})(document);
-
-/************************** ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - IZQUIERDA **************************/
-var url = window.location.pathname;
-var filename = url.substring(url.lastIndexOf('/')+1);
-if(filename == "complete-exchange"){
-	$(".cControlP__cont--sdLeft--c--m--item a").eq(0).removeClass("active");
-	$(".cControlP__cont--sdLeft--c--m--item a").eq(2).removeClass("active");
-	$(".cControlP__cont--sdLeft--c--m--item a").eq(3).removeClass("active");
-	$('.cControlP__cont--sdLeft--c--m--item a').eq(1).addClass("active");
-}else{
-	$(".cControlP__cont--sdLeft--c--m--item a").removeClass("active");
-	$('.cControlP__cont--sdLeft--c--m--item a[href="' + filename + '"]').addClass("active");
-}
-
-/************************** ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - DERECHA **************************/
-var url2 = window.location.pathname;
-var filename2 = url2.substring(url2.lastIndexOf('/')+1);
-if(filename2 == "control-panel"){
-	$(".cControlP__cont--sdRight--c--m--item a").eq(1).removeClass("active");
-	$('.cControlP__cont--sdRight--c--m--item a').eq(0).addClass("active");
-}else{
-	$(".cControlP__cont--sdRight--c--m--item a").removeClass("active");
-	$('.cControlP__cont--sdRight--c--m--item a[href="' + filename2 + '"]').addClass("active");
-}
+	// ------------ ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - IZQUIERDA
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1);
+	if(filename == "complete-exchange"){
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(0).removeClass("active");
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(2).removeClass("active");
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(3).removeClass("active");
+		$('.cControlP__cont--sdLeft--c--m--item a').eq(1).addClass("active");
+	}else{
+		$(".cControlP__cont--sdLeft--c--m--item a").removeClass("active");
+		$('.cControlP__cont--sdLeft--c--m--item a[href="' + filename + '"]').addClass("active");
+	}
+	// ------------ ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - DERECHA
+	var url2 = window.location.pathname;
+	var filename2 = url2.substring(url2.lastIndexOf('/')+1);
+	if(filename2 == "control-panel"){
+		$(".cControlP__cont--sdRight--c--m--item a").eq(1).removeClass("active");
+		$('.cControlP__cont--sdRight--c--m--item a').eq(0).addClass("active");
+	}else{
+		$(".cControlP__cont--sdRight--c--m--item a").removeClass("active");
+		$('.cControlP__cont--sdRight--c--m--item a[href="' + filename2 + '"]').addClass("active");
+	}
+});

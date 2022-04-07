@@ -1,3 +1,5 @@
+
+/*
 var idClient = $("#input-idClientValEnterprise").val();
 // ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE EMPRESAS 
 document.querySelector("#btn-addAccountEnterpriseShow").addEventListener("click", function(){
@@ -68,31 +70,30 @@ $(document).on("click", "#btn-addAccountEnterprise", function(e){
 	    processData: false,
 	  }).done((e) => {
 	  	console.log(e);
-	  	/*
-	  	if(res == "true"){		  	
-	     	// ------------ LIMPIAR FORMULARIO 
-		  	$(".cformAddAccountEnterprise").removeClass("show");
-				$(".cformAddAccountEnterprise--form").removeClass("show");
-	     	$('#form-AddAccountEnterprise')[0].reset();
-				// ------------ ALERTA 
-				$("#msgAlertLogin").html(`
-  			<div class='message-success'>
-					<div class='message-success__content'>
-						<div class='message-success__content--btnclosed' id='btnclosed'></div>
-						<h2 class='message-success__content--title'>Agregado!</h2>
-						<p class='message-success__content--text'>Se agregó la empresa correctamente.</p>
-					</div>
-				</div>
-	  		`);
-				setTimeout(function(){
-					location.replace("control-panel");
-				}, 500);
-	  	}else{
-	  		console.log('Error, no se insertó');
-	  	}
-	  	*/
+	  	// if(res == "true"){		  	
+	   //   	// ------------ LIMPIAR FORMULARIO 
+		  // 	$(".cformAddAccountEnterprise").removeClass("show");
+				// $(".cformAddAccountEnterprise--form").removeClass("show");
+	   //   	$('#form-AddAccountEnterprise')[0].reset();
+				// // ------------ ALERTA 
+				// $("#msgAlertLogin").html(`
+  		// 	<div class='message-success'>
+				// 	<div class='message-success__content'>
+				// 		<div class='message-success__content--btnclosed' id='btnclosed'></div>
+				// 		<h2 class='message-success__content--title'>Agregado!</h2>
+				// 		<p class='message-success__content--text'>Se agregó la empresa correctamente.</p>
+				// 	</div>
+				// </div>
+	  	// 	`);
+				// setTimeout(function(){
+				// 	location.replace("control-panel");
+				// }, 500);
+	  	// }else{
+	  	// 	console.log('Error, no se insertó');
+	  	// }
 	  });
 	}else{
 		console.log('No hay datos');
 	}
 });
+*/

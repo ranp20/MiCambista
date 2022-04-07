@@ -152,7 +152,7 @@
 								align-items: center;
 								justify-content: space-between;
 								margin-bottom: 1.2rem;
-								flex-wrap: wrap;
+								flex-flow: wrap row;
 
 								/* MENSAJE CUANDO NO HAY REGISTROS */
 								&--itemanybanks{

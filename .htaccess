@@ -20,6 +20,7 @@ RewriteRule tarifario?$ admin/views/rates.php
 RewriteRule paises?$ admin/views/countries.php
 RewriteRule bancos?$ admin/views/banks.php
 RewriteRule transbanks?$ admin/views/my-banks.php
+RewriteRule ajustes?$ admin/views/settings.php
 
 ############RENAME ACTION IN PAGES OF THE CLIENT
 RewriteRule control-panel?$ views/control-panel.php

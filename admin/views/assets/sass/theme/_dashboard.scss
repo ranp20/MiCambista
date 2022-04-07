@@ -19,7 +19,7 @@
     }
 
     @media (min-width: 991px){
-    	margin-left: 250px;
+    	margin-left: 245px;
     	&.v-show{
 				margin-left: 0;
 			}
@@ -313,11 +313,13 @@
 
 			// DASHBOARD ADMIN - BODY
 			&__cBody{
+
+				// CONTENEDOR DE TARGETAS - CARDS
 				&__cardBody{
 					border: thin solid #eee;
 					padding: 1rem 1rem;
 					border-radius: 4px;
-					box-shadow: 0 0 4px 0px #eeee;
+					box-shadow: 0 3px 5px 0px #eeee;
 					background-color: #fff;
 					&__contCol{
 						&__cardTitle{
@@ -395,6 +397,120 @@
 					    	background-color: #f1c40f;
 					    }
 						}
+					}
+				}
+
+				// CONTENEDOR DE AJUSTES - SETTINGS
+				&__cSettings{
+					display: flex;
+			    flex-flow: wrap row;
+			    width: 100%;
+			    height: auto;
+			    flex: 0 0 100%;
+			    align-items: flex-start;
+			    justify-content: flex-start;
+			    position: relative;
+			    row-gap: 1.05rem;
+    			column-gap: 1.05rem;
+
+					&__sideLinkAnchors{
+						flex: 100%;
+						width: auto;
+						margin: 0;
+
+						@media (min-width: 768px){
+							flex: 20%;
+						}
+
+						&__cLinks{
+							border: thin solid #eee;
+							border-radius: 5px;
+							box-shadow: 0 3px 5px 0px #eeee;
+							background-color: #fff;
+							overflow-x: hidden;
+							overflow-y: hidden;
+							ul{
+								padding: 0;
+								margin: 0;
+								li{
+									cursor: pointer;
+									padding: 1rem 1rem;
+									border-top: thin solid #eee;
+									font-weight: 500;
+									display: flex;
+							    flex-flow: wrap row;
+							    align-items: center;
+							    justify-content: space-between;
+							    position: relative;
+							    color: currentColor;
+
+							    &:after{
+							    	content: "";
+								    position: absolute;
+								    top: 15px;
+								    right: 10px;
+								    width: 0;
+								    height: 0;
+								    border-width: 10px;
+								    border-style: solid;
+							      border-color:  transparent transparent transparent currentColor;
+							      display: none;
+							    }
+
+									&:hover{
+										background-color: #9999;
+    								color: #f5f5f5;
+    								&:after{
+    									display: block;
+    								}
+									}
+
+									&.active{
+										background-color: #666;
+    								color: #f5f5f5;
+    								&:after{
+    									display: block;
+    								}
+									}
+								}
+							}
+						}
+					}
+
+					&__sideContAnchors{
+						flex: 100%;
+						width: auto;
+						position: relative;
+
+						@media (min-width: 768px){
+							flex: 75%;
+						}
+
+				    &__cItemSetting{
+				    	position: absolute;
+				    	left: 0;
+				    	top: 0;
+					    border: thin solid #eee;
+					    border-radius: 4px;
+				    	background-color: #fff;
+				    	margin-bottom: 1rem;
+				    	max-width: 100%;
+				    	width: 100%;
+				    	height: auto;
+				    	display: none;
+			    		pointer-events: none;
+			    		opacity: 0;
+			    		visibility: hidden;
+			    		user-select: none;
+
+				    	&.active{
+				    		display: block;
+				    		pointer-events: auto;
+				    		opacity: 1;
+				    		visibility: visible;
+				    		user-select: auto;
+				    	}
+				    }
 					}
 				}
 			}

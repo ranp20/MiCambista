@@ -39,8 +39,8 @@
 
     &__sidenav{
     	background-color: $primary-color;
-		  left: -250px;
-		  max-width: 250px;
+		  left: -245px;
+		  max-width: 245px;
 		  width: 95%;
 		  height: 100vh;
 		  text-align: center;
@@ -76,7 +76,7 @@
 			@media (min-width: 991px){
 				left: 0;
 				&.active{
-					left: -250px;
+					left: -245px;
 				}
 			}
 

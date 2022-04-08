@@ -7,7 +7,7 @@ $(() => {
 	linksAnch.on("click", function(){
 		var t = $(this);
 		var tindex = t.index();
-		var tattribute = t.data("target");
+		var tattribute = t.data("target").slice(1);
 		// linksAnch.eq(tindex).add(itemsAnch.eq(tindex)).addClass("active").siblings().removeClass("active");
 	  linksAnch
 	  	.eq(tindex)
@@ -16,4 +16,9 @@ $(() => {
 	  	.siblings()
 	  	.removeClass("active");
 	});
+});
+
+$(document).on("keyup", "input[data-valformat=withspacesforthreenumbers]", function(e){
+	let val = e.target.value;
+  $(this).val(val.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3'));
 });

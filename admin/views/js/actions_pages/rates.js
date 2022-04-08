@@ -24,16 +24,16 @@ function listRates(){
     if(response.length == 0){
       console.log("No ha registros");
     }else{
-      tmp_rates += `<div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls dataval-item" id="dataval-item" dataval-id="${response[0].id}">`;
+      tmp_rates += `<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls dataval-item" id="dataval-item" dataval-id="${response[0].id}">`;
 
       tmp_rates += `
-        <div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem">
-          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Compra</label>
-          <input type="text" id="buy_at" name="buy_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].buy_at}" placeholder="precio de compra" minlength="3" maxlength="6">
+        <div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem">
+          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Compra</label>
+          <input type="text" id="buy_at" name="buy_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].buy_at}" placeholder="precio de compra" minlength="3" maxlength="6">
         </div>
-        <div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem">
-          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Venta</label>
-          <input type="text" id="sell_at" name="sell_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].sell_at}" placeholder="precio de venta" minlength="3" maxlength="6">
+        <div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem">
+          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__label">Precio de Venta</label>
+          <input type="text" id="sell_at" name="sell_at" data-valformat="fourdecimal" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__input" value="${response[0].sell_at}" placeholder="precio de venta" minlength="3" maxlength="6">
         </div>
       `;
 

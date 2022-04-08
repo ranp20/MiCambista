@@ -21,6 +21,7 @@ RewriteRule paises?$ admin/views/countries.php
 RewriteRule bancos?$ admin/views/banks.php
 RewriteRule transbanks?$ admin/views/my-banks.php
 RewriteRule ajustes?$ admin/views/settings.php
+RewriteRule savesettings?$ admin/controllers/c_update_config.php
 
 ############RENAME ACTION IN PAGES OF THE CLIENT
 RewriteRule control-panel?$ views/control-panel.php

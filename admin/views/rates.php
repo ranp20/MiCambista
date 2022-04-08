@@ -27,16 +27,18 @@ if(!isset($_SESSION['admin_micambista'])){
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<form action="" method="POST" id="frm-updateval_rates">
 						<div class="cDash-adm--containRight--cContain__cBody__cardBody">
-							<div class="cDash-adm--containRight--cContain__cBody__cardBody__contCol">
-								<h3 class="cDash-adm--containRight--cContain__cBody__cardBody__contCol__cardTitle">Tarifario de Cambio Soles - Dólares</h3>
-								<div id="valchange_ratesdollars">
-									
+							<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
+								<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol">
+									<h3 class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardTitle">Tarifario de Cambio Soles - Dólares</h3>
+									<div id="valchange_ratesdollars">
+										
+									</div>
 								</div>
-							</div>
-							<div class="cDash-adm--containRight--cContain__cBody__cardBody__colElement ta-right">
-								<button type="submit" class="cDash-adm--containRight--cContain__cBody__cardBody__colElement__btnFormAction">
-									<span>Guardar</span>
-								</button>
+								<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__colElement ta-right">
+									<button type="submit" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__colElement__btnFormAction">
+										<span>Guardar</span>
+									</button>
+								</div>
 							</div>
 						</div>
 					</form>

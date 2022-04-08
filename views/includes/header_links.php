@@ -8,6 +8,9 @@
   $url =  $actual_link . "/";
   $url_defaultURL =  $actual_link . "/";
   */
+  require_once './php/class/settings.php';
+  $call_config = new Settings_all();
+  $g_setting = $call_config->get_config();
 ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">

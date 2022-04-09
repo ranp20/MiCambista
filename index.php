@@ -5,6 +5,9 @@
   if(isset($_SESSION['cli_micambista'])){
   	header("Location: control-panel");
   }
+  require_once './php/class/settings.php';
+  $call_config = new Settings_all();
+  $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
 <html lang="es">

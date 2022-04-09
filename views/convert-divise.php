@@ -6,6 +6,9 @@ if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
 }
 require_once '../php/process_data-list.php';
+require_once '../php/class/settings.php';
+$call_config = new Settings_all();
+$g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
 <html lang="es">

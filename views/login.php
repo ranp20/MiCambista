@@ -2,6 +2,9 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 require_once '../php/process_session.php';
+require_once '../php/class/settings.php';
+$call_config = new Settings_all();
+$g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
 <html lang="es">

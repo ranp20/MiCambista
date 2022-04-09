@@ -3,12 +3,12 @@
 		<div class="cFooter--contT--c box">
 			<section class="cFooter--contT--c--sec">
 				<div class="cFooter--contT--c--sec--c">
-					<img class="cFooter--contT--c--sec--c--img" src="./views/assets/img/svg/logo-white.svg" alt="">
+					<img class="cFooter--contT--c--sec--c--img" src="./views/assets/img/svg/logo-white.svg" alt="" width="100" height="100">
 					<p class="cFooter--contT--c--sec--c--text">Somos la startup financiera que revoluciona la forma de administrar el dinero a través de una plataforma 100% digital.</p>
 					<div class="cFooter--contT--c--sec--c--cIcon">
-						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/instagram.svg" alt=""></a>
-						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/facebook.svg" alt=""></a>
-						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/linkedin.svg" alt=""></a>
+						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/instagram.svg" alt="" width="100" height="100"></a>
+						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/facebook.svg" alt="" width="100" height="100"></a>
+						<a href="#" class="cFooter--contT--c--sec--c--cIcon--link"><img class="cFooter--contT--c--sec--c--cIcon--link--icon" src="./views/assets/img/icons/linkedin.svg" alt="" width="100" height="100"></a>
 					</div>
 				</div>
 				<div class="cFooter--contT--c--sec--c">
@@ -17,7 +17,7 @@
 						<li class="cFooter--contT--c--sec--c--m--item"><a href="" id="" class="cFooter--contT--c--sec--c--m--link">Nosotros</a></li>
 						<li class="cFooter--contT--c--sec--c--m--item"><a href="" id="" class="cFooter--contT--c--sec--c--m--link">Contacto</a></li>
 						<li class="cFooter--contT--c--sec--c--m--item"><a href="" id="" class="cFooter--contT--c--sec--c--m--link">Preguntas frecuentes</a></li>
-						<li class="cFooter--contT--c--sec--c--m--item"><a href="" id="" class="cFooter--contT--c--sec--c--m--link"><img src="./views/assets/img/icons/whatsapp.svg" alt="">Atención al usuario</a></li>
+						<li class="cFooter--contT--c--sec--c--m--item"><a href="" id="" class="cFooter--contT--c--sec--c--m--link"><img src="./views/assets/img/icons/whatsapp.svg" alt="" width="100" height="100">Atención al usuario</a></li>
 					</ul>
 				</div>
 				<div class="cFooter--contT--c--sec--c">

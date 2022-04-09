@@ -1312,9 +1312,14 @@
 						margin-bottom: 1rem;
 					}
 					&--cIcon{
+						display: flex;
+				    flex-flow: wrap row;
+				    flex: 0 0 100%;
 						&--link{
+							display: inline-block;
+    					margin-right: .65rem;
 							&--icon{
-								margin-right: 1rem;
+								max-width: 35px;
 							}
 						}
 					}
@@ -1338,6 +1343,8 @@
 							align-items: center;
 							img{
 								margin-right: 0.5rem;
+								max-width: 35px;
+								width: auto;
 							}
 
 							&:hover{

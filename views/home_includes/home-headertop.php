@@ -45,7 +45,7 @@
 			<div class="cMain__cont--infTop--hTop--citem--cLogo">
 				<div class="cMain__cont--infTop--hTop--citem--cLogo--logo">
 					<a href="./">
-						<img src="<?= $url_headassets; ?>views/assets/img/svg/logo.svg" alt="logo_MiCambista">
+						<img src="<?= $url_headassets; ?>views/assets/img/svg/logo.svg" alt="logo_MiCambista" width="100" height="100">
 					</a>
 				</div>
 			</div>

@@ -46,7 +46,7 @@
 										</div>
 									</div>
 									<button type="button" class="cMain__cont--heroI--c--formuser--cForm--cF--Cc--btnChangeCurrency" id="btn-Changecurr">
-										<img src="./views/assets/img/svg/circleArrows.svg" alt="">
+										<img src="./views/assets/img/svg/circleArrows.svg" alt="" width="100" height="100">
 									</button>
 									<div class="cMain__cont--heroI--c--formuser--cForm--cF--Cc--controls">
 										<div class="cMain__cont--heroI--c--formuser--cForm--cF--Cc--controls--ChangeVal" id="txtDivise-twoindex">Dólares</div>
@@ -67,12 +67,12 @@
 						<div class="cMain__cont--heroI--c--formuser--cTransBank">
 							<h3 class="cMain__cont--heroI--c--formuser--cTransBank--T">Transferencias inmediatas (5-25min):</h3>
 							<div class="cMain__cont--heroI--c--formuser--cTransBank--cBanks">
-								<img src="./views/assets/img/svg/interbank.svg" alt="">
-								<img src="./views/assets/img/svg/bcp.svg" alt="">
+								<img src="./views/assets/img/svg/interbank.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/bcp.svg" alt="" width="100" height="100">
 							</div>
 						</div>
 						<div class="cMain__cont--heroI--c--formuser--cimg">
-							<img src="./views/assets/img/svg/welcome.svg" alt="">
+							<img src="./views/assets/img/svg/welcome.svg" alt="" width="100" height="100">
 						</div>
 					</section>
 				</div>
@@ -82,7 +82,7 @@
 					<ul class="cMain__cont--manualU--c--m">
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/badge.svg" alt="">
+								<img src="./views/assets/img/svg/badge.svg" alt="" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
@@ -93,7 +93,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIconspecial">
-								<img src="./views/assets/img/svg/laptop.svg" alt="">
+								<img src="./views/assets/img/svg/laptop.svg" alt="" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>20 Mil</b></h3>
@@ -104,7 +104,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/soles.svg" alt="">
+								<img src="./views/assets/img/svg/soles.svg" alt="" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>132 Millones</b></h3>
@@ -115,7 +115,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/users.svg" alt="">
+								<img src="./views/assets/img/svg/users.svg" alt="" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b> 8 Mil</b></h3>
@@ -170,7 +170,7 @@
 				</div>
 				<div class="cMain__cont--affiliateU--cCenter">
 					<div class="cMain__cont--affiliateU--cCenter--cimginitial">
-					<img src="./views/assets/img/svg/affiliates-1.svg" alt="">
+					<img src="./views/assets/img/svg/affiliates-1.svg" alt="" width="100" height="100">
 					</div>
 					<div class="cMain__cont--affiliateU--cCenter--csteps">
 						<ul class="cMain__cont--affiliateU--cCenter--csteps--msteps">
@@ -197,7 +197,7 @@
 					</div>
 				</div>
 				<div class="cMain__cont--affiliateU--cimgfinal">
-					<img src="./views/assets/img/svg/affiliates-2.svg" alt="">
+					<img src="./views/assets/img/svg/affiliates-2.svg" alt="" width="100" height="100">
 				</div>
 			</section>
 			<section class="cMain__cont--benefits box section-wrapper">
@@ -211,7 +211,7 @@
 					</ul>
 				</div>
 				<div class="cMain__cont--benefits--cimg">
-					<img src="./views/assets/img/svg/benefits.svg" alt="">
+					<img src="./views/assets/img/svg/benefits.svg" alt="" width="100" height="100">
 				</div>
 			</section>
 			<?php require_once 'views/home_includes/home-contact.php'; ?>

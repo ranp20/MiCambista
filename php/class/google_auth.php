@@ -4,7 +4,7 @@
 		protected $client;
 
 		/************************** INICIALIZAR LA VARIABLES DE CLIENTE DE GOOGLE **************************/
-		function __contruct(Google_Client $googleClient = null){
+		function __construct(Google_Client $googleClient = null){
 			$this->client = $googleClient;
 			if($this->client){
 				$this->client->setClientId('676491899176-dra3l98grun4kej6u8klsm4e3l61h4uh.apps.googleusercontent.com');

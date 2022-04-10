@@ -8,7 +8,6 @@ if(isset($_POST) && count($_POST) > 0){
 		require_once '../controllers/c_login-adm.php';
 		$login = new Login_Admin();
 		$verify = $login->verify_admin($arr_data_adm);
-
 		if(!empty($verify)){
 			require_once '../controllers/c_list_byAdmin.php';
 			$idadm = $verify[0]['id'];

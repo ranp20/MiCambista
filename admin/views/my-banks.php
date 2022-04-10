@@ -25,26 +25,28 @@ if(!isset($_SESSION['admin_micambista'])){
 				</div>
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
-						<div class="cDash-adm--containRight--cContain__inputsearch-table">
-							<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchtransferbanks" id="searchtransferbanks" maxlength="100" placeholder="Buscar bancos de transferencia...">
-						</div>
-						<div class="contain-table-responsive">
-							<table class="cDash-adm--containRight--cContain__list-results">
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Nombre</th>
-										<th>RUC</th>
-										<th>Tipo</th>
-										<th>Nº de cuenta</th>
-										<th>moneda</th>
-										<th>Imagen</th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody id="tbl_my-transferbanks"></tbody>
-							</table>
+						<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
+							<div class="cDash-adm--containRight--cContain__inputsearch-table">
+								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchtransferbanks" id="searchtransferbanks" maxlength="100" placeholder="Buscar bancos de transferencia...">
+							</div>
+							<div class="contain-table-responsive">
+								<table class="cDash-adm--containRight--cContain__list-results">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Nombre</th>
+											<th>RUC</th>
+											<th>Tipo</th>
+											<th>Nº de cuenta</th>
+											<th>moneda</th>
+											<th>Imagen</th>
+											<th></th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="tbl_my-transferbanks"></tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -9,6 +9,7 @@ class Login_Admin extends Connection{
 				$stm->bindValue($key, $value);
 			}
 			$stm->execute();
+			//return $stm->rowCount() > 0 ? 'true' : 'false';
 			return $stm->fetchAll(PDO::FETCH_ASSOC);
 		}catch(PDOException $err){
 			return $err->getMessage();

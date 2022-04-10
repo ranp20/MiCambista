@@ -4,7 +4,7 @@ class List_All_Transactions extends Connection{
 	function list(){
 		$id = $_POST['id_client'];
 		try{
-			$sql = "CALL sp_list_transactions_byIdClient(:id_client)";
+			$sql = "CALL sp_list_transactions_byIdClient_tablero(:id_client)";
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":id_client", $id);
 			$stm->execute();

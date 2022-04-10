@@ -3,7 +3,14 @@ $(() => {
 	const linksAnchParent = $("#c-Settings_linksAnchors-m");
 	const linksAnch = linksAnchParent.find("li");
 	const itemsAnch = $(".cDash-adm--containRight--cContain__cBody__cSettings__sideContAnchors__cItemSetting");
-	linksAnch.eq(0).add(itemsAnch.eq(0)).addClass("active");
+	const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
+
+	// MOSTRAR EL PRIMER LINK Y SU SECCIÓN
+	linksAnch
+		.eq(0)
+		.add($(`.cDash-adm--containRight--cContain__cBody__cSettings__sideContAnchors__cItemSetting[id="${firstLinkAnch}"]`))
+		.addClass("active");
+	// MOSTRAR SECCIÓN DE ACUERDO AL LINK
 	linksAnch.on("click", function(){
 		var t = $(this);
 		var tindex = t.index();

@@ -4,8 +4,8 @@ class Client extends Connection{
 	
 	private $table = "tbl_client";
 
-	function __contruct(){
-		parent::__contruct();
+	function __construct(){
+		parent::__construct();
 	}
 	/************************** LISTAR - USERS **************************/
 	function get_data(){

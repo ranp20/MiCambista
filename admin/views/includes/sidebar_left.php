@@ -22,6 +22,12 @@
 	      </a>
 	    </li>
 	    <li class="cDash-adm--csidebarLeft__sidenav__mnav--item">
+	      <a href="cupones" class="cDash-adm--csidebarLeft__sidenav__mnav--link">
+	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg>
+	        <span>Cupones</span>
+	      </a>
+	    </li>
+	    <li class="cDash-adm--csidebarLeft__sidenav__mnav--item">
 	      <a href="javascript:void(0);" class="cDash-adm--csidebarLeft__sidenav__mnav--link">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M32 176h370.8l-57.38 57.38c-12.5 12.5-12.5 32.75 0 45.25C351.6 284.9 359.8 288 368 288s16.38-3.125 22.62-9.375l112-112c12.5-12.5 12.5-32.75 0-45.25l-112-112c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L402.8 112H32c-17.69 0-32 14.31-32 32S14.31 176 32 176zM480 336H109.3l57.38-57.38c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-112 112c-12.5 12.5-12.5 32.75 0 45.25l112 112C127.6 508.9 135.8 512 144 512s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L109.3 400H480c17.69 0 32-14.31 32-32S497.7 336 480 336z"/></svg>
 	        <span>Operaciones</span>

@@ -4,8 +4,8 @@ class Enterprise extends Connection{
 	
 	private $table = "tbl_enterprise";
 
-	function __contruct(){
-		parent::__contruct();
+	function __construct(){
+		parent::__construct();
 	}
 
 	function get_data_by_idclient($id){

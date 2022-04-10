@@ -1,5 +1,5 @@
 $(function(){
-	listTransactions();
+	listTransactionsByIdClient_tablero();
 })
 var idClient = $("#input-idClientValListTransac").val();
 // ------------ TROZO DE VANILLA JS
@@ -15,24 +15,25 @@ var idClient = $("#input-idClientValListTransac").val();
 	});
 })(document);
 // ------------ LISTADO DE TRANSACCIONES
-function listTransactions(){
+function listTransactionsByIdClient_tablero(){
 	$.ajax({
-		url: "controllers/c_list-all-transactions.php",
+		url: "controllers/c_list-all-transactions-byIdClient-tablero.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 		data: { id_client : idClient }
-	}).done( function (res) {
+	}).done((e) => {
+		console.log(e);
 		var template = "";
-		if(res.length <= 0 || res == []){ 
+		if(e.length <= 0 || e == []){ 
 			template += ` <li class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--itemanybanks">
 											<span	class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--itemanybanks--desc">No se encontraron resultados</span> 
 											</li> `; 
 		
 			$("#c-listAlls_Transacs").html(template); 
 		}else{
-			//var countItems = res.length + 1;
-			$.each(res, function(i,v){
+			//var countItems = e.length + 1;
+			$.each(e, function(i,v){
 				//countItems--;
 				var statusSend = "";
 				if(v.estado == "Pending"){

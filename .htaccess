@@ -16,6 +16,7 @@ RewriteRule politicas-de-privacidad?$ views/policy-privacy.php
 RewriteRule admin?$ admin/index.php
 RewriteRule dashboard?$ admin/views/dashboard.php
 RewriteRule clientes?$ admin/views/client.php
+RewriteRule cupones?$ admin/views/coupons.php
 RewriteRule tarifario?$ admin/views/rates.php
 RewriteRule paises?$ admin/views/countries.php
 RewriteRule bancos?$ admin/views/banks.php
@@ -27,6 +28,7 @@ RewriteRule savesettings?$ admin/controllers/c_update_config.php
 RewriteRule control-panel?$ views/control-panel.php
 RewriteRule welcome?$ views/welcome.php
 RewriteRule tablero?$ views/dashboard.php
+RewriteRule all-converts?$ views/all-transactions.php
 RewriteRule convert-divise?$ views/convert-divise.php
 #RewriteRule convert-divise/step-2?$ views/step-two.php
 RewriteRule complete-divise?$ views/complete-exchange.php

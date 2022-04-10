@@ -6,8 +6,8 @@ class Countries extends Connection{
 	
 	private $table = "tbl_country";
 
-	function __contruct(){
-		parent::__contruct();
+	function __construct(){
+		parent::__construct();
 	}
 
 	function get_countries(){

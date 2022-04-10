@@ -8,7 +8,7 @@ if (isset($_POST) && count($_POST) > 0) {
 		require_once '../controllers/c_login-client.php';
 		$login = new Login();
 		$verify = $login->verify($arr_data_client);
-		
+
 		if(!empty($verify)){
 			require_once '../controllers/c_list_byIdClient.php';
 			$idcli = $verify[0]['id'];

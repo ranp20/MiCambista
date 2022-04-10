@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_micambista'])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Bancos</title>
+	<title>Mi Cambista | Cupones</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
@@ -20,56 +20,56 @@ if(!isset($_SESSION['admin_micambista'])){
 			<?php require_once 'includes/headertop.php';?>
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
-					<h2 class="cDash-adm--containRight--cContain__addtitle--title">BANCOS</h2>
-					<button type="button" href="#" id="add-bank" class="cDash-adm--containRight--cContain__addtitle--btn-add" data-toggle="modal" data-target="#addbankModal"><span class="cDash-adm--containRight--cContain__addtitle--btn-add__hidden">Agregar&nbsp;</span>+</button>
+					<h2 class="cDash-adm--containRight--cContain__addtitle--title">CUPONES</h2>
+					<button type="button" href="#" id="add-coupon" class="cDash-adm--containRight--cContain__addtitle--btn-add" data-toggle="modal" data-target="#addcouponModal"><span class="cDash-adm--containRight--cContain__addtitle--btn-add__hidden">Agregar&nbsp;</span>+</button>
 				</div>
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
 						<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
 							<div class="cDash-adm--containRight--cContain__inputsearch-table">
-								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchbanks" id="searchbanks" maxlength="100" placeholder="Buscar bancos...">
+								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchcoupons" id="searchcoupons" maxlength="100" placeholder="Buscar cupones...">
 							</div>
 							<div class="contain-table-responsive">
 								<table class="cDash-adm--containRight--cContain__list-results">
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Nombre</th>
-											<th>Imagen</th>
+											<th>Código</th>
+											<th>Desc. de tarifa</th>
 											<th></th>
 											<th></th>
 										</tr>
 									</thead>
-									<tbody id="tbl_banks"></tbody>
+									<tbody id="tbl_coupons"></tbody>
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- MODAL - AGREGAR NUEVO PAÍS -->
-				<div class="modal fade bootstrapmodal-custom" id="addbankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade bootstrapmodal-custom" id="addcouponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">AGREGAR BANCO</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">AGREGAR CUPÓN</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
 				      	<div class="cont-modalbootstrap">
-					        <form action="" id="form-add-bank" method="POST" class="cont-modalbootstrap__form" autocomplete="false" enctype="multipart/form-data">
+					        <form action="" id="form-add-coupon" method="POST" class="cont-modalbootstrap__form" autocomplete="false" enctype="multipart/form-data">
 					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="name" class="cont-modalbootstrap__form--control__label">Nombre del Banco</label>
-					        		<input id="name" class="cont-modalbootstrap__form--control__input" name="name" type="text" maxlength="36" required placeholder="Ingrese el nombre del banco">
+					        		<label for="code_coupon" class="cont-modalbootstrap__form--control__label">Código del cupón</label>
+					        		<input id="code_coupon" class="cont-modalbootstrap__form--control__input" name="code_coupon" type="text" maxlength="100" required placeholder="Ingrese el código del cupón">
 					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="imagen">Foto del Banco</label>
-					        		<input id="images" class="cont-modalbootstrap__form--control__input-photo images" name="imagen[]" type="file" accept="img/*" required>
+					        		<label for="percent_desc" class="cont-modalbootstrap__form--control__label">Descuento del cupón</label>
+					        		<input id="percent_desc" class="cont-modalbootstrap__form--control__input" name="percent_desc" type="text" data-format="twodecimals" required placeholder="Ingrese el descuento del cupón">
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
 							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="submit" class="cont-modalbootstrap__footer--btnadd" id="btnadd-bank">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrap__footer--btnadd" id="btnadd-coupon">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>
@@ -82,26 +82,26 @@ if(!isset($_SESSION['admin_micambista'])){
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="update-modal-label">ACTUALIZAR BANCO</h5>
+				        <h5 class="modal-title" id="update-modal-label">ACTUALIZAR CUPÓN</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body cont-total-update-items">
 				      	<div class="cont-modalbootstrapupdate">
-					        <form action="" id="form-update-bank" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
-					        	<input type="hidden" id="idupdate-bank">
+					        <form action="" id="form-update-coupon" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
+					        	<input type="hidden" id="idupdate-coupon">
 					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="name-update" class="cont-modalbootstrapupdate__form--control__label complete">Nombre del Banco</label>
-					        		<input id="name-update" class="cont-modalbootstrapupdate__form--control__input" name="name-update" type="text" maxlength="36" placeholder="Ingrese el nombre del país">
+					        		<label for="code_coupon-update" class="cont-modalbootstrapupdate__form--control__label complete">Código del cupón</label>
+					        		<input id="code_coupon-update" class="cont-modalbootstrapupdate__form--control__input" name="code_coupon-update" type="text" maxlength="100" placeholder="Ingrese el código del cupón">
 					        	</div>
 					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="imagen">Foto del Banco</label>
-					        		<input id="images" class="cont-modalbootstrap__form--control__input-photo images-update" name="imagen[]" type="file" accept="img/*">
+					        		<label for="percent_desc-update" class="cont-modalbootstrapupdate__form--control__label complete">Descuento del cupón</label>
+					        		<input id="percent_desc-update" class="cont-modalbootstrapupdate__form--control__input" name="percent_desc-update" type="text" data-format="twodecimals" placeholder="Ingrese el descuento del cupón">
 					        	</div>
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="submit" class="cont-modalbootstrapupdate__footer--btnupdate" id="btnupdate-bank">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrapupdate__footer--btnupdate" id="btnupdate-coupon">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>
@@ -114,7 +114,7 @@ if(!isset($_SESSION['admin_micambista'])){
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="delete-modal-label">ELIMINAR BANCO</h5>
+				        <h5 class="modal-title" id="delete-modal-label">ELIMINAR CUPÓN</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -122,11 +122,11 @@ if(!isset($_SESSION['admin_micambista'])){
 				      <div class="modal-body cont-total-update-items">
 					      <h2 class="text-message-modalAlt">¿Seguro que desea eliminar este registro?</h2>
 				      	<div class="cont-modalbootstrapupdate">
-					        <form action="" id="form-delete-bank" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
-					        	<input type="hidden" id="iddelete-bank">
+					        <form action="" id="form-delete-coupon" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
+					        	<input type="hidden" id="iddelete-coupon">
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="submit" class="cont-modalbootstrapupdate__footer--btndelete" id="btndelete-bank">ELIMINAR</button>
+							        <button type="submit" class="cont-modalbootstrapupdate__footer--btndelete" id="btndelete-coupon">ELIMINAR</button>
 							      </div>
 					        </form>
 				      	</div>
@@ -139,6 +139,6 @@ if(!isset($_SESSION['admin_micambista'])){
 		</div>
 	</main>
 	<script type="text/javascript" src="<?= $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?= $url ?>js/actions_pages/banks.js"></script>
+	<script type="text/javascript" src="<?= $url ?>js/actions_pages/coupons.js"></script>
 </body>
 </html>

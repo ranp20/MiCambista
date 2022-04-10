@@ -25,25 +25,28 @@ if(!isset($_SESSION['admin_micambista'])){
 				</div>
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
-						<div class="cDash-adm--containRight--cContain__inputsearch-table">
-							<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchclients" id="searchclients" maxlength="100" placeholder="Buscar...">
-						</div>
-						<div class="contain-table-responsive">
-							<table class="cDash-adm--containRight--cContain__list-results">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Email</th>
-										<th>Teléfono</th>
-										<th>Nombres</th>
-										<th>Apellidos</th>
-										<th>T. documento</th>
-										<th>Nro. documento</th>
-										<th>Sexo</th>
-									</tr>
-								</thead>
-								<tbody id="tbl_clients"></tbody>
-							</table>
+						<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
+							<div class="cDash-adm--containRight--cContain__inputsearch-table">
+								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchclients" id="searchclients" maxlength="100" placeholder="Buscar...">
+							</div>
+							<div class="contain-table-responsive">
+								<table class="cDash-adm--containRight--cContain__list-results">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Email</th>
+											<th>Teléfono</th>
+											<th>Nombres</th>
+											<th>Apellidos</th>
+											<th>T. documento</th>
+											<th>Nro. documento</th>
+											<th class='center'>Sexo</th>
+											<th class='center'>Coupon</th>
+										</tr>
+									</thead>
+									<tbody id="tbl_clients"></tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

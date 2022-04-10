@@ -25,23 +25,25 @@ if(!isset($_SESSION['admin_micambista'])){
 				</div>
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
-						<div class="cDash-adm--containRight--cContain__inputsearch-table">
-							<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchcountries" id="searchcountries" maxlength="100" placeholder="Buscar países...">
-						</div>
-						<div class="contain-table-responsive">
-							<table class="cDash-adm--containRight--cContain__list-results">
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Nombre</th>
-										<th>Prefijo</th>
-										<th>Imagen</th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody id="tbl_countries"></tbody>
-							</table>
+						<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
+							<div class="cDash-adm--containRight--cContain__inputsearch-table">
+								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchcountries" id="searchcountries" maxlength="100" placeholder="Buscar países...">
+							</div>
+							<div class="contain-table-responsive">
+								<table class="cDash-adm--containRight--cContain__list-results">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Nombre</th>
+											<th>Prefijo</th>
+											<th>Imagen</th>
+											<th></th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="tbl_countries"></tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

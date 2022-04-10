@@ -20,6 +20,9 @@
 
 			@media (min-width: 991px){
 				flex-direction: row;
+			}
+
+			@media (min-width: 1200px){
 				width: 97%;
 			}
 
@@ -67,9 +70,9 @@
 							}
 							span{
 								position: relative;
-								top: -2px;
 								font-size: 1.1rem;
 								color: $color-links;
+								vertical-align: top;
 							}
 						}
 					}
@@ -127,9 +130,9 @@
 							}
 							span{
 								position: relative;
-								top: -2px;
 								font-size: 1.1rem;
 								color: $color-links;
+								vertical-align: top;
 							}
 						}
 						a{
@@ -281,9 +284,9 @@
 
 							span{
 								position: relative;
-								top: -2px;
 								font-size: 1.1rem;
 								color: $color-links;
+								vertical-align: top;
 							}
 						}
 					}
@@ -317,9 +320,9 @@
 
 							span{
 								position: relative;
-								top: -2px;
 								font-size: 1.1rem;
 								color: $color-links;
+								vertical-align: top;
 							}
 						}
 					}

@@ -109,6 +109,13 @@ $(document).on('submit', '#form-add-coupon', function(e){
       $('#form-add-coupon')[0].reset();
       listCoupons();
       $('#addcouponModal').modal("hide");
+    }else if(e == "err_percent_desc"){
+      Swal.fire({
+        title: 'Error!',
+        text: 'El descuento no puede ser menor o igual 0.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }else{
       console.log("Error, no se pudo guardar el registro.");
     }
@@ -155,7 +162,12 @@ function listCoupons(searchVal){
               <td class='center'>${e.id}</td>
               <td class='center'>${e.code_coupon}</td>
               <td class='center'>${e.larger_amounts}</td>
-              <td class='center'>${e.percent_desc}</td>
+              <td class='center'>
+                <span class='format-bold-negative'> - ${e.percent_desc}</span>
+              </td>
+              <td class='center'>
+                <span class='format-bold-positive'> ${e.output_price}</span>
+              </td>
               <td class="cont-btn-update">
                 <a class="btn-update-coupon" data-toggle="modal" data-target="#updateModal"  href="#" 
                   data-id="${e.id}"

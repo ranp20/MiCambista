@@ -10,7 +10,9 @@ if(!isset($_SESSION['admin_micambista'])){
 <html lang="es">
 <head>
 	<title>Mi Cambista | Cupones</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'includes/header_links.php' ?>
+	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<main class="cDash-adm">
@@ -37,6 +39,7 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>Código</th>
 											<th>M. mayores a</th>
 											<th>Desc. de tarifa</th>
+											<th>Tarifa Final</th>
 											<th></th>
 											<th></th>
 										</tr>

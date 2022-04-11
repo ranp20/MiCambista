@@ -84,6 +84,14 @@ img{
   user-select: none;
   cursor: not-allowed;
 }
+.format-bold-negative{
+	font-weight: bold;
+  color: red;
+}
+.format-bold-positive{
+	font-weight: bold;
+  color: green;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	

@@ -8,16 +8,21 @@ class Add_Coupon extends Connection{
 			"percent_desc" => $_POST['percent_desc'],
 			"output_price" => $_POST['output_price']
 		];
-		try{
-			$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :percent_desc, :output_price)";
-			$stm = $this->con->prepare($sql);
-			foreach ($arr_coupon as $key => $value) {
-				$stm->bindValue($key, $value);
+
+		if($_POST['percent_desc'] != 0){
+			try{
+				$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :percent_desc, :output_price)";
+				$stm = $this->con->prepare($sql);
+				foreach ($arr_coupon as $key => $value) {
+					$stm->bindValue($key, $value);
+				}
+				$stm->execute();
+				return $stm->rowCount() > 0 ? "true" : "false";
+			}catch(PDOException $err){
+				return $err->getMessage();
 			}
-			$stm->execute();
-			return $stm->rowCount() > 0 ? "true" : "false";
-		}catch(PDOException $err){
-			return $err->getMessage();
+		}else{
+			return "err_percent_desc";
 		}
 	}
 }

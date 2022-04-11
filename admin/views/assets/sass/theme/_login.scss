@@ -1,23 +1,49 @@
+.c_body-loginAdm{
+	overflow-x: hidden;
+	overflow-y: auto;
+	@media (min-width: 960px) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+}
 .cLoginAdm{
 	min-height: 100vh;
 	height: 100%;
 
 	&__cont{
-		min-height: 100vh;
-		height: 100%;
-		display: grid;
-		grid-template-rows: auto;
-		grid-template-columns: 1fr;
+		display: flex;
+    flex-flow: nowrap row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 100%;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-		@media (min-width: 682px){
-			grid-template-columns: 1fr 1fr;
+    @media (min-width: 960px){
+			position: relative;
 		}
 
 		&--imgbanner{
+			position: relative;
 			display: none;
-
-			@media (min-width: 682px){
+			width: 100%;
+			min-height: 100vh;
+			height: 100%;
+			@media (min-width: 960px){
 				display: block;
+			}
+
+			img{
+				width: 100%;
+				min-height: 100vh;
+		    height: 100%;
+		    object-fit: cover;
+		    object-position: center;
 			}
 		}
 
@@ -25,25 +51,36 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: center;
 			text-align: center;
-			padding: 3rem 0;
+			padding: 1rem;
+			height: 100%;
 
-			@media (min-width: 692px){
-				justify-content: center;
-				padding: 0;
+			@media (min-width: 960px){
+		    padding: 0 1.65rem;
+    		flex: 56%;
 			}
 
+			@media (min-width: 1200px){
+				padding: 0 2.3rem;
+    		flex: 62%;
+			}
+
+			// TITLE - LOGIN
 			&--cTitle{
-				margin-bottom: 2.5rem;
+				margin-bottom: 1rem;
 				&--title{
-					font-size: 2.2rem;
+					font-size: 1.85rem;
+					font-weight: 600;
 					color: limegreen;
 				}
 			}
+			
+			// FORM - LOGIN
 			&--form{
 				max-width: 355px;
-				width: 90%;
+				width: 82%;
+
 				&--controls{
 					position: relative;
 					margin-bottom: 2rem;
@@ -127,6 +164,23 @@
 							color: steelblue;
 						}
 					}
+				}
+			}
+
+			// FOOTER - LOGIN
+			&--cBottInfo{
+				display: none;
+				position: absolute;
+		    bottom: 1.2rem;
+		    margin: 0 auto;
+		    
+				@media (min-width: 960px){
+					display: block;
+					//margin-top: 90%;
+				}
+
+				small{
+					font-size: 0.75rem;
 				}
 			}
 		}

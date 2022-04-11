@@ -4,11 +4,12 @@ class Update extends Connection{
 	function update_coupon(){
 		$arr = [
 			"code_coupon" => $_POST['code_coupon'],
+			"larger_amounts" => $_POST['larger_amounts'],
 			"percent_desc" => $_POST['percent_desc'],
 			"id" => $_POST['id']
 		];
 		try{
-			$sql = "UPDATE tbl_coupon SET code_coupon = :code_coupon, percent_desc = :percent_desc WHERE id = :id";
+			$sql = "UPDATE tbl_coupon SET code_coupon = :code_coupon, larger_amounts = :larger_amounts, percent_desc = :percent_desc WHERE id = :id";
 			$stm = $this->con->prepare($sql);
 			foreach ($arr as $key => $value) {
 				$stm->bindValue($key, $value);

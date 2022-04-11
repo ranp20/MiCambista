@@ -35,6 +35,7 @@ if(!isset($_SESSION['admin_micambista'])){
 										<tr>
 											<th>ID</th>
 											<th>Código</th>
+											<th>M. mayores a</th>
 											<th>Desc. de tarifa</th>
 											<th></th>
 											<th></th>
@@ -62,6 +63,10 @@ if(!isset($_SESSION['admin_micambista'])){
 					        	<div class="cont-modalbootstrap__form--control">
 					        		<label for="code_coupon" class="cont-modalbootstrap__form--control__label">Código del cupón</label>
 					        		<input id="code_coupon" class="cont-modalbootstrap__form--control__input" name="code_coupon" type="text" maxlength="100" required placeholder="Ingrese el código del cupón">
+					        	</div>
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="larger_amounts" class="cont-modalbootstrap__form--control__label">Montos mayores a:</label>
+					        		<input id="larger_amounts" class="cont-modalbootstrap__form--control__input" name="larger_amounts" type="number" maxlength="100" required placeholder="Ingrese el monto">
 					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
 					        		<label for="percent_desc" class="cont-modalbootstrap__form--control__label">Descuento del cupón</label>
@@ -94,6 +99,10 @@ if(!isset($_SESSION['admin_micambista'])){
 					        	<div class="cont-modalbootstrapupdate__form--control">
 					        		<label for="code_coupon-update" class="cont-modalbootstrapupdate__form--control__label complete">Código del cupón</label>
 					        		<input id="code_coupon-update" class="cont-modalbootstrapupdate__form--control__input" name="code_coupon-update" type="text" maxlength="100" placeholder="Ingrese el código del cupón">
+					        	</div>
+					        	<div class="cont-modalbootstrapupdate__form--control">
+					        		<label for="larger_amounts-update" class="cont-modalbootstrapupdate__form--control__label">Montos mayores a:</label>
+					        		<input id="larger_amounts-update" class="cont-modalbootstrapupdate__form--control__input" name="larger_amounts-update" type="number" maxlength="100" required placeholder="Ingrese el monto">
 					        	</div>
 					        	<div class="cont-modalbootstrapupdate__form--control">
 					        		<label for="percent_desc-update" class="cont-modalbootstrapupdate__form--control__label complete">Descuento del cupón</label>

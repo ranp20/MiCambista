@@ -33,8 +33,8 @@ function listClients(searchVal){
             <td class='center'>${v.type}</td>
             <td class='center'>${v.document}</td>
             <td class='center'>${v.sex}</td>
-            <td class='center'>
-              <a href="javascript:void(0);">Editar</a>
+            <td class='cont-btn-update center'>
+              <a class="btn-update-coupon" href="javascript:void(0);">Editar</a>
             </td>
           </tr>`;
       });

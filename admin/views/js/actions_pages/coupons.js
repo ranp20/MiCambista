@@ -16,6 +16,7 @@ $(document).on('submit', '#form-add-coupon', function(e){
   e.preventDefault();
   var formdata = new FormData();
   formdata.append("code_coupon", $('#code_coupon').val());
+  formdata.append("larger_amounts", $('#larger_amounts').val());
   formdata.append("percent_desc", $('#percent_desc').val());
   $.ajax({
     url: "../admin/controllers/c_add-coupon.php",
@@ -74,11 +75,13 @@ function listCoupons(searchVal){
             <tr id="item-${e.id}">
               <td class='center'>${e.id}</td>
               <td class='center'>${e.code_coupon}</td>
+              <td class='center'>${e.larger_amounts}</td>
               <td class='center'>${e.percent_desc}</td>
               <td class="cont-btn-update">
                 <a class="btn-update-coupon" data-toggle="modal" data-target="#updateModal"  href="#" 
                   data-id="${e.id}"
                   data-code_coupon="${e.code_coupon}"
+                  data-larger_amounts="${e.larger_amounts}"
                   data-percent_desc="${e.percent_desc}"
                   >Editar</a>
               </td>
@@ -111,10 +114,12 @@ $(document).on('click', '.btn-update-coupon', function(e){
     var item_data = {
       id: $(this).attr('data-id'),
       code_coupon: $(this).attr('data-code_coupon'),
+      larger_amounts: $(this).attr('data-larger_amounts'),
       percent_desc: $(this).attr('data-percent_desc'),
     };
     $('#idupdate-coupon').val(item_data['id']);
     $('#code_coupon-update').val(item_data['code_coupon']);
+    $('#larger_amounts-update').val(item_data['larger_amounts']);
     $('#percent_desc-update').val(item_data['percent_desc']);
   });
 });
@@ -123,6 +128,7 @@ $(document).on('submit', '#form-update-coupon', function(e){
   e.preventDefault();
   var formdata = new FormData();
   formdata.append("code_coupon", $('#code_coupon-update').val());
+  formdata.append("larger_amounts", $('#larger_amounts-update').val());
   formdata.append("percent_desc", $('#percent_desc-update').val());
   formdata.append("id", $('#idupdate-coupon').val());
 

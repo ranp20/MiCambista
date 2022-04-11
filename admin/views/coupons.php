@@ -68,9 +68,26 @@ if(!isset($_SESSION['admin_micambista'])){
 					        		<label for="larger_amounts" class="cont-modalbootstrap__form--control__label">Montos mayores a:</label>
 					        		<input id="larger_amounts" class="cont-modalbootstrap__form--control__input" name="larger_amounts" type="number" maxlength="100" required placeholder="Ingrese el monto">
 					        	</div>
+					        	<div class="cont-group-form-controls">
+						        	<div class="cont-modalbootstrap__form--control md-col-2-44">
+						        		<label for="price_original" class="cont-modalbootstrap__form--control__label">Precio Original</label>
+						        		<input id="price_original" class="cont-modalbootstrap__form--control__input readonly" type="text" required placeholder="" readonly>
+						        	</div>
+						        	<span class="cont-modalbootstrap__form--cMediumIcon">
+						        		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" version="1.1" viewBox="0 0 700 700">
+												 <g xmlns="http://www.w3.org/2000/svg">
+												  <path d="m409.59 50.398c-4.0898-4.0352-9.6602-6.2031-15.402-5.9922-5.6484-0.16016-11.113 2.0078-15.121 5.9922-4.0781 3.9492-6.3633 9.3906-6.3281 15.066v128.8h-302.73v171.47h302.73v128.8c0.058594 5.6562 2.332 11.062 6.332 15.062s9.4062 6.2734 15.062 6.332c6-0.22656 11.719-2.5898 16.129-6.6641l213.7-214.54c3.9805-3.8516 6.1719-9.1875 6.0469-14.727 0.20312-5.75-1.9883-11.324-6.0469-15.398z"/>
+												 </g>
+												</svg>
+						        	</span>	
+						        	<div class="cont-modalbootstrap__form--control md-col-2-44">
+						        		<label for="price_dismiss" class="cont-modalbootstrap__form--control__label">Precio Rebajado</label>
+						        		<input id="price_dismiss" class="cont-modalbootstrap__form--control__input readonly" name="price_dismiss" type="text" data-format="fourdecimals" required placeholder="" readonly>
+						        	</div>
+					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
 					        		<label for="percent_desc" class="cont-modalbootstrap__form--control__label">Descuento del cupón</label>
-					        		<input id="percent_desc" class="cont-modalbootstrap__form--control__input" name="percent_desc" type="text" data-format="twodecimals" required placeholder="Ingrese el descuento del cupón">
+					        		<input id="percent_desc" class="cont-modalbootstrap__form--control__input" name="percent_desc" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
 							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
@@ -104,9 +121,26 @@ if(!isset($_SESSION['admin_micambista'])){
 					        		<label for="larger_amounts-update" class="cont-modalbootstrapupdate__form--control__label">Montos mayores a:</label>
 					        		<input id="larger_amounts-update" class="cont-modalbootstrapupdate__form--control__input" name="larger_amounts-update" type="number" maxlength="100" required placeholder="Ingrese el monto">
 					        	</div>
+					        	<div class="cont-group-form-controls">
+						        	<div class="cont-modalbootstrapupdate__form--control md-col-2-44">
+						        		<label for="price_original-update" class="cont-modalbootstrapupdate__form--control__label">Precio Original</label>
+						        		<input id="price_original-update" class="cont-modalbootstrapupdate__form--control__input readonly" type="text" required placeholder="" readonly>
+						        	</div>
+						        	<span class="cont-modalbootstrapupdate__form--cMediumIcon">
+						        		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" version="1.1" viewBox="0 0 700 700">
+												 <g xmlns="http://www.w3.org/2000/svg">
+												  <path d="m409.59 50.398c-4.0898-4.0352-9.6602-6.2031-15.402-5.9922-5.6484-0.16016-11.113 2.0078-15.121 5.9922-4.0781 3.9492-6.3633 9.3906-6.3281 15.066v128.8h-302.73v171.47h302.73v128.8c0.058594 5.6562 2.332 11.062 6.332 15.062s9.4062 6.2734 15.062 6.332c6-0.22656 11.719-2.5898 16.129-6.6641l213.7-214.54c3.9805-3.8516 6.1719-9.1875 6.0469-14.727 0.20312-5.75-1.9883-11.324-6.0469-15.398z"/>
+												 </g>
+												</svg>
+						        	</span>	
+						        	<div class="cont-modalbootstrapupdate__form--control md-col-2-44">
+						        		<label for="price_dismiss-update" class="cont-modalbootstrapupdate__form--control__label">Precio Rebajado</label>
+						        		<input id="price_dismiss-update" class="cont-modalbootstrapupdate__form--control__input readonly" name="price_dismiss-update" type="text" data-format="fourdecimals" required placeholder="" readonly>
+						        	</div>
+					        	</div>
 					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="percent_desc-update" class="cont-modalbootstrapupdate__form--control__label complete">Descuento del cupón</label>
-					        		<input id="percent_desc-update" class="cont-modalbootstrapupdate__form--control__input" name="percent_desc-update" type="text" data-format="twodecimals" placeholder="Ingrese el descuento del cupón">
+					        		<label for="percent_desc-update" class="cont-modalbootstrapupdate__form--control__label">Descuento del cupón</label>
+					        		<input id="percent_desc-update" class="cont-modalbootstrapupdate__form--control__input" name="percent_desc-update" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
 					        	</div>
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>

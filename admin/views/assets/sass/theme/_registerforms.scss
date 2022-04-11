@@ -1,4 +1,14 @@
 /* DATATABLES - MINIMUM DEVICE WIDTH */
+.contain-table-responsive{
+	overflow-x: auto !important;
+	height: auto;
+}
+.cont-group-form-controls{
+	display: flex;
+	flex-flow: wrap row;
+	align-items: center;
+	justify-content: space-between;
+}
 /* MODAL BOOTSTRAP - CONFIGURATIONS ADD ITEMS*/
 .bootstrapmodal-custom{
 	.modal-dialog{
@@ -21,6 +31,7 @@
 							flex-direction: column;
 							margin-bottom: .5rem;
 							position: relative;
+							flex: 0 auto;
 
 							/* MENSAJE DE ALERTA  - NOMBRE DE BANCO*/
 							#msgErrNounNombBank{
@@ -161,6 +172,13 @@
 									-moz-appearance:textfield;
 								}
 								*/
+
+								&[readonly]{
+									background-color: #eee;
+							    user-select: none;
+							    cursor: not-allowed;
+								}
+
 								&.focus{
 									border: 1px solid red;
 								}
@@ -172,6 +190,14 @@
 								&.disabled{
 									cursor: not-allowed;
 									background-color: #ccc;
+								}
+
+								&.valid-format{
+									box-shadow: 0 0 0 2px #60E266;
+								}
+
+								&.invalid-format{
+									box-shadow: 0 0 0 2px #E26066;
 								}
 
 								@media (min-width: 991px){
@@ -282,6 +308,12 @@
 									}
 								}
 							}
+						}
+
+						&--cMediumIcon{
+							position: relative;
+					    top: 12px;
+					    vertical-align: middle;
 						}
 					}
 
@@ -521,6 +553,14 @@
 								&.disabled{
 									cursor: not-allowed;
 									background-color: #ccc;
+								}
+
+								&.valid-format{
+									box-shadow: 0 0 0 2px #60E266;
+								}
+
+								&.invalid-format{
+									box-shadow: 0 0 0 2px #E26066;
 								}
 
 								@media (min-width: 991px){

@@ -11,7 +11,7 @@ function fourdecimals(n) {
 $(document).on("input","input[data-valformat='fourdecimal']",function(e){
   ($(this).val() == "") ? $(this).val() : $(this).val(fourdecimals(e.target.value));
 });
-// ------------ LISTAR BANCOS
+// ------------ LISTAR TARIFAS
 function listRates(){
   $.ajax({
     url: "../admin/controllers/c_list-rates.php",

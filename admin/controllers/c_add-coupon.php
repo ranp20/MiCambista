@@ -5,10 +5,11 @@ class Add_Coupon extends Connection{
 		$arr_coupon = [
 			"code_coupon" => $_POST['code_coupon'],
 			"larger_amounts" => $_POST['larger_amounts'],
-			"percent_desc" => $_POST['percent_desc']
+			"percent_desc" => $_POST['percent_desc'],
+			"output_price" => $_POST['output_price']
 		];
 		try{
-			$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :percent_desc)";
+			$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :percent_desc, :output_price)";
 			$stm = $this->con->prepare($sql);
 			foreach ($arr_coupon as $key => $value) {
 				$stm->bindValue($key, $value);

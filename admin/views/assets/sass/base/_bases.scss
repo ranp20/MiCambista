@@ -71,6 +71,19 @@ img{
 	z-index: 2;
 	display: block;
 }
+.md-col-2{
+	width: 44%;
+	flex: 0 auto;
+}
+.md-col-2-44{
+	width: 44%;
+	flex: 0 auto;
+}
+.readonly{
+	background-color: #eee;
+  user-select: none;
+  cursor: not-allowed;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	

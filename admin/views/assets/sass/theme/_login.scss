@@ -1,10 +1,12 @@
 .c_body-loginAdm{
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
+	/*
 	@media (min-width: 960px) {
 		overflow-x: hidden;
 		overflow-y: hidden;
 	}
+	*/
 }
 .cLoginAdm{
 	min-height: 100vh;
@@ -53,8 +55,10 @@
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			padding: 1rem;
+			padding: 0;
 			height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
 
 			@media (min-width: 960px){
 		    padding: 0 1.65rem;

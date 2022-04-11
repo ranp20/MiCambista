@@ -313,8 +313,11 @@
 			}
 
 			// DASHBOARD ADMIN - BODY
-			&__cBody{		
+			&__cBody{
 
+				form{
+					margin-bottom: 1rem;
+				}
 				// CONTENEDOR DE TARGETAS - CARDS
 				&__cardBody{
 					border: thin solid #eee;
@@ -513,6 +516,7 @@
 					&__sideContAnchors{
 						flex: 100%;
 						width: auto;
+						height: auto;
 						position: relative;
 
 						@media (min-width: 768px){

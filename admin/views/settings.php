@@ -1,7 +1,7 @@
 <?php
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
-session_start();	
+session_start();
 if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
 }
@@ -54,14 +54,14 @@ $adm_config = $settings->list();
 											<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls">
 												<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem">
 								          <label for="whatsapp_phone" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__label">Número de whatsapp</label>
-								          <input type="text" id="whatsapp_phone" name="whatsapp_phone" data-valformat="withspacesforthreenumbers" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__input" value="<?php 
+								          <input type="text" id="whatsapp_phone" name="whatsapp_phone" data-valformat="withspacesforthreenumbers" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__input" value="<?php
 								          echo preg_replace('/(\d{1,3})(?=(\d{3})+$)/', '$1 ', $adm_config('whatsapp_phone')['setting_value']);
-								          //echo $config->list("whatsapp_phone")[0]["setting_value"]; 
-								        ?>" placeholder="Número de whatsapp" maxlength="11">
+								          //echo $config->list("whatsapp_phone")[0]["setting_value"];
+								        ?>" placeholder="(+51) 999 999 999" maxlength="11">
 								        </div>
 								        <div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem w-100">
 								          <label for="whatsapp_phone" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__label">Texto de whatsapp</label>
-								          <textarea id="whatsapp_text" name="whatsapp_text" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__textarea" maxlength="999"><?php echo $adm_config('whatsapp_text')['setting_value']; ?></textarea>
+								          <textarea id="whatsapp_text" name="whatsapp_text" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__contCol__cardGrpControls__ctrlItem__textarea" placeholder="Escribe aquí el texto para WhatsApp" maxlength="999"><?php echo $adm_config('whatsapp_text')['setting_value']; ?></textarea>
 								        </div>
 											</div>
 											<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__colElement ta-right">

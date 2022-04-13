@@ -1584,7 +1584,7 @@ strong, b{
 		pointer-events: auto;
   }
 
-  @media (min-width: 991px){
+  @media (min-width: 960px){
   	align-items: flex-start;
   	justify-content: flex-end;
   }	
@@ -1616,7 +1616,7 @@ strong, b{
 			max-height: 470px;
 		}
 
-		@media (min-width: 991px){
+		@media (min-width: 960px){
     	width: 400px;
     	height: 100%;
     	padding: 1rem 2rem;	
@@ -1754,6 +1754,8 @@ strong, b{
 					}
 
 					&--m{
+						padding: 0;
+						margin: 0;
 						&--item{
 							& > p{
 								color: $color-links;

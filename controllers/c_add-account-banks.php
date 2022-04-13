@@ -11,17 +11,27 @@ class Add_Account_Bank extends Connection{
 			"id_currency" => $_POST['id_currencytype'],
 		];
 		try{
-			$sql = "CALL sp_add_account_bank( :id_client, :id_bank, :n_account, :a_account, :id_type_account, :id_currency)";
-			$stm = $this->con->prepare($sql);
-			foreach ($arr_addaccount as $key => $value) {
-				$stm->bindValue($key, $value);
+			if($arr_addaccount['id_currency'] == 1){
+				$sql = "CALL sp_add_account_bank_dolares(:id_client, :id_bank, :n_account, :a_account, :id_type_account, :id_currency)";
+				$stm = $this->con->prepare($sql);
+				foreach ($arr_addaccount as $key => $value) {
+					$stm->bindValue($key, $value);
+				}
+				$stm->execute();
+				$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+				$res = json_encode($data);
+				return $res;
+			}else{
+				$sql = "CALL sp_add_account_bank_soles(:id_client, :id_bank, :n_account, :a_account, :id_type_account, :id_currency)";
+				$stm = $this->con->prepare($sql);
+				foreach ($arr_addaccount as $key => $value) {
+					$stm->bindValue($key, $value);
+				}
+				$stm->execute();
+				$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+				$res = json_encode($data);
+				return $res;
 			}
-			$stm->execute();
-			//$data = $stm->fetchAll(PDO::FETCH_ASSOC);
-			//$res = json_encode($data);
-			//echo $res;
-			return $stm->rowCount() > 0 ? "true" : "false";
-
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}

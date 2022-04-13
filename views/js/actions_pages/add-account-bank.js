@@ -225,31 +225,76 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	    cache: false,
 	    processData: false,
 	  }).done((e) => {
-	  	if(e == "true"){
-		  	$(".cformAddAccountBank").removeClass("show");
-				$(".cformAddAccountBank--form").removeClass("show");
-	     	// ------------ LISTAR LAS CUENTAS 
-	     	listAccountsUser();
-				// ------------ RESETEAR EL FORMULARIO 
-	     	$("#selListAllBanks--img").find("span").css({"display":"block"});
-	     	$("#selListAllBanks--img").find("img").attr("src", "");
-	     	$("#selListallBanks--input").attr("idbank", "");
-	     	$("#newValTypeAccount").find("span").text("Selecciona el tipo de cuenta");
-	     	$("#selListtypeAccount--input").attr("idtypeaccount", "");
-	     	$("#newValCurrencyType").find("span").text("Selecciona la moneda");
-	     	$("#selListcurrencyType--input").attr("idcurrencytype", "");
-	     	$("#checkaccount-cli").attr("checked", false);
-	     	$("#numaccount-cli").val("");
-	     	$("#aliasaccount-cli").val("")
-	     	$('#form-AddAccountBank')[0].reset();
-	      
-	     	// ------------ LISTAR LAS CUENTA DEL USUARIO 
-	      
+	  	if(e.length > 0){
+	  		var r = JSON.parse(e);
+		  	if(r[0].res == "soles_limit"){
+		  		Swal.fire({
+		        title: 'Agotado!',
+		        html: `<span class='font-w-300'>Se ha llegado al límite de cuentas en <strong>Soles</strong>.</span>`,
+		        icon: 'error',
+		        confirmButtonText: 'Aceptar'
+		      });
+		  	}else if(r[0].res == "dollar_limit"){
+		  		Swal.fire({
+		        title: 'Agotado!',
+		        html: `<span class='font-w-300'>Se ha llegado al límite de cuentas en <strong>Dólares</strong>.</span>`,
+		        icon: 'error',
+		        confirmButtonText: 'Aceptar'
+		      });
+		  	}else if(r[0].res == "true"){
+		  		Swal.fire({
+		        title: 'Éxito!',
+		        text: 'Se ha agregado la cuenta.',
+		        icon: 'success',
+		        confirmButtonText: 'Aceptar',
+		        timer: 3500
+		      });
+
+			  	$(".cformAddAccountBank").removeClass("show");
+					$(".cformAddAccountBank--form").removeClass("show");
+		     	// ------------ LISTAR LAS CUENTAS 
+		     	listAccountsUser();
+					// ------------ RESETEAR EL FORMULARIO 
+		     	$("#selListAllBanks--img").find("span").css({"display":"block"});
+		     	$("#selListAllBanks--img").find("img").attr("src", "");
+		     	$("#selListallBanks--input").attr("idbank", "");
+		     	$("#newValTypeAccount").find("span").text("Selecciona el tipo de cuenta");
+		     	$("#selListtypeAccount--input").attr("idtypeaccount", "");
+		     	$("#newValCurrencyType").find("span").text("Selecciona la moneda");
+		     	$("#selListcurrencyType--input").attr("idcurrencytype", "");
+		     	$("#checkaccount-cli").attr("checked", false);
+		     	$("#numaccount-cli").val("");
+		     	$("#aliasaccount-cli").val("")
+		     	$('#form-AddAccountBank')[0].reset();
+		      
+		     	// ------------ LISTAR LAS CUENTA DEL USUARIO 
+		      
+		  	}else{
+		  		Swal.fire({
+		        title: 'Error!',
+		        text: 'Lo sentimos, hubo un error al guardar la cuenta.',
+		        icon: 'error',
+		        confirmButtonText: 'Aceptar'
+		      });
+		  		//console.log('Error, no se insertó');
+		  	}
 	  	}else{
-	  		console.log('Error, no se insertó');
+	  		Swal.fire({
+	        title: 'Error!',
+	        text: 'Lo sentimos, hubo un error al guardar la cuenta.',
+	        icon: 'error',
+	        confirmButtonText: 'Aceptar'
+	      });
+	  		//console.log('Error, no se insertó');
 	  	}
 	  });
 	}else{
+		Swal.fire({
+      title: 'Atención!',
+      text: 'Por favor, rellene los campos para crear una nueva cuenta.',
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+    });
 		console.log('No hay datos');
 	}
 });

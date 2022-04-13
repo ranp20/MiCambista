@@ -2,9 +2,9 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-	
+
 	.cControlP__cont--containDash--c--validBiom{
-		padding: 2rem 0;
+		padding: 1rem 0;
 		width: 95%;
 		margin-left: auto;
 		margin-right: auto;
@@ -17,47 +17,180 @@
 			box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
 			padding: 1.5rem;
 			display: flex;
+			flex-flow: wrap row;
 			align-items: flex-start;
-			justify-content: space-between;
-			gap: 1rem;
+			justify-content: center;
 
-			@media (min-width: 768px){
-				padding: 2rem 2.5rem;
+			@media (min-width: 991px){
+				justify-content: space-between;
+		    flex-flow: nowrap column;
+		    align-items: center;
+			}
+
+			@media (min-width: 1200px){
+				padding: 1rem 2.5rem;
 			}
 
 			/************************** ESTADO O PROGRESO DE LA VALIDACIÓN **************************/
 			&--cLeftStatus{
+				margin-right: auto;
+
+				@media (min-width: 991px){
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: flex;
+			    flex-flow: nowrap row;
+			    align-items: center;
+			    justify-content: center;
+					max-width: 800px;
+					width: 95%;
+					margin: 0 auto;
+				}
+
+				@media (min-width: 1200px){
+					margin: 0;
+				}
 				&--pointStep{
-					span{
-						display: flex;
-						width: 30px;
-						height: 30px;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: flex;
+			    flex-flow: wrap row;
+			    align-items: center;
+			    justify-content: flex-start;
+					position: relative;
+					margin-bottom: 1.5rem;
+					flex: 1;
+					transition: all ease-in-out .5s 0s;
+
+					&:before{
+						content: "";
+						border-left: 3px solid $color-links-gradient;
+						width: 0px;
+				    height: 100%;
+				    position: absolute;
+				    top: 100%;
+				    left: 20px;
+    				z-index: 1;
+    				transition: all ease-in-out .5s 0s;
+					}
+
+					&:last-child{
+						&:before{
+							content: none;
+						}
+						&:after{
+							content: none;
+						}
+					}
+
+					@media (min-width: 690px){
+						margin-bottom: 2.5rem;
+					}
+
+					@media (min-width: 991px){
+						flex-flow: nowrap column;
+
+						&:before{
+							content: none;
+						}
+
+						&:after{
+							content: "";
+							position: absolute;
+					    border-bottom: 2px solid $color-links-gradient;
+					    width: 100%;
+					    top: 20px;
+					    left: 50%;
+					    z-index: 1;
+						}
+					}
+
+					&.active{
+						span:first-child{
+							background-color: #fff;
+							border: 4px solid #00bfff;
+						}
+						span:nth-child(2){
+							font-weight: bold;
+						}
+					}
+
+					&.complete{
+						span:first-child{
+							background-color: $color-links-gradient;
+							color: #fff;
+						}
+						span:nth-child(2){
+							font-weight: bold;
+						}
+
+						&:before{
+							content: "";
+							border-left: 4px solid $color-links-gradient;
+							width: 0px;
+					    height: 100%;
+					    position: absolute;
+					    top: 100%;
+					    left: 20px;
+	    				z-index: 1;
+						}
+
+						&:last-child{
+							&:before{
+								content: none;
+							}
+							&:after{
+								content: none;
+							}
+						}
+
+						@media (min-width: 991px){
+							&:before{
+								content: none;
+							}
+
+							&:after{
+								content: "";
+								position: absolute;
+						    border-bottom: 4px solid $color-links-gradient;
+						    width: 100%;
+						    top: 20px;
+						    left: 50%;
+						    z-index: 1;
+							}
+						}
+					}
+
+					&--point{
+						width: 40px;
+						height: 40px;
 						border-radius: 50%;
-						margin-right: 0.75rem;
-						border: thin solid $color-links-gradient;
-						background-color: transparent;
+						background-color: #fff;
+						border: 2px solid $color-links-gradient;
 						display: flex;
 						align-items: center;
 						justify-content: center;
-					}
+						text-align: center;
+						vertical-align: middle;
+						z-index: 2;
+						color: #9999;
 
-					&--linestep{
-						display: block;
-						width: 1px;
-						height: 70px;
-						background-color: $color-links-gradient;
-						transform: translateX(14px);
-					}
-
-					&--namestep{
-						display: flex;
-						align-items: center;
-
-						p{
-							color: $color-links-gradient;
+						@media (min-width: 991px){
+							margin-bottom: .5rem;
 						}
 					}
-					
+
+					&--text{
+						color: $color-links-gradient;
+						font-size: .9rem;
+						font-weight: 400;
+						margin-left: .85rem;
+
+						@media (min-width: 991px){
+							margin-left: 0;
+						}
+					}
+
 					&.step-complete{
 						span{
 							background-color: $color-links;
@@ -84,60 +217,162 @@
 			/************************** CONTENIDO DE CADA PASO DE LA VALIDACIÓN **************************/
 			&--cRightValIdentity{
 				text-align: center;
+				display: flex;
+				flex-flow: nowrap row;
+				align-items: flex-start;
+				justify-content: space-between;
+				max-width: 2400px;
+		    width: 100%;
+		    overflow-x: hidden;
+		    overflow-y: auto;
 
 				&--step{
+					flex: auto;
+					min-width: 100%;
+					width: 100%;
+					opacity: 0;
+					visibility: hidden;
+					pointer-events: none;
+					user-select: none;
+					transition: all ease-in-out .5s 0s;
+
+					&.enabledSlide{
+						opacity: 1;
+						visibility: visible;
+						pointer-events: auto;
+						user-select: auto;
+					}
+
+    			&.disabledSlide__toTwo{
+    				opacity: 0;
+    				visibility: hidden;
+						pointer-events: none;
+						user-select: none;
+    				transform: translateX(-100%);
+    			}
+    			
+    			&.slide-moveLeft__toTwo{
+    				opacity: 1;
+						visibility: visible;
+						pointer-events: auto;
+						user-select: auto;
+    				transform: translateX(-100%);
+    			}
+
+    			&.disabledSlide__toThree{
+    				opacity: 0;
+    				visibility: hidden;
+						pointer-events: none;
+						user-select: none;
+    				transform: translateX(-200%);
+    			}
+
+    			&.slide-moveLeft__toThree{
+    				opacity: 1;
+						visibility: visible;
+						pointer-events: auto;
+						user-select: auto;
+    				transform: translateX(-200%);
+    			}
+
 					/* TÍTULO DEL STEP */
 					&--cTitle{
-						margin-bottom: 3.5rem;
-						width: 75%;
+						margin-bottom: 2.5rem;
 						margin-left: auto;
 						margin-right: auto;
+
 						&--title{
 							color: $color-links;
-							margin-bottom: 1rem;
-							font-size: 1.7rem;
+							font-size: 1.45rem;
+    					font-weight: 600;
+
+							@media (min-width: 960px){
+								font-size: 1.7rem;
+								margin-bottom: 1rem;
+							}
 						}
 
 						&--desc{
-							font-size: 1.1rem;
+							font-size: 1rem;
+
+							@media (min-width: 768px){
+								font-size: 1.1rem;
+							}
 						}
 					}
 
 					/* CONTENEDOR DE FOTOS DE DOCUMENTO DE IDENTIDAD */
 					&--cPhoto{
 						display: flex;
+						flex-flow: nowrap row;
 						align-items: flex-start;
-						gap: 1rem;
+						justify-content: center;
+						gap: 2rem;
+
+						@media (min-width: 690px){
+							flex-flow: wrap row;
+						}
 
 						@media (min-width: 991px){
 							gap: 4rem;
 						}
 
+						@media (min-width: 1200px){
+							gap: 7.5rem;
+						}
+
 						&--item{
+							display: -webkit-flex;
+							display: -ms-flex;
+							display: flex;
+					    flex-flow: nowrap column;
+					    align-items: center;
+					    justify-content: center;
+					    width: 48%;
+					    padding: 0;
+
+							@media (min-width: 690px){
+								width: auto;
+							}
+
 							&--cImg{
-								max-width: 17rem;
+								max-width: 14rem;
 								margin-bottom: 2rem;
+
+								@media (min-width: 1200px){
+									max-width: 15.5rem;
+								}
+
 								img{
 
 								}
-							}	
+							}
 
 							/* DESCRIPCIÓN DE FOTOGRAFÍA */
 							&--cDesc{
 								a{
-									display: block;
-									margin-bottom: 0.5rem;
-									padding: 0.7rem 3rem;
-									border-radius: 1.5rem;
-									background-color: $color-links-photo;
-									color: $color-links;
-									font-weight: 600;
-									font-size: 0.9rem;
+							    display: block;
+							    margin-bottom: .5rem;
+							    padding: 0.25rem 1rem;
+							    border-radius: 1.5rem;
+							    background-color: #c9ddfb;
+							    color: #4682b4;
+							    font-weight: 600;
+							    font-size: .75rem;
+
+									@media (min-width: 690px) {
+										padding: 0.7rem 3rem;
+										font-size: 0.9rem;
+									}
 								}
 
 								span{
 									color: $color-paragraph;
-									font-size: 0.8rem;
+									font-size: 0.75rem;
+
+									@media (min-width: 690px){
+										font-size: 0.8rem;
+									}
 								}
 							}
 						}
@@ -151,7 +386,7 @@
 						padding: .8rem 3rem;
 				    display: inline-block;
 				    background-image: linear-gradient(45deg,
-																							$color-links, 
+																							$color-links,
 																							deepskyblue);
 				    color: #fff;
 				    border-radius: 1.5rem;

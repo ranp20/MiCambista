@@ -1,4 +1,4 @@
-<?php 
+<?php
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
@@ -29,6 +29,7 @@ require_once '../php/process_data-list.php';
 			</section>
 		</div>
 	</div>
-	<script src="<?= $url ?>js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/validation-biometric.js"></script>
 </body>
 </html>

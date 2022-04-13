@@ -1,28 +1,20 @@
 <div class="cControlP__cont--containDash--c--validBiom--cont">
-	<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus">
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--namestep">
-				<span></span>
-				<p>VERIFICACIÓN DE IDENTIDAD</p>
-			</div>
-		</div>
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--linestep"></div>
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--namestep">
-				<span></span>
-				<p>GRABAR VIDEO SELFIE</p>
-			</div>
-		</div>
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--linestep"></div>
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--namestep">
-				<span></span>
-				<p>VERIFICACIÓN</p>
-			</div>
-		</div>
+	<div class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus" id="c_statusPointSteps_validBiom">
+		<a href="javascript:void(0);" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep active">
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">1</span>
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN DE IDENTIDAD</span>
+		</a>
+		<a href="javascript:void(0);" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">2</span>
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">GRABAR VIDEO SELFIE</span>
+		</a>
+		<a href="javascript:void(0);" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">3</span>
+			<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN</span>
+		</a>
 	</div>
 	<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity">
-		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepOneValBiom">
+		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step enabledSlide" id="c-stepOne_ValBiom">
 			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
 				<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">Verificación de identidad</h2>
 				<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">Por favor, proporcione una foto de su documento de identidad</p>
@@ -47,7 +39,9 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--btnOneToNextStep">CONTINUAR</button>
+			<button type="button" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--btnOneToNextStep" id="btn_stepNext_validBiom">CONTINUAR</button>
 		</section>
+		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepTwo_ValBiom"></section>
+		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepThree_ValBiom"></section>
 	</div>
 </div>

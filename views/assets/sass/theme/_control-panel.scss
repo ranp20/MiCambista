@@ -89,7 +89,7 @@
 							display: none;
 						}
 						img{
-
+							width: auto;
 						}
 					}
 
@@ -107,12 +107,14 @@
 
 						p{
 							color: $color-links;
+							position: relative;
+							top: 2px;
 						}
 
 						&--cIcon{
 							margin-left: 0.5rem;
 							img{
-
+								width: auto;
 							}
 						}
 					}

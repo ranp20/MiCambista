@@ -361,12 +361,17 @@
 						margin-bottom: 1rem;
 						p{
 							color: steelblue;
-							font-size: 1.5rem;
+							font-size: 1.25rem;
 							display: flex;
 							flex-flow: wrap row;
 							align-items: center;
 							justify-content: flex-start;
 							vertical-align: middle;
+
+							@media (min-width: 768px){
+								font-size: 1.5rem;
+							}
+
 							svg{
 								max-width: 30px;
 								width: auto;

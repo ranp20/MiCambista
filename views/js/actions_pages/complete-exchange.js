@@ -22,8 +22,20 @@ function listCompleteExchange(){
 				var minustype = typeacc.toLowerCase();
 				var typecurr = v.tipomoneda;
 				var minuscurr = firstLetterMayus(typecurr.toLowerCase());
+				let valOriginal = v.transferido;
+      	let valOriginalsplit = valOriginal.split(".");
+      	let valOriginalFinal = "";
+				let valFormat = "";
+				if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+					valOriginalFinal = valOriginalsplit[0]+'.00';
+				}else	if(valOriginalsplit[1].length < 2){
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+				}else{
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+				}
+      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-				$("#vl-mountTotalToSend").text(v.prefijo+" "+v.transferido);
+				$("#vl-mountTotalToSend").text(v.prefijo+" "+valFormat);
 				$("#vl-imgbankTotalToSend").attr("src", pathbank);
 				$("#vl-typeaccountTotalToSend").text(minustype);
 				$("#vl-typecurrTotalToSend").text(minuscurr);

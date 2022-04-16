@@ -35,8 +35,20 @@ let listAllTransactions = () => {
 			{"data":"codigo"},
 			{"data":"fecha"},
 			{"data":"solicitado",
-	      "render": function ( data, type, row ) {
-	        return row.prefijorequest + " " + row.solicitado;
+	      "render": function ( data, type, row ){
+	      	var valOriginal = row.solicitado;
+	      	var valOriginalsplit = valOriginal.split(".");
+	      	var valOriginalFinal = "";
+					var valFormat = "";
+					if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+						valOriginalFinal = valOriginalsplit[0]+'.00';
+					}else	if(valOriginalsplit[1].length < 2){
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+					}else{
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+					}
+	      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	        return row.prefijorequest + " " + valFormat;
 				}
       },
       {"render": function () {

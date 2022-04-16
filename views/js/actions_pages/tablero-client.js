@@ -45,6 +45,20 @@ function listTransactionsByIdClient_tablero(){
 				}else{
 					statusSend = `<span class="cancel"></span>`;
 				}
+
+				let valOriginal = v.solicitado;
+      	let valOriginalsplit = valOriginal.split(".");
+      	let valOriginalFinal = "";
+				let valFormat = "";
+				if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+					valOriginalFinal = valOriginalsplit[0]+'.00';
+				}else	if(valOriginalsplit[1].length < 2){
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+				}else{
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+				}
+      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 				template += `
 					<li class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item" id="${v.id}">
 						<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--cLeft">
@@ -53,7 +67,7 @@ function listTransactionsByIdClient_tablero(){
 							</div>
 							<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--cLeft--codemount">
 								<p>${v.codigo}</p>
-								<p>${v.prefijorequest} ${v.solicitado}</p>
+								<p>${v.prefijorequest} ${valFormat}</p>
 							</div>
 						</div>
 						<a href="#" class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--showDetail">Ver más</a>
@@ -85,6 +99,32 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 				var limitecuenta = (cuentarequest.length >= 4) ? cuentarequest.replace(cuentarequest.substring(0, 10), "*******") : cuentarequest;
 				var pathimgbank = "./admin/views/assets/img/banks/"+v.imgbanksolicitado;
 				var pathimgtransferbank = "./admin/views/assets/img/transferbanks/"+v.imgbankplatform;
+				// VALOR - SOLICITADO
+				let valOriginal = v.solicitado;
+      	let valOriginalsplit = valOriginal.split(".");
+      	let valOriginalFinal = "";
+				let valFormat = "";
+				if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+					valOriginalFinal = valOriginalsplit[0]+'.00';
+				}else	if(valOriginalsplit[1].length < 2){
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+				}else{
+					valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+				}
+      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      	// VALOR - TRANSFERIDO
+				let valOriginal_trans = v.transferido;
+      	let valOriginal_transsplit = valOriginal_trans.split(".");
+      	let valOriginal_transFinal = "";
+				let valFormat_trans = "";
+				if(valOriginal_transsplit[1] == undefined || valOriginal_transsplit[1] == 'undefined' || valOriginal_transsplit[1] == ""){
+					valOriginal_transFinal = valOriginal_transsplit[0]+'.00';
+				}else	if(valOriginal_transsplit[1].length < 2){
+					valOriginal_transFinal = valOriginal_transsplit[0]+"."+valOriginal_transsplit[1]+'0';
+				}else{
+					valOriginal_transFinal = valOriginal_transsplit[0]+"."+valOriginal_transsplit[1];
+				}
+      	valFormat_trans = valOriginal_transFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 				if(v.estado == "Pending"){
 					estado = `<div class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item--cStatus process">
@@ -107,7 +147,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Solicitado:</p>
-										<p id="t-solicitedTransCli">${v.prefijorequest+" "+v.solicitado}</p>
+										<p id="t-solicitedTransCli">${v.prefijorequest+" "+valFormat}</p>
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Tasa de cambio:</p>
@@ -146,7 +186,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
 												<p>Monto a enviar:</p>
 												<p>
-													<span id="t-transferedTransCli">${v.prefijosend+" "+v.transferido}</span>
+													<span id="t-transferedTransCli">${v.prefijosend+" "+valFormat_trans}</span>
 													<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 												</p>
 											</div>
@@ -184,7 +224,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Solicitado:</p>
-										<p id="t-solicitedTransCli">${v.prefijorequest+" "+v.solicitado}</p>
+										<p id="t-solicitedTransCli">${v.prefijorequest+" "+valFormat}</p>
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Tasa de cambio:</p>
@@ -222,7 +262,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Solicitado:</p>
-										<p id="t-solicitedTransCli">${v.prefijorequest+" "+v.solicitado}</p>
+										<p id="t-solicitedTransCli">${v.prefijorequest+" "+valFormat_trans}</p>
 									</li>
 									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
 										<p>Tasa de cambio:</p>

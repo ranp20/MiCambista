@@ -120,6 +120,60 @@ strong, b{
 	line-height: unset;
 	user-select: none;
 }
+.statusPoint_transac{
+	position: relative;
+	&__pending{
+		margin-left: 1rem;
+		&:before{
+		  content: "";
+	    position: absolute;
+	    width: 10px;
+	    height: 10px;
+	    background-color: #ff0;
+	    top: 50%;
+	    left: 0;
+	    transform: translateY(-50%);
+	    border-radius: 50%;
+		}
+	}
+	&__completed{
+		margin-left: 1rem;
+		&:before{
+		  content: "";
+	    position: absolute;
+	    width: 10px;
+	    height: 10px;
+	    background-color: lightgreen;
+	    top: 40%;
+	    left: 0;
+	    transform: translateY(-50%);
+	    border-radius: 50%;
+		}
+	}
+	&__cancel{
+		margin-left: 1rem;
+		&:before{
+		  content: "";
+	    position: absolute;
+	    width: 10px;
+	    height: 10px;
+	    background-color: red;
+	    top: 40%;
+	    left: 0;
+	    transform: translateY(-50%);
+	    border-radius: 50%;
+		}
+	}
+}
+.btn_ItemEditReg{
+	background-color: yellow;
+	border-radius: 15px;
+	padding: 0.35rem 1rem;
+	outline: none;
+	border: none;
+	color: $color-paragraph;
+	font-size: 0.9rem;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	
@@ -1979,6 +2033,83 @@ strong, b{
 																				deepskyblue);
 	    color: #fff;
 	    border-radius: 1.5rem;
+		}
+	}
+}
+
+/* TABLA CLIENTE */
+#all_transac-cli_wrapper{
+	/* FILTRAR NÚMERO DE RESULTADOS */
+	#all_transac-cli_length{
+		margin-bottom: 1rem;
+		label{
+			select{
+				background-color: #fff;
+			}
+		}
+	}
+	/* BÚSQUEDA EN TIEMPO REAL */
+	#all_transac-cli_filter{
+		margin-bottom: 1rem;
+		label{
+			input{
+				background-color: #fff;
+			}
+		}
+	}
+	/* PAGINACIÓN */
+	#all_transac-cli_paginate{
+		background-color: #fff;
+    border-radius: 10px;
+    padding: 0;
+    border: 1px solid #979797;
+
+		a.paginate_button.previous,
+		a.paginate_button.next{
+			padding: 0.2rem .65rem;
+		}
+
+		a.paginate_button.previous.disabled,
+		a.paginate_button.next.disabled{
+			cursor: not-allowed;
+		}
+
+		a.paginate_button.next{
+			border-left: 1px solid #979797;
+		}
+
+		a.paginate_button.current{
+			padding: 0.2rem .65rem;
+			border-right: none;
+			border-top: none;
+			border-bottom: none;
+			border-left: 1px solid #979797;
+		}
+	}
+}
+#all_transac-cli{
+	background-color: #fff;
+  //border: thin solid red;
+	border-collapse: collapse;
+	margin: 0.85rem 0 0.85rem 0;
+	border-radius: 6px 6px 6px 6px;
+	border-bottom: none;
+	thead{
+		border: none;
+		tr{
+			border: none;
+			th{
+				border: none;
+				color: #888;
+			}
+		}
+	}
+	tbody{
+		tr{
+			td{
+				padding: 0.95rem;
+				border-top: 1px solid #eee;
+			}
 		}
 	}
 }

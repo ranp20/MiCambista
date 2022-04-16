@@ -1,21 +1,49 @@
 $(() => {
-	listAllTransactions();	
+	listAllTransactions();
 });
 var idClient = $("#input-idClientValListTransac").val();
 let listAllTransactions = () => {
 	
-	var table = $("#all_transactions").DataTable({
+	var table = $("#all_transac-cli").DataTable({
 		"ajax":{
 			"url": "controllers/c_list-all-transactions-byIdClient-all.php",
 			"data": { id_client : idClient },
     	"type": "POST",
 		},
 		"columns":[
-			{"data":"estado"},
+			{"data":"estado",
+	      "render": function ( data, type, row ){
+	        let statustmp = "";
+	        if(data == "Pending"){
+	        	statustmp = `<div class='statusPoint_transac'>
+	        								<span class='statusPoint_transac__pending'>espera de pago</span>
+	        							</div>`;
+	        }else if(data == "Completed"){
+	        	statustmp = `<div class='statusPoint_transac'>
+	        								<span class='statusPoint_transac__completed'>finalizado</span>
+	        							</div>`;
+	        }else if(data == "Cancel"){
+	        	statustmp = `<div class='statusPoint_transac'>
+	        								<span class='statusPoint_transac__cancel'>cancelada</span>
+	        							</div>`;
+	        }else{
+	        	return row.estado;
+	        }
+	        return statustmp;
+				}
+			},
 			{"data":"codigo"},
 			{"data":"fecha"},
-			{"data":"prefijorequest"},
-			{"data":"solicitado"}
+			{"data":"solicitado",
+	      "render": function ( data, type, row ) {
+	        return row.prefijorequest + " " + row.solicitado;
+				}
+      },
+      {"render": function () {
+	      return `<button type="button" class="btn_ItemEditReg">
+	      					<span class="hidden-xs"> Ver más</span>
+	      				</button>`;
+	    }},
 		],
 		"language":{
 	    "processing": "Procesando...",
@@ -194,18 +222,7 @@ let listAllTransactions = () => {
 	            "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
 	        }
 	    },
-	    "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas"
+	    "info": "Mostrando _START_ - _END_ de _TOTAL_ registros"
 		}
 	});
-	/*
-	$.ajax({
-		url: "controllers/c_list-all-transactions-byIdClient-all.php",
-		method: "POST",
-		dataType: "JSON",
-		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-		data: { id_client : idClient }
-	}).done((e) => {
-		console.log(e);
-	});
-	*/
 };

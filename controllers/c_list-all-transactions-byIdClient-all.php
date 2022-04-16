@@ -6,6 +6,7 @@ class List_All_Transactions extends Connection{
 		$id = $_POST['id_client'];
 		$res = [];
 		$result = [];
+		$output = [];
 		$count = 0;
 		try{
 			$sql = "CALL sp_list_transactions_byIdClient_all(:id_client)";
@@ -14,25 +15,36 @@ class List_All_Transactions extends Connection{
 			$stm->execute();
 			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($data as $key => $value){
-				//$res['data'] = array_map("utf8_encode",$value);
-				$res['data'][] = array_map("utf8_encode",$value);
-				//echo $value['codigo'];
-				//$res['data'][$key] = $value;
+				$result['data'][] = array_map("utf8_encode",$value);
 				/*
-				$estado = $value['estado'];
+				$id = $value['id'];
 				$codigo = $value['codigo'];
+				$estado = $value['estado'];
 				$fecha = $value['fecha'];
 				$prefijorequest = $value['prefijorequest'];
 				$solicitado = $value['solicitado'];
 				array_push($res, [
+					$id,
 					$estado,
 					$codigo,
 					$fecha,
 					$prefijorequest,
-					$solicitado					
+					$solicitado
 				]);
-				*/
+				*/	
 			}
+			
+			/*
+			foreach ($res as $key => $value) {
+				$result['data'][] = $value;
+			}
+			
+			echo "<pre>";
+			print_r($res);
+			echo "</pre>";
+			exit();
+			*/
+			
 			/*
 			while ($count < count($res)){
 				$result['data'][$key] = $res[$count][0];
@@ -44,8 +56,8 @@ class List_All_Transactions extends Connection{
 			exit();
 			*/
 			
-			$result = json_encode($res);
-			echo $result;
+			$output = json_encode($result);
+			echo $output;
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}

@@ -340,6 +340,50 @@
 					}
 				}
 			}
+
+			/* ALL TRANSACTIONS */
+			&__cAllTransacs{
+				width: 100%;
+				&--cTop{
+					&--cBeforeReturn{
+						margin-bottom: 1rem;
+						a{
+						display: table;
+						max-width: 40px;
+						width: auto;
+							svg{
+								cursor: pointer;
+								fill: steelblue;
+							}
+						}
+					}
+					&--cTitle{
+						margin-bottom: 1rem;
+						p{
+							color: steelblue;
+							font-size: 1.5rem;
+							display: flex;
+							flex-flow: wrap row;
+							align-items: center;
+							justify-content: flex-start;
+							vertical-align: middle;
+							svg{
+								max-width: 30px;
+								width: auto;
+								fill: steelblue;
+							}
+
+							span{
+								margin-left: .5rem;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+
+				&--cBottom{
+				}
+			}
 		}
   }
 }

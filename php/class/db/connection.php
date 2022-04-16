@@ -1,5 +1,17 @@
 <?php 
 	class Connection{
+
+		// CONFIGURACIÓN - SERVIDOR
+		/*
+		protected $con = null;
+		private $host = "158.106.132.103";
+		private $dbname = "micambis_db_micambista";
+		private $username = "micambis_use_micambista";
+		private $password = "D^_~M)O%[K&#";
+		private $charset = "utf8";
+		*/
+
+		// CONFIGURACIÓN - LOCALHOST
 		protected $con = null;
 		private $host = "localhost";
 		private $dbname = "db_micambista";

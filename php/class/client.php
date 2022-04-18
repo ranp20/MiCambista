@@ -7,7 +7,7 @@ class Client extends Connection{
 	function __construct(){
 		parent::__construct();
 	}
-	/************************** LISTAR - USERS **************************/
+	// -------------- LISTAR - USERS
 	function get_data(){
 		try{
 			$sql = "SELECT * FROM {$this->table}";
@@ -18,7 +18,7 @@ class Client extends Connection{
 			return $e->getMessage();
 		}
 	}
-	/************************** OBTENER USUARIO POR ID **************************/
+	// -------------- OBTENER USUARIO POR ID
 	function get_data_by_id($id){
 		try{
 			$sql = "SELECT * FROM {$this->table} WHERE id = :id";
@@ -30,7 +30,7 @@ class Client extends Connection{
 			return $e->getMessage();
 		}
 	}
-	/************************** VALIDAR EL USUARIO **************************/
+	// -------------- VALIDAR EL USUARIO
   function verify_email($email){
     try{
       $sql = "SELECT * FROM {$this->table} WHERE email = :email";
@@ -42,6 +42,7 @@ class Client extends Connection{
       return $e->getMessage();
     }
   }
+  // -------------- OBTENER DATOS A PARTIR DEL EMAIL
   function get_clients($email){
   	try{
       $sql = "SELECT * FROM {$this->table} WHERE email = :email";

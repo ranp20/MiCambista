@@ -45,7 +45,7 @@ $(document).on("submit", "#Login-PInstakash", function(e){
 															`);
 
 			setTimeout(function(){
-				window.location.replace("control-panel");
+				window.location.replace("welcome");
 			}, 500);
   	}else{
   		$("#msgAlertLogin").html(`<div class="msgAlertLogin--error">

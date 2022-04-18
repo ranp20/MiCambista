@@ -11,7 +11,7 @@
 				</a>
 			</li>
 			<li class="cControlP__cont--sdLeft--c--m--item">
-				<a href="convert-divise" class="cControlP__cont--sdLeft--c--m--link" id="convert-divise">
+				<a href="control-panel" class="cControlP__cont--sdLeft--c--m--link" id="convert-divise">
 					<img src="<?= $url ?>views/assets/img/svg/dashboard-item-2.svg" alt="">
 					<span>Cambio de divisas</span>
 				</a>

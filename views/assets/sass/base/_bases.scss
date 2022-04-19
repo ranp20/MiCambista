@@ -839,7 +839,6 @@ strong, b{
 	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
 
 
-
 	&.show{
 		display: flex;
 		pointer-events: auto;
@@ -848,14 +847,15 @@ strong, b{
 	&--form{
 		text-align: center;
 		max-width: 540px;
-		width: 90%;
+		width: 95%;
 		background-color: #F2F2F2;
-		padding: 1.5rem 2.2rem;
+		padding: 1rem 1.2rem;
 		border-radius: 1rem;
 		transform: translateY(-200%);
 		animation-name: moveToTop;
 		animation-duration: .2s;
 		animation-timing-function: linear;
+		animation-fill-mode: forwards;
 		pointer-events: none;
 
 		@keyframes moveToTop{
@@ -876,7 +876,11 @@ strong, b{
 			margin-bottom: 1rem;
 			&--title{
 				color: $color-links;
-				font-size: 1.65rem;
+				font-size: 1.25rem;
+
+				@media (min-width: 768px){
+					font-size: 1.65rem;
+				}
 			}
 		}
 
@@ -934,7 +938,6 @@ strong, b{
 				&[type=number]{ 
 					-moz-appearance:textfield;
 				}
-
 			}
 
 			&--span{
@@ -949,6 +952,10 @@ strong, b{
 			text-align: left;
 			margin-bottom: 1.8rem;
 			position: relative;
+			display: flex;
+	    align-items: center;
+	    justify-content: flex-start;
+	    flex-flow: nowrap row;
 			input{
 
 			}
@@ -969,8 +976,6 @@ strong, b{
 		&--cBtnAddAccount{
 			opacity: 1;
 			cursor: pointer;
-			//opacity: .4;
-			//cursor: not-allowed;
 			display: inline-block;
 			max-width: 320px;
 			width: 90%;

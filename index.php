@@ -3,7 +3,7 @@
   (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
   session_start();
   if(isset($_SESSION['cli_micambista'])){
-  	header("Location: control-panel");
+  	header("Location: select-profile");
   }
   require_once './php/class/settings.php';
   $call_config = new Settings_all();
@@ -222,5 +222,14 @@
 	</main>
 	<?php require_once 'views/home_includes/home-footer.php'; ?>
 	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript">
+	  document.body.addEventListener("load", (e) => {
+      if (e.target.tagName != "img") {
+        return;
+      }
+      // Remove the blurry placeholder.
+      e.target.style.backgroundImage = "none";
+    },true);
+	</script>
 </body>
 </html>

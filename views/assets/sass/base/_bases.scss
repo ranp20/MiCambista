@@ -43,6 +43,10 @@ input[readonly]{
 	pointer-events: none;
 	user-select: none;
 }
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
 strong, b{
 	font-weight: bold;
 }
@@ -872,6 +876,10 @@ strong, b{
 			pointer-events: auto;
 		}
 
+		@media (min-width: 768px){
+			padding: 1.5rem 2.2rem;
+		}
+
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
@@ -1693,7 +1701,7 @@ strong, b{
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			padding: 1rem 1rem 0 1rem;
+			padding: 1rem 0 0 1rem;
 
 			svg{
 				fill: none;

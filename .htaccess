@@ -25,7 +25,7 @@ RewriteRule ajustes?$ admin/views/settings.php
 RewriteRule savesettings?$ admin/controllers/c_update_config.php
 
 ############RENAME ACTION IN PAGES OF THE CLIENT
-RewriteRule control-panel?$ views/control-panel.php
+RewriteRule select-profile?$ views/select-profile.php
 RewriteRule welcome?$ views/welcome.php
 RewriteRule tablero?$ views/dashboard.php
 RewriteRule all-converts?$ views/all-transactions.php

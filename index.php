@@ -33,11 +33,11 @@
 									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates">
 										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
 											<span>Compramos a:</span>
-											<span>3.7110</span>
+											<span id="refval_buy_at"></span>
 										</p>
 										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
 											<span>Vendemos a:</span>
-											<span>3.7210</span>
+											<span id="refval_sell_at"></span>
 										</p>
 									</div>
 									<form class="c-convert__cFrmConvert__mxFrmC__cFrm" action="" method="POST">

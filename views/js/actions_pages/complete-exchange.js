@@ -6,6 +6,13 @@ var idClient = $("#vl-idUserSessFinal").val();
 function firstLetterMayus(string){
  return string.charAt(0).toUpperCase() + string.slice(1); 
 }
+// ------------ SOLO Y ÚNICAMENTE NÚMEROS
+function isNumberKey(evt){
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+  return true;
+}
 // ------------ MONTO A ENVIAR Y CUENTA DE TRANSACCIÓN DE MI CAMBISTA, EN BASE A LA OPCIÓN SELECCIONADA
 function listCompleteExchange(){
 	$.ajax({
@@ -47,3 +54,23 @@ function listCompleteExchange(){
 		}
 	});
 }
+// ------------ EVENTO KEYPRESS - INPUT DE NÚMERO DE OPERACIÓN
+$(document).on("keypress", "#v-validNumOperationTransc", function(e){
+	return isNumberKey(e);
+});
+// ------------ HOVER EN EL SVG - EJEMPLO DE NÚMERO DE OPERACIÓN
+$("svg[data-showModalHov='transfer_numOpBankExample']").hover(function(e){
+	e.preventDefault();
+  var element = $(this);
+  var modalContent = element.next();
+
+  timeout = setTimeout(function() {
+		modalContent.html(`
+			<img src="views/assets/img/bank/examples/bank_transfer-interbank.png" alt="example-modal-bankoperation" width="100" height="100">
+		`);
+  }, 200);
+
+}, function(){
+  clearTimeout(timeout);
+  $(this).next().html("");
+});

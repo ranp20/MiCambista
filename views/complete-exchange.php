@@ -55,13 +55,16 @@ require_once '../php/process_data-list.php';
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 							</div>
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>
-							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo">
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo">
 								<a href="javascript:void(0);">¿Dónde lo encuentro?</a>
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-							</p>
+								<svg xmlns="http://www.w3.org/2000/svg" data-showModalHov="transfer_numOpBankExample" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo__cModalNumOpBankExample">
+									
+								</div>
+							</div>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">
 								<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form">
-									<input type="text" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--input" placeholder="Ingresa el nro. de operación">
+									<input type="text" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--input" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc">
 									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
 									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
 										<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac">Enviar</button>

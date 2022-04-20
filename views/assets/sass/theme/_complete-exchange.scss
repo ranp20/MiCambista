@@ -129,6 +129,7 @@
 				align-items: center;
 				justify-content: flex-end;
 				margin-bottom: 1rem;
+				position: relative;
 				a{
 					text-decoration: underline;
 					color: $color-paragraph;
@@ -139,6 +140,27 @@
 					fill: transparent;
 					stroke: $color-links;
 					margin-left: 0.5rem;
+				}
+
+				&__cModalNumOpBankExample{
+					position: absolute;
+					top: -150px;
+    			right: 20px;
+
+    			@media (min-width: 768px){
+    				right: -145px;
+    			}
+
+    			img{
+    				max-width: 160px;
+				    width: 90%;
+				    border-radius: 10px;
+				    border: none;
+				    height: auto;
+				    padding: 0;
+				    margin: 0;
+				    box-shadow: 0 0 0 4px steelblue;
+    			}
 				}
 			}
 

@@ -29,7 +29,7 @@ require_once '../php/process_data-list.php';
 				<div class="cControlP__cont--containDash--c" id="cont-convert-divise">
 					<div class="cControlP__cont--containDash--c--cConvertDivise">
 						<div class="cControlP__cont--containDash--c--cConvertDivise--cF">
-							<div class="c-convert__cFrmConvert">
+							<div class="c-convert__cFrmConvert pt-3rem">
 								<div class="c-convert__cFrmConvert__cSlogOfSite">
 									<h3>¡Gana cambiando con MiCambista!</h3>
 									<p>Mejores tasas, mayor ahorro</p>

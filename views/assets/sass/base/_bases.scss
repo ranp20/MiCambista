@@ -170,6 +170,9 @@ strong, b{
 .t-align-right{
 	text-align: right;
 }
+.pt-3rem{
+	padding-top: 3rem;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	
@@ -2140,7 +2143,6 @@ strong, b{
   display: block;
   margin: 0 auto;
   position: relative;
-	padding-top: 3rem;
 	pointer-events: auto;
 	opacity: 1;
 
@@ -2433,8 +2435,25 @@ strong, b{
 						margin-left: 0.85rem;
 						fill: $frmconvert_colorschema;
 					}
-
 				}
+
+				&__cMessageExp{
+					display: flex;
+				  flex-flow: nowrap row;
+				  align-items: center;
+				  justify-content: center;
+				  color: $frmconvert_colorschema;
+				  margin: 0 .0 .5rem 0;
+
+					h1,h2,h3,h4,h5,h6,span{
+						font-size: 1rem;
+						text-align: left;
+					}
+					svg{
+						margin-right: 0.85rem;
+					}
+				}
+				
 				&__cControl{
 					display: flex;
 				  flex-flow: nowrap row;

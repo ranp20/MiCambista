@@ -11,6 +11,7 @@
 				</a>
 			</li>
 			<li class="cControlP__cont--sdLeft--c--m--item">
+				<!-- VALIDAR - CUANDO YA SE HAYA ELEGIDO UN USUARIO, REECRIBIR EL "href" DEL LINK A "convert-divise" -->
 				<a href="select-profile" class="cControlP__cont--sdLeft--c--m--link" id="convert-divise">
 					<img src="<?= $url ?>views/assets/img/svg/dashboard-item-2.svg" alt="">
 					<span>Cambio de divisas</span>

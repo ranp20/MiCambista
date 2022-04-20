@@ -1,14 +1,15 @@
+/*
 #cont-convert-divise{
 	position: relative;
 	padding-top: 3rem;
 	display: block;
-	/*
-	display: none;
-	visibility: hidden;
-	opacity: 0;
-	pointer-events: none;
-	user-select: none;
-	*/
+	
+	// display: none;
+	// visibility: hidden;
+	// opacity: 0;
+	// pointer-events: none;
+	// user-select: none;
+	
 
 	&.sendShow{
 		display: none;
@@ -346,7 +347,7 @@
 					opacity: .4;
 					cursor: not-allowed;
 					user-select: none;
-					*/
+					
 
 					&.completeFrm{
 						opacity: 1;
@@ -382,3 +383,4 @@
 		}
 	}
 }
+*/

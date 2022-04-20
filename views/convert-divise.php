@@ -35,7 +35,7 @@ require_once '../php/process_data-list.php';
 									<p>Mejores tasas, mayor ahorro</p>
 								</div>
 								<div class="c-convert__cFrmConvert__mxFrmC">
-									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates">
+									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates b-shadow-light">
 										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
 											<span>Compramos a:</span>
 											<span id="refval_buy_at"></span>
@@ -60,7 +60,7 @@ require_once '../php/process_data-list.php';
 												</div>
 												<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cFunction__cControl__cDiviseValue">
 													<span id="spanprefix-one">S/.</span>
-													<input type="text" id="val_amount_send" placeholder="0" maxlength="20">
+													<input type="text" id="val_amount_send" placeholder="0" maxlength="20" class="t-align-right">
 													<span>Envías</span>
 												</div>
 											</div>

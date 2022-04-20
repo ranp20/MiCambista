@@ -2288,6 +2288,8 @@ strong, b{
 					align-items: center;
 					justify-content: center;
 					margin: 0 auto 2rem auto;
+					//outline: thin solid $frmconvert_colorschema;
+    			border-radius: 5px;
 
 					&__cPrefixCurrent{
 						display: inline-block;
@@ -2340,6 +2342,10 @@ strong, b{
 							border: none;
 							color: $frmconvert_colorschema;
 							text-align: right;
+						}
+
+						input.w-backgrouncolor{
+							background-color: #e9f6f6;
 						}
 
 						&.toInitLeft{
@@ -2513,6 +2519,7 @@ strong, b{
 
 				&:hover{
 					opacity: 0.75;
+					color: #fff;
 				}
 				@media (min-width: 768px){
 					&{

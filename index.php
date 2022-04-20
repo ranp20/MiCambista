@@ -48,7 +48,7 @@
 												</div>
 												<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cFunction__cControl__cDiviseValue">
 													<span>S/.</span>
-													<input type="text" id="" placeholder="0" maxlength="20">
+													<input type="text" id="val_amount_send" placeholder="0" maxlength="20" class="w-backgrouncolor">
 													<span>Envías</span>
 												</div>
 											</div>
@@ -63,7 +63,7 @@
 												</div>
 												<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cFunction__cControl__cDiviseValue">
 													<span>$</span>
-													<input type="text" id="" placeholder="0.00" maxlength="20">
+													<input type="text" id="val_amount_received" placeholder="0.00" maxlength="20" class="w-backgrouncolor">
 													<span>Recibes</span>
 												</div>
 											</div>
@@ -74,12 +74,16 @@
 												<span>Para montos mayores a $ 5,000.00 solicita un tipo de cambio preferencial en nuestro chat de whatsapp.</span>
 											</div>
 										</div>
-										<button type="submit" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub">
+										<a href="convert-divise" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub">
 											<span>Comenzar cambio</span>
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub__contloader">
 												<span class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub__contloader__loader"></span>
 											</div>
+										</a>
+										<!--
+										<button type="button" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub">
 										</button>
+										-->
 									</form>
 								</div>
 							</div>
@@ -239,6 +243,7 @@
 	</main>
 	<?php require_once 'views/home_includes/home-footer.php'; ?>
 	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/home_convert-divise.js"></script>
 	<script type="text/javascript">
 	  document.body.addEventListener("load", (e) => {
       if (e.target.tagName != "img") {

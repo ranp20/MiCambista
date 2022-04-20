@@ -12,12 +12,11 @@ $g_setting = $call_config->get_config();
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
-	<a href="https://api.whatsapp.com/send?phone=51951488317&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos." class="float" target="_blank" id="chat_wstp-icon"><i class="fa fa-whatsapp my-float"></i>
-  </a>
+	<?php require_once 'includes/api_whatsapp.php';?>
 	<main class="cMain">
 		<div class="cMain__cont">
 			<?php require_once 'home_includes/home-headertop.php'; ?>
-			<section class="cMain__cont--policy-privacy section-wrapper" id="c-policy-privacy">
+			<section class="cMain__cont--policy-privacy section-wrapper" id="fromHereFixedHeadTop">
 				<div class="cMain__cont--policy-privacy--c">
 					<h1 class="cMain__cont--policy-privacy--c--title">Políticas de Privacidad</h1>
 					<p>La presente Política de Privacidad (en adelante la “Política”) tiene por finalidad informarle la manera como MI CAMBISTA, S.A.C. (en adelante “MI CAMBISTA”), con domicilio en Jr Andahuaylas 271, Lima, Perú, y R.U.C. Nro. 20604340994, trata su información personal a través del Portal “www.cambistainka.com” (en adelante el “Portal Web”). La Política describe toda la tipología de información personal que se recaba de sus Usuarios, y todos los tratamientos que se realizan con dicha información. El Usuario declara haber leído y aceptado de manera previa y expresa la Política sujetándose a sus disposiciones.</p>
@@ -78,7 +77,6 @@ $g_setting = $call_config->get_config();
 		</div>
 	</main>
 	<?php require_once 'home_includes/home-footer.php'; ?>
-	<script src="<?= $url ?>js/main.js"></script>
-	<script src="<?= $url ?>js/actions_pages/convert-divise.js"></script>
+	<script src="<?= $url ?>views/js/main.js"></script>
 </body>
 </html>

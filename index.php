@@ -20,7 +20,7 @@
 	<main class="cMain">
 		<div class="cMain__cont">
 			<?php require_once 'views/home_includes/home-headertop.php'; ?>
-			<section class="cMain__cont--heroI" id="heroimage-info">
+			<section class="cMain__cont--heroI" id="fromHereFixedHeadTop">
 				<div class="cMain__cont--heroI--c box">
 					<div class="cMain__cont--heroI--c--cheader">
 						<h1 class="cMain__cont--heroI--c--cheader--title">¡Gana cambiando con MiCambista!</h1>

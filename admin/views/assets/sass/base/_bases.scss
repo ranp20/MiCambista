@@ -22,6 +22,10 @@ button,
 select{
 	outline: none;
 }
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
 p{
 	color: $color-paragraph;
 }

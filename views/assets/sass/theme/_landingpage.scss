@@ -125,6 +125,7 @@
 
 						    	&:hover{
 						    		opacity: .4;
+						    		color: currentcolor;
 						    	}
 						    }
 							}
@@ -168,6 +169,10 @@
 							    margin-left: auto;
 							    margin-right: auto;
 
+							    &:hover{
+							    	color: currentColor;
+							    }
+
 							    @media (min-width: 991px){
 								    font-size: 0.9rem;
 								    margin: 0 1rem;
@@ -204,6 +209,7 @@
 
 							    &:hover{
 							    	background-color: yellow;
+							    	color: currentColor;
 							    }
 
 							    @media (min-width: 991px){
@@ -1054,6 +1060,10 @@
 								line-height: 1.5;
 								margin-left: auto;
 								margin-right: auto;
+
+								&:hover{
+									color: currentColor;
+								}
 
 								@media (min-width: 692px){
 					    		font-size: 1rem;

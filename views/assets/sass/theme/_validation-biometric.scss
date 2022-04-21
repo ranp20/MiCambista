@@ -330,27 +330,69 @@
 					    justify-content: center;
 					    width: 48%;
 					    padding: 0;
+					    position: relative;
+					    overflow: hidden;
+					    cursor: pointer;
+
+					    &:hover{
+					    	.cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cImg{
+					    		opacity: 0.7;
+					    	}
+					    }
 
 							@media (min-width: 690px){
 								width: auto;
 							}
 
+							/* IMAGEN - PHOTO */
 							&--cImg{
 								max-width: 14rem;
 								margin-bottom: 2rem;
+								position: relative;
+								border-radius: 5px;
+								border: 3px solid #ddd;
 
 								@media (min-width: 1200px){
-									max-width: 15.5rem;
+									max-width: 14.5rem;
 								}
 
 								img{
+									width: 100%;
+									border-radius: 5px;
+									max-height: 166px;
+									height: auto;
 
+									&.uploadPhotoDoc{
+										//border: 3px solid steelblue;
+										//box-shadow: inset 0 0 0 1px steelblue;
+									}
+								}
+
+								input[type="file"]{
+									position: absolute;
+								  top: 0;
+								  right: 0;
+								  min-width: 100%;
+								  min-height: 100%;
+								  font-size: 100px;
+								  text-align: right;
+								  filter: alpha(opacity=0);
+								  opacity: 0;
+								  outline: none;
+								  background: white;
+								  cursor: inherit;
+								  display: block;
+								  overflow: hidden;
+								  margin: 0;
+								  padding: 0;
+								  -webkit-appearance: textfield;
+	    						-moz-appearance: textfield;
 								}
 							}
 
-							/* DESCRIPCIÓN DE FOTOGRAFÍA */
+							/* DESCRIPTION - PHOTO */
 							&--cDesc{
-								a{
+								a,button{
 							    display: block;
 							    margin-bottom: .5rem;
 							    padding: 0.25rem 1rem;
@@ -359,6 +401,8 @@
 							    color: #4682b4;
 							    font-weight: 600;
 							    font-size: .75rem;
+							    outline: none;
+							    border: none;
 
 									@media (min-width: 690px) {
 										padding: 0.7rem 3rem;
@@ -374,6 +418,28 @@
 										font-size: 0.8rem;
 									}
 								}
+							}
+
+							/* INPUT[TYPE=FILE] - PHOTO */
+							&--iptfilePhoto{
+								position: absolute;
+							  top: 0;
+							  right: 0;
+							  min-width: 100%;
+							  min-height: 100%;
+							  font-size: 100px;
+							  text-align: right;
+							  filter: alpha(opacity=0);
+							  opacity: 0;
+							  outline: none;
+							  background: white;
+							  cursor: inherit;
+							  display: block;
+							  overflow: hidden;
+							  margin: 0;
+							  padding: 0;
+							  -webkit-appearance: textfield;
+    						-moz-appearance: textfield;
 							}
 						}
 					}

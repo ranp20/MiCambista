@@ -1,6 +1,25 @@
 const c_statusPointSteps = $("#c_statusPointSteps_validBiom");
 var c_statusPointSteps_Items = c_statusPointSteps.find("a");
 
+// ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO FRONTAL
+$("#photo_dni-front").on("change", function(e){
+  let readerImg = new FileReader();
+  let contUploadView = $("#view-upPhotoDoc_front");
+  readerImg.readAsDataURL(e.target.files[0]);
+  readerImg.onload = function(){
+    contUploadView.attr("src", readerImg.result);
+  }
+});
+// ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO TRASERA
+$("#photo_dni-back").on("change", function(e){
+  let readerImg = new FileReader();
+  let contUploadView = $("#view-upPhotoDoc_back");
+  readerImg.readAsDataURL(e.target.files[0]);
+  readerImg.onload = function(){
+    contUploadView.attr("src", readerImg.result);
+  }
+});
+
 $(document).on("click", "#btn_stepNext_validBiom", function(){
 	c_statusPointSteps_Items.eq(0).removeClass("active");
 	c_statusPointSteps_Items.eq(0).addClass("complete");

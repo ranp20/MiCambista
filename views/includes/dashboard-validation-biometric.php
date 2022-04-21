@@ -22,21 +22,25 @@
 			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto">
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item">
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cImg">
-						<img src="<?= $url ?>views/assets/img/utilities/imagen_frontal-DNI.png" alt="">
+						<img src="<?= $url ?>views/assets/img/utilities/imagen_frontal-DNI.png" alt="" width="100" height="100" id="view-upPhotoDoc_front" class="">
 					</div>
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cDesc">
-						<a href="#">FOTO DE ID FRONTAL</a>
+						<button type="button">FOTO DE DNI FRONTAL</button>
 						<span>Min 1MB, Máx 5MB, .jpeg, .jpg, .png</span>
 					</div>
+					<label for="photo_dni-front"></label>
+					<input type="file" id="photo_dni-front" name="imagen[]" accept="img/*" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--iptfilePhoto" required>
 				</div>
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item">
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cImg">
-						<img src="<?= $url ?>views/assets/img/utilities/imagen_trasero-DNI.png" alt="">
+						<img src="<?= $url ?>views/assets/img/utilities/imagen_trasero-DNI.png" alt="" width="100" height="100" id="view-upPhotoDoc_back" class="">
 					</div>
 					<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--cDesc">
-						<a href="#">FOTO DE ID POSTERIOR</a>
+						<button type="button">FOTO DE DNI POSTERIOR</button>
 						<span>Min 1MB, Máx 5MB, .jpeg, .jpg, .png</span>
 					</div>
+					<label for="photo_dni-back"></label>
+					<input type="file" id="photo_dni-back" name="imagen[]" accept="img/*" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cPhoto--item--iptfilePhoto" required>
 				</div>
 			</div>
 			<button type="button" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--btnOneToNextStep" id="btn_stepNext_validBiom">CONTINUAR</button>

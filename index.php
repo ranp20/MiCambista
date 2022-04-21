@@ -29,7 +29,7 @@
 					<section class="cMain__cont--heroI--c--formuser">
 						<div class="cMain__cont--heroI--c--formuser--cForm">
 							<div class="c-convert__cFrmConvert">
-								<div class="c-convert__cFrmConvert__mxFrmC">
+								<div class="c-convert__cFrmConvert__mxFrmC w-100">
 									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates">
 										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
 											<span>Compramos a:</span>

@@ -173,6 +173,9 @@ strong, b{
 .pt-3rem{
 	padding-top: 3rem;
 }
+.w-100{
+	width: 100%;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	
@@ -2194,6 +2197,7 @@ strong, b{
 		display: block;
 		margin: 0 auto;
 		text-align: center;
+		width: 95%;
 
 		// FORM - TARIFAS
 		&__cValuesRates{

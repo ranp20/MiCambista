@@ -9,9 +9,11 @@ function firstLetterMayus(string){
 // ------------ SOLO Y ÚNICAMENTE NÚMEROS
 function isNumberKey(evt){
   var charCode = (evt.which) ? evt.which : event.keyCode;
-  if (charCode > 31 && (charCode < 48 || charCode > 57))
+  if (charCode > 31 && (charCode < 48 || charCode > 57)){
     return false;
-  return true;
+  }else{
+  	return true;
+  }
 }
 // ------------ MONTO A ENVIAR Y CUENTA DE TRANSACCIÓN DE MI CAMBISTA, EN BASE A LA OPCIÓN SELECCIONADA
 function listCompleteExchange(){
@@ -56,7 +58,16 @@ function listCompleteExchange(){
 }
 // ------------ EVENTO KEYPRESS - INPUT DE NÚMERO DE OPERACIÓN
 $(document).on("keypress", "#v-validNumOperationTransc", function(e){
-	return isNumberKey(e);
+	var charCode = (e.which) ? e.which : e.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57)){
+    $(this).addClass("non-validval");
+    $(this).next().text("Solo se permiten números en este control *");
+    return false;
+  }else{
+  	$(this).removeClass("non-validval");
+  	$(this).next().text("");
+  	return true;
+  }
 });
 // ------------ HOVER EN EL SVG - EJEMPLO DE NÚMERO DE OPERACIÓN
 $("svg[data-showModalHov='transfer_numOpBankExample']").hover(function(e){

@@ -20,7 +20,7 @@ require_once '../php/process_data-list.php';
 			<?php require_once 'includes/dashboard-sidebarleft.php'; ?>
 			<?php require_once 'includes/dashboard-sidebarright.php'; ?>
 			<section class="cControlP__cont--containDash">
-				<div class="cControlP__cont--containDash--c" id="cont-complete-exchange">
+				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-exchange">
 					<div class="cControlP__cont--containDash--c--cCFinalDivise">
 						<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle">
 							<h2 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--title">¡Último paso!</h2>
@@ -36,7 +36,7 @@ require_once '../php/process_data-list.php';
 						</div>
 						<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo">
 							<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--subtitle">Banco a transferir:</h3>
-							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo">
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
 								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cImg">
 									<img src="" alt="" id="vl-imgbankTotalToSend">
 								</div>
@@ -50,7 +50,7 @@ require_once '../php/process_data-list.php';
 									</p>
 								</div>
 							</div>
-							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo">
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
 								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">Instakash SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 							</div>
@@ -64,7 +64,11 @@ require_once '../php/process_data-list.php';
 							</div>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">
 								<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form">
-									<input type="text" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--input" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc">
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cinputNumOp">
+										<!-- LIMITAR LOS CARACTERES SEGÚN: INTERBANK SOLO 7 CARACTERES Y BCP A 8 CARACTERES -->
+										<input type="text" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="7">
+										<span></span>
+									</div>
 									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
 									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
 										<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac">Enviar</button>

@@ -247,6 +247,7 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 	$("#btn-initConvertPlatform").removeClass("completeFrm");
 	$("#btn-initConvertPlatform").addClass("sendShowComplete");
 	$("#btn-initConvertPlatform").find("div").addClass("show");
+	$("#cont-convert-divise").addClass("hidd_toNextStepTrans");
 
 	if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 &&
 		 $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
@@ -309,5 +310,6 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 		$("#btn-initConvertPlatform").attr("type", "button");
 		$("#btn-initConvertPlatform").attr("disabled", "disabled");
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
+		$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
 	}
 });

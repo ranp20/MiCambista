@@ -536,9 +536,12 @@ strong, b{
 				border: thin solid #ddd;
 				font-size: 1rem;
 				padding: 0.8rem 1rem;
-				border-radius: .6rem;
+				border-radius: 5px;
 				line-height: 1.5;
 				outline: none;
+				min-height: 48px;
+				max-height: 48px;
+				height: auto;
 			}
 
 			&--span{
@@ -556,10 +559,13 @@ strong, b{
 				justify-content: space-between;
 				background-color: #fff;
 				padding: 0.8rem 1rem;
-				border-radius: .6rem;
+				border-radius: 5px;
 				line-height: 1.5;
 				cursor: pointer;
 				position: relative;
+				min-height: 48px;
+				max-height: 48px;
+				height: auto;
 
 				/* MENSAJE DE ERROR - NOMBRE DE BANO */
 				#msgerrorNounSelBank{
@@ -807,7 +813,7 @@ strong, b{
 			border: none;
 			background-color: yellow;
 			padding: 1rem;
-			border-radius: .6rem;
+			border-radius: 5px;
 			color: $color-paragraph;
 
 			&.active{
@@ -947,7 +953,7 @@ strong, b{
 				border: thin solid #ddd;
 				font-size: 1rem;
 				padding: 0.8rem 1rem;
-				border-radius: .6rem;
+				border-radius: 5px;
 				line-height: 1.5;
 				outline: none;
 
@@ -1004,7 +1010,7 @@ strong, b{
 			border: none;
 			background-color: yellow;
 			padding: 1rem;
-			border-radius: .6rem;
+			border-radius: 5px;
 			color: $color-paragraph;
 
 			&.active{
@@ -1254,7 +1260,7 @@ strong, b{
 						border: thin solid transparent;
 						background-color: yellow;
 						padding: .8rem 1rem;
-						border-radius: .6rem;
+						border-radius: 5px;
 						color: $color-paragraph;
 						display: flex;
 						align-items: center;	
@@ -1291,7 +1297,7 @@ strong, b{
 						border: thin solid red;
 						background-color: #fff;
 						padding: .8rem 1rem;
-						border-radius: .6rem;
+						border-radius: 5px;
 						color: red;
 						display: flex;
 						align-items: center;	
@@ -1369,7 +1375,7 @@ strong, b{
 					border: thin solid #ddd;
 					font-size: 1rem;
 					padding: 0.8rem 1rem;
-					border-radius: .6rem;
+					border-radius: 5px;
 					line-height: 1.5;
 					outline: none;
 
@@ -1412,7 +1418,7 @@ strong, b{
 					background-color: yellow;
 					width: 100%;
 					padding: 1rem;
-					border-radius: .6rem;
+					border-radius: 5px;
 					color: $color-paragraph;
 					flex: 100%;
 					margin-bottom: 1rem;
@@ -1439,7 +1445,7 @@ strong, b{
 					border: thin solid $color-paragraph;
 					background-color: #fff;
 					padding: 1rem;
-					border-radius: .6rem;
+					border-radius: 5px;
 					color: $color-paragraph;
 					flex: 100%;
 
@@ -1573,7 +1579,7 @@ strong, b{
 				border: thin solid transparent;
 				background-color: yellow;
 				padding: 1rem 2rem;
-				border-radius: .6rem;
+				border-radius: 5px;
 				color: $color-paragraph;
 				flex: 100%;
 				width: 100%;
@@ -1594,7 +1600,7 @@ strong, b{
 				border: thin solid transparent;
 				background-color: red;
 				padding: 1rem 2rem;
-				border-radius: .6rem;
+				border-radius: 5px;
 				color: #fff;
 				flex: 100%;
 				width: 100%;
@@ -1762,7 +1768,7 @@ strong, b{
 
 							&--cStatus{
 								padding: 0.5rem 1rem;
-								border-radius: .6rem;
+								border-radius: 5px;
 								color: $color-paragraph;
 								span{
 									font-size: 0.78rem;
@@ -1877,7 +1883,7 @@ strong, b{
 							position: relative;
 							&--input{
 								background-color: #fff;
-								border-radius: .6rem;
+								border-radius: 5px;
 								border: thin solid #ddd;
 								padding: .9rem;
 								width: 100%;
@@ -1906,7 +1912,7 @@ strong, b{
 				max-width: 320px;
 				width: 95%;
 				background-color: yellow;
-				border-radius: .6rem;
+				border-radius: 5px;
 				padding: 1rem;
 				color: $color-paragraph;
 				margin-left: auto;

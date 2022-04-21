@@ -103,7 +103,7 @@ require_once '../php/process_data-list.php';
 					</div>
 				</div>
 				<!-- CONTENIDO - FORMULARIO DE COMPLETADO DE CAMBIO -->
-				<div class="cControlP__cont--containDash--c" id="cont-complete-divise">
+				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise">
 					<div class="cControlP__cont--containDash--c--cCdivise">
 						<div class="cControlP__cont--containDash--c--cCdivise--cTitle">
 							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="changecurridcli">

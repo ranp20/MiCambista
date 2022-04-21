@@ -276,10 +276,11 @@
 			height: 100%;
 			background-color: #eee;
 			position: relative;
-			top: 80px;
+			top: 72px;
 
 			@media (min-width: 960px){
 				grid-area: contain;
+				top: 80px;
 			}
 			
 			#cont-initial-page{
@@ -558,7 +559,7 @@
 						display: block;
 						padding: 1rem 0 1rem 1.5rem;
 						color: $color-paragraph;
-						transition: .2s ease-in-out;
+						transition: unset;
 
 						&.active{
 							background-color: #C3E5D9;

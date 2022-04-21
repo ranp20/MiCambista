@@ -46,12 +46,12 @@ require_once '../php/process_data-list.php';
 								</div>
 							</div>
 							<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts">
-								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle">
+								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle b-shadow-light">
 									<h3>Cuentas Dólares $</h3>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
 								</div>
 								<ul class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--m" id="accounts-DollarsList"></ul>
-								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle">
+								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle b-shadow-light">
 									<h3>Cuentas Soles S/.</h3>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
 								</div>

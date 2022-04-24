@@ -10,7 +10,7 @@ class Coupons extends Connection{
 				$sql = "SELECT * FROM tbl_coupon 
 								WHERE id LIKE '%".$search."%' OR
 											code_coupon LIKE '%".$search."%' OR
-											percent_desc LIKE '%".$search."%'
+											buy_percent_desc LIKE '%".$search."%'
 								ORDER BY id DESC";
 			}
 			$stm = $this->con->query($sql);

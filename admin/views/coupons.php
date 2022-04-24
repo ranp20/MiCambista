@@ -40,6 +40,8 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>M. mayores a</th>
 											<th>Desc. de tarifa (Compra)</th>
 											<th>Tarifa Final (Compra)</th>
+											<th>Desc. de tarifa (Venta)</th>
+											<th>Tarifa Final (Venta)</th>
 											<th></th>
 											<th></th>
 										</tr>
@@ -87,7 +89,7 @@ if(!isset($_SESSION['admin_micambista'])){
 							        	</div>
 						        	</div>
 						        	<div class="cont-modalbootstrap__form--control w-100">
-						        		<label for="buy_percent_desc" class="cont-modalbootstrap__form--control__label">Descuento del cupón</label>
+						        		<label for="buy_percent_desc" class="cont-modalbootstrap__form--control__label">Descuento</label>
 						        		<input id="buy_percent_desc" class="cont-modalbootstrap__form--control__input" name="buy_percent_desc" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
 						        	</div>
 					        	</div>
@@ -102,13 +104,13 @@ if(!isset($_SESSION['admin_micambista'])){
 							        		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m409.59 50.398c-4.0898-4.0352-9.6602-6.2031-15.402-5.9922-5.6484-0.16016-11.113 2.0078-15.121 5.9922-4.0781 3.9492-6.3633 9.3906-6.3281 15.066v128.8h-302.73v171.47h302.73v128.8c0.058594 5.6562 2.332 11.062 6.332 15.062s9.4062 6.2734 15.062 6.332c6-0.22656 11.719-2.5898 16.129-6.6641l213.7-214.54c3.9805-3.8516 6.1719-9.1875 6.0469-14.727 0.20312-5.75-1.9883-11.324-6.0469-15.398z"/></g></svg>
 							        	</span>	
 							        	<div class="cont-modalbootstrap__form--control md-col-2-44">
-							        		<label for="buy_price_dismiss" class="cont-modalbootstrap__form--control__label">Precio Rebajado</label>
-							        		<input id="buy_price_dismiss" class="cont-modalbootstrap__form--control__input readonly" name="buy_price_dismiss" type="text" data-format="fourdecimals" required placeholder="" readonly>
+							        		<label for="sell_price_dismiss" class="cont-modalbootstrap__form--control__label">Precio Rebajado</label>
+							        		<input id="sell_price_dismiss" class="cont-modalbootstrap__form--control__input readonly" name="sell_price_dismiss" type="text" data-format="fourdecimals" required placeholder="" readonly>
 							        	</div>
 						        	</div>
 						        	<div class="cont-modalbootstrap__form--control w-100">
-						        		<label for="buy_percent_desc" class="cont-modalbootstrap__form--control__label">Descuento del cupón</label>
-						        		<input id="buy_percent_desc" class="cont-modalbootstrap__form--control__input" name="buy_percent_desc" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
+						        		<label for="sell_percent_desc" class="cont-modalbootstrap__form--control__label">Descuento</label>
+						        		<input id="sell_percent_desc" class="cont-modalbootstrap__form--control__input" name="sell_percent_desc" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
 						        	</div>
 					        	</div>
 							      <div class="cont-modalbootstrap__footer">
@@ -159,8 +161,28 @@ if(!isset($_SESSION['admin_micambista'])){
 							        	</div>
 						        	</div>
 						        	<div class="cont-modalbootstrapupdate__form--control w-100">
-						        		<label for="buy_percent_desc-update" class="cont-modalbootstrapupdate__form--control__label">Descuento del cupón</label>
+						        		<label for="buy_percent_desc-update" class="cont-modalbootstrapupdate__form--control__label">Descuento</label>
 						        		<input id="buy_percent_desc-update" class="cont-modalbootstrapupdate__form--control__input" name="buy_percent_desc-update" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
+						        	</div>
+					        	</div>
+					        	<div class="cont-groupbox-controls">
+					        		<label for="" class="cont-groupbox-controls__label">Precio de venta</label>
+						        	<div class="cont-group-form-controls w-100">
+							        	<div class="cont-modalbootstrapupdate__form--control md-col-2-44">
+							        		<label for="sell_price_original-update" class="cont-modalbootstrapupdate__form--control__label">Precio Original</label>
+							        		<input id="sell_price_original-update" class="cont-modalbootstrapupdate__form--control__input readonly" type="text" required placeholder="" readonly>
+							        	</div>
+							        	<span class="cont-modalbootstrapupdate__form--cMediumIcon">
+							        		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m409.59 50.398c-4.0898-4.0352-9.6602-6.2031-15.402-5.9922-5.6484-0.16016-11.113 2.0078-15.121 5.9922-4.0781 3.9492-6.3633 9.3906-6.3281 15.066v128.8h-302.73v171.47h302.73v128.8c0.058594 5.6562 2.332 11.062 6.332 15.062s9.4062 6.2734 15.062 6.332c6-0.22656 11.719-2.5898 16.129-6.6641l213.7-214.54c3.9805-3.8516 6.1719-9.1875 6.0469-14.727 0.20312-5.75-1.9883-11.324-6.0469-15.398z"/></g></svg>
+							        	</span>	
+							        	<div class="cont-modalbootstrapupdate__form--control md-col-2-44">
+							        		<label for="sell_price_dismiss-update" class="cont-modalbootstrapupdate__form--control__label">Precio Rebajado</label>
+							        		<input id="sell_price_dismiss-update" class="cont-modalbootstrapupdate__form--control__input readonly" name="sell_price_dismiss-update" type="text" data-format="fourdecimals" required placeholder="" readonly>
+							        	</div>
+						        	</div>
+						        	<div class="cont-modalbootstrapupdate__form--control w-100">
+						        		<label for="sell_percent_desc-update" class="cont-modalbootstrapupdate__form--control__label">Descuento</label>
+						        		<input id="sell_percent_desc-update" class="cont-modalbootstrapupdate__form--control__input" name="sell_percent_desc-update" type="text" data-format="fourdecimals" required placeholder="Ingrese el descuento del cupón" autocomplete='off' spellcheck='false'>
 						        	</div>
 					        	</div>
 							      <div class="cont-modalbootstrapupdate__footer">

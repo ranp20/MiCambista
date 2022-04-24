@@ -45,7 +45,27 @@
 			</div>
 			<button type="button" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--btnOneToNextStep" id="btn_stepNext_validBiom">CONTINUAR</button>
 		</section>
-		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepTwo_ValBiom"></section>
-		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepThree_ValBiom"></section>
+		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepTwo_ValBiom">
+			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
+				<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">INSTRUCCIONES</h2>
+				<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">Coloca tu rostro en el marco de color azul, haz click en grabar y espera 5 segundos.</p>
+			</div>
+			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo" id="v-cVideoAuthorizeValidation">
+				<!--<span>Repita estos número en el video: 1..., 2... y 3</span>-->
+				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo--cVideo" id="c_videoAuthorizeValidation">
+					<video id="c_video-valididentity" width="100" height="100" autoplay playsinline></video>
+				</div>
+				<button id="btn-stop_recordbiometric">Parar Video</button>
+			</div>
+		</section>
+		<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="c-stepThree_ValBiom">
+			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
+				<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">VERIFICACIÓN</h2>
+				<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">Felicidades, completaste la verificación biométrica.</p>
+			</div>
+			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo">
+				<button id="btn-finalVerifyValidBiom">ACEPTAR</button>
+			</div>
+		</section>
 	</div>
 </div>

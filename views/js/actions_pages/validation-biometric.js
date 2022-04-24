@@ -26,19 +26,6 @@ $(document).on("click", "#btn_stepNext_validBiom", function(){
 	c_statusPointSteps_Items.eq(1).addClass("active");
 	$("#c-stepOne_ValBiom").addClass("disabledSlide__toTwo");
 	$("#c-stepTwo_ValBiom").addClass("slide-moveLeft__toTwo");
-	$("#c-stepTwo_ValBiom").html(`
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
-			<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">GRABAR VIDEO SELFIE</h2>
-			<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">A continuación, lea los números en la pantalla y click en continuar.</p>
-		</div>
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo">
-			<span>Repita estos número en el video: 1..., 2... y 3</span>
-			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo--cVideo">
-				<video autoplay playsinline id="c_video-valididentity" width="100" height="100"></video>
-			</div>
-			<button id="btn-stop_recordbiometric">Parar Video</button>
-		</div>
-	`);
 });
 
 $(document).on("click", "#btn-stop_recordbiometric", function(){
@@ -47,19 +34,63 @@ $(document).on("click", "#btn-stop_recordbiometric", function(){
 	c_statusPointSteps_Items.eq(2).addClass("active");
 	$("#c-stepTwo_ValBiom").addClass("disabledSlide__toThree");
 	$("#c-stepThree_ValBiom").addClass("slide-moveLeft__toThree");
-	$("#c-stepThree_ValBiom").html(`
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
-			<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">VERIFICACIÓN</h2>
-			<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">Felicidades, completaste la verificación biométrica.</p>
-		</div>
-		<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo">
-			<button id="btn-finalVerifyValidBiom">ACEPTAR</button>
-		</div>
-	`);
+	
 });
 
 $(document).on("click", "#btn-finalVerifyValidBiom", function(){
 	c_statusPointSteps_Items.eq(2).removeClass("active");
 	c_statusPointSteps_Items.eq(2).addClass("complete");
 	window.location.replace("my-profile");
+});
+
+
+
+// FUNCIONALIDAD DE LA VALIDACIÓN BIOMÉTRICA
+var thevideo = document.querySelector("#c_video-valididentity");
+const containerVideo = document.querySelector("#c_videoAuthorizeValidation");
+
+navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+
+function initCamera(){
+    navigator.getUserMedia (
+        { 
+            video: true, 
+            audio: false
+        },
+        stream => thevideo.srcObject = stream,
+        err => console.log(err)
+    );
+}
+
+// CARGAR MODELOS
+Promise.all([
+    faceapi.nets.ssdMobilenetv1.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.ageGenderNet.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.faceExpressionNet.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.faceLandmark68Net.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.faceLandmark68TinyNet.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.faceRecognitionNet.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.ssdMobilenetv1.loadFromUri('views/js/face-api/models'),
+    faceapi.nets.tinyFaceDetector.loadFromUri('views/js/face-api/models'),
+]).then(initCamera);
+
+//INICIA LA LIBRERÍA
+thevideo.addEventListener("play", async function(){
+    const canvas = faceapi.createCanvasFromMedia(thevideo);
+    containerVideo.append(canvas);
+    const displaySize = { width: thevideo.width, height: thevideo.height};
+    faceapi.matchDimensions(canvas, displaySize);
+    setInterval( async function(){
+        //const detections = await faceapi.detectAllFaces(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+        const detections = await faceapi.detectSingleFace(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+        const resizeDetections = faceapi.resizeResults(detections, displaySize);
+        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+        faceapi.draw.drawDetections(canvas, resizeDetections);
+        faceapi.draw.drawFaceLandmarks(canvas, resizeDetections);
+
+        if (!results.length) {
+          console.log('No hay caras expuestas');
+        }
+
+    }, 100);
 });

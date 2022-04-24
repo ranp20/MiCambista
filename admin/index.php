@@ -43,7 +43,7 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 				<div class="cLoginAdm__cont--fLogin--cBottInfo">
 					<small class="cLoginAdm__cont--fLogin--cBottInfo--desc">
 						<span>©</span>
-						<span>2020 - 2021</span>
+						<span>2021 - 2022</span>
 						<span>&nbsp;-&nbsp;</span>
 						<span>Versión 1.0</span>
 					</small>

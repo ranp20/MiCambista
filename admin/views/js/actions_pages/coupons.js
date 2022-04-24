@@ -14,9 +14,10 @@ function listRates(){
     }else{
       var r = JSON.parse(e);
       var buy_at_original = r[0].buy_at;
-      $("#price_original").val(buy_at_original);
-      $("#price_dismiss").val(buy_at_original);
-      $("#price_original-update").val(buy_at_original);
+      var sell_at_original = r[0].sell_at;
+      $("#buy_price_original").val(buy_at_original);
+      $("#buy_price_dismiss").val(buy_at_original);
+      $("#buy_price_original-update").val(buy_at_original);
     }
   });
 }
@@ -33,61 +34,61 @@ function is_numeric(value) {
 // ------------ ESCRITURA EN EL INPUT DE DESCUENTO - AGREGAR ITEMS
 $(document).on("input", "input[data-format='fourdecimals']", function(e){
   var val = e.target.value;
-  var price_original = $("#price_original").val();
-  var price_diss = $("#price_dismiss").val();
+  var buy_price_original = $("#buy_price_original").val();
+  var price_diss = $("#buy_price_dismiss").val();
   if($(this).val() == ""){
     $(this).val();
-    $("#price_dismiss").val(price_original);
-    $("#price_dismiss").removeClass("invalid-format");
-    $("#price_dismiss").removeClass("valid-format");
+    $("#buy_price_dismiss").val(buy_price_original);
+    $("#buy_price_dismiss").removeClass("invalid-format");
+    $("#buy_price_dismiss").removeClass("valid-format");
   }else{
     $(this).val(fourdecimals(val));
-    price_diss_calc = price_original - val;
+    price_diss_calc = buy_price_original - val;
     if((is_numeric(price_diss_calc)) && (price_diss_calc<0)){
-      $("#price_dismiss").addClass("invalid-format");
-      $("#price_dismiss").removeClass("valid-format");
-      $("#price_dismiss").val(0);
+      $("#buy_price_dismiss").addClass("invalid-format");
+      $("#buy_price_dismiss").removeClass("valid-format");
+      $("#buy_price_dismiss").val(0);
       return false;
     }else{
-      $("#price_dismiss").removeClass("invalid-format");
-      $("#price_dismiss").addClass("valid-format");
-      $("#price_dismiss").val(fourdecimals(price_diss_calc));
+      $("#buy_price_dismiss").removeClass("invalid-format");
+      $("#buy_price_dismiss").addClass("valid-format");
+      $("#buy_price_dismiss").val(fourdecimals(price_diss_calc));
     }
   }
 });
 // ------------ ESCRITURA EN EL INPUT DE DESCUENTO - AGREGAR ITEMS
-$(document).on("input", "#percent_desc-update", function(e){
+$(document).on("input", "#buy_percent_desc-update", function(e){
   var val = e.target.value;
-  var price_original = $("#price_original-update").val();
-  var price_diss = $("#price_dismiss-update").val();
+  var buy_price_original = $("#buy_price_original-update").val();
+  var price_diss = $("#buy_price_dismiss-update").val();
   if($(this).val() == ""){
     $(this).val();
-    $("#price_dismiss-update").val(price_original);
-    $("#price_dismiss-update").removeClass("invalid-format");
-    $("#price_dismiss-update").removeClass("valid-format");
+    $("#buy_price_dismiss-update").val(buy_price_original);
+    $("#buy_price_dismiss-update").removeClass("invalid-format");
+    $("#buy_price_dismiss-update").removeClass("valid-format");
   }else{
     $(this).val(fourdecimals(val));
-    price_diss_calc = price_original - val;
+    price_diss_calc = buy_price_original - val;
     if((is_numeric(price_diss_calc)) && (price_diss_calc<0)){
-      $("#price_dismiss-update").addClass("invalid-format");
-      $("#price_dismiss-update").removeClass("valid-format");
-      $("#price_dismiss-update").val(0);
+      $("#buy_price_dismiss-update").addClass("invalid-format");
+      $("#buy_price_dismiss-update").removeClass("valid-format");
+      $("#buy_price_dismiss-update").val(0);
       return false;
     }else{
-      $("#price_dismiss-update").removeClass("invalid-format");
-      $("#price_dismiss-update").addClass("valid-format");
-      $("#price_dismiss-update").val(fourdecimals(price_diss_calc));
+      $("#buy_price_dismiss-update").removeClass("invalid-format");
+      $("#buy_price_dismiss-update").addClass("valid-format");
+      $("#buy_price_dismiss-update").val(fourdecimals(price_diss_calc));
     }
   }
 });
 // ------------ DESENFOQUE DE INPUTS DE TARIFA
-$(document).on("blur", "#percent_desc", function(){
-  $("#price_dismiss").removeClass("invalid-format");
-  $("#price_dismiss").removeClass("valid-format");
+$(document).on("blur", "#buy_percent_desc", function(){
+  $("#buy_price_dismiss").removeClass("invalid-format");
+  $("#buy_price_dismiss").removeClass("valid-format");
 });
-$(document).on("blur", "#percent_desc-update", function(){
-  $("#price_dismiss-update").removeClass("invalid-format");
-  $("#price_dismiss-update").removeClass("valid-format");
+$(document).on("blur", "#buy_percent_desc-update", function(){
+  $("#buy_price_dismiss-update").removeClass("invalid-format");
+  $("#buy_price_dismiss-update").removeClass("valid-format");
 });
 // ------------ AGREGAR COUPON
 $(document).on('submit', '#form-add-coupon', function(e){
@@ -95,8 +96,8 @@ $(document).on('submit', '#form-add-coupon', function(e){
   var formdata = new FormData();
   formdata.append("code_coupon", $('#code_coupon').val());
   formdata.append("larger_amounts", $('#larger_amounts').val());
-  formdata.append("percent_desc", $('#percent_desc').val());
-  formdata.append("output_price", $('#price_dismiss').val());
+  formdata.append("percent_desc", $('#buy_percent_desc').val());
+  formdata.append("output_price", $('#buy_price_dismiss').val());
   $.ajax({
     url: "../admin/controllers/c_add-coupon.php",
     method: "POST",
@@ -174,7 +175,7 @@ function listCoupons(searchVal){
                   data-code_coupon="${e.code_coupon}"
                   data-larger_amounts="${e.larger_amounts}"
                   data-percent_desc="${e.percent_desc}"
-                  data-price_dismiss="${e.output_price}"
+                  data-buy_price_dismiss="${e.output_price}"
                   >Editar</a>
               </td>
               <td class="cont-btn-delete" id="cont-btn-delete">
@@ -208,13 +209,13 @@ $(document).on('click', '.btn-update-coupon', function(e){
       code_coupon: $(this).attr('data-code_coupon'),
       larger_amounts: $(this).attr('data-larger_amounts'),
       percent_desc: $(this).attr('data-percent_desc'),
-      price_dismiss: $(this).attr('data-price_dismiss'),
+      buy_price_dismiss: $(this).attr('data-buy_price_dismiss'),
     };
     $('#idupdate-coupon').val(item_data['id']);
     $('#code_coupon-update').val(item_data['code_coupon']);
     $('#larger_amounts-update').val(item_data['larger_amounts']);
-    $('#percent_desc-update').val(item_data['percent_desc']);
-    $('#price_dismiss-update').val(item_data['price_dismiss']);
+    $('#buy_percent_desc-update').val(item_data['percent_desc']);
+    $('#buy_price_dismiss-update').val(item_data['buy_price_dismiss']);
   });
 });
 // ------------ ACTUALIZAR POR ID
@@ -223,8 +224,8 @@ $(document).on('submit', '#form-update-coupon', function(e){
   var formdata = new FormData();
   formdata.append("code_coupon", $('#code_coupon-update').val());
   formdata.append("larger_amounts", $('#larger_amounts-update').val());
-  formdata.append("percent_desc", $('#percent_desc-update').val());
-  formdata.append("output_price", $('#price_dismiss-update').val());
+  formdata.append("percent_desc", $('#buy_percent_desc-update').val());
+  formdata.append("output_price", $('#buy_price_dismiss-update').val());
   formdata.append("id", $('#idupdate-coupon').val());
 
   $.ajax({

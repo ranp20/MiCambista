@@ -240,6 +240,21 @@ ipt_amount_received.addEventListener("keyup", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
+// ------------ CUPÓN DE DESCUENTO
+$(document).on("click", "#btn-coDescRatePercent", function(e){
+	e.preventDefault();
+	let frmValidCoupon = $("#v-frmCouponDescStrValid").val();
+	if(frmValidCoupon != "" && frmValidCoupon != null && frmValidCoupon != "null" && frmValidCoupon != undefined){
+		if (frmValidCoupon != 0 && frmValidCoupon != "0"){
+			$("#m-couponMessageErr").text("");
+		}else{
+			$("#m-couponMessageErr").text("El formato de cupón no es válido *");	
+		}
+	}else{
+		$("#m-couponMessageErr").text("El campo no debe estar vacío *");
+	}
+});
+
 // ------------ CONVESIÓN DE CAMBIO - HACIA EL PASO 2
 $(document).on("submit", "#frm-iConvDivi", function(e){
 	e.preventDefault();

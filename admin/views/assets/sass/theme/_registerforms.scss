@@ -9,6 +9,34 @@
 	align-items: center;
 	justify-content: space-between;
 }
+.cont-groupbox-controls{
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: flex-start;
+  border: thin solid #9999;
+  padding: 1rem .5rem .5rem .5rem;
+  border-radius: 5px;
+  position: relative;
+  margin: .85rem 0 1rem 0;
+
+  @media (min-width: 768px){
+  	padding: 1rem;
+  }
+
+  &__label{
+  	position: absolute;
+    border: none;
+    outline: none;
+    font-size: .9rem;
+    top: -12px;
+    left: 5px;
+    background-color: #fff;
+    display: block;
+    margin: 0 auto 0 0;
+    padding: 0 0.3rem 0 0.35rem;
+  }
+}
 /* MODAL BOOTSTRAP - CONFIGURATIONS ADD ITEMS*/
 .bootstrapmodal-custom{
 	.modal-dialog{
@@ -26,6 +54,7 @@
 			.modal-body{
 				.cont-modalbootstrap{
 					&__form{
+						/* FORM - CONTROLES */
 						&--control{
 							display: flex;
 							flex-direction: column;
@@ -640,6 +669,12 @@
 									}
 								}
 							}
+						}
+
+						&--cMediumIcon{
+							position: relative;
+					    top: 6px;
+					    vertical-align: middle;
 						}
 					}
 

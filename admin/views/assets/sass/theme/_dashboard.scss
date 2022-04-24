@@ -554,3 +554,11 @@
 		}
 	}
 }
+/* DASHBOARD - RELOJ (HORA LOCAL) */
+#btnClockUnitinSite{
+	display: none;
+
+	@media (min-width: 768px){
+		display: block;
+	}
+}

@@ -2195,6 +2195,8 @@ strong, b{
 		p{
 			color: #666;
 			margin-bottom: .65rem;
+			font-size: 1.25rem;
+			font-weight: 500;
 		}
 	}
 
@@ -2315,6 +2317,7 @@ strong, b{
 							padding: 0 1rem;
 							color: #fff;
 							user-select: none;
+							font-weight: 500;
 						}
 					}
 					&__cDiviseValue{
@@ -2436,6 +2439,7 @@ strong, b{
 
 			// FORM - COUPON VALIDATION
 			&__cValidCoupon{
+				position: relative;
 				&__cTitle{
 					display: flex;
 				  flex-flow: nowrap row;
@@ -2503,7 +2507,14 @@ strong, b{
 					button:hover{
 						opacity: 0.75;
 					}
+				}
 
+				#m-couponMessageErr{
+					float: left;
+					font-size: 0.85rem;
+					color: red;
+					margin: 0 0 0.5rem 0.5rem;
+					vertical-align: bottom;
 				}
 			}
 			// FORM - BUTTON SUBMIT

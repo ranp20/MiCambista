@@ -1970,8 +1970,7 @@ strong, b{
 
 /* VENTANAS MODALES PERSONALIZADAS - CUSTOMS */
 /************************** MODAL - VERIFICACIÓN BIOMÉTRICA **************************/
-#box-ModalValidAccBiometric,
-#mssg-messageAlertMaxAmount{
+#box-ModalValidAccBiometric{
 	position: fixed;
 	width: 100%;
 	min-height: 100vh;
@@ -2079,15 +2078,118 @@ strong, b{
 		}
 	}
 }
-
-/* AJUSTES PERSONALIZADOS - MODAL CUSTOMS */
+/************************** MODAL - MONTO MÁXIMO CONVERSIÓND DE DIVISA **************************/
 #mssg-messageAlertMaxAmount{
+	position: fixed;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.3);
+	backdrop-filter: blur(5px);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	display: none;
+	pointer-events: none;
+	opacity: 0;
+	user-select: none;
+	visibility: hidden;
+
+	&.show{
+		display: flex;
+		pointer-events: auto;
+		opacity: 1;
+		visibility: visible;
+		user-select: auto;
+	}
+
 	.box-ModalValidAccBiometric--c{
 		text-align: center;
     display: flex;
     flex-flow: wrap column;
     align-items: center;
     justify-content: center;
+		background-color: #fff;
+		max-width: 450px;
+		width: 95%;
+		color: $color-links;
+		border-radius: 1.5rem;
+		padding: 2rem;
+		position: relative;
+		transform: translateY(-200%);
+		animation-name: showToTop;
+		animation-duration: .2s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+
+		@keyframes showToTop{
+			0%{
+				transform: translateY(-200%);
+			}
+			100%{
+				transform: translateY(0);
+			}
+		}
+
+		&--close{
+			cursor: pointer;
+			width: 18px;
+			height: 18px;
+			background:
+				linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, $color-links-gradient 45%, $color-links-gradient 55%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0) 100%), 
+				linear-gradient(135deg, #fff 0%, #fff 50%, $color-links-gradient 45%, $color-links-gradient 55%, #fff 57%, #fff 100%);
+			border-radius: 50%;
+			box-shadow: 0 0 0 1px #fff, 0 0 0 6px #fff, 0 0 0 8px $color-links-gradient;
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+		}
+
+		&--title{
+			margin-bottom: 0.5rem;
+			@media (min-width: 1024px){
+				font-size: 1.65rem;
+			}
+		}
+
+		&--desc{
+			margin-bottom: 1rem;
+			@media (min-width: 1024px){
+				font-size: 1.1rem;
+			}
+		}
+
+		p{
+			margin-bottom: 1rem;
+		}
+
+		&--m{
+			text-align: left;
+			padding: 0;
+			margin-bottom: 1rem;
+			li{
+				background-image: url("../../../views/assets/img/svg/check-svg.f96b9692.svg");
+		    background-repeat: no-repeat;
+		    background-size: 15px;
+		    background-position: 0;
+		    padding-left: 25px;
+				color: $color-paragraph;
+				text-align: left;
+			}
+		}
+		
+		&--btnNextStep{
+			padding: .7rem 3rem;
+	    display: inline-block;
+	    background-image: linear-gradient(45deg, $color-links, deepskyblue);
+	    color: #fff;
+	    border-radius: 1.5rem;
+		}
 	}
 }
 

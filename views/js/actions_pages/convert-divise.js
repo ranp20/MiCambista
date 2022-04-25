@@ -5,7 +5,7 @@ window.onload = function(){
 }
 // ------------ VARIABLES GLOBALES PARA CONVERSIÓN
 var rates = "";
-let amountMaxReceived = 1000.00;
+let amountMaxReceived = "1000.00";
 var namecurr = ['Soles', 'Dólares'];
 var prefixs = ['S/.', '$'];
 
@@ -265,12 +265,14 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 	$("#btn-initConvertPlatform").find("div").addClass("show");
 	$("#cont-convert-divise").addClass("hidd_toNextStepTrans");
 
-	if($("#val_amount_received").val() < amountMaxReceived){
-		$("#mssg-messageAlertMaxAmount").html("");
-		if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 &&
-			 $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
+	let amountMax_rece = amountMaxReceived;
+	let amount_rece_one = $("#val_amount_received").val();
+	let amount_rece_two = amount_rece_one.toString().split(",");
+	let amount_rece_three = parseFloat(amount_rece_two[0] + amount_rece_two[1]);
 
-			$("#mssg-messageAlertMaxAmount").html("");
+	if(amount_rece_three < amountMax_rece){
+		if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 && $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
+
 			var typeCURR = $(this).find("#txtDivise-one").text();
 			var quantityCURR = $("#val_amount_send").val().replace(/[$,]/g,'');
 			var prefixCURR = $(this).find("#spanprefix-one").text();
@@ -283,15 +285,6 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 			}else{
 				valcambiocurr = current_PEN;
 			}
-
-			/*
-			console.log(typeCURR);
-			console.log(quantityCURR);
-			console.log(prefixCURR);
-			console.log(type_received);
-			console.log(prefix_received);
-			console.log(valcambiocurr);
-			*/
 			
 			var formData = new FormData();
 			formData.append("cambioval", valcambiocurr);
@@ -329,6 +322,8 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 			$("#btn-initConvertPlatform").attr("type", "button");
 			$("#btn-initConvertPlatform").attr("disabled", "disabled");
 			$("#btn-initConvertPlatform").removeClass("completeFrm");
+			$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+			$("#btn-initConvertPlatform").find("div").removeClass("show");
 			$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
 		}
 	}else{

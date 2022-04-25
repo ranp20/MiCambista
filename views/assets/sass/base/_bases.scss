@@ -176,6 +176,10 @@ strong, b{
 .w-100{
 	width: 100%;
 }
+.bold-pricolor{
+	color: $color-secondary;
+	font-weight: bold;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	
@@ -1965,8 +1969,9 @@ strong, b{
 }
 
 /* VENTANAS MODALES PERSONALIZADAS - CUSTOMS */
-/************************** MODAL DE VERIFICACIÓN BIOMÉTRICA **************************/
-#box-ModalValidAccBiometric{
+/************************** MODAL - VERIFICACIÓN BIOMÉTRICA **************************/
+#box-ModalValidAccBiometric,
+#mssg-messageAlertMaxAmount{
 	position: fixed;
 	width: 100%;
 	min-height: 100vh;
@@ -1975,7 +1980,7 @@ strong, b{
 	left: 0;
 	background-color: rgba(0,0,0,.3);
 	backdrop-filter: blur(5px);
-	z-index: 999;
+	z-index: 9999;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1983,16 +1988,20 @@ strong, b{
 	display: none;
 	pointer-events: none;
 	opacity: 0;
+	user-select: none;
+	visibility: hidden;
 
 	&.show{
 		display: flex;
 		pointer-events: auto;
 		opacity: 1;
+		visibility: visible;
+		user-select: auto;
 	}
 
 	.box-ModalValidAccBiometric--c{
 		background-color: #fff;
-		max-width: 420px;
+		max-width: 450px;
 		width: 95%;
 		color: $color-links;
 		border-radius: 1.5rem;
@@ -2041,16 +2050,44 @@ strong, b{
 				font-size: 1.1rem;
 			}
 		}
+
+		p{
+			margin-bottom: 1rem;
+		}
+
+		&--m{
+			text-align: left;
+			padding: 0;
+			margin-bottom: 1rem;
+			li{
+				background-image: url("../../../views/assets/img/svg/check-svg.f96b9692.svg");
+		    background-repeat: no-repeat;
+		    background-size: 15px;
+		    background-position: 0;
+		    padding-left: 25px;
+				color: $color-paragraph;
+				text-align: left;
+			}
+		}
 		
 		&--btnNextStep{
 			padding: .7rem 3rem;
 	    display: inline-block;
-	    background-image: linear-gradient(45deg,
-																				$color-links, 
-																				deepskyblue);
+	    background-image: linear-gradient(45deg, $color-links, deepskyblue);
 	    color: #fff;
 	    border-radius: 1.5rem;
 		}
+	}
+}
+
+/* AJUSTES PERSONALIZADOS - MODAL CUSTOMS */
+#mssg-messageAlertMaxAmount{
+	.box-ModalValidAccBiometric--c{
+		text-align: center;
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    justify-content: center;
 	}
 }
 
@@ -2076,14 +2113,34 @@ strong, b{
 	}
 	/* PAGINACIÓN */
 	#all_transac-cli_paginate{
+		display: table;
 		background-color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0;
     border: 1px solid #979797;
+    overflow: hidden;
+    margin: 0;
+
+    @media (max-width: 767px){
+    	margin: .5rem auto 0 auto;
+    }
+
+		a.paginate_button{
+			background-color: #fff;
+		}
+
+		a.paginate_button.previous{
+			border-radius: 5px 0 0 5px;
+		}
+		
+		a.paginate_button.next{
+			border-radius: 0 5px 5px 0;
+		}
 
 		a.paginate_button.previous,
 		a.paginate_button.next{
-			padding: 0.2rem .65rem;
+			//padding: 0.2rem .65rem;
+			background-color: #fff;
 		}
 
 		a.paginate_button.previous.disabled,
@@ -2096,7 +2153,7 @@ strong, b{
 		}
 
 		a.paginate_button.current{
-			padding: 0.2rem .65rem;
+			//padding: 0.2rem .65rem;
 			border-right: none;
 			border-top: none;
 			border-bottom: none;
@@ -2127,7 +2184,7 @@ strong, b{
 		tr{
 			background-color: transparent;
 			td{
-				padding: 0.95rem;
+				padding: 0.5rem;
 				border-top: 1px solid #eee;
 			}
 		}
@@ -2490,7 +2547,7 @@ strong, b{
 					  border: thin solid #9999;
 					  border-right: none;
 					  outline: none;
-					  font-size: 0.9rem;
+					  font-size: 1rem;
 					}
 					button{
 						padding: 0 1.85rem;
@@ -2502,7 +2559,7 @@ strong, b{
 					  color: #fff;
 					  font-weight: bold;
 					  cursor: pointer;
-					  font-size: 0.9rem;
+					  font-size: 0.935rem;
 					}
 					button:hover{
 						opacity: 0.75;
@@ -2525,7 +2582,7 @@ strong, b{
 				color: #fff;
 				font-weight: bold;
 				padding: 0 1rem;
-				line-height: 2.75rem;
+				line-height: 2.85rem;
 				border-radius: 5px;
 				border: none;
 				box-shadow: 0 4px 3px 0 #ddd;

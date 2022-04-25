@@ -52,14 +52,14 @@ const containerVideo = document.querySelector("#c_videoAuthorizeValidation");
 navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
 
 function initCamera(){
-    navigator.getUserMedia (
-        { 
-            video: true, 
-            audio: false
-        },
-        stream => thevideo.srcObject = stream,
-        err => console.log(err)
-    );
+  navigator.getUserMedia (
+    {
+      video: true,
+      audio: false
+    },
+    stream => thevideo.srcObject = stream,
+    err => console.log(err)
+  );
 }
 
 // CARGAR MODELOS
@@ -81,16 +81,16 @@ thevideo.addEventListener("play", async function(){
     const displaySize = { width: thevideo.width, height: thevideo.height};
     faceapi.matchDimensions(canvas, displaySize);
     setInterval( async function(){
-        //const detections = await faceapi.detectAllFaces(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
-        const detections = await faceapi.detectSingleFace(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+        const detections = await faceapi.detectAllFaces(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+        //const detections = await faceapi.detectSingleFace(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
         const resizeDetections = faceapi.resizeResults(detections, displaySize);
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
         faceapi.draw.drawDetections(canvas, resizeDetections);
         faceapi.draw.drawFaceLandmarks(canvas, resizeDetections);
 
-        if (!results.length) {
-          console.log('No hay caras expuestas');
-        }
+        // if(!detections.length){
+        //   console.log('No hay caras expuestas');
+        // }
 
     }, 100);
 });

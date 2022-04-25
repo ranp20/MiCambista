@@ -209,6 +209,9 @@
 								}
 
 								&--showDetail{
+									display: inline-block;
+									align-content: center;
+									justify-content: center;
 									background-color: yellow;
 									color: $color-paragraph;
 									padding: 0.5rem 1.1rem;
@@ -217,6 +220,10 @@
 									align-self: self-end;
 							    justify-self: flex-end;
 							    margin-left: auto;
+
+							    &:hover{
+							    	background-color: darken(yellow, 4%);
+							    }
 								}
 							}
 						}
@@ -387,6 +394,7 @@
 				}
 
 				&--cBottom{
+					margin: 0 0 2rem 0;
 				}
 			}
 		}

@@ -53,7 +53,7 @@
 			<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo" id="v-cVideoAuthorizeValidation">
 				<!--<span>Repita estos número en el video: 1..., 2... y 3</span>-->
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo--cVideo" id="c_videoAuthorizeValidation">
-					<video id="c_video-valididentity" width="100" height="100" autoplay playsinline></video>
+					<video id="c_video-valididentity" width="100" height="100" autoplay playsinline style="max-width: 400px;width:100%;height:100%;"></video>
 				</div>
 				<button id="btn-stop_recordbiometric">Parar Video</button>
 			</div>

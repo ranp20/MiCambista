@@ -5,6 +5,7 @@ window.onload = function(){
 }
 // ------------ VARIABLES GLOBALES PARA CONVERSIÓN
 var rates = "";
+let amountMaxReceived = 1000.00;
 var namecurr = ['Soles', 'Dólares'];
 var prefixs = ['S/.', '$'];
 
@@ -264,67 +265,100 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 	$("#btn-initConvertPlatform").find("div").addClass("show");
 	$("#cont-convert-divise").addClass("hidd_toNextStepTrans");
 
-	if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 &&
-		 $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
+	if($("#val_amount_received").val() < amountMaxReceived){
+		$("#mssg-messageAlertMaxAmount").html("");
+		if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 &&
+			 $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
 
-		var typeCURR = $(this).find("#txtDivise-one").text();
-		var quantityCURR = $("#val_amount_send").val().replace(/[$,]/g,'');
-		var prefixCURR = $(this).find("#spanprefix-one").text();
-		var type_received = $(this).find("#txtDivise-two").text();
-		var prefix_received = $(this).find("#spanprefix-two").text();
-		
-		var valcambiocurr;
-		if(typeCURR == "Soles"){
-			valcambiocurr = current_USD;
-		}else{
-			valcambiocurr = current_PEN;
-		}
-
-		/*
-		console.log(typeCURR);
-		console.log(quantityCURR);
-		console.log(prefixCURR);
-		console.log(type_received);
-		console.log(prefix_received);
-		console.log(valcambiocurr);
-		*/
-		
-		var formData = new FormData();
-		formData.append("cambioval", valcambiocurr);
-		formData.append("prefix", prefixCURR);
-		formData.append("val_type", typeCURR);
-		formData.append("val_send", quantityCURR);
-		formData.append("type_received", type_received);
-		formData.append("prefix_received", prefix_received);
-
-		$.ajax({
-			url: "php/process_convert-divise.php",
-			method: "POST",
-			dataType: "JSON",
-			data: formData,
-	    contentType: false,
-	    cache: false,
-	    processData: false,
-		}).done(function(e){
-			if(e != ""){
-				$("#changecurridcli").val(e.cambioval);
-				$("#prefixcurridcli").val(e.prefix);
-				$("#typechangecurridcli").val(e.divise);
-				$("#quantitycurridcli").val(e.quantity);
-				$("#type_receivedcli").val(e.type_received);
-				$("#prefix_receivedcli").val(e.prefix_received);
-				setTimeout(function(){
-					$("#cont-convert-divise").addClass("sendShow");
-					$("#cont-complete-divise").addClass("sendShow");
-				}, 2000);
+			$("#mssg-messageAlertMaxAmount").html("");
+			var typeCURR = $(this).find("#txtDivise-one").text();
+			var quantityCURR = $("#val_amount_send").val().replace(/[$,]/g,'');
+			var prefixCURR = $(this).find("#spanprefix-one").text();
+			var type_received = $(this).find("#txtDivise-two").text();
+			var prefix_received = $(this).find("#spanprefix-two").text();
+			
+			var valcambiocurr;
+			if(typeCURR == "Soles"){
+				valcambiocurr = current_USD;
 			}else{
-				console.log('No se envió la respuesta');
+				valcambiocurr = current_PEN;
 			}
-		});
+
+			/*
+			console.log(typeCURR);
+			console.log(quantityCURR);
+			console.log(prefixCURR);
+			console.log(type_received);
+			console.log(prefix_received);
+			console.log(valcambiocurr);
+			*/
+			
+			var formData = new FormData();
+			formData.append("cambioval", valcambiocurr);
+			formData.append("prefix", prefixCURR);
+			formData.append("val_type", typeCURR);
+			formData.append("val_send", quantityCURR);
+			formData.append("type_received", type_received);
+			formData.append("prefix_received", prefix_received);
+
+			$.ajax({
+				url: "php/process_convert-divise.php",
+				method: "POST",
+				dataType: "JSON",
+				data: formData,
+		    contentType: false,
+		    cache: false,
+		    processData: false,
+			}).done(function(e){
+				if(e != ""){
+					$("#changecurridcli").val(e.cambioval);
+					$("#prefixcurridcli").val(e.prefix);
+					$("#typechangecurridcli").val(e.divise);
+					$("#quantitycurridcli").val(e.quantity);
+					$("#type_receivedcli").val(e.type_received);
+					$("#prefix_receivedcli").val(e.prefix_received);
+					setTimeout(function(){
+						$("#cont-convert-divise").addClass("sendShow");
+						$("#cont-complete-divise").addClass("sendShow");
+					}, 2000);
+				}else{
+					console.log('No se envió la respuesta');
+				}
+			});
+		}else{
+			$("#btn-initConvertPlatform").attr("type", "button");
+			$("#btn-initConvertPlatform").attr("disabled", "disabled");
+			$("#btn-initConvertPlatform").removeClass("completeFrm");
+			$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+		}
 	}else{
+		console.log("El valor excede el monto máximo");
 		$("#btn-initConvertPlatform").attr("type", "button");
 		$("#btn-initConvertPlatform").attr("disabled", "disabled");
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
+		$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+		$("#btn-initConvertPlatform").find("div").removeClass("show");
 		$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+		
+		$("#mssg-messageAlertMaxAmount").addClass("show");
+		$("#mssg-messageAlertMaxAmount").html(`
+			<div class="box-ModalValidAccBiometric--c">
+				<span class="box-ModalValidAccBiometric--c--close" id="icon-closeModalVAccBiometric"></span>
+				<h2 class="box-ModalValidAccBiometric--c--title">Completar Perfil</h2>
+				<p>Para realizar operaciones mayores a <strong class="bold-pricolor">$ 1,000</strong> deberás:</p>
+				<ul class="box-ModalValidAccBiometric--c--m">
+					<li>Completar tu <strong class="bold-pricolor">información de perfil</strong> al 100%.</li>
+					<li>Verificar tu identidad.</li>
+				</ul>
+				<p>Haz click en <strong class="bold-pricolor">completar mi perfil</strong> para agregar tus datos.</p>
+				<a href="my-profile" class="box-ModalValidAccBiometric--c--btnNextStep">Completar mi perfil</a>
+			</div>
+		`);
 	}
 });
+// ------------ CERRAR EL MODAL DE VALIDACIÓN
+$(document).on("click", "#icon-closeModalVAccBiometric", function(){$("#mssg-messageAlertMaxAmount").removeClass("show");});
+let contValidationBio = document.querySelector("#mssg-messageAlertMaxAmount");
+contValidationBio.addEventListener("click", e => {
+	if(e.target === contValidationBio){contValidationBio.classList.remove("show");}
+})

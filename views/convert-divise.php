@@ -14,6 +14,7 @@ require_once '../php/process_data-list.php';
 	<?php require_once 'includes/header_links.php'; ?>
 </head>
 <body>
+	<div id="mssg-messageAlertMaxAmount"></div>
 	<div class="cControlP">
 		<div class="cControlP__cont">
 			<?php require_once 'includes/dashboard-header-top.php'; ?>
@@ -86,7 +87,7 @@ require_once '../php/process_data-list.php';
 												<svg focusable="false" width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
 											</div>
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">
-												<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Cupón de descuento">
+												<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
 												<button type="button" id="btn-coDescRatePercent">Agregar</button>
 											</div>
 											<span id="m-couponMessageErr"></span>

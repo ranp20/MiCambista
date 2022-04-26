@@ -30,15 +30,17 @@
 						<div class="cMain__cont--heroI--c--formuser--cForm">
 							<div class="c-convert__cFrmConvert">
 								<div class="c-convert__cFrmConvert__mxFrmC w-100">
-									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates">
-										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
-											<span>Compramos a:</span>
-											<span id="refval_buy_at"></span>
-										</p>
-										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
-											<span>Vendemos a:</span>
-											<span id="refval_sell_at"></span>
-										</p>
+									<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll">
+										<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates">
+											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
+												<span>Compramos a:</span>
+												<span id="refval_buy_at"></span>
+											</p>
+											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
+												<span>Vendemos a:</span>
+												<span id="refval_sell_at"></span>
+											</p>
+										</div>
 									</div>
 									<form class="c-convert__cFrmConvert__mxFrmC__cFrm" action="" method="POST">
 										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cFunction">

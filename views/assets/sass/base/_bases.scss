@@ -2731,15 +2731,15 @@ strong, b{
 							opacity: 0.75;
 						}
 				  }
+					#m-couponMessageErr{
+						float: left;
+						font-size: 0.85rem;
+						color: red;
+						margin: 0 0 0.5rem 0.5rem;
+						vertical-align: bottom;
+					}
 				}
 
-				#m-couponMessageErr{
-					float: left;
-					font-size: 0.85rem;
-					color: red;
-					margin: 0 0 0.5rem 0.5rem;
-					vertical-align: bottom;
-				}
 
 				&__cNameOfValidCoupon{
 					display: block;

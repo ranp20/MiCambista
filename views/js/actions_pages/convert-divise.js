@@ -252,37 +252,60 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 	if(frmValidCoupon != "" && frmValidCoupon != null && frmValidCoupon != "null" && frmValidCoupon != undefined){
 		if (frmValidCoupon != 0 && frmValidCoupon != "0"){
 		
-		// ------------ REMOVER EL INPUT "AGREGAR" CUPÓN
-		cnt_InputCouponcontrol.remove();
-		// ------------ MOSTRAR - TARIFA ANTERIOR
-		vl_valuesRatesAll.prepend(`
-			<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates">
-				<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates__vRateVariable">
-					<span>Antes: </span>
-					<span>3.7110</span>
-				</p>
-				<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates__vRateVariable">
-					<span>Antes: </span>
-					<span>3.7110</span>
-				</p>
-			</div>
-		`);
-		// ------------ MOSTRAR EL NOMBRE DEL CUPÓN
-		cnt_ValidCouponConvert.append(`
-			<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cMessageTitle">
-				<span>¡Genial! Has activado el cupón</span>
-			</div>
-			<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon">
-				<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon__cFkInputCoupon">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m594.88 229.38c6.9062 0 12.508-5.6016 12.508-12.508l-0.003907-91.949c0-6.9062-5.6016-12.508-12.508-12.508h-489.75c-6.9062 0-12.508 5.6016-12.508 12.508v91.949c0 6.9062 5.6016 12.508 12.508 12.508 27.914 0 50.621 22.711 50.621 50.621 0 27.914-22.711 50.621-50.621 50.621-6.9062 0-12.508 5.6016-12.508 12.508v91.949c0 6.9062 5.6016 12.508 12.508 12.508h165.09 0.011718 0.011719 324.65c6.9062 0 12.508-5.6016 12.508-12.508v-91.957c0-6.9062-5.6016-12.508-12.508-12.508-27.914 0-50.621-22.711-50.621-50.621 0-27.91 22.703-50.613 50.617-50.613zm-12.504 125.22v67.977h-299.65v-23.898c0-6.9062-5.6016-12.508-12.508-12.508s-12.508 5.6016-12.508 12.508v23.898h-140.08v-67.977c35.773-5.9805 63.125-37.152 63.125-74.598s-27.352-68.617-63.125-74.598v-67.977h140.09v23.898c0 6.9062 5.6016 12.508 12.508 12.508s12.508-5.6016 12.508-12.508v-23.898h299.65v67.977c-35.781 5.9805-63.133 37.152-63.133 74.598s27.352 68.617 63.125 74.598zm-299.65-47.176v36.398c0 6.9062-5.6016 12.508-12.508 12.508s-12.508-5.6016-12.508-12.508v-36.398c0-6.9062 5.6016-12.508 12.508-12.508 6.9102 0 12.508 5.6016 12.508 12.508zm0-91.25v36.398c0 6.9062-5.6016 12.508-12.508 12.508s-12.508-5.6016-12.508-12.508v-36.398c0-6.9062 5.6016-12.508 12.508-12.508 6.9102 0 12.508 5.6016 12.508 12.508z"/></g></svg>
-					<span>DESDE5000</span>
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg">
-				  <path d="m412.72 282.8 179.76 179.76c16.801 16.801 16.801 43.121 0 59.922s-43.121 16.801-59.922 0l-179.76-179.77-179.76 179.76c-16.801 16.801-43.121 16.801-59.922 0-16.801-16.801-16.801-43.121 0-59.922l179.76-179.76-179.76-179.76c-16.801-16.801-16.801-43.121 0-59.922 16.801-16.801 43.121-16.801 59.922 0l179.76 179.76 179.75-179.76c16.801-16.801 43.121-16.801 59.922 0 16.801 16.801 16.801 43.121 0 59.922z" fill-rule="evenodd"/></g></svg>
-				</div>
-				<span class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon__cMssgValidRangCoupon">Solo aplicable para montos mayores a $ 5000.00</span>
-			</div>
-		`);
+		let formData = new FormData();
+		formData.append("codecoupon", frmValidCoupon);
 
+		$.ajax({
+			url: "controllers/c_list_check_coupon.php",
+			method: "POST",
+			data: formData,
+	    contentType: false,
+	    cache: false,
+	    processData: false,
+		}).done(function(e){
+			if(e == "[]"){
+				console.log("Cupón no válido");
+			}else{
+				let r = JSON.parse(e);
+				let coupon = (r[0].cupon).toUpperCase();
+				let buy_price = r[0].buy_price;
+				let sell_price = r[0].sell_price;
+				console.log(buy_price);
+				console.log(sell_price);
+				// ------------ REMOVER EL INPUT "AGREGAR" CUPÓN
+				cnt_InputCouponcontrol.remove();
+				// ------------ MOSTRAR - TARIFA ANTERIOR
+				vl_valuesRatesAll.prepend(`
+					<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates">
+						<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates__vRateVariable">
+							<span>Antes: </span>
+							<span>3.7110</span>
+						</p>
+						<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesBeforeRates__vRateVariable">
+							<span>Antes: </span>
+							<span>3.7110</span>
+						</p>
+					</div>
+				`);
+				// ------------ MOSTRAR EL NOMBRE DEL CUPÓN
+				cnt_ValidCouponConvert.append(`
+					<div id="c_valYValidCouponIpt">
+						<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cMessageTitle">
+							<span>¡Genial! Has activado el cupón</span>
+						</div>
+						<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon">
+							<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon__cFkInputCoupon">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m594.88 229.38c6.9062 0 12.508-5.6016 12.508-12.508l-0.003907-91.949c0-6.9062-5.6016-12.508-12.508-12.508h-489.75c-6.9062 0-12.508 5.6016-12.508 12.508v91.949c0 6.9062 5.6016 12.508 12.508 12.508 27.914 0 50.621 22.711 50.621 50.621 0 27.914-22.711 50.621-50.621 50.621-6.9062 0-12.508 5.6016-12.508 12.508v91.949c0 6.9062 5.6016 12.508 12.508 12.508h165.09 0.011718 0.011719 324.65c6.9062 0 12.508-5.6016 12.508-12.508v-91.957c0-6.9062-5.6016-12.508-12.508-12.508-27.914 0-50.621-22.711-50.621-50.621 0-27.91 22.703-50.613 50.617-50.613zm-12.504 125.22v67.977h-299.65v-23.898c0-6.9062-5.6016-12.508-12.508-12.508s-12.508 5.6016-12.508 12.508v23.898h-140.08v-67.977c35.773-5.9805 63.125-37.152 63.125-74.598s-27.352-68.617-63.125-74.598v-67.977h140.09v23.898c0 6.9062 5.6016 12.508 12.508 12.508s12.508-5.6016 12.508-12.508v-23.898h299.65v67.977c-35.781 5.9805-63.133 37.152-63.133 74.598s27.352 68.617 63.125 74.598zm-299.65-47.176v36.398c0 6.9062-5.6016 12.508-12.508 12.508s-12.508-5.6016-12.508-12.508v-36.398c0-6.9062 5.6016-12.508 12.508-12.508 6.9102 0 12.508 5.6016 12.508 12.508zm0-91.25v36.398c0 6.9062-5.6016 12.508-12.508 12.508s-12.508-5.6016-12.508-12.508v-36.398c0-6.9062 5.6016-12.508 12.508-12.508 6.9102 0 12.508 5.6016 12.508 12.508z"/></g></svg>
+								<span>${coupon}</span>
+								<svg xmlns="http://www.w3.org/2000/svg" id="btn-closeFkIptValidCoupon" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg">
+							  <path d="m412.72 282.8 179.76 179.76c16.801 16.801 16.801 43.121 0 59.922s-43.121 16.801-59.922 0l-179.76-179.77-179.76 179.76c-16.801 16.801-43.121 16.801-59.922 0-16.801-16.801-16.801-43.121 0-59.922l179.76-179.76-179.76-179.76c-16.801-16.801-16.801-43.121 0-59.922 16.801-16.801 43.121-16.801 59.922 0l179.76 179.76 179.75-179.76c16.801-16.801 43.121-16.801 59.922 0 16.801 16.801 16.801 43.121 0 59.922z" fill-rule="evenodd"/></g></svg>
+							</div>
+							<span class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cNameOfValidCoupon__cMssgValidRangCoupon">Solo aplicable para montos mayores a $ 5000.00</span>
+						</div>
+					</div>
+				`);	
+			}
+		});
 
 		}else{
 			$("#m-couponMessageErr").text("El formato de cupón no es válido *");	
@@ -291,7 +314,28 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 		$("#m-couponMessageErr").text("El campo no debe estar vacío *");
 	}
 });
-
+// ------------ REMOVER EL CUPÓN DE DESCUENTO
+$(document).on("click", "#btn-closeFkIptValidCoupon", function(e){
+	e.preventDefault();
+	let cnt_ValidCouponConvert = $("#cnt-ValidCouponConvert");
+	let cnt_InputCouponcontrol = $(".c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl");
+	let vl_valuesRatesAll = $("#vl-valuesRatesAll");
+	vl_valuesRatesAll.children("div")[0].remove();
+	$("#c_valYValidCouponIpt").remove();
+	// ------------ MOSTRAR EL INPUT PARA AGREGAR CUPÓN
+	cnt_ValidCouponConvert.after(function(){
+		cnt_InputCouponcontrol.remove();
+		return `
+			<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">
+				<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl__iptRsltCoupon">
+					<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
+					<button type="button" id="btn-coDescRatePercent">Agregar</button>
+				</div>
+				<span id="m-couponMessageErr"></span>
+			</div>
+		`;
+	});
+});
 // ------------ CONVESIÓN DE CAMBIO - HACIA EL PASO 2
 $(document).on("submit", "#frm-iConvDivi", function(e){
 	e.preventDefault();

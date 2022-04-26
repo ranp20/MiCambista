@@ -36,15 +36,17 @@ require_once '../php/process_data-list.php';
 									<p>Mejores tasas, mayor ahorro</p>
 								</div>
 								<div class="c-convert__cFrmConvert__mxFrmC">
-									<div class="c-convert__cFrmConvert__mxFrmC__cValuesRates b-shadow-light">
-										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
-											<span>Compramos a:</span>
-											<span id="refval_buy_at"></span>
-										</p>
-										<p class="c-convert__cFrmConvert__mxFrmC__cValuesRates__vRateVariable">
-											<span>Vendemos a:</span>
-											<span id="refval_sell_at"></span>
-										</p>
+									<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll" id="vl-valuesRatesAll">
+										<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates b-shadow-light">
+											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
+												<span>Compramos a:</span>
+												<span id="refval_buy_at"></span>
+											</p>
+											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
+												<span>Vendemos a:</span>
+												<span id="refval_sell_at"></span>
+											</p>
+										</div>
 									</div>
 									<form class="c-convert__cFrmConvert__mxFrmC__cFrm" action="" method="POST" id="frm-iConvDivi">
 										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cCountdown">
@@ -81,16 +83,18 @@ require_once '../php/process_data-list.php';
 												</div>
 											</div>
 										</div>
-										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon">
+										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon" id="cnt-ValidCouponConvert">
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cTitle">
 												<span>¿Montos mayores a $ 5,000.00?</span>
 												<svg focusable="false" width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
 											</div>
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">
-												<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
-												<button type="button" id="btn-coDescRatePercent">Agregar</button>
+												<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl__iptRsltCoupon">
+													<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
+													<button type="button" id="btn-coDescRatePercent">Agregar</button>
+												</div>
+												<span id="m-couponMessageErr"></span>
 											</div>
-											<span id="m-couponMessageErr"></span>
 										</div>
 										<button type="submit" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub" id="btn-initConvertPlatform">
 											<span>Comenzar cambio</span>

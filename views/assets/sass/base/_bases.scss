@@ -2367,37 +2367,81 @@ strong, b{
 		width: 95%;
 
 		// FORM - TARIFAS
-		&__cValuesRates{
-			display: inline-block;
-			background-color: #fff;
-		  border-radius: 5px;
-			margin-bottom: 1rem;
+		&__cValRatesAll{
+			max-width: 272px;
+	    width: auto;
+	    display: block;
+	    text-align: center;
+	    vertical-align: middle;
+	    margin: 0 auto;
 
-			&__vRateVariable{
-				flex: auto;
+			&__cValuesRates{
 				display: inline-block;
-				padding: 0.65rem 1.15rem;
-				user-select: none;
+				background-color: #fff;
+			  border-radius: 5px;
+				margin-bottom: 1rem;
+
+				&__vRateVariable{
+					flex: auto;
+					display: inline-block;
+					padding: 0.65rem 1.15rem;
+					user-select: none;
+
+					&:nth-child(2){
+						border-left: thin solid steelblue;
+					}
+					& span{
+						display: block;
+						line-height: 1.5rem;
+						color: $frmconvert_colorschema;
+						user-select: none;
+					}
+					& > span:first-child{
+						font-size: .9rem;
+					}
+					& span:nth-child(2){
+						font-size: 1.35rem;
+						font-weight: bold;
+						display: flex;
+				    flex-flow: nowrap row;
+				    align-items: center;
+				    justify-content: center;
+					}
+				}
 			}
-			&__vRateVariable:nth-child(2){
-				border-left: thin solid steelblue;
-			}
-			&__vRateVariable span{
-				display: block;
-				line-height: 1.5rem;
-				color: $frmconvert_colorschema;
-				user-select: none;
-			}
-			&__vRateVariable > span:first-child{
-				font-size: .9rem;
-			}
-			&__vRateVariable span:nth-child(2){
-				font-size: 1.35rem;
-				font-weight: bold;
-				display: flex;
-		    flex-flow: nowrap row;
-		    align-items: center;
-		    justify-content: center;
+
+			&__cValuesBeforeRates{
+				display: inline-block;
+			  border-radius: 5px;
+				margin-bottom: .35rem;
+
+				&__vRateVariable{
+					flex: auto;
+					display: inline-block;
+					padding: 0.65rem 1.15rem;
+					user-select: none;
+
+					&:nth-child(2){
+						border-left: thin solid transparent;
+					}
+					& span{
+						display: inline-block;
+						line-height: 1.5rem;
+						color: $frmconvert_colorschema;
+						user-select: none;
+					}
+					& > span:first-child{
+						font-size: .9rem;
+					}
+					& span:nth-child(2){
+						font-size: 1rem;
+						font-weight: bold;
+						display: inline-block;
+				    flex-flow: nowrap row;
+				    align-items: center;
+				    justify-content: center;
+					}
+				}
 			}
 		}
 		// FORM - CÁLCULO DE DIVISAS
@@ -2616,6 +2660,23 @@ strong, b{
 					}
 				}
 
+				&__cMessageTitle{
+					display: flex;
+				  flex-flow: nowrap row;
+				  align-items: center;
+				  justify-content: center;
+				  color: $frmconvert_colorschema;
+				  margin: 0.75rem 0 .7rem 0;
+
+					h1,h2,h3,h4,h5,h6,span{
+						font-size: 1rem;
+					}
+					svg{
+						margin-left: 0.85rem;
+						fill: $frmconvert_colorschema;
+					}
+				}
+
 				&__cMessageExp{
 					display: flex;
 				  flex-flow: nowrap row;
@@ -2634,38 +2695,42 @@ strong, b{
 				}
 				
 				&__cControl{
-					display: flex;
-				  flex-flow: nowrap row;
-				  align-items: center;
-				  justify-content: center;
+					display: block;
 				  width: 100%;
-				  flex: 0 0 100%;
 
-					input{
-						padding: 0 1rem;
-					  line-height: 2.65rem;
+				  &__iptRsltCoupon{
+				  	display: flex;
+					  flex-flow: nowrap row;
+					  align-items: center;
+					  justify-content: center;
 					  width: 100%;
-					  border-radius: 5px 0 0 5px;
-					  border: thin solid #9999;
-					  border-right: none;
-					  outline: none;
-					  font-size: 1rem;
-					}
-					button{
-						padding: 0 1.85rem;
-					  line-height: 2.65rem;
-					  border-radius: 0 5px 5px 0;
-					  border: thin solid #9999;
-					  border-left: none;
-					  background-color: $frmconvert_colorschema;
-					  color: #fff;
-					  font-weight: bold;
-					  cursor: pointer;
-					  font-size: 0.935rem;
-					}
-					button:hover{
-						opacity: 0.75;
-					}
+					  flex: 0 0 100%;
+						input{
+							padding: 0 1rem;
+						  line-height: 2.65rem;
+						  width: 100%;
+						  border-radius: 5px 0 0 5px;
+						  border: thin solid #9999;
+						  border-right: none;
+						  outline: none;
+						  font-size: 1rem;
+						}
+						button{
+							padding: 0 1.85rem;
+						  line-height: 2.65rem;
+						  border-radius: 0 5px 5px 0;
+						  border: thin solid #9999;
+						  border-left: none;
+						  background-color: $frmconvert_colorschema;
+						  color: #fff;
+						  font-weight: bold;
+						  cursor: pointer;
+						  font-size: 0.935rem;
+						}
+						button:hover{
+							opacity: 0.75;
+						}
+				  }
 				}
 
 				#m-couponMessageErr{
@@ -2674,6 +2739,56 @@ strong, b{
 					color: red;
 					margin: 0 0 0.5rem 0.5rem;
 					vertical-align: bottom;
+				}
+
+				&__cNameOfValidCoupon{
+					display: block;
+				  flex-flow: wrap column;
+				  align-items: flex-start;
+				  justify-content: flex-start;
+				  width: 100%;
+				  flex: 0 0 100%;
+				  text-align: left;
+				  position: relative;
+
+			    &__cFkInputCoupon{
+			      line-height: 2.65rem;
+				    background-color: #fff;
+				    border-radius: 5px;
+				    border: dashed #9999;
+				    border-width: 1px;
+				    padding: 0 1rem;
+				    width: 100%;
+				    display: flex;
+				    flex-flow: wrap row;
+				    align-items: center;
+				    justify-content: flex-start;
+
+				    svg{
+				    	fill: $frmconvert_colorschema;
+
+				    	&:first-child{
+				    		position: relative;
+				    		top: 2px;
+				    		margin-right: 0.25rem;
+				    	}
+
+				    	&:last-child{
+				    		margin: 0 0 0 auto;
+				    		cursor: pointer;
+				    	}
+				    }
+				    span{
+				    	color: $frmconvert_colorschema;
+				    }
+			    }
+
+			    &__cMssgValidRangCoupon{
+			    	float: left;
+			    	color: red;
+			    	font-size: 0.9rem;
+    				margin: 0 0 .5rem .5rem;
+			    }
 				}
 			}
 			// FORM - BUTTON SUBMIT

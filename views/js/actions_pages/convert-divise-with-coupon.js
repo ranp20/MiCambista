@@ -11,10 +11,10 @@ var result_two = 0;
 //const btnconvert = document.querySelector("#convert_divise");
 var name_currsend = document.querySelector("#name_current_send");
 var name_currreceived = document.querySelector("#name_current_received");
-var ipt_amount_send_two = document.querySelector("#val_amount_send");
-var ipt_amount_received_two = document.querySelector("#val_amount_received");
-var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
-var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
+//var ipt_amount_send_two = document.querySelector("#val_amount_send");
+//var ipt_amount_received_two = document.querySelector("#val_amount_received");
+//var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
+//var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
 var amountMaxReceived = "1000.00";
 
 // ------------ CUPÓN DE DESCUENTO
@@ -57,8 +57,13 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 				current_PEN_two = rates_two[1];
 
 
-				// ------------ CAMBIAR EL NOMBRE DEL ID DEL BOTÓN DE CAMBIO
-				$("#convert_divise").attr("id", "convert_divise_coupon");
+				// ------------ CAMBIAR EL NOMBRE DE LOS IDS DE CONVERSIÓN
+				$("#convert_divise").attr("id", "convert_divise_coupon"); // BUTTON ROTATE
+				$("#val_amount_send").attr("id", "val_amount_send_coupon"); // INPUT SEND
+				$("#val_amount_received").attr("id", "val_amount_received_coupon"); // INPUT RECEIVED
+
+				var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
+				var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 
 				// ------------ REMOVER EL INPUT "AGREGAR" CUPÓN
 				cnt_InputCouponcontrol.remove();
@@ -94,7 +99,7 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 				`);
 
 				// COLOCAR CONVERSIÓN DE EJEMPLO AL INICIO
-				var iptvalsend_example_one = $("#val_amount_send").val();
+				var iptvalsend_example_one = $("#val_amount_send_coupon").val();
 				var iptvalsend_example_two = iptvalsend_example_one.toString().split(",");
 				var valinit_example = iptvalsend_example_two[0]+iptvalsend_example_two[1];
 
@@ -107,8 +112,8 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 				}else{
 					descomp_valinitexample_final = descomp_valinitexample[0]+"."+descomp_valinitexample[1];
 				}
-				document.querySelector("#val_amount_send").value = descomp_valinitexample_final.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-				var ipt_amount_received_two = document.querySelector("#val_amount_received");
+				document.querySelector("#val_amount_send_coupon").value = descomp_valinitexample_final.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 				var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
 				var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
 				var first_calcreceived = convert_coupon(valinit_example, currSpanPrefixSend, currSpanPrefixReceived);
@@ -177,6 +182,8 @@ function convert_coupon(amount, prefixFrom, prefixtTo){
 // ------------ BOTÓN - CONVERSIÓN DE DIVISA
 $(document).on("click", "#convert_divise_coupon", function(e){
 	e.preventDefault();
+	var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
+	var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 	//$(this).toggleClass("active");
 	if($(this).hasClass("active")){
 		name_currsend.children[0].textContent = namecurr_two[1];
@@ -233,7 +240,9 @@ $(document).on("click", "#convert_divise_coupon", function(e){
 // btnconvert.addEventListener("click", function(e){
 // });
 // ------------ ESCRIBIR EN EL INPUT DE MONTO DE ENVÍO
-ipt_amount_send_two.addEventListener("keyup", function(e){
+$(document).on("keyup", "#val_amount_send_coupon", function(e){
+	var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
+	var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 	var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
 	var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
 	if (e.which >= 37 && e.which <= 40) return;
@@ -271,8 +280,12 @@ ipt_amount_send_two.addEventListener("keyup", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
+/*ipt_amount_send_two.addEventListener("keyup", function(e){
+});*/
 // ------------ ESCRIBIR EN EL INPUT DE MONTO RECIBIR (SE ESTA HACIENDO EL CÁLCULO "MANUALMENTE", ES DECIR SIN USAR ALGUNA FUNCIÓN)
-ipt_amount_received_two.addEventListener("keyup", function(e){
+$(document).on("click", "#val_amount_received_coupon", function(e){
+	var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
+	var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 	let result_calc = "";
 	var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
 	var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
@@ -322,3 +335,5 @@ ipt_amount_received_two.addEventListener("keyup", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
+/*ipt_amount_received_two.addEventListener("keyup", function(e){
+});*/

@@ -157,10 +157,12 @@ ipt_amount_send.addEventListener("keyup", function(e){
 	// console.log("De: "+currSpanPrefixSend+" a: "+currSpanPrefixReceived);
 	// console.log(amountcalc_received);
 	var amountformat_received = amountcalc_received.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 	target.selectionEnd = position;
-	let val_split = "";
-	let val_formatfinal = "";
+	var val_split = "";
+	var val_formatfinal = "";
 	val_split = amountformat_received.toString().split(".");
+	
 	if(val_split[1] == undefined || val_split[1] == 'undefined' || val_split[1] == ""){
 		val_formatfinal = val_split[0]+'.00';
 	}else	if(val_split[1].length < 2){

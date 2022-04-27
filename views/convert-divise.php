@@ -12,6 +12,8 @@ require_once '../php/process_data-list.php';
 <head>
 	<title>Mi Cambista | Comenzar cambio </title>
 	<?php require_once 'includes/header_links.php'; ?>
+	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<div id="mssg-messageAlertMaxAmount"></div>
@@ -173,6 +175,7 @@ require_once '../php/process_data-list.php';
 	</div>		
 	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
 	<script src="<?= $url ?>views/js/actions_pages/convert-divise.js"></script>
+	<script src="<?= $url ?>views/js/actions_pages/convert-divise-with-coupon.js"></script>
 	<script src="<?= $url ?>views/js/actions_pages/complete-divise.js"></script>
 </body>
 </html>

@@ -1,25 +1,35 @@
-<?php 
-require_once '../../php/class/db/connection.php';
-class FilterOperation_byOption extends Connection{
-	function list(){
-		$option = $_POST['option'];
-		$res = [];
-		$output = [];
-		try{
-			$sql = "CALL sp_list_operations_byOptionFilter(:option)";
-			$stm = $this->con->prepare($sql);
-			$stm->bindValue("option", $option);
-			$stm->execute();
-			$data = $stm->fetchAll(PDO::FETCH_ASSOC); 
-			foreach ($data as $key => $value){
-				$res['data'][] = array_map("utf8_encode",$value);	
-			}
-			$output = json_encode($res);
-			echo $output;
-		}catch(PDOException $e){
-			return $e->getMessage();
-		}
+<?php
+if(isset($_POST) && count($_POST) > 0){
+	
+	$option = $_POST['option'];
+	$sql = "";
+
+	if($option == "Completed"){
+		$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Completed' ORDER BY ttrans.id DESC";
+	}else if($option == "Pendings" || $option == "Processed"){
+		$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Pending' ORDER BY ttrans.id DESC";
+	}else if($option == "Canceled"){
+		$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Cancel' ORDER BY ttrans.id DESC";
+	}else{
+		$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Pending' ORDER BY ttrans.id DESC";
 	}
+
+	require_once 'connection.php';
+	$stm = $con->prepare($sql);
+	$stm->bindValue("option", $option);
+	$stm->execute();
+	$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+	if(isset($data) && !empty($data)){
+		foreach ($data as $key => $value){
+			$res['data'][] = array_map("utf8_encode",$value);
+		}
+		$output = json_encode($res);
+	}else{
+		$data = null;
+		$output = json_encode($data);
+	}
+	echo $output;
+
+}else{
+	header("Location: operaciones");
 }
-$filterope = new FilterOperation_byOption();
-echo $filterope->list();

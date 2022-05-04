@@ -5,12 +5,18 @@ $(document).on('change', '#selOpts-OperationsFilter', function(e){
   var optionSel = $(this).find("option:selected").attr("data-short");
   var optionSelText = $(this).find("option:selected").text();
  	$("#title-shortOption").text(optionSelText);
-  if(optionSelText == "Recientes"){
+  if(optionSel == "Recents" || optionSel == "Pendings" || optionSel == "Processed"){
   	$("#title-shortOption").removeClass("completed");
+  	$("#title-shortOption").removeClass("cancel");
   	$("#title-shortOption").addClass("processed");
-  }else{
-		$("#title-shortOption").addClass("completed");
+  }else if(optionSel == "Completed"){
 		$("#title-shortOption").removeClass("processed");
+		$("#title-shortOption").removeClass("cancel");
+		$("#title-shortOption").addClass("completed");
+  }else{
+  	$("#title-shortOption").removeClass("completed");
+  	$("#title-shortOption").removeClass("processed");
+  	$("#title-shortOption").addClass("cancel");
   }
   listAllTransactions(optionSel);
 });
@@ -25,10 +31,40 @@ var listAllTransactions = (optionSel = null) => {
 		"columns":[
 			{"data":"id"},
 			{"data":"code_order"},
-			{"data":"prefix_send"},
-			{"data":"amount_send"},
-			{"data":"prefix_received"},
-			{"data":"amount_received"},
+			{"data":"amount_send",
+	      "render": function ( data, type, row ){
+	      	var valOriginal = row.amount_send;
+	      	var valOriginalsplit = valOriginal.split(".");
+	      	var valOriginalFinal = "";
+					var valFormat = "";
+					if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+						valOriginalFinal = valOriginalsplit[0]+'.00';
+					}else	if(valOriginalsplit[1].length < 2){
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+					}else{
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+					}
+	      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	        return row.prefix_send + " " + valFormat;
+				}
+      },
+			{"data":"amount_received",
+	      "render": function ( data, type, row ){
+	      	var valOriginal = row.amount_received;
+	      	var valOriginalsplit = valOriginal.split(".");
+	      	var valOriginalFinal = "";
+					var valFormat = "";
+					if(valOriginalsplit[1] == undefined || valOriginalsplit[1] == 'undefined' || valOriginalsplit[1] == ""){
+						valOriginalFinal = valOriginalsplit[0]+'.00';
+					}else	if(valOriginalsplit[1].length < 2){
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1]+'0';
+					}else{
+						valOriginalFinal = valOriginalsplit[0]+"."+valOriginalsplit[1];
+					}
+	      	valFormat = valOriginalFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	        return row.prefix_received + " " + valFormat;
+				}
+      },
 			{"data":"tasa_change"},
 		],
 		"language":{
@@ -212,3 +248,78 @@ var listAllTransactions = (optionSel = null) => {
 		}
 	});
 };
+// ------------ EDITAR LOS ITEMS SELECCINADOS
+var listItemSelected = [];
+function pushItemSeleted(listItems, idItem){
+	var listSel = {
+		id: idItem
+	}
+	listItems.push(listSel);
+}
+function removeItemSelected(listItems, idItem){
+	$.each(listItems, function(i,v){
+		if(listItems[i].id == idItem){
+			listItems.splice([i],1);
+		}
+	});
+}
+$(document).on("click", "#tbl_operations tbody tr", function(e){
+	$.each($(this), function(i,v){
+		$(this).toggleClass("selected");
+		var idItem = $(this).find("td:first-child").text();
+		if($(this).hasClass("selected")){
+			pushItemSeleted(listItemSelected, idItem);
+		}else{
+			removeItemSelected(listItemSelected, idItem);
+		}
+	});
+
+	if(listItemSelected.length != 0 && listItemSelected != "[]"){
+		$("#c-action-buttons").addClass("activeSelected");
+	}else{
+		$("#c-action-buttons").removeClass("activeSelected");
+	}
+});
+
+$(document).on("click", "#c-allActionsButtons button", function(e){
+	var attrIndexButton = "";
+	$.each($(this), function(i,v){
+		attrIndexButton = $(this).attr("data-action");
+	});
+	listUpdateItems(listItemSelected, attrIndexButton);
+});
+// ------------ ACTUALIZAR ITEMS
+function listUpdateItems(listAllItems, action){
+	let formdata = new FormData();
+	formdata.append("id_list", JSON.stringify(listAllItems));
+	formdata.append("action", action);
+	var optionSel = $("#selOpts-OperationsFilter option:selected").attr("data-short");
+	$.ajax({
+		url: "../admin/controllers/c_update-operations.php",
+		type: "POST",
+		data: formdata,
+		contentType: false,
+    cache: false,
+    processData: false,
+	}).done((e) => {
+		var r = JSON.parse(e);
+		if(r.response == "updated"){
+			Swal.fire({
+        title: 'Acualizado!',
+        text: 'El/Los registro(s) se han actualizado correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        timer: 3500
+      });
+      listAllTransactions(optionSel);
+		}else{
+			Swal.fire({
+        title: 'Error!',
+        text: 'Lo sentimos, no se pudo actualizar el/los registro(s).',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      listAllTransactions(optionSel);
+		}
+	});
+}

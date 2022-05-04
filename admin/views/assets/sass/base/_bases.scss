@@ -102,6 +102,12 @@ img{
 	margin-bottom: 0;
 	margin-left: 0;
 }
+.one-hidden option:first-child{
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	

@@ -212,7 +212,7 @@
 								a{
 									color: #fff;
 									padding: 0.5rem 2rem;
-									border-radius: 1.5rem;
+									border-radius: 5px;
 
 									&:hover{
 										opacity: .6;
@@ -236,6 +236,38 @@
 				}
 			}
 
+			/* STYLES INTO SELECT CUSTOM OPTIONS */
+			&__cSelOptions{
+				float: right;
+    		display: table;
+    		select{
+   		    outline: none;
+			    padding: .4rem .5rem;
+			    border: thin solid #767676;
+			    border-radius: 5px;
+			    line-height: .3;
+			    cursor: pointer;
+
+			    option{
+			    	
+			    }
+    		}
+			}
+
+			/* TITLE CHANGE BY OPTION */
+			&__title-OptionShort{
+				&__title{
+					&.completed{
+						color: green;
+					}
+
+					&.processed{
+						color: red;
+					}
+				}
+			}
+
+
 			/************************** STYLES INTO INPUT SEARCH **************************/
 			&__inputsearch-table{
 				margin-bottom: 0.5rem;
@@ -243,13 +275,13 @@
 					outline: none;
 					padding: 0.4rem 0.5rem;
 					border: thin solid $border-bottom-input;
-					border-radius: .5rem;
+					border-radius: 5px;
 					line-height: 0.3;
 
 					@media (min-width: 991px){
 				    font-size: 1rem;
 				    padding: 0.5rem 0.8rem 0.4rem 0.8rem;
-				    line-height: 1.9;
+				    line-height: 1.65;
 					}
 				}
 			}
@@ -279,7 +311,6 @@
 			    color: #fff;
 			    font-size: 1.2rem;
 			    padding: .8rem 1.32rem;
-			    border-radius: 1.5rem;
 			    display: flex;
 			    position: fixed;
 			    right: .8rem;
@@ -296,10 +327,10 @@
 			    /* TAMAÑO - TABLET(768px)*/
 			    @media (min-width: 768px){
 			    	position: relative;
-						background-color: green;
+						//background-color: green;
 						font-size: .9rem;
 						padding: 0.5rem 2rem;
-						border-radius: 1.5rem;
+						border-radius: 5px;
 						box-shadow: unset;
 						z-index: 9;
 						bottom: 0;

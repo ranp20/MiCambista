@@ -17,6 +17,7 @@ RewriteRule admin?$ admin/index.php
 RewriteRule dashboard?$ admin/views/dashboard.php
 RewriteRule clientes?$ admin/views/client.php
 RewriteRule cupones?$ admin/views/coupons.php
+RewriteRule operaciones?$ admin/views/operations.php
 RewriteRule tarifario?$ admin/views/rates.php
 RewriteRule paises?$ admin/views/countries.php
 RewriteRule bancos?$ admin/views/banks.php

@@ -59,6 +59,7 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>Monto Enviado</th>
 											<th>Monto Recibido</th>
 											<th class='center'>Tasa de Cambio</th>
+											<th class='center'>Estado</th>
 										</tr>
 									</thead>
 								</table>

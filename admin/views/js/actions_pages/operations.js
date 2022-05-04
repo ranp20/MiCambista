@@ -66,6 +66,30 @@ var listAllTransactions = (optionSel = null) => {
 				}
       },
 			{"data":"tasa_change"},
+			{"data":"status_send",
+	      "render": function ( data, type, row ){
+	        let statustmp = "";
+	        if(data == "Pending"){
+	        	statustmp = `<div class='st_transacOpe'>
+	        								<span class='st_transacOpe__pending'></span>
+	        								<span class='st_transacOpe__pending__text'>En Espera</span>
+	        							</div>`;
+	        }else if(data == "Completed"){
+	        	statustmp = `<div class='st_transacOpe'>
+	        								<span class='st_transacOpe__completed'></span>
+	        								<span class='st_transacOpe__completed__text'>Finalizado</span>
+	        							</div>`;
+	        }else if(data == "Cancel"){
+	        	statustmp = `<div class='st_transacOpe'>
+	        								<span class='st_transacOpe__cancel'></span>
+	        								<span class='st_transacOpe__cancel__text'>Cancelada</span>
+	        							</div>`;
+	        }else{
+	        	return row.estado;
+	        }
+	        return statustmp;
+				}
+			},
 		],
 		"language":{
 	    "processing": "Procesando...",

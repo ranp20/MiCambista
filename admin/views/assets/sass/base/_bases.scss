@@ -108,6 +108,46 @@ img{
 	opacity: 0;
 	pointer-events: none;
 }
+.st_transacOpe{
+	position: relative;
+	display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  justify-content: flex-start;
+	&__pending{
+		margin-right: 1rem;
+	  min-width: 10px;
+	  width: 10px;
+	  height: 10px;
+	  background-color: #ffc107;
+	  border-radius: 50%;
+	  &__text{
+	  	color: darken(#ffc107, 7%);
+	  }
+	}
+	&__completed{
+		margin-right: 1rem;
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    &__text{
+    	color: darken(#198754, 5%);
+    }
+	}
+	&__cancel{
+		margin-right: 1rem;
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    &__text{
+    	color: darken(#dc3545, 5%);
+    }
+	}
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	

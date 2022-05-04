@@ -4,8 +4,7 @@ class Clients extends Connection{
 	function list(){
 
 		try{
-			$sql = "SELECT c.id, c.email, c.telephone, c.name, c.lastname, td.type as 'type', c.n_document as 'document', c.t_sex as 'sex' FROM tbl_client c
- 							INNER JOIN tbl_type_document td ON td.id = c.id_type_document ORDER BY c.id DESC";
+			$sql = "SELECT c.id, c.email, c.telephone, c.name, c.lastname, td.type as 'type', c.n_document as 'document', c.t_sex as 'sex',	c.id_coupons FROM tbl_client c INNER JOIN tbl_type_document td ON td.id = c.id_type_document ORDER BY c.id DESC";
 
 			if(isset($_POST['searchList'])){
 				//$search = $this->con->real_escape_string($_POST['searchList']);
@@ -19,7 +18,8 @@ class Clients extends Connection{
 											c.lastname LIKE '%".$search."%' OR
 											td.type LIKE '%".$search."%' OR
 											c.n_document LIKE '%".$search."%' OR
-											c.t_sex LIKE '%".$search."%'
+											c.t_sex LIKE '%".$search."%' OR
+											c.id_coupons LIKE '%".$search."%' 
 								ORDER BY id DESC";
 			}
 

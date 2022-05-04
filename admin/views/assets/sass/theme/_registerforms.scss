@@ -602,6 +602,56 @@
 							&__input-photo{
 								border-bottom: thin solid $border-bottom-input; 
 							}
+
+							&__cListTags{
+								border: thin solid #767676;
+						    width: 100%;
+						    outline: none;
+						    transition: .3s ease;
+						    background-color: transparent;
+						    font-size: .9rem;
+						    padding: .4rem .5rem;
+						    border-radius: .5rem;
+
+						    @media (min-width: 991px){
+							    font-size: 1rem;
+							    padding: .5rem .6rem 0.5rem .6rem;
+							    line-height: 1.9;
+								}
+
+								&__itemTag{
+									border: thin solid #ddd;
+							    border-radius: 5px;
+							    background-color: #eee;
+							    color: #666;
+							    padding: 0.15rem .75rem;
+							    width: auto;
+							    font-size: .9rem;
+							    display: inline-block;
+							    flex-flow: wrap row;
+							    align-items: center;
+							    justify-content: flex-start;
+							    line-height: 1.3rem;
+							    margin: 0 .25rem 0 0;
+							    cursor: initial;
+
+							    &:first-child{
+							    	margin: 0 .2rem 0 0;
+							    }
+
+									span{
+										margin: 0 0.5rem 0 0;
+									}
+
+									a{
+										cursor: pointer;
+										svg{
+											fill: #000;
+											margin: 0 0 0 auto;
+										}
+									}
+								}
+							}
 						}
 
 						&--controlSelect{

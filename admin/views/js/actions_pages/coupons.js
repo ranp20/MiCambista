@@ -1,29 +1,28 @@
 $(function(){
   listCoupons();
-  listRates();
 });
-function listRates(){
-  $.ajax({
-    url: "../admin/controllers/c_list-rates.php",
-    method: "POST",
-    datatype: "JSON",
-    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-  }).done((e) => {
-    if(e.length < 1){
-      console.log("Sin datos");
-    }else{
-      var r = JSON.parse(e);
-      var buy_at_original = r[0].buy_at;
-      var sell_at_original = r[0].sell_at;
-      $("#buy_price_original").val(buy_at_original);
-      $("#buy_price_dismiss").val(buy_at_original);
-      $("#buy_price_original-update").val(buy_at_original);
-      $("#sell_price_original").val(sell_at_original);
-      $("#sell_price_dismiss").val(sell_at_original);
-      $("#sell_price_original-update").val(buy_at_original);
-    }
-  });
-}
+var buy_at_original = "";
+var sell_at_original = "";
+$.ajax({
+  url: "../admin/controllers/c_list-rates.php",
+  method: "POST",
+  datatype: "JSON",
+  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+}).done((e) => {
+  if(e.length < 1){
+    console.log("Sin datos");
+  }else{
+    var r = JSON.parse(e);
+    buy_at_original = r[0].buy_at;
+    sell_at_original = r[0].sell_at;
+    $("#buy_price_original").val(buy_at_original);
+    $("#buy_price_dismiss").val(buy_at_original);
+    $("#buy_price_original-update").val(buy_at_original);
+    $("#sell_price_original").val(sell_at_original);
+    $("#sell_price_dismiss").val(sell_at_original);
+    $("#sell_price_original-update").val(buy_at_original);
+  }
+});
 // ------------ FUNCIÓN - LIMITAR A DOS DECIMALES SIN REDONDEO
 function fourdecimals(n) {
   let t = n.toString();
@@ -182,6 +181,12 @@ $(document).on('submit', '#form-add-coupon', function(e){
       $('#form-add-coupon')[0].reset();
       listCoupons();
       $('#addcouponModal').modal("hide");
+      $("#buy_price_original").val(buy_at_original);
+      $("#buy_price_dismiss").val(buy_at_original);
+      $("#buy_price_original-update").val(buy_at_original);
+      $("#sell_price_original").val(sell_at_original);
+      $("#sell_price_dismiss").val(sell_at_original);
+      $("#sell_price_original-update").val(buy_at_original);
     }else if(e == "err_buy_percent_desc"){
       Swal.fire({
         title: 'Error!',

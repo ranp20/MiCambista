@@ -38,6 +38,7 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 	    cache: false,
 	    processData: false,
 		}).done(function(e){
+			//console.log(e);
 			if(e == "[]"){
 				Swal.fire({
 	        title: 'Error!',

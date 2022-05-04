@@ -1,12 +1,24 @@
-<?php 
+<?php
+session_start();
 require_once '../php/class/db/connection.php';
 class List_Check_Coupon extends Connection{
 	function list(){
 		$code_coupon = $_POST['codecoupon'];
+		$id_client = (isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])) ? $_SESSION['cli_micambista'][0]['id'] : null;
+		$arr_chckcoupon = [
+			"code_coupon" => $code_coupon,
+			"id_client" => $id_client
+		];
+		/*
+		print_r($arr_chckcoupon);
+		exit();
+		*/
 		try{
-			$sql = "CALL sp_list_check_coupon(:code_coupon)";
+			$sql = "CALL sp_list_check_coupon(:code_coupon, :id_client)";
 			$stm = $this->con->prepare($sql);
-			$stm->bindValue(":code_coupon", $code_coupon);
+			foreach ($arr_chckcoupon as $key => $value) {
+				$stm->bindValue($key, $value);
+			}
 			$stm->execute();
 			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
 			$res = json_encode($data);

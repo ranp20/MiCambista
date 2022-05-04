@@ -10,7 +10,11 @@ if(!isset($_SESSION['admin_micambista'])){
 <html lang="es">
 <head>
 	<title>Mi Cambista | Clientes</title>
-	<?php require_once 'includes/header_links.php' ?> 
+	<?php require_once 'includes/header_links.php' ?>
+	<link href="../vendor/select2/select2/dist/css/select2.min.css" rel="stylesheet"/>
+	<script src="../vendor/select2/select2/dist/js/select2.min.js"></script>
+	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<main class="cDash-adm">
@@ -50,129 +54,42 @@ if(!isset($_SESSION['admin_micambista'])){
 						</div>
 					</div>
 				</div>
-				<!-- MODAL - AGREGAR NUEVO RESTAURANTE -->
-				<!--<div class="modal fade bootstrapmodal-custom" id="addcategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<!-- MODAL - EDITAR ITEMS -->
+				<div class="modal fade bootstrapmodalupdate-custom" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">AGREGAR CATEGORÍA</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				      	<div class="cont-modalbootstrap">
-					        <form action="" id="form-add-category" method="POST" class="cont-modalbootstrap__form" autocomplete="false" enctype="multipart/form-data">
-					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="name" class="cont-modalbootstrap__form--control__label">Nombre de la categoría</label>
-					        		<input id="name" class="cont-modalbootstrap__form--control__input" name="name" type="text" required>
-					        	</div>
-					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="imagen">Foto de la categoría</label>
-					        		<input id="images" class="cont-modalbootstrap__form--control__input-photo images" name="imagen[]" type="file" accept="img/*" required>
-					        	</div>
-					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="selrestaurant">Restaurante</label>
-						        	<select class="cont-modalbootstrap__form--control__select one-hidden" name="selrestaurant" id="selrestaurant" required>
-						        		<option value="0">Elija una opción</option>
-						        		<?php 
-
-						        			/*
-						        			foreach ($restaurants as $key => $value) {
-						        				echo "
-						        					<option value='{$value['id']}'>{$value['name']}</option>
-						        				";
-						        			}
-						        			*/
-
-						        		?>
-						        	</select>
-					        	</div>
-							      <div class="cont-modalbootstrap__footer">
-							        <button type="button" class="cont-modalbootstrap__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="button" class="cont-modalbootstrap__footer--btnadd" id="btnadd-category" type="submit">GUARDAR</button>
-							      </div>
-					        </form>
-				      	</div>
-				      </div>
-				    </div>
-				  </div>
-				</div>-->
-				<!-- MODAL - EDITAR NUEVO RESTAURANTE -->
-				<!--<div class="modal fade bootstrapmodal-custom" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="update-modal-label">ACTUALIZAR CATEGORÍA</h5>
+				        <h5 class="modal-title" id="update-modal-label">ACTUALIZAR CLIENTE</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body cont-total-update-items">
 				      	<div class="cont-modalbootstrapupdate">
-					        <form action="" id="form-update-category" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
-					        	<input type="hidden" id="idupdate-category">
+					        <form action="" id="form-update-client" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
+					        	<input type="hidden" name="idupdate-client" id="idupdate-client">
+					        	<!--
 					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="name-update" class="cont-modalbootstrapupdate__form--control__label complete">Nombre de la categoría</label>
-					        		<input id="name-update" class="cont-modalbootstrapupdate__form--control__input" name="name-update" type="text">
+					        		<label for="code_coupon-client-update" class="cont-modalbootstrapupdate__form--control__label complete">Cupones</label>
+					        		<select class="js-example-basic-multiple" id="c-contSelectItems__selCoupons" name="cli_coupons[]" multiple="multiple">
+					        			<option></option>
+					        		</select>
 					        	</div>
-					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="imagen">Foto de la categoría</label>
-					        		<a href="#" id="photo-update" class="cont-modalbootstrapupdate__form--control__linkphoto" target="_blank">(Ver Imagen)</a>
-					        		<input id="images" class="cont-modalbootstrap__form--control__input-photo images-update" name="imagen[]" type="file" accept="img/*">
-					        	</div>
-					        	<div class="cont-modalbootstrap__form--control">
-					        		<label for="selrestaurant">Restaurante</label>
-						        	<select class="cont-modalbootstrap__form--control__select one-hidden" name="selrestaurant-update" id="selrestaurant-update" required>
-						        		<option value="0">Elija una opción</option>
-						        		<?php 
-
-						        			/*
-						        			foreach ($restaurants as $key => $value) {
-						        				echo "
-						        					<option value='{$value['id']}'>{$value['name']}</option>
-						        				";
-						        			}
-						        			*/
-
-						        		?>
-						        	</select>
+					        	-->
+					        	<div class="cont-groupbox-controls">
+					        		<label for="" class="cont-groupbox-controls__label">Cupones</label>
+					        		<div id="cli_listCoupones"></div>
 					        	</div>
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="submit" class="cont-modalbootstrapupdate__footer--btnupdate" id="btnupdate-category">GUARDAR</button>
+							        <button type="submit" class="cont-modalbootstrapupdate__footer--btnupdate" id="btnupdate-coupon-client">GUARDAR</button>
 							      </div>
 					        </form>
 				      	</div>
 				      </div>
 				    </div>
 				  </div>
-				</div>-->
-				<!-- MODAL - ELIMINAR RESTAURANTE -->
-				<!--<div class="modal fade bootstrapmodal-custom" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="delete-modal-label">ELIMINAR CATEGORÍA</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body cont-total-update-items">
-					      <h2 class="text-message-modalAlt">¿Seguro que desea eliminar este registro?</h2>
-				      	<div class="cont-modalbootstrapupdate">
-					        <form action="" id="form-delete-category" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
-					        	<input type="hidden" id="iddelete-category">
-							      <div class="cont-modalbootstrapupdate__footer">
-							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
-							        <button type="submit" class="cont-modalbootstrapupdate__footer--btndelete" id="btndelete-category">ELIMINAR</button>
-							      </div>
-					        </form>
-				      	</div>
-				      </div>
-				    </div>
-				  </div>
-				</div>-->
+				</div>
 				<!-- FIN MODALS-->
 			</div>
 		</div>

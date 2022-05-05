@@ -29,7 +29,7 @@ var ipt_amount_send = document.querySelector("#val_amount_send");
 var ipt_amount_received = document.querySelector("#val_amount_received");
 var currSpanPrefixSend = ipt_amount_send.previousElementSibling.textContent;
 var currSpanPrefixReceived =  ipt_amount_received.previousElementSibling.textContent;
-var amountMaxReceived = "1000.00";
+var amountMaxReceived = "";
 
 // LISTAR LAS TARIFAS PARA LA CONVERSIÓN
 $.ajax({
@@ -41,6 +41,7 @@ $.ajax({
   var res = JSON.parse(e);
   var val_buy_at = res[0].buy_at;
   var val_sell_at = res[0].sell_at;
+  amountMaxReceived = res[0].mxaammountcv;
    
   // SETEO DE VARIABLES
   rates = [val_buy_at, val_sell_at];
@@ -248,6 +249,7 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 	let amount_rece_three = parseFloat(amount_rece_two[0] + amount_rece_two[1]);
 
 	if(amount_rece_three < amountMax_rece){
+		//console.log('Es menor el monto a enviar');
 		if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 && $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
 
 			var typeCURR = $(this).find("#txtDivise-one").text();

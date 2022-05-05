@@ -51,7 +51,8 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 				var coupon = (r[0].cupon).toUpperCase();
 				var val_buy_at = r[0].buy_price;
 				var val_sell_at = r[0].sell_price;
-				
+				//console.log(r);
+
 				// SETEO DE VARIABLES
 			  rates_two = [val_buy_at, val_sell_at];
 				current_USD_two = rates_two[0];

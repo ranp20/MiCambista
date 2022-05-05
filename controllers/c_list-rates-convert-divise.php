@@ -3,8 +3,8 @@ require_once '../php/class/db/connection.php';
 class Rates extends Connection{
 	function list(){
 		try{
-			$sql = "SELECT * FROM tbl_rates ORDER BY id DESC";
-			$stm = $this->con->query($sql);
+			$sql = "CALL sp_list_rates_mxammount_convertdivise()";
+			$stm = $this->con->prepare($sql);
 			$stm->execute();
 			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
 			$res = json_encode($data);

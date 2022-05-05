@@ -24,8 +24,14 @@ $(() => {
 	  	.removeClass("active");
 	});
 });
-
+// ------------ FORMATO - SEPARADOR DE NÚMERO TELEFÓNICO (+51)
 $(document).on("keyup", "input[data-valformat=withspacesforthreenumbers]", function(e){
 	let val = e.target.value;
   $(this).val(val.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3'));
+});
+// ------------ FORMATO - SEPARADOR DE MILLAR Y PUNTO DECIMAL
+$(document).on("keyup", "input[data-valformat=withcomedecimal]", function(e){
+	let val = e.target.value;
+	let val_formatNumber = val.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	$(this).val(val_formatNumber);
 });

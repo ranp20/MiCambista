@@ -6,6 +6,9 @@ if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
 }
 require_once '../php/process_data-list.php';
+require_once '../php/class/settings.php';
+$call_config = new Settings_all();
+$g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -87,7 +90,7 @@ require_once '../php/process_data-list.php';
 										</div>
 										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon" id="cnt-ValidCouponConvert">
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cTitle">
-												<span>¿Montos mayores a $ 5,000.00?</span>
+												<span>¿Montos mayores a $ <?php echo number_format($g_setting("maxamount_convertion")['setting_value'], 2); ?>?</span>
 												<svg focusable="false" width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
 											</div>
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">

@@ -23,7 +23,6 @@ function listTransactionsByIdClient_tablero(){
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 		data: { id_client : idClient }
 	}).done((e) => {
-		console.log(e);
 		var template = "";
 		if(e.length <= 0 || e == []){ 
 			template += ` <li class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsLandscape--cLastChange--cList--m--item--itemanybanks">

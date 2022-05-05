@@ -73,7 +73,7 @@
 										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon">
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cMessageExp">
 												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-												<span>Para montos mayores a $ 5,000.00 solicita un tipo de cambio preferencial en nuestro chat de whatsapp.</span>
+												<span>Para montos mayores a $ <?php echo number_format($g_setting("maxamount_convertion")['setting_value'], 2); ?> solicita un tipo de cambio preferencial en nuestro chat de whatsapp.</span>
 											</div>
 										</div>
 										<a href="convert-divise" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub">

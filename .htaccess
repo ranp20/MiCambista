@@ -11,6 +11,7 @@ RewriteRule complete-register?$ views/complete-register.php
 RewriteRule logout?$ php/process_logout-client.php
 RewriteRule recover-password?$ views/recover-password.php
 RewriteRule politicas-de-privacidad?$ views/policy-privacy.php
+RewriteRule terminos-y-condiciones?$ views/terms-and-conditions.php
 
 ############RENAME PAGES FOR ADMIN
 RewriteRule admin?$ admin/index.php

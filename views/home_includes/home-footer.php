@@ -30,17 +30,20 @@
 							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Preguntas frecuentes</a>
 						</li>
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link"><img src="<?= $url; ?>views/assets/img/icons/whatsapp.svg" 
-								alt="" width="100" height="100">Atención al usuario</a></li>
+							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">
+								<img src="<?= $url; ?>views/assets/img/icons/whatsapp.svg" alt="" width="100" height="100">Atención al usuario</a>
+							</li>
 					</ul>
 				</div>
 				<div class="cFooter--contT--c--sec--c">
 					<h3 class="cFooter--contT--c--sec--c--title">Legal</h3>
 					<ul class="cFooter--contT--c--sec--c--m">
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Términos y condiciones</a>
+							<a href="terminos-y-condiciones" id="" class="cFooter--contT--c--sec--c--m--link">Términos y condiciones</a>
 						</li>
-						<li class="cFooter--contT--c--sec--c--m--item"><a href="politicas-de-privacidad" id="" class="cFooter--contT--c--sec--c--m--link">Políticas de privacidad</a></li>
+						<li class="cFooter--contT--c--sec--c--m--item">
+							<a href="politicas-de-privacidad" id="" class="cFooter--contT--c--sec--c--m--link">Políticas de privacidad</a>
+						</li>
 						<li class="cFooter--contT--c--sec--c--m--item">
 							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Libro de reclamaciones</a>
 						</li>

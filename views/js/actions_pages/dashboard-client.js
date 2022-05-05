@@ -45,11 +45,17 @@ $(() => {
 	// ------------ ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - IZQUIERDA
 	var url = window.location.pathname;
 	var filename = url.substring(url.lastIndexOf('/')+1);
-	if(filename == "complete-exchange"){
+
+	if(filename == "complete-exchange" || filename == "convert-divise"){
 		$(".cControlP__cont--sdLeft--c--m--item a").eq(0).removeClass("active");
 		$(".cControlP__cont--sdLeft--c--m--item a").eq(2).removeClass("active");
 		$(".cControlP__cont--sdLeft--c--m--item a").eq(3).removeClass("active");
 		$('.cControlP__cont--sdLeft--c--m--item a').eq(1).addClass("active");
+	}else if(filename == "all-converts"){
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(1).removeClass("active");
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(2).removeClass("active");
+		$(".cControlP__cont--sdLeft--c--m--item a").eq(3).removeClass("active");
+		$('.cControlP__cont--sdLeft--c--m--item a').eq(0).addClass("active");
 	}else{
 		$(".cControlP__cont--sdLeft--c--m--item a").removeClass("active");
 		$('.cControlP__cont--sdLeft--c--m--item a[href="' + filename + '"]').addClass("active");

@@ -19,6 +19,9 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 		<div class="msgAlertLogin" id="msgAlertLogin"></div>
 		<div class="cLoginAdm__cont">
 			<div class="cLoginAdm__cont--fLogin box-small">
+				<div class="cLoginAdm__cont--fLogin--cLogo">
+					<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoLogin_MiCambista" width="100" height="100" decoding="async">
+				</div>
 				<div class="cLoginAdm__cont--fLogin--cTitle">
 					<h2 class="cLoginAdm__cont--fLogin--cTitle--title">INICIAR SESIÓN</h2>
 				</div>

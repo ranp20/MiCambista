@@ -81,7 +81,7 @@
 			}
 
 			&__logo {
-				max-width: 155px;
+				max-width: 175px;
 			  width: auto;
 			  height: auto;
 			  border-radius: 50%;
@@ -89,11 +89,14 @@
 				margin: 0 auto 1.5rem auto;
 
 				@media (min-width: 768px){
-					margin-bottom: 2rem;
+					margin-bottom: 1.45rem;
 				}
 
 			  &__link{
+			  	display: table;
 			  	img{
+			  		max-width: 175px;
+    				width: 95%;
 			  	}
 			  }
 			}

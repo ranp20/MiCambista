@@ -70,11 +70,28 @@
     		flex: 62%;
 			}
 
+			/* LOGOTIPO */
+			&--cLogo{
+				max-width: 280px;
+				width: auto;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 1rem;
+
+				@media (min-width: 960px){
+					margin-bottom: 2rem;
+				}
+
+				img{
+					width: 90%;
+				}
+			}
+
 			// TITLE - LOGIN
 			&--cTitle{
 				margin-bottom: 1rem;
 				&--title{
-					font-size: 1.85rem;
+					font-size: 1.65rem;
 					font-weight: 600;
 					color: limegreen;
 				}

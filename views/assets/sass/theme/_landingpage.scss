@@ -238,11 +238,26 @@
 							padding-left: 0.5rem;
 
 							&.sizeadd{
-								width: 100%;
-							}
+								width: 90%;
 
+								@media (min-width: 991px){
+									width: 95%;
+								}
+							}
+							a{
+								display: table;
+							}
 							img{
-								width: 100%;
+								max-width: 235px;
+								width: 95%;
+
+								@media (min-width: 1024px){
+									max-width: 265px;
+								}
+
+								@media (min-width: 1200px){
+									max-width: 280px;
+								}
 							}
 						}
 					}
@@ -1436,8 +1451,9 @@
 				&--c{
 					&--logo,
 					&--img{
-						margin-bottom: 0.85rem;
+						max-width: 207px;
 						width: 13rem;
+						margin-bottom: 0.85rem;
 					}
 					
 					&--text{

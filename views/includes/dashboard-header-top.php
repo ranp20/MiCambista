@@ -13,7 +13,9 @@ $g_setting = $call_config->get_config();
 	<div class="cControlP__cont--hTop--c">
 		<div class="cControlP__cont--hTop--c--cLogHorario">
 			<div class="cControlP__cont--hTop--c--cLogHorario--cLogo">
-				<img src="<?= $url ?>views/assets/img/svg/logo.svg" alt="">
+				<a href="welcome">
+					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo-panelcontrol_MiCambista" width="100" height="100" decoding="async">
+				</a>
 			</div>
 			<div class="cControlP__cont--hTop--c--cLogHorario--cHorario">
 				<p>Lunes a Viernes: 9am a 7:00pm </br> Sábados y Feriados: 9am a 2:30pm</p>

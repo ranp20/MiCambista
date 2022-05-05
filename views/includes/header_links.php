@@ -3,10 +3,12 @@
   // CONFIGURACIÓN - LOCALHOST
   $url =  $actual_link . "/micambista/";
   $url_defaultURL =  $actual_link . "/micambista";
+  $url_adm_assets =  $actual_link . "/micambista/admin/";
   // CONFIGURACIÓN - SERVIDOR
   /*
   $url =  $actual_link . "/";
   $url_defaultURL =  $actual_link . "/";
+  $url_adm_assets =  $actual_link . "/admin/";
   */
 ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">

@@ -3,7 +3,7 @@
 		<div class="cFooter--contT--c box">
 			<section class="cFooter--contT--c--sec">
 				<div class="cFooter--contT--c--sec--c">
-					<img class="cFooter--contT--c--sec--c--img" src="<?= $url; ?>views/assets/img/svg/logo-white.svg" alt="" width="100" height="100">
+					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logofooter_MiCambista" width="100" height="100" decoding="async">
 					<p class="cFooter--contT--c--sec--c--text">Somos la startup financiera que revoluciona la forma de administrar el dinero a través de una plataforma 100% digital.</p>
 					<div class="cFooter--contT--c--sec--c--cIcon">
 						<a href="javascript:void(0);" class="cFooter--contT--c--sec--c--cIcon--link">

@@ -65,8 +65,13 @@
     					top: 5px;
 						}
 
-						img{
+						a{
+							display: table;
+						}
 
+						img{
+							max-width: 187px;
+    					width: 95%;
 						}
 					}
 

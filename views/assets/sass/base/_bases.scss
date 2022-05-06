@@ -182,7 +182,6 @@ strong, b{
 }
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
-	
 	&--error{
 		display: flex;
     align-items: flex-start;
@@ -364,26 +363,6 @@ strong, b{
 		}
 	}
 }
-
-/* LOADER DE CARGA PARA COMPLETAR LA CONVERSIÓN */
-// #sendBeforeCompleteDivise{
-// 	.sendBeforeCompleteDivise__charger{
-// 		position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: rgba(255,255,255,.7);
-//     z-index: 999;
-    
-// 		&--loader{
-// 			position: relative;
-// 			top: -50px;
-// 			@include loader(yellow, 55px);
-// 		}
-// 	}
-// }
 
 /* FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS */
 .cformAddAccountBank{
@@ -1610,6 +1589,164 @@ strong, b{
 					flex: 0 0 48%;
 					margin-left: 0.25rem;
 				}
+			}
+		}
+	}
+}
+
+/* FORMULARIO DE VALIDACIÓN DE VIDEO BIOMÉTRICO */
+.cformValidMediaBiometric{
+	position: fixed;
+	background-color: rgba(0,0,0,.3);
+	backdrop-filter: blur(5px);
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 999;
+	display: none;
+	flex-flow: nowrap row;
+	align-items: center;
+	justify-content: center;
+	overflow-y: auto;
+	pointer-events: none;
+	padding-top: 1rem;	
+	padding-bottom: 1rem;
+
+	/************************** REMOVER EL SCROLL  **************************/
+	/* ANCHO DE LA BARRA DE SCROLL */
+	&::-webkit-scrollbar { width: 0;}
+	/* Estilos barra (thumb) de scroll */
+	&::-webkit-scrollbar-thumb {background: transparent;}
+	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	/* Estilos track de scroll */
+	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	/* scrollling */
+	/* ANCHO DEL SCROLLING */
+	&::-webkit-scrollbar {width: 0;}
+	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active {background: transparent;}
+	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track {background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+
+	&.show{
+		display: flex;
+		pointer-events: auto;
+	}
+
+	&--form{
+		text-align: center;
+		max-width: 540px;
+		width: 95%;
+		background-color: #F2F2F2;
+		padding: 1rem 1.2rem;
+		border-radius: 1rem;
+		transform: translateY(-200%);
+		animation-name: moveToTop;
+		animation-duration: .2s;
+		animation-timing-function: linear;
+		pointer-events: none;
+		position: relative;
+
+		@keyframes moveToTop{
+			0%{
+				transform: translateY(-200%);
+			}
+			100%{
+				transform: translateY(0);
+			}
+		}
+		&.show{
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+		@media (min-width: 768px){
+			padding: 1.5rem 2.2rem;
+		}
+
+		&--cBtnClose{
+			position: absolute;
+	    top: 10px;
+	    right: 8px;
+	    max-width: 30px;
+	    max-height: 30px;
+	    width: auto;
+	    height: auto;
+			span{
+				cursor: pointer;
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 100%;
+		    height: 100%;
+				svg{
+			    fill: $color-paragraph;
+					position: relative;
+			    margin-right: .35rem;
+			    width: 2rem;
+    			height: 2rem;
+			    display: inline-block;
+			    font-size: 1.5rem;
+			    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+			    flex-shrink: 0;
+			    user-select: none;
+			    vertical-align: middle;
+			    top: 3px;
+				}
+			}
+		}
+
+		&--cTitle{
+			margin-bottom: 1rem;
+			&--title{
+				color: $color-links;
+				font-size: 1.25rem;
+
+				@media (min-width: 768px){
+					font-size: 1.65rem;
+				}
+			}
+		}
+
+		&--cControl{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 1.25rem;
+			position: relative;
+
+			&--cVideo{
+				display: block;
+				width: 100%;
+				video{
+					max-width: 470px;
+					width: 100%;
+					border: thin solid $frmconvert_colorschema;
+				}
+			}
+		}
+
+		&--cBtnSubmit{
+			opacity: 1;
+			cursor: pointer;
+			//opacity: .4;
+			//cursor: not-allowed;
+			display: inline-block;
+			max-width: 320px;
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			border: none;
+			background-color: yellow;
+			padding: 1rem;
+			border-radius: 5px;
+			color: $color-paragraph;
+
+			&.active{
+				opacity: 1;
+				cursor: pointer;
 			}
 		}
 	}

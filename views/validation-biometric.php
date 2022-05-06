@@ -12,7 +12,7 @@ require_once '../php/process_data-list.php';
 <head>
 	<title>Mi Cambista | Validación Biométrica </title>
 	<?php require_once 'includes/header_links.php'; ?>
-	<script type="text/javascript" src="<?= $url ?>views/js/face-api/face-api.min.js"></script>
+	<!--<script type="text/javascript" src="<?= $url ?>views/js/face-api/face-api.min.js"></script>-->
 </head>
 <body>
 	<div id="box-ModalValidAccBiometric"></div>
@@ -28,6 +28,7 @@ require_once '../php/process_data-list.php';
 					</div>
 				</div>
 			</section>
+			<?php require_once 'includes/dashboard-form-validation-media.php'; ?>
 		</div>
 	</div>
 	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>

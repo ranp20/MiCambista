@@ -453,7 +453,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cContro
 // ------------ AGREGAR TRANSACCIÓN
 $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	e.preventDefault();
-
+	window.onbeforeunload = null;
 	($("#selListallBanks_CData").find("input").attr("idbank")) ? $("#msgerrorNounSelBankSend_CData").text("") : $("#msgerrorNounSelBankSend_CData").text("Debes seleccionar el banco donde transferirás");
 	($("#selListallaccountsBanks_CData").find("input").attr("idaccountbank")) ? $("#msgerrorNounSelAccountBankReceived_CData").text("") : $("#msgerrorNounSelAccountBankReceived_CData").text("Debes seleccionar tu cuenta para recibir");
 

@@ -66,7 +66,7 @@ require_once '../php/process_data-list.php';
 								<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form">
 									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cinputNumOp">
 										<!-- LIMITAR LOS CARACTERES SEGÚN: INTERBANK SOLO 7 CARACTERES Y BCP A 8 CARACTERES -->
-										<input type="text" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="7">
+										<input type="text" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8">
 										<span></span>
 									</div>
 									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>

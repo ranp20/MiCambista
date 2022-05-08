@@ -1,3 +1,7 @@
+window.onload = function(){
+	var minTimeout = 60 * 5;
+  startTimerHome(minTimeout);
+}
 // ------------ VARIABLES GLOBALES PARA CONVERSIÓN
 var rates = "";
 var namecurr = ['Soles', 'Dólares'];
@@ -218,3 +222,26 @@ ipt_amount_received.addEventListener("keyup", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
+// ------------ FUNCIÓN - CUENTA REGRESIVA
+function startTimerHome(minTimeout) {
+  var timer = minTimeout, minutes, seconds;
+  const timerUpdate = setInterval(function () {
+    minutes = parseInt(timer / 60, 10)
+    seconds = parseInt(timer % 60, 10);
+    minutes = minutes < 10 ? "" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    //element.textContent = minutes + ":" + seconds;
+    if (--timer < 0) {
+      timer = minTimeout;
+      window.onbeforeunload = null;
+      // URL - LOCALHOST
+      
+      window.location.href = "/MiCambista";
+      
+      // URL - SERVIDOR
+      /*
+      window.location.href = "/";
+      */
+    }
+  }, 1000);
+}

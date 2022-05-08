@@ -60,6 +60,7 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 
 
 				// ------------ CAMBIAR EL NOMBRE DE LOS IDS DE CONVERSIÓN
+				$("#frm-iConvDivi").attr("id", "frm-iConvDivi_coupon");
 				$("#convert_divise").attr("id", "convert_divise_coupon"); // BUTTON ROTATE
 				$("#val_amount_send").attr("id", "val_amount_send_coupon"); // INPUT SEND
 				$("#val_amount_received").attr("id", "val_amount_received_coupon"); // INPUT RECEIVED
@@ -239,8 +240,6 @@ $(document).on("click", "#convert_divise_coupon", function(e){
 		//console.log(amountformat_send);
 	}
 });
-// btnconvert.addEventListener("click", function(e){
-// });
 // ------------ ESCRIBIR EN EL INPUT DE MONTO DE ENVÍO
 $(document).on("keyup", "#val_amount_send_coupon", function(e){
 	var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
@@ -282,8 +281,6 @@ $(document).on("keyup", "#val_amount_send_coupon", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
-/*ipt_amount_send_two.addEventListener("keyup", function(e){
-});*/
 // ------------ ESCRIBIR EN EL INPUT DE MONTO RECIBIR (SE ESTA HACIENDO EL CÁLCULO "MANUALMENTE", ES DECIR SIN USAR ALGUNA FUNCIÓN)
 $(document).on("click", "#val_amount_received_coupon", function(e){
 	var ipt_amount_send_two = document.querySelector("#val_amount_send_coupon");
@@ -337,5 +334,99 @@ $(document).on("click", "#val_amount_received_coupon", function(e){
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 	}
 });
-/*ipt_amount_received_two.addEventListener("keyup", function(e){
-});*/
+// ------------ CONVESIÓN DE CAMBIO - HACIA EL PASO 2 (CON CUPÓN)
+$(document).on("submit", "#frm-iConvDivi_coupon", function(e){
+	e.preventDefault();
+	$("#btn-initConvertPlatform").attr("disabled","disabled");
+	$("#btn-initConvertPlatform").removeClass("completeFrm");
+	$("#btn-initConvertPlatform").addClass("sendShowComplete");
+	$("#btn-initConvertPlatform").find("div").addClass("show");
+	$("#cont-convert-divise").addClass("hidd_toNextStepTrans");
+
+	let amountMax_rece = amountMaxReceived;
+	let amount_rece_one = $("#val_amount_received_coupon").val();
+	let amount_rece_two = amount_rece_one.toString().split(",");
+	let amount_rece_three = parseFloat(amount_rece_two[0] + amount_rece_two[1]);
+
+	if(amount_rece_three < amountMax_rece){
+		//console.log('Es menor el monto a enviar');
+		if($("#val_amount_send_coupon").val() != "" && $("#val_amount_send_coupon").val() != 0 && $("#val_amount_send_coupon").val() != 0.00 && $("#val_amount_received_coupon").val() != "" && $("#val_amount_received_coupon").val() != 0 && $("#val_amount_received_coupon").val() != 0.00){
+
+			var typeCURR = $(this).find("#txtDivise-one").text();
+			var quantityCURR = $("#val_amount_send_coupon").val().replace(/[$,]/g,'');
+			var prefixCURR = $(this).find("#spanprefix-one").text();
+			var type_received = $(this).find("#txtDivise-two").text();
+			var prefix_received = $(this).find("#spanprefix-two").text();
+			
+			var valcambiocurr;
+			if(typeCURR == "Soles"){
+				valcambiocurr = current_USD;
+			}else{
+				valcambiocurr = current_PEN;
+			}
+			
+			var formData = new FormData();
+			formData.append("cambioval", valcambiocurr);
+			formData.append("prefix", prefixCURR);
+			formData.append("val_type", typeCURR);
+			formData.append("val_send", quantityCURR);
+			formData.append("type_received", type_received);
+			formData.append("prefix_received", prefix_received);
+
+			$.ajax({
+				url: "php/process_convert-divise.php",
+				method: "POST",
+				dataType: "JSON",
+				data: formData,
+		    contentType: false,
+		    cache: false,
+		    processData: false,
+			}).done(function(e){
+				if(e != ""){
+					$("#changecurridcli").val(e.cambioval);
+					$("#prefixcurridcli").val(e.prefix);
+					$("#typechangecurridcli").val(e.divise);
+					$("#quantitycurridcli").val(e.quantity);
+					$("#type_receivedcli").val(e.type_received);
+					$("#prefix_receivedcli").val(e.prefix_received);
+					setTimeout(function(){
+						$("#cont-convert-divise").addClass("sendShow");
+						$("#cont-complete-divise").addClass("sendShow");
+					}, 2000);
+				}else{
+					console.log('No se envió la respuesta');
+				}
+			});
+		}else{
+			$("#btn-initConvertPlatform").attr("type", "button");
+			$("#btn-initConvertPlatform").attr("disabled", "disabled");
+			$("#btn-initConvertPlatform").removeClass("completeFrm");
+			$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+			$("#btn-initConvertPlatform").find("div").removeClass("show");
+			$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+		}
+	}else{
+		console.log("El valor excede el monto máximo");
+		$("#btn-initConvertPlatform").attr("type", "button");
+		$("#btn-initConvertPlatform").attr("disabled", "disabled");
+		$("#btn-initConvertPlatform").removeClass("completeFrm");
+		$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+		$("#btn-initConvertPlatform").find("div").removeClass("show");
+		$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+		
+		$("#mssg-messageAlertMaxAmount").addClass("show");
+		$("#mssg-messageAlertMaxAmount").html(`
+			<div class="box-ModalValidAccBiometric--c">
+				<span class="box-ModalValidAccBiometric--c--close" id="icon-closeModalVAccBiometric"></span>
+				<h2 class="box-ModalValidAccBiometric--c--title">Completar Perfil</h2>
+				<p>Para realizar operaciones mayores a <strong class="bold-pricolor">$ 1,000</strong> deberás:</p>
+				<ul class="box-ModalValidAccBiometric--c--m">
+					<li>Completar tu <strong class="bold-pricolor">información de perfil</strong> al 100%.</li>
+					<li>Verificar tu identidad.</li>
+				</ul>
+				<p>Haz click en <strong class="bold-pricolor">completar mi perfil</strong> para agregar tus datos.</p>
+				<a href="my-profile" class="box-ModalValidAccBiometric--c--btnNextStep">Completar mi perfil</a>
+			</div>
+		`);
+	}
+});

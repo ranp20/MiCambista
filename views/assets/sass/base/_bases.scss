@@ -1722,7 +1722,8 @@ strong, b{
 				width: 100%;
 				video{
 					max-width: 470px;
-					width: 100%;
+					width: 100% !important;
+					height: 100% !important;
 					border: thin solid $frmconvert_colorschema;
 				}
 			}

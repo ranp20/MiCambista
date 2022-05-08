@@ -11,7 +11,7 @@
 		<div class="cformValidMediaBiometric--form--cControl">
 			<input type="hidden" id="ipt-idClientVal" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
 			<div class="cformValidMediaBiometric--form--cControl--cVideo" id="c_videoAuthorizeValidation">
-				<video id="c_video-valididentity" width="100" height="100" autoplay playsinline></video>
+				<video id="c_video-valididentity" width="100" height="100" autoplay muted></video>
 			</div>
 		</div>
 		<button type="submit" class="cformValidMediaBiometric--form--cBtnSubmit" id="btn-ValidMediaBiometric">ACEPTAR</button>

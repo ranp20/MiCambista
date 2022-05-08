@@ -19,9 +19,37 @@ $(function(){
     }
   });
 });
-
 const c_statusPointSteps = $("#c_statusPointSteps_validBiom");
 var c_statusPointSteps_Items = c_statusPointSteps.find("a");
+var btnOpenVideo = document.getElementById("btn-stop_recordbiometric");
+var downloadButton = document.getElementById("btn-ValidMediaBiometric");
+var videoTag = document.getElementById("c_video-valididentity");
+var checkActiveDevices = false;
+var streamCaptura = "";
+// ------------ FUNCTION - GRABAR VIDEO
+function startRecording(stream, lengthInMS) {
+  let recorder = new MediaRecorder(stream);
+  let data = []; 
+  recorder.ondataavailable = event => data.push(event.data);
+  recorder.start();
+  log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+  let stopped = new Promise((resolve, reject) => {
+    recorder.onstop = resolve;
+    recorder.onerror = event => reject(event.name);
+  });
+  let recorded = wait(lengthInMS).then(
+    () => recorder.state == "recording" && recorder.stop()
+  );
+  return Promise.all([
+    stopped,
+    recorded
+  ])
+  .then(() => data);
+}
+// ------------ FUNCTION - DETENER EL VIDEO
+function stop(stream) {
+  stream.getTracks().forEach(track => track.stop());
+}
 // ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO FRONTAL
 $("#photo_dni-front").on("change", function(e){
   let readerImg = new FileReader();
@@ -49,72 +77,70 @@ $(document).on("click", "#btn_stepNext_validBiom", function(){
 	$("#c-stepTwo_ValBiom").addClass("slide-moveLeft__toTwo");
 });
 // ------------ PASAR AL PASO FINAL
-$(document).on("click", "#btn-stop_recordbiometric", function(){
+btnOpenVideo.addEventListener("click", function(){
+  // ------------ PEDIR PERMISOS PARA USAR DISPOSITIVOS (Cámara y micrófono)
+  navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true
+  }).then(stream => {
+    videoTag.srcObject = stream;
+    //downloadButton.href = stream;
+    videoTag.captureStream = videoTag.captureStream || videoTag.mozCaptureStream;
+    new Promise(resolve => videoTag.onplaying = resolve);
+    //return new Promise(resolve => videoTag.onplaying = resolve);
+    //console.log(resolve);
+    
+    if(stream.getVideoTracks().length > 0 && stream.getAudioTracks().length > 0){
+      console.log('Se está utilizando los dispositivos');
+      checkActiveDevices = true;
+      streamCaptura = stream;
+      // RETORNAR EL VALOR DE LA PROMESA DE ARRIBA...
+    }else{
+      checkActiveDevices = false;
+      console.log('No hay dispositivos activos');
+    }
+    
+  }).catch( err => console.log(err));
+}, false);
+/*
+$(document).on("click", "#btn-stop_recordbiometric", function(e){
+  e.preventDefault();
   console.log('Abrir el modal de grabar video');
-	/*
-  c_statusPointSteps_Items.eq(1).addClass("active");
-	c_statusPointSteps_Items.eq(1).addClass("complete");
-	c_statusPointSteps_Items.eq(2).addClass("active");
-	$("#c-stepTwo_ValBiom").addClass("disabledSlide__toThree");
-	$("#c-stepThree_ValBiom").addClass("slide-moveLeft__toThree");
-  */
+	
+  // c_statusPointSteps_Items.eq(1).addClass("active");
+	// c_statusPointSteps_Items.eq(1).addClass("complete");
+	// c_statusPointSteps_Items.eq(2).addClass("active");
+	// $("#c-stepTwo_ValBiom").addClass("disabledSlide__toThree");
+	// $("#c-stepThree_ValBiom").addClass("slide-moveLeft__toThree");
+
+  // ------------ PEDIR PERMISOS PARA USAR DISPOSITIVOS (Cámara y micrófono)
+  navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true
+  }).then(stream => {
+    videoTag.srcObject = stream;
+    //downloadButton.href = stream;
+    videoTag.captureStream = videoTag.captureStream || videoTag.mozCaptureStream;
+    new Promise(resolve => videoTag.onplaying = resolve);
+    //return new Promise(resolve => videoTag.onplaying = resolve);
+    //console.log(resolve);
+    
+    if(stream.getVideoTracks().length > 0 && stream.getAudioTracks().length > 0){
+      console.log('Se está utilizando los dispositivos');
+      checkActiveDevices = true;
+      streamCaptura = stream;
+      // RETORNAR EL VALOR DE LA PROMESA DE ARRIBA...
+    }else{
+      checkActiveDevices = false;
+      console.log('No hay dispositivos activos');
+    }
+    
+  }).catch( err => console.log(err));
 });
+*/
 // ------------ REDIRIGIR DE ACUERDO A LA VALIDACIÓN FINAL
 $(document).on("click", "#btn-finalVerifyValidBiom", function(){
 	c_statusPointSteps_Items.eq(2).removeClass("active");
 	c_statusPointSteps_Items.eq(2).addClass("complete");
 	window.location.replace("my-profile");
 });
-
-
-/*
-// FUNCIONALIDAD DE LA VALIDACIÓN BIOMÉTRICA
-var thevideo = document.querySelector("#c_video-valididentity");
-const containerVideo = document.querySelector("#c_videoAuthorizeValidation");
-
-navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
-
-function initCamera(){
-  navigator.getUserMedia (
-    {
-      video: true,
-      audio: false
-    },
-    stream => thevideo.srcObject = stream,
-    err => console.log(err)
-  );
-}
-
-// CARGAR MODELOS
-Promise.all([
-    faceapi.nets.ssdMobilenetv1.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.ageGenderNet.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.faceExpressionNet.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.faceLandmark68TinyNet.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.ssdMobilenetv1.loadFromUri('views/js/face-api/models'),
-    faceapi.nets.tinyFaceDetector.loadFromUri('views/js/face-api/models'),
-]).then(initCamera);
-
-//INICIA LA LIBRERÍA
-thevideo.addEventListener("play", async function(){
-    const canvas = faceapi.createCanvasFromMedia(thevideo);
-    containerVideo.append(canvas);
-    const displaySize = { width: thevideo.width, height: thevideo.height};
-    faceapi.matchDimensions(canvas, displaySize);
-    setInterval( async function(){
-        const detections = await faceapi.detectAllFaces(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
-        //const detections = await faceapi.detectSingleFace(thevideo, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
-        const resizeDetections = faceapi.resizeResults(detections, displaySize);
-        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-        faceapi.draw.drawDetections(canvas, resizeDetections);
-        faceapi.draw.drawFaceLandmarks(canvas, resizeDetections);
-
-        // if(!detections.length){
-        //   console.log('No hay caras expuestas');
-        // }
-
-    }, 100);
-});
-*/

@@ -259,7 +259,10 @@
 							background-color: #c3e5d9;
 							color: currentColor;
 						}
-						img{
+						img,svg{
+							max-width: 24px;
+							width: auto;
+							height: auto;
 							vertical-align: middle;
 							margin-right: 0.75rem;
 						}
@@ -580,7 +583,10 @@
 							background-color: #c3e5d9;
 							color: currentColor;
 						}
-						img{
+						img,svg{
+							max-width: 20px;
+							width: auto;
+							height: auto;
 							vertical-align: middle;
 							margin-right: 0.75rem;
 						}

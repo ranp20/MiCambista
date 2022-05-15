@@ -24,6 +24,7 @@ var c_statusPointSteps_Items = c_statusPointSteps.find("a");
 var btnOpenVideo = document.getElementById("btn-stop_recordbiometric");
 var downloadButton = document.getElementById("btn-ValidMediaBiometric");
 var videoTag = document.getElementById("c_video-valididentity");
+var loaderValidVid = document.getElementById("gif-load-validvideo");
 var checkActiveDevices = false;
 var streamCaptura = "";
 // ------------ FUNCTION - GRABAR VIDEO
@@ -94,6 +95,7 @@ btnOpenVideo.addEventListener("click", function(){
       console.log('Se está utilizando los dispositivos');
       checkActiveDevices = true;
       streamCaptura = stream;
+      loaderValidVid.classList.add("hi-hidden");
       // RETORNAR EL VALOR DE LA PROMESA DE ARRIBA...
     }else{
       checkActiveDevices = false;

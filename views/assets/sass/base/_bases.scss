@@ -61,6 +61,31 @@ strong, b{
 	text-shadow: 0 0 6px #ccc;
 }
 /* UTILITIES CLASS */
+.btn-pri_theme-default{
+	opacity: 1;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 320px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: #ff0;
+  padding: 1rem;
+  border-radius: 5px;
+  color: $color-paragraph;
+
+  @media (min-width: 768px){
+  	width: 90%;
+  }
+
+  &.active{
+  	opacity: 1;
+  }
+  &:hover{
+  	background-color: darken($color-primary, 5%);
+  }
+}
 .box{
 	@include max-width($max-width);
 	margin-left: auto;
@@ -1753,6 +1778,24 @@ strong, b{
 							margin-bottom: 1rem;
 							margin-right: 0;
 							margin-left: 0;
+						}
+
+						&:nth-child(2){
+							display: none;
+							pointer-events: none;
+							user-select: none;
+							opacity: 0;
+							visibility: hidden;
+						}
+
+						&.playRecording{
+							&:nth-child(2){
+								display: block;
+								pointer-events: auto;
+								user-select: auto;
+								opacity: 1;
+								visibility: visible;
+							}
 						}
 
 						@media (min-width: 768px){

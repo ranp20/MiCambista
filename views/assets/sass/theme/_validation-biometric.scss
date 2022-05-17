@@ -14,26 +14,31 @@
 		&--cont{
 			background-color: #fff;
 			border-radius: 1.5rem;
-			box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
-			padding: 1.5rem;
-			display: flex;
-			flex-flow: wrap row;
-			align-items: flex-start;
-			justify-content: center;
 
-			@media (min-width: 991px){
-				justify-content: space-between;
-		    flex-flow: nowrap column;
-		    align-items: center;
-			}
+			form{
+				border-radius: 1.5rem;
+				box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
+				padding: 1.5rem;
+				display: flex;
+				flex-flow: wrap row;
+				align-items: flex-start;
+				justify-content: center;
 
-			@media (min-width: 1200px){
-				padding: 1rem 2.5rem;
+				@media (min-width: 991px){
+					justify-content: space-between;
+			    flex-flow: nowrap column;
+			    align-items: center;
+				}
+
+				@media (min-width: 1200px){
+					padding: 1rem 2.5rem;
+				}
 			}
 
 			/************************** ESTADO O PROGRESO DE LA VALIDACIÓN **************************/
 			&--cLeftStatus{
 				margin-right: auto;
+				padding: 0;
 
 				@media (min-width: 991px){
 					display: -webkit-flex;
@@ -48,9 +53,10 @@
 				}
 
 				@media (min-width: 1200px){
-					margin: 0;
+					margin: 0 auto;
 				}
 				&--pointStep{
+					cursor: pointer;
 					display: -webkit-flex;
 					display: -ms-flex;
 					display: flex;
@@ -64,6 +70,7 @@
 
 					&:before{
 						content: "";
+						cursor: initial;
 						border-left: 3px solid $color-links-gradient;
 						width: 0px;
 				    height: 100%;
@@ -96,6 +103,7 @@
 
 						&:after{
 							content: "";
+							cursor: initial;
 							position: absolute;
 					    border-bottom: 2px solid $color-links-gradient;
 					    width: 100%;
@@ -223,10 +231,11 @@
 				justify-content: space-between;
 				max-width: 2400px;
 		    width: 100%;
-		    overflow-x: hidden;
-		    overflow-y: auto;
+		    // overflow-x: hidden;
+		    // overflow-y: auto;
 
 				&--step{
+					/*
 					flex: auto;
 					min-width: 100%;
 					width: 100%;
@@ -235,8 +244,23 @@
 					pointer-events: none;
 					user-select: none;
 					transition: all ease-in-out .5s 0s;
+					*/
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    margin-bottom: 1rem;
+			    max-width: 100%;
+			    width: 100%;
+			    height: auto;
+			    display: none;
+			    pointer-events: none;
+			    opacity: 0;
+			    visibility: hidden;
+			    user-select: none;
 
-					&.enabledSlide{
+					&.active{
+						position: relative;
+    				display: block;
 						opacity: 1;
 						visibility: visible;
 						pointer-events: auto;

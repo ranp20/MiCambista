@@ -13,6 +13,8 @@ require_once '../php/process_data-list.php';
 	<title>Mi Cambista | Validación Biométrica </title>
 	<?php require_once 'includes/header_links.php'; ?>
 	<!--<script type="text/javascript" src="<?= $url ?>views/js/face-api/face-api.min.js"></script>-->
+	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<div id="box-ModalValidAccBiometric"></div>

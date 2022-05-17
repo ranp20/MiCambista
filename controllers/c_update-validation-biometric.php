@@ -3,6 +3,12 @@ require_once '../php/class/db/connection.php';
 class Complete_ValidBiometric extends Connection{
 	function update(){
 
+		print_r($_POST);
+		echo "<br>";
+		print_r($_FILES['imagen_front']);
+		echo "<br>";
+		print_r($_FILES['imagen_back']);
+		exit();
 		$params = count($_POST);
 		$statusaccount = $params * 10;
 		$arr_upbiometric = [

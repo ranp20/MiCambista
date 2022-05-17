@@ -13,11 +13,18 @@
 			<div class="cformValidMediaBiometric--form--cControl--cVideo" id="c_videoAuthorizeValidation">
 				<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos">
 					<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video">
-						<video id="c_video-valididentity" width="100" height="100" autoplay muted></video>
-						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__btnRecord btn-pri_theme-default">Iniciar grabación</div>
+						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__cvideo">
+							<video id="c_video-valididentity" width="100" height="100" autoplay muted></video>
+						</div>
+						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__btnRecord btn-pri_theme-def" id="init_vidValidationBio">Iniciar grabación</div>
+						<!--<a href="javascript:void(0);" class="btn-pri_theme-def" id="downloadButton">DESCARGAR VIDEO</a>-->
+						<!--<div id="log"></div>-->
+						<!--<a href="javascript:void(0);" class="btn-pri_theme-def" id="downloadButton_test">DOWNLOAD TO BLOB</a>-->
 					</div>
 					<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video">
-						<video id="c_video-valididentity__opViewVideo" width="100" height="100" controls></video>
+						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__cvideo">
+							<video id="c_video-valididentity__opViewVideo" width="100" height="100" controls playsinline></video>
+						</div>
 					</div>
 				</div>
 				<span id="gif-load-validvideo">
@@ -25,6 +32,6 @@
 				</span>
 			</div>
 		</div>
-		<button type="submit" class="cformValidMediaBiometric--form--cBtnSubmit" id="btn-ValidMediaBiometric">ACEPTAR</button>
+		<button type="submit" class="cformValidMediaBiometric--form--cBtnSubmit btn-pri_theme-def" id="btn-ValidMediaBiometric">ENVIAR VIDEO</button>
 	</form>
 </div>

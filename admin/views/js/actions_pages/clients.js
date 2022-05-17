@@ -322,7 +322,5 @@ $(document).on('submit', '#form-update-client', function(e){
         confirmButtonText: 'Aceptar'
       });
     }
-    
   });
-  
 });

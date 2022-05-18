@@ -17,6 +17,7 @@ RewriteRule terminos-y-condiciones?$ views/terms-and-conditions.php
 RewriteRule admin?$ admin/index.php
 RewriteRule dashboard?$ admin/views/dashboard.php
 RewriteRule clientes?$ admin/views/client.php
+RewriteRule detallecliente/([0-9]+) admin/views/details_client.php?client=$1
 RewriteRule cupones?$ admin/views/coupons.php
 RewriteRule operaciones?$ admin/views/operations.php
 RewriteRule tarifario?$ admin/views/rates.php

@@ -16,6 +16,7 @@ $(function(){
   });
   // ------------ NAVEGACIÓN ENTRE ANCLAS INTERNAS PARA LOS PASOS
   // MOSTRAR EL PRIMER LINK Y SU SECCIÓN
+  /*
   linksAnch.eq(0).add($(`.cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step[id="${firstLinkAnch}"]`)).addClass("active");
   // MOSTRAR SECCIÓN DE ACUERDO AL LINK
   linksAnch.on("click", function(){
@@ -25,12 +26,13 @@ $(function(){
     // linksAnch.eq(tindex).add(itemsAnch.eq(tindex)).addClass("active").siblings().removeClass("active");
     linksAnch.eq(tindex).add($(`.cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step[id="${tattribute}"]`)).addClass('active').siblings().removeClass("active");
   });
+  */
 });
 // VARIABLES PARA LOS TABS
 const linksAnchParent = $("#c_statusPointSteps_validBiom");
 const linksAnch = linksAnchParent.find("li");
 const itemsAnch = $(".cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step");
-const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
+//const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
 // VARIABLES PARA EL MODAL DE VIDEO
 const btn_frmOpenModal = document.querySelector("#btn-stop_recordbiometric");
 const btn_frmCloseModal = document.querySelector("#icon_frmbtnClose");
@@ -78,6 +80,7 @@ $("#photo_dni-back").on("change", function(e){
   }
 });
 // ------------ 2. IR AL PASO #2
+/*
 $(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep:nth-child(2)", function(e){
   e.preventDefault();
   // VARIABLES DE INPUT PARA LAS FOTOS
@@ -120,6 +123,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLef
     });
   }
 });
+*/
 $(document).on("click", "#btn_stepNext_validBiom", function(e){
   e.preventDefault();
   // VARIABLES DE INPUT PARA LAS FOTOS
@@ -186,6 +190,7 @@ function startRecording(stream, lengthInMS){
   .then(() => data);
 }
 // ------------ 3. PASAR AL PASO FINAL
+/*
 $(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep:nth-child(3)", function(e){
   e.preventDefault();
   // VARIABLES DE INPUT PARA LAS FOTOS
@@ -228,6 +233,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLef
     });
   }
 });
+*/
 btnOpenVideo.addEventListener("click", function(){
   // ------------ PEDIR PERMISOS PARA USAR DISPOSITIVOS (Cámara y micrófono)
   navigator.mediaDevices.getUserMedia({
@@ -312,6 +318,14 @@ $(document).on("click", "#btn-ValidMediaBiometric", function(e){
         confirmButtonText: 'Aceptar',
         timer: 3500
       });
+      c_statusPointSteps_Items.eq(0).removeClass("active");
+      c_statusPointSteps_Items.eq(0).addClass("complete");
+      c_statusPointSteps_Items.eq(1).removeClass("active");
+      c_statusPointSteps_Items.eq(1).addClass("complete");
+      c_statusPointSteps_Items.eq(2).addClass("complete");
+      c_StepPoint_Item.eq(0).removeClass("active");
+      c_StepPoint_Item.eq(1).removeClass("active");
+      c_StepPoint_Item.eq(2).addClass("active");
     }else{
       Swal.fire({
         title: 'Error!',

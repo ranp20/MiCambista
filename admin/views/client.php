@@ -46,6 +46,7 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>Nro. documento</th>
 											<th class='center'>Sexo</th>
 											<th class='center'>Coupon</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody id="tbl_clients"></tbody>
@@ -79,6 +80,34 @@ if(!isset($_SESSION['admin_micambista'])){
 					        	<div class="cont-groupbox-controls">
 					        		<label for="" class="cont-groupbox-controls__label">Cupones</label>
 					        		<div id="cli_listCoupones"></div>
+					        	</div>
+							      <div class="cont-modalbootstrapupdate__footer">
+							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>
+							        <button type="submit" class="cont-modalbootstrapupdate__footer--btnupdate" id="btnupdate-coupon-client">GUARDAR</button>
+							      </div>
+					        </form>
+				      	</div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!-- MODAL - DETAILS ITEMS -->
+				<div class="modal fade bootstrapmodalupdate-custom" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="update-modal-label">INFORMACIÓN DEL CLIENTE</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body cont-total-update-items">
+				      	<div class="cont-modalbootstrapupdate">
+					        <form action="" id="form-update-client" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
+					        	<input type="hidden" name="idupdate-client" id="iddetail-client">
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="name-cli_update" class="cont-modalbootstrap__form--control__label">Nombres</label>
+					        		<div class="cont-modalbootstrap__form--control__cparagraph"><?php print_r($_GET); ?></div>
 					        	</div>
 							      <div class="cont-modalbootstrapupdate__footer">
 							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CANCELAR</button>

@@ -1,6 +1,7 @@
 <div class="cControlP__cont--containDash--c--validBiom--cont">
 	<form action="" method="POST" id="mcamb_frm-validbiometric" enctype="multipart/form-data">
 		<ul class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus" id="c_statusPointSteps_validBiom">
+			<!--
 			<li data-target="#anchor_step_one" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep active">
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">1</span>
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN DE IDENTIDAD</span>
@@ -10,6 +11,19 @@
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">GRABAR VIDEO SELFIE</span>
 			</li>
 			<li data-target="#anchor_step_three" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">3</span>
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN</span>
+			</li>
+			-->
+			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep active">
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">1</span>
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN DE IDENTIDAD</span>
+			</li>
+			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">2</span>
+				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">GRABAR VIDEO SELFIE</span>
+			</li>
+			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">3</span>
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN</span>
 			</li>

@@ -18,7 +18,7 @@ class Complete_ValidBiometric extends Connection{
 			"id_client" => $_POST['id_client'],
 		];
 		try{
-			$sql = "CALL sp_update_validation_biometric(:video_validation, :complete_account, :photo_dni_front, :photo_dni_back, :id_client)";
+			$sql = "CALL sp_update_validation_biometric(:complete_account, :video_validation, :photo_dni_front, :photo_dni_back, :id_client)";
 			$stm = $this->con->prepare($sql);
 			foreach ($arr_upbiometric as $key => $value) {
 				$stm->bindValue($key, $value);

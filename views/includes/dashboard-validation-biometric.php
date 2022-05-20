@@ -71,7 +71,7 @@
 			</section>
 			<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="anchor_step_three">
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
-					<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">VERIFICACIÓN</h2>
+					<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">COMPLETADO</h2>
 					<p class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--desc">Felicidades, completaste la verificación biométrica.</p>
 				</div>
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cVideo">

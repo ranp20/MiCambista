@@ -16,7 +16,7 @@
 						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__cvideo">
 							<video id="c_video-valididentity" width="100" height="100" autoplay muted></video>
 						</div>
-						<button class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__btnRecord btn-pri_theme-def" id="init_vidValidationBio">Iniciar grabación</button>
+						<button type="button" class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__btnRecord btn-pri_theme-def" id="init_vidValidationBio">Iniciar grabación</button>
 					</div>
 					<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video" id="c_playVideoRecording">
 						<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video__cvideo">

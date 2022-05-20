@@ -1,9 +1,11 @@
 $(function(){
   // ------------ MOSTRAR/OCULTAR EL FORMULARIO DE VALIDACIÓN BIOMÉTRICA
-  btn_frmOpenModal.addEventListener("click", function(){
+  /*
+  btnOpenVideo.addEventListener("click", function(){
     c_totalfrmModal.classList.add("show");
     c_containfrmModal.classList.add("show");
   });
+  */
   btn_frmCloseModal.addEventListener("click", function(){
     c_totalfrmModal.classList.remove("show");
     c_containfrmModal.classList.remove("show");
@@ -34,7 +36,6 @@ const linksAnch = linksAnchParent.find("li");
 const itemsAnch = $(".cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step");
 //const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
 // VARIABLES PARA EL MODAL DE VIDEO
-const btn_frmOpenModal = document.querySelector("#btn-stop_recordbiometric");
 const btn_frmCloseModal = document.querySelector("#icon_frmbtnClose");
 const c_totalfrmModal = document.querySelector(".cformValidMediaBiometric");
 const c_containfrmModal = document.querySelector(".cformValidMediaBiometric--form");
@@ -53,6 +54,7 @@ var blobSaveServer = "";
 var checkActiveDevices = false;
 var streamCaptura = "";
 var recordingTimeMS = 6000;
+var recordedblobData = "";
 // ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO FRONTAL
 $("#photo_dni-front").on("change", function(e){
   let readerImg = new FileReader();
@@ -246,6 +248,9 @@ btnOpenVideo.addEventListener("click", function(){
     new Promise(resolve => videoTag.onplaying = resolve);
     //return new Promise(resolve => videoTag.onplaying = resolve);
     //console.log(resolve);
+    //ABRIR EL MODAL - GRABAR VIDEO
+    c_totalfrmModal.classList.add("show");
+    c_containfrmModal.classList.add("show");
     
     if(stream.getVideoTracks().length > 0 && stream.getAudioTracks().length > 0){
       //console.log('Se está utilizando los dispositivos');
@@ -256,29 +261,43 @@ btnOpenVideo.addEventListener("click", function(){
       checkActiveDevices = false;
       console.log('No hay dispositivos activos');
     }
-  }).catch( err => console.log(err));
+  }).catch(function(err){
+    //CERRAR EL MODAL - GRABAR VIDEO
+    c_totalfrmModal.classList.remove("show");
+    c_containfrmModal.classList.remove("show");
+    alert("Error, no se pudo iniciar la cámara.");
+  });
 }, false);
 // ------------ INICIAR LA GRABACIÓN
 startRecordButton.addEventListener("click", function(){
   if(checkActiveDevices == true){
     videoTag.srcObject = streamCaptura;
     startRecording(videoTag.captureStream(), recordingTimeMS).then (recordedChunks => {
-    contVideoRecording.classList.add("playRecording");
-    let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
-    recording.src = URL.createObjectURL(recordedBlob);
-    //downloadButton.href = recording.src;
-    //downloadButton.download = "RecordedVideo.webm";
-    //log("Successfully recorded " + recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
+      contVideoRecording.classList.add("playRecording");
+      recordedblobData = new Blob(recordedChunks, { type: "video/webm" });
+      recording.src = URL.createObjectURL(recordedblobData);
+      //downloadButton.href = recording.src;
+      //downloadButton.download = "RecordedVideo.webm";
+      //log("Successfully recorded " + recordedblobData.size + " bytes of " + recordedblobData.type + " media.");
 
-    // GUARDAR EN VARIABLE/DESCARGAR A PARTIR DEL BLOB
-    recordingBlobSlice_one = URL.createObjectURL(recordedBlob);
-    recordingBlobSlice_two = recordingBlobSlice_one.split("blob:https://localhost/");
-    blobSaveServer = recordingBlobSlice_two[1];
-    /*
-    downloadButton_test.href = "blob:https://localhost/" + recordingBlobSlice_two[1];
-    downloadButton_test.download = "descargadeprueba.webm";
-    */
-  });
+      // GUARDAR EN VARIABLE/DESCARGAR A PARTIR DEL BLOB
+      
+      recordingBlobSlice_one = URL.createObjectURL(recordedblobData);
+      recordingBlobSlice_two = recordingBlobSlice_one.split("blob:https://localhost/");
+      blobSaveServer = recordingBlobSlice_two[1];
+      
+      /*
+      var readerBlobVideo = new FileReader();
+      readerBlobVideo.onload = function(e){
+        blobToVideoData = e.target.result;
+      }
+      readerBlobVideo.readAsDataURL(recordedblobData);
+      */
+      /*
+      downloadButton_test.href = "blob:https://localhost/" + recordingBlobSlice_two[1];
+      downloadButton_test.download = "descargadeprueba.webm";
+      */
+    });
   }else{
     console.log("Error, no se activo ningún dispositivo");
   }
@@ -307,6 +326,7 @@ $(document).on("click", "#btn-ValidMediaBiometric", function(e){
     cache: false,
     processData: false,
   }).done((e) => {
+    console.log(e);
     if(e == "true"){
       // CERRA EL MODAL DE GRABAR VIDEO Y PASAR A EL PASO FINAL DE REDIRECCIONAMIENTO...
       c_totalfrmModal.classList.remove("show");

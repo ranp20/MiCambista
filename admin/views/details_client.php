@@ -5,16 +5,69 @@ session_start();
 if(!isset($_SESSION['admin_micambista'])){
 	header("Location: admin");
 }
+if(isset($_GET['client']) && !empty($_GET) && is_numeric($_GET['client'])){
+	//header('Content-Type: video/mp4');
+	require_once '../controllers/c_list-details-clients.php';
+	$list = new Clients_Details();
+	$client_details = $list->list_details($_GET['client']);
+}else{
+	header("Location: ../../clientes");
+}
+
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+// CONFIGURACIÓN - LOCALHOST
+$urlAdmin =  $actual_link . "/MiCambista/admin/";
+$url =  $actual_link . "/" ."micambista/admin/views/";
+$urlCli =  $actual_link . "/" ."micambista/";
+// CONFIGURACIÓN - SERVIDOR
+/*
+$urlAdmin =  $actual_link . "/admin/";
+$url =  $actual_link . "/" ."admin/views/";
+$urlCli =  $actual_link . "/";
+*/
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Mi Cambista | Detalle del cliente</title>
 	<?php require_once 'includes/header_links.php'; ?>
-	<link href="../vendor/select2/select2/dist/css/select2.min.css" rel="stylesheet"/>
-	<script src="../vendor/select2/select2/dist/js/select2.min.js"></script>
-	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
-	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<!-- HEADER LINKS (INICIO) -->
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+	<meta name="description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
+	<meta name="theme-color" content="#FFF394">
+	<meta name="author" content="R@np-2021"/>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+	<meta name="twitter.card" content="summary">
+	<meta property="og:locale" content="es_ES"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:site_name" content="Mi Cambista - Panel de Administración"/>
+	<meta property="og:url" name="twitter.url" content="https://localhost/MiCambista/admin">
+	<meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Mi Cambista"/>
+	<meta property="og:description" name="twitter.description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
+	<!--<meta property="og:image" name="twitter.image" content="<?php echo $url; ?>assets/img/svg/logo.svg"/>-->
+	<link rel="icon" type="image/x-icon" href="../views/assets/img/svg/logo.svg"/>
+	<!--<link rel="apple-touch-icon" href="<?php echo $url; ?>assets/img/svg/logo.svg">-->
+	<link rel="canonical" href="https://localhost/MiCambista/admin">
+	<!-- JQUERY UNCOMPRESSED -->
+	<script src="<?= $url ?>js/jquery/jquery-3.6.0.min.js"></script>
+	<!-- BOOTSTRAP DOWNLOADED -->
+	<link rel="stylesheet" href="<?php echo $url ?>js/bootstrap/css/bootstrap.min.css">
+	<script src="<?php echo $url ?>js/bootstrap/js/bootstrap.min.js"></script>
+	<!-- STYLESSHEET -->
+	<link rel="stylesheet" href="<?= $url ?>assets/css/styles.min.css">
+	<!-- GOOGLE FONTS -->
+	<!--
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+	-->
+	<!-- HEADER LINKS (FIN) -->
 </head>
 <body>
 	<main class="cDash-adm">
@@ -90,7 +143,68 @@ if(!isset($_SESSION['admin_micambista'])){
 		</div>
 		<!-- SIDEBAR-LEFT (FIN) -->
 		<div class="cDash-adm--containRight">
-			<?php require_once 'includes/headertop.php';?>
+			<!-- HEADER TOP (INICIO) -->
+			<div class="cDash-adm--containRight--cTop">
+				<div class="cDash-adm--containRight--cTop--cont">
+					<div class="cDash-adm--containRight--cTop--cont--item">
+						<span id="openbtnToggSideNav_icon" class="cDash-adm--containRight--cTop--cont--item--btniconOpen">
+					  	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+					  </span>
+					</div>
+					<div class="cDash-adm--containRight--cTop--cont--item" id="btnClockUnitinSite">
+						<p class="mr-1rem" id="dash-timeclock-detail"></p>
+					</div>
+					<div class="cDash-adm--containRight--cTop--cont--item__liveWeb" id="btnLiveinSite">
+						<a href="../../" target="_blank" class="cDash-adm--containRight--cTop--cont--item__liveWeb__link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 1v17h24v-17h-24zm22 15h-20v-13h20v13zm-6.599 4l2.599 3h-12l2.599-3h6.802z"/></svg>
+						</a>
+					</div>
+					<div class="cDash-adm--containRight--cTop--cont--item">
+						<div class="cDash-adm--containRight--cTop--cont--item--user" id="menu-Optsuser">
+							<img src="<?= $url ?>assets/img/images/user_default.png" alt="">
+						</div>
+						<ul class="cDash-adm--containRight--cTop--cont--item--m" id="m-OptsuserList">
+							<li class="cDash-adm--containRight--cTop--cont--item--m--item"><a href="#" class="cDash-adm--containRight--cTop--cont--item--m--link">Mi perfil</a>
+							</li>
+							<li class="cDash-adm--containRight--cTop--cont--item--m--item">
+								<a href="<?= $urlAdmin ?>php/process_logout-adm.php" class="cDash-adm--containRight--cTop--cont--item--m--link">Cerrar sesión</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function refreshTime(){
+					let currentDate = new Date(),
+							year = currentDate.getFullYear(),
+							month = currentDate.getMonth(),
+							day = parseInt(currentDate.toDateString().slice(8, -5)),
+							weekday = currentDate.getDay(),
+							hours = currentDate.getHours(),
+							minutes = currentDate.getMinutes(),
+							seconds = currentDate.getSeconds();
+
+					const weekdays = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+					const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+
+					if(day < 10){
+						day = "0" + day;
+					}
+
+					if(minutes < 10){
+						minutes = "0" + minutes;
+					}
+
+					if(seconds < 10){
+						seconds = "0" + seconds;
+					}
+					
+					document.querySelector('#dash-timeclock-detail').textContent = weekdays[weekday] + ", " + day + " de " + months[month] + " del " + year + " - " + hours + " : " +minutes + " : " +seconds;
+				}
+
+				setInterval(refreshTime, 1000);
+			</script>
+			<!-- HEADER TOP (FIN) -->
 			<div class="cDash-adm--containRight--cContain">
 				<div class="cDash-adm--containRight--cContain__addtitle">
 					<h2 class="cDash-adm--containRight--cContain__addtitle--title">INFORMACIÓN DEL CLIENTE</h2>
@@ -105,27 +219,27 @@ if(!isset($_SESSION['admin_micambista'])){
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
 								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Nombres</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['name']; ?></p>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Apellidos</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['lastname']; ?></p>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Email</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['email']; ?></p>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Teléfono</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['telephone']; ?></p>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">N# de Documento</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">N° de Documento</label>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['n_document']; ?></p>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Sexo</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['t_sex']; ?></p>
 				        </div>
 							</div>
 						</div>
@@ -141,11 +255,45 @@ if(!isset($_SESSION['admin_micambista'])){
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
 								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI frontal</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <?php
+				          $tmp_dnifront = "";
+				          	if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front'])){
+				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_front'];
+				          		$tmp_dnifront = "
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
+						          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
+						          </div>
+				          		";
+				          	}else{
+				          		$tmp_dnifront = "
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
+						          	<span>No se subió imagen</span>
+						          </div>
+				          		";
+				          	}
+				          	echo $tmp_dnifront;
+				          ?>
 				        </div>
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI Posterior</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <?php
+				          $tmp_dnifront = "";
+				          	if(isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back'])){
+				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_back'];
+				          		$tmp_dnifront = "
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
+						          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
+						          </div>
+				          		";
+				          	}else{
+				          		$tmp_dnifront = "
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
+						          	<span>No se subió imagen</span>
+						          </div>
+				          		";
+				          	}
+				          	echo $tmp_dnifront;
+				          ?>
 				        </div>
 							</div>
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
@@ -154,7 +302,14 @@ if(!isset($_SESSION['admin_micambista'])){
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
 				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
 				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Video</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php print_r($_GET); ?></p>
+				          <?php 
+			          		echo $client_details[0]['video_validation'];
+			          	?>
+			          	<div content="Content-Type: video/*">
+				          	<!--<video src="<?php echo "blob:https://localhost/".$client_details[0]['video_validation'] ?>" id="videoShowClient" controls playsinline></video>-->
+				          	<video width="320" height="240" controls="controls" poster="image" preload="metadata">
+				          	<source src="<?php echo "data:video/*;base64,".base64_encode($client_details[0]['video_validation']);?>" type="">
+			          	</div>
 				        </div>
 							</div>
 						</div>
@@ -165,7 +320,6 @@ if(!isset($_SESSION['admin_micambista'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?= $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?= $url ?>js/actions_pages/clients.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>js/main.js"></script>
 </body>
 </html>

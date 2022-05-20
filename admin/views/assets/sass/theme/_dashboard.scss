@@ -585,7 +585,15 @@
 										display: block;
 										margin-bottom: .5rem;
 										font-size: 1rem;
-										font-weight: 500;
+										font-weight: 600;
+									}
+
+									&__cimageinfo{
+										img{
+											border: thin solid #ddd;
+											display: block;
+											margin: 0 auto;
+										}
 									}
 
 									&__input{
@@ -736,6 +744,58 @@
 				    		opacity: 1;
 				    		visibility: visible;
 				    		user-select: auto;
+				    	}
+				    }
+					}
+				}
+
+				// CONTENEDOR DE GRÁFICOS ESTADÍSTICOS
+				&__cardBody-graphics{
+			    display: flex;
+			    flex-flow: wrap row;
+			    align-items: flex-start;
+			    justify-content: flex-start;
+			    flex: 0 0 100%;
+			    gap: 1rem;
+
+		    	@media (min-width: 99px){
+			    	flex-flow: nowrap row;
+			    }
+
+					&__cCardTitle{
+						padding: .65rem 1.25rem;
+						border-bottom: thin solid #eee;
+						h1,h2,h3,h4,h5,h6,p,span{
+							margin: 0;
+							font-size: 1.2rem;
+							color: $color-paragraph;
+						}
+					}
+
+
+					&__cGraphic{
+						border: thin solid #eee;
+				    border-radius: 4px;
+				    box-shadow: 0 3px 5px 0px rgb(238 238 238 / 93%);
+				    background-color: #fff;
+				    display: inline-block;
+				    padding: 1rem;
+				    
+				    &.grp-large{
+				    	flex: 1;
+				    }
+				    &.grp-small{
+				    	flex: 0;
+				    }
+
+				    &__cGrap{
+				    	width: auto;
+				    	height: auto;
+				    	position: relative;
+
+				    	canvas{
+				    		width: 100%;
+				    		height: 100%;
 				    	}
 				    }
 					}

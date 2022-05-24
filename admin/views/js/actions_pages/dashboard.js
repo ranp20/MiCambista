@@ -33,13 +33,21 @@ function firstGraphics(){
     options: {
       scales: {
         y: {
-            beginAtZero: true
+          stacked: true,
+          grid: {
+            display: true,
+            //color: "rgba(255,99,132,0.2)"
+          }
+        },
+        x: {
+          grid: {
+            display: false
+          }
         }
       },
       responsive: true,
       maintainAspectRatio: false,
       aspectRatio: 2,
-      aspectRatio: null,
       resizeDelay: 0
     }
   });
@@ -69,8 +77,7 @@ function secondGraphics(){
       },
       responsive: true,
       maintainAspectRatio: false,
-      aspectRatio: 2,
-      aspectRatio: null,
+      aspectRatio: 1,
       resizeDelay: 0
     }
   });

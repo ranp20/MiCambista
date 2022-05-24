@@ -51,12 +51,12 @@ if(!isset($_SESSION['admin_micambista'])){
 					</div>
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics">
 						<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic grp-large">
-							<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic__cGrap" style="width:700px;height:auto;">
+							<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic__cGrap">
 								<canvas id="firstGraphics" width="400" height="200"></canvas>
 							</div>
 						</div>
 						<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic grp-small">
-							<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic__cGrap" style="width:400px;height:auto;">
+							<div class="cDash-adm--containRight--cContain__cBody__cardBody-graphics__cGraphic__cGrap">
 								<canvas id="secondGraphics" width="400" height="300"></canvas>
 							</div>
 						</div>

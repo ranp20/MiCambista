@@ -313,12 +313,9 @@
 						}
 					}
 				}
-
 			}
 
-
-
-			/************************** STYLES INTO INPUT SEARCH **************************/
+			// STYLES INTO INPUT SEARCH 
 			&__inputsearch-table{
 				margin-bottom: 0.5rem;
 				&--input{
@@ -799,6 +796,51 @@
 				    	}
 				    }
 					}
+				}
+
+				// CONTENEDOR DE BOTONES DE RESUMEN
+				&__cGroupBtnResume{
+					display: flex;
+			    flex-flow: wrap row;
+			    flex: 0 0 100%;
+			    align-items: center;
+			    justify-content: flex-start;
+			    margin-bottom: 1rem;
+			    &__btn{
+			    	flex: auto;
+			    	margin-left: .65rem;
+			    	line-height: 2rem;
+			    	padding: 0.65rem;
+			    	display: flex;
+			    	align-items: center;
+			    	justify-content: center;
+			    	border: none;
+			    	border-radius: 5px;
+			    	min-height: 6rem;
+
+			    	&:first-child{margin-left: 0;margin-right: 0;margin-top: 0;margin-bottom: 0;background-color: #55AA55;}
+			    	&:nth-child(2){background-color: #FF4069;}
+			    	&:nth-child(3){background-color: #FFC234;}
+			    	&:nth-child(4){background-color: #059BFF;}
+
+			    	&__cIcon{
+			    		display: inline-block;
+					    text-align: left;
+					    color: #fff;
+					    font-size: .9rem;
+			    		svg{
+			    	    vertical-align: middle;
+						    width: 22px;
+						    height: 22px;
+						    margin-right: .5rem;
+						    fill: #fff;
+			    		}
+			    	}
+			    	&__cText{
+			    		color: #fff;
+			    		font-weight: 500;
+			    	}
+			    }
 				}
 			}
 

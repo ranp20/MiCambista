@@ -2,7 +2,6 @@
 require_once '../php/class/db/connection.php';
 class Complete_RegClient extends Connection{
 	function update(){
-
 		$params = count($_POST);
 		$statusaccount = $params * 2;
 		$arr_upregister = [
@@ -23,7 +22,6 @@ class Complete_RegClient extends Connection{
 			}
 			$stm->execute();
 			return $stm->rowCount() > 0 ? "true" : "false";
-
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}

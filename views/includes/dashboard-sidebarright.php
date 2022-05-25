@@ -20,7 +20,7 @@
 				</a>
 			</li>
 			<li class="cControlP__cont--sdRight--c--m--item">
-				<a href="#" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
+				<a href="select-profile" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
 					<img src="<?= $url ?>views/assets/img/svg/profiles-1.svg" alt="icon_user-change-profile" width="100" height="100">
 					<span>Cambiar perfil</span>
 				</a>

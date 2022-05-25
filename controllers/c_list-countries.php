@@ -9,7 +9,6 @@ class List_Countries extends Connection{
 			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
 			$res = json_encode($data);
 			echo $res;
-
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}

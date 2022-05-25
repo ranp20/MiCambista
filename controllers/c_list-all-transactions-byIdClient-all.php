@@ -2,7 +2,6 @@
 require_once '../php/class/db/connection.php';
 class List_All_Transactions extends Connection{
 	function list(){
-		
 		$id = $_POST['id_client'];
 		$res = [];
 		$output = [];

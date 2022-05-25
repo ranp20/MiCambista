@@ -55,10 +55,12 @@ require_once '../php/process_data-list.php';
 							</div>
 						</div>
 						<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsPortrait">
+							<!--
 							<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsPortrait--totalKash">
-								<img src="<?= $url ?>views/assets/img/svg/tablero-kash.svg" alt="">
+								<img src="views/assets/img/svg/tablero-kash.svg" alt="" width="100" height="100">
 								<h2>No posees nigún KASH</h2>
 							</div>
+							-->
 							<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsPortrait--SolesChanges">
 								<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsPortrait--SolesChanges--cTitle">
 									<div class="cControlP__cont--containDash--c--cCDashboard--cLeftBoxsPortrait--SolesChanges--cTitle--cIcon">

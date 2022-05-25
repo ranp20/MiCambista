@@ -935,8 +935,8 @@ strong, b{
 				color: red;
 		    font-size: .9rem;
 				position: absolute;
-		    bottom: -18px;
-		    left: 10px;		
+		    bottom: -22px;
+		    left: 10px;
 			}
 
 			/* MENSAJE DE ERROR - DIRECCIÓN FISCAL DE LA EMPRESA */
@@ -987,11 +987,12 @@ strong, b{
 	    justify-content: flex-start;
 	    flex-flow: nowrap row;
 			input{
-
+				cursor: pointer;
 			}
 			label{
 				margin-left: 0.4rem;
 				color: $color-links;
+				cursor: pointer;
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI EMPRESA */
 			#msgerrorNouncheckedEnterprise{

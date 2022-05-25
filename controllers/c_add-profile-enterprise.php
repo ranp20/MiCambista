@@ -15,11 +15,10 @@ class Add_Profile_Enterprise extends Connection{
 				$stm->bindValue($key, $value);
 			}
 			$stm->execute();
-			return $stm->rowCount() > 0 ? "true" : "false";
+			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+			return $data;
 		}catch(PDOException $err){
 			return $err->getMessage();
 		}
 	}
 }
-$enterprise = new Add_Profile_Enterprise();
-echo $enterprise->add();

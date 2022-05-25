@@ -54,4 +54,17 @@ class Client extends Connection{
       return $e->getMessage();
     }
   }
+  // -------------- OBTENER DATOS DE EMPRESA LUEGO DE AGREGAR UNA NUEVA
+  function get_enterprise_data($id_client){
+  	try{
+			$sql = "CALL sp_list_after_add_profile_enterprise(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+			return $data;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
 }

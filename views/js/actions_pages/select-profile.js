@@ -45,7 +45,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 		formdata.append("id_client", $("#input-idClientValEnterprise").val());
 
 		$.ajax({
-			url: "./controllers/c_add-profile-enterprise.php",
+			url: "./php/process_add_profile-enterprise.php",
 			method: "POST",
 			data: formdata,
 			contentType: false,
@@ -55,20 +55,59 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 	    	//console.log('Insertando la información');
 	    },
 	    success: function(e){
-	    	if(e == "true" || e == true){
-	    		Swal.fire({
-			      title: 'Éxito!',
-			      html: `<span class='font-w-300'>La empresa se agregó correctamente.</span>`,
-			      icon: 'success',
-			      confirmButtonText: 'Aceptar'
-			    });
-			    c_totalfrmAddAccountEnterprise.classList.remove('show');
-					c_containfrmAddAccountEnterprise.classList.remove("show");
+	    	let c_profiles = $("#c_listTypeProfileOfUser");
+	    	let tmp_profiles = "";
+	    	if(e != ""){
+	    		let r = JSON.parse(e);
+		    	if(r.response == "true" || r.response == true){
+		    		
+		    		tmp_profiles += `
+		    			<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
+								<span class="cControlP__cont--containDash--c__cBtnsOpts-m--item__cIcon">
+									<img src='./views/assets/img/svg/user-male.svg' alt='' width="100" height="100">
+								</span>
+								<span class="cControlP__cont--containDash--c__cBtnsOpts-m--item__ctext">
+									<span>${r.received[0].name + r.received[0].lastname}</span>
+								</span>
+							</a>
+							<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
+								<span class="cControlP__cont--containDash--c__cBtnsOpts-m--item__cIcon" data-id-enterprise="${r.received[0].id_enterprise}">
+									<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width="100" height="100">
+								</span>
+								<span class="cControlP__cont--containDash--c__cBtnsOpts-m--item__ctext">
+									<span>${r.received[0].name_enterprise}</span>
+								</span>
+							</a>
+		    		`;
+		    		c_profiles.html(tmp_profiles);
+		    		Swal.fire({
+				      title: 'Éxito!',
+				      html: `<span class='font-w-300'>La empresa se agregó correctamente.</span>`,
+				      icon: 'success',
+				      confirmButtonText: 'Aceptar'
+				    });
+				    c_totalfrmAddAccountEnterprise.classList.remove('show');
+						c_containfrmAddAccountEnterprise.classList.remove("show");
+		    	}else if(r.response == "limit_profiles"){
+		    		Swal.fire({
+				      title: 'Atención!',
+				      html: `<span class='font-w-300'>Se ha alcanzado el límite máximo de perfiles para empresa.</span>`,
+				      icon: 'warning',
+				      confirmButtonText: 'Aceptar'
+				    });
+		    	}else{
+		    		Swal.fire({
+				      title: 'Error!',
+				      html: `<span class='font-w-300'>La empresa <strong>NO</strong> se agregó correctamente.</span>`,
+				      icon: 'error',
+				      confirmButtonText: 'Aceptar'
+				    });
+		    	}
 	    	}else{
 	    		Swal.fire({
 			      title: 'Error!',
-			      html: `<span class='font-w-300'>La empresa <strong>NO</strong> se agregó correctamente.</span>`,
-			      icon: 'error',
+			      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+			      icon: 'warning',
 			      confirmButtonText: 'Aceptar'
 			    });
 	    	}

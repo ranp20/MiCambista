@@ -113,6 +113,13 @@ strong, b{
 	opacity: 0;	
 }
 /* CLASS UTILITIES */
+.c-NotBackground{
+	background-color: transparent !important;
+	border: none !important;
+	&:hover{
+		box-shadow: unset !important;
+	}
+}
 .non-visvalipt{
 	width: 0;
 	height: 0;
@@ -949,6 +956,7 @@ strong, b{
 			}
 
 			&--label{
+				text-align: left;
 				margin-bottom: 0.4rem;
 			}
 

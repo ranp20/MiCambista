@@ -67,4 +67,16 @@ class Client extends Connection{
 			return $err->getMessage();
 		}
   }
+  // -------------- ACTUALIZAR LOS MULTIPLES PERFILES
+  function update_multiple_profiles($id_client){
+  	try{
+			$sql = "CALL sp_update_multiple_profiles_client(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			return $stm->rowCount() > 0 ? 'true' : 'false';
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
 }

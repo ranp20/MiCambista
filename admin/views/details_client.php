@@ -27,7 +27,7 @@ $urlCli =  $actual_link . "/";
 */
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Detalle del cliente</title>
 	<?php require_once 'includes/header_links.php'; ?>
@@ -55,10 +55,10 @@ $urlCli =  $actual_link . "/";
 	<!--<link rel="apple-touch-icon" href="<?php echo $url; ?>assets/img/svg/logo.svg">-->
 	<link rel="canonical" href="https://localhost/MiCambista/admin">
 	<!-- JQUERY UNCOMPRESSED -->
-	<script src="<?= $url ?>js/jquery/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="<?= $url ?>js/jquery/jquery-3.6.0.min.js"></script>
 	<!-- BOOTSTRAP DOWNLOADED -->
 	<link rel="stylesheet" href="<?php echo $url ?>js/bootstrap/css/bootstrap.min.css">
-	<script src="<?php echo $url ?>js/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo $url ?>js/bootstrap/js/bootstrap.min.js"></script>
 	<!-- STYLESSHEET -->
 	<link rel="stylesheet" href="<?= $url ?>assets/css/styles.min.css">
 	<!-- GOOGLE FONTS -->

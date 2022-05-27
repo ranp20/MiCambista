@@ -11,7 +11,7 @@ $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Comenzar cambio </title>
 	<?php require_once 'includes/header_links.php'; ?>
@@ -31,6 +31,7 @@ $g_setting = $call_config->get_config();
 						<div class="sendBeforeCompleteDivise__charger--loader"></div>
 					</div>
 				</div>
+				<?php print_r($_SESSION); ?>
 				<!-- CONTENIDO - CONVERSOR DE DIVISAS-->
 				<div class="cControlP__cont--containDash--c" id="cont-convert-divise">
 					<div class="cControlP__cont--containDash--c--cConvertDivise">
@@ -176,9 +177,9 @@ $g_setting = $call_config->get_config();
 			<?php require_once 'includes/dashboard-formaddaccountbank_by_tcurrent.php'; ?>
 		</div>
 	</div>		
-	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>views/js/actions_pages/convert-divise.js"></script>
-	<script src="<?= $url ?>views/js/actions_pages/convert-divise-with-coupon.js"></script>
-	<script src="<?= $url ?>views/js/actions_pages/complete-divise.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/convert-divise.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/convert-divise-with-coupon.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/complete-divise.js"></script>
 </body>
 </html>

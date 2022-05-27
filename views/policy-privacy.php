@@ -6,7 +6,7 @@ $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Políticas de Privacidad</title>
 	<?php require_once 'includes/header_links.php' ?> 
@@ -154,6 +154,6 @@ $g_setting = $call_config->get_config();
 		</div>
 	</main>
 	<?php require_once 'home_includes/home-footer.php'; ?>
-	<script src="<?= $url ?>views/js/main.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
 </body>
 </html>

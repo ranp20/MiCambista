@@ -7,7 +7,7 @@ $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
   <title>Mi Cambista | Login </title>
   <?php require_once 'includes/header_links.php'; ?>
@@ -56,6 +56,6 @@ $g_setting = $call_config->get_config();
       </div>
     </div>
   </div>
-  <script src="<?= $url ?>views/js/actions_pages/login.js"></script>
+  <script type="text/javascript" src="<?= $url ?>views/js/actions_pages/login.js"></script>
 </body>
 </html>

@@ -33,8 +33,8 @@ RewriteRule welcome?$ views/welcome.php
 RewriteRule tablero?$ views/dashboard.php
 RewriteRule all-converts?$ views/all-transactions.php
 RewriteRule convert-divise?$ views/convert-divise.php
-#RewriteRule convert-divise/step-2?$ views/step-two.php
 RewriteRule complete-divise?$ views/complete-exchange.php
 RewriteRule my-accounts?$ views/my-accounts.php
 RewriteRule my-profile?$ views/my-profile.php
 RewriteRule validation-biometric?$ views/validation-biometric.php
+RewriteRule go-with-profile?$ php/process_select-profile.php

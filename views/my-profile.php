@@ -8,7 +8,7 @@ if(!isset($_SESSION['cli_micambista'])){
 require_once '../php/process_data-list.php';
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Mi Perfil </title>
 	<?php require_once 'includes/header_links.php'; ?>
@@ -103,7 +103,7 @@ require_once '../php/process_data-list.php';
 			</section>
 		</div>
 	</div>
-	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>views/js/actions_pages/my-profile.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/my-profile.js"></script>
 </body>
 </html>

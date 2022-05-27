@@ -7,7 +7,7 @@ if(!isset($_SESSION['admin_micambista'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Operaciones</title>
 	<?php require_once 'includes/header_links.php';?>

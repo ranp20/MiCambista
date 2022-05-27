@@ -3,7 +3,7 @@
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
   <title>Mi Cambista | Registro </title>
   <?php require_once 'includes/header_links.php'; ?>
@@ -90,6 +90,6 @@
       </div>
     </div>
   </div>
-  <script src="<?= $url ?>views/js/actions_pages/add-client.js"></script>
+  <script type="text/javascript" src="<?= $url ?>views/js/actions_pages/add-client.js"></script>
 </body>
 </html>

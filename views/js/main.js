@@ -20,4 +20,5 @@
 	d.querySelector("#m-show-hpage").addEventListener("click", function(){
 		d.querySelector("#main-m-htop").classList.toggle("show");
 	});
+	localStorage.clear();
 })(document);

@@ -9,7 +9,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 $url =  $actual_link . "/Camellogistics/admin/views/";
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Login Admin</title>
 	<?php require_once 'views/includes/header_links.php' ?> 
@@ -58,6 +58,6 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 			</div>
 		</div>
 	</div>
-	<script src="<?= $url ?>js/actions_pages/login-adm.js"></script>
+	<script type="text/javascript" src="<?= $url ?>js/actions_pages/login-adm.js"></script>
 </body>
 </html>

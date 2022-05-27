@@ -4,7 +4,7 @@
 require_once '../php/process_session.php';
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
     <title>Mi Cambista | Recuperar contraseña </title>
     <?php require_once 'includes/header_links.php'; ?>

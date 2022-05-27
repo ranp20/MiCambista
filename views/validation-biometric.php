@@ -8,7 +8,7 @@ if(!isset($_SESSION['cli_micambista'])){
 require_once '../php/process_data-list.php';
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
 	<title>Mi Cambista | Validación Biométrica </title>
 	<?php require_once 'includes/header_links.php'; ?>
@@ -33,7 +33,7 @@ require_once '../php/process_data-list.php';
 			<?php require_once 'includes/dashboard-form-validation-media.php'; ?>
 		</div>
 	</div>
-	<script src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
-	<script src="<?= $url ?>views/js/actions_pages/validation-biometric.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/validation-biometric.js"></script>
 </body>
 </html>

@@ -9,6 +9,9 @@ require_once '../php/process_data-list.php';
 require_once '../php/class/settings.php';
 $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
+if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['cli_micambista'][0]['profile_type'])){
+	header("Location: select-profile");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es" translate="no">
@@ -31,7 +34,21 @@ $g_setting = $call_config->get_config();
 						<div class="sendBeforeCompleteDivise__charger--loader"></div>
 					</div>
 				</div>
-				<?php print_r($_SESSION); ?>
+				<!-- CONTENIDO - PERFIL EN USO -->
+				<div class="cControlP__cont--containDash--cProfileUsed">
+					<div class="cControlP__cont--containDash--cProfileUsed__cLeftTxt">
+						<span>Perfil: </span>
+						<span><?php echo $_SESSION['cli_micambista'][0]['profile_name'];?></span>
+					</div>
+					<div class="cControlP__cont--containDash--cProfileUsed__cRightTxt">
+						<a href="change-profile" id="change-profile">
+							<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cIcon">
+								<svg focusable="false" viewBox="0 0 24 24" color="#FFF" aria-hidden="true" width="25px" height="25px"><path d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"></path></svg>
+							</span>
+							<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cTxt">Cambiar Perfil</span>
+						</a>
+					</div>
+				</div>
 				<!-- CONTENIDO - CONVERSOR DE DIVISAS-->
 				<div class="cControlP__cont--containDash--c" id="cont-convert-divise">
 					<div class="cControlP__cont--containDash--c--cConvertDivise">

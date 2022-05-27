@@ -38,3 +38,4 @@ RewriteRule my-accounts?$ views/my-accounts.php
 RewriteRule my-profile?$ views/my-profile.php
 RewriteRule validation-biometric?$ views/validation-biometric.php
 RewriteRule go-with-profile?$ php/process_select-profile.php
+RewriteRule change-profile?$ php/process_unset-profile-select.php

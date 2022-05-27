@@ -66,49 +66,78 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 	    	let c_profiles = $("#c_listTypeProfileOfUser");
 	    	let tmp_profiles = "";
 	    	let type_prefileused = "Personal_profile";
+	    	let name_profile = "";
+	    	let nametype_profile = "Natural";
 	    	if(e != ""){
 	    		let r = JSON.parse(e);
 		    	if(r.response == "true" || r.response == true){
+	    			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	    			nametype_profile = "Natural";
 	    			tmp_profiles += `
 						<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
-							<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
-									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
-										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
-									</span>
-									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-										<span>${r.received[0].name + r.received[0].lastname}</span>
-									</span>
-									<span>
-										<input type='hidden' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
-									</span>
-								</span>
-							</button>
-						</div>`;
-		    		if(r.received[0].type_profile != "Enterprise"){
-		    			type_profile = "Personal_profile";
-		    		}else{
-		    			type_prefileused = "Enterprise_profile";
-		    			tmp_profiles += `
-	    				<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--item__cIconClose'>
-									<span>
-										<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
-									</span>
-								</span>
-								<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='${r.received[0].id}' token='${r.received[0]._token}'>
+							<form action='go-with-profile' method='POST'>
+								<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
+											<span>Perfil ${nametype_profile}</span>
+										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
-											<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
+											<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-											<span>${r.received[0].name_enterprise}</span>
+											<span>${name_profile}</span>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
+											<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
 										</span>
 										<span>
-											<input type='hidden' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+										</span>
+										<span>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
 										</span>
 									</span>
 								</button>
+							</form>
+						</div>`;
+		    		if(r.received[0].type_profile != "Enterprise"){
+		    			type_profile = "Personal_profile";
+		    			nametype_profile = "Natural";
+		    		}else{
+		    			name_profile = r.received[0].name_enterprise;
+		    			type_prefileused = "Enterprise_profile";
+		    			nametype_profile = "Empresa";
+		    			tmp_profiles += `
+	    				<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
+								<form action='go-with-profile' method='POST'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--item__cIconClose'>
+										<span>
+											<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
+										</span>
+									</span>
+									<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='${r.received[0].id}' token='${r.received[0]._token}'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
+												<span>Perfil ${nametype_profile}</span>
+											</span>
+											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+												<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
+											</span>
+											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
+												<span>${name_profile}</span>
+											</span>
+											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
+												<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
+											</span>
+											<span>
+												<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+											</span>
+											<span>
+												<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+											</span>
+										</span>
+									</button>
+								</form>
 							</div>
 		    			`;
 		    		}
@@ -197,6 +226,8 @@ $(document).on("click", ".cControlP__cont--containDash--c__cBtnsOpts-m--item__cI
 		    	let c_profiles = $("#c_listTypeProfileOfUser");
 	    		let tmp_profiles = "";
 	    		let type_prefileused = "Personal_profile";
+	    		let name_profile = "";
+	    		let nametype_profile = "Natural";
 		    	if(e != ""){
 		    		let r = JSON.parse(e);
 		    		if(r.response == "true"){
@@ -256,69 +287,111 @@ function list_multiprofiles(){
 	  	let c_profiles = $("#c_listTypeProfileOfUser");
 			let tmp_profiles = "";
 			let type_prefileused = "Personal_profile";
+			let name_profile = "";
+			let nametype_profile = "Natural";
 	  	if(e != ""){
 	  		let r = JSON.parse(e);
 	  		if(r.response == "true"){
+	  			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	  			nametype_profile = "Natural";
 	  			tmp_profiles += `
 					<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
-						<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-							<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
-									<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
-								</span>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-									<span>${r.received[0].name + r.received[0].lastname}</span>
-								</span>
-								<span>
-									<input type='hidden' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
-								</span>
-							</span>
-						</button>
-					</div>`;
-	    		if(r.received[0].type_profile != "Enterprise"){
-	    			type_profile = "Personal_profile";
-	    		}else{
-	    			type_prefileused = "Enterprise_profile";
-	    			tmp_profiles += `
-    				<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
-							<span class='cControlP__cont--containDash--c__cBtnsOpts-m--item__cIconClose'>
-								<span>
-									<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
-								</span>
-							</span>
-							<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='${r.received[0].id}' token='${r.received[0]._token}'>
+						<form action='go-with-profile' method='POST'>
+							<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
 								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
+										<span>Perfil ${nametype_profile}</span>
+									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
-										<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
+										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-										<span>${r.received[0].name_enterprise}</span>
+										<span>${name_profile}</span>
+									</span>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
+										<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
 									</span>
 									<span>
-										<input type='hidden' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+									</span>
+									<span>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
 									</span>
 								</span>
 							</button>
+						</form>
+					</div>`;
+	    		if(r.received[0].type_profile != "Enterprise"){
+	    			type_profile = "Personal_profile";
+	    			nametype_profile = "Natural";
+	    		}else{
+	    			name_profile = r.received[0].name_enterprise;
+	    			type_prefileused = "Enterprise_profile";
+	    			nametype_profile = "Empresa";
+	    			tmp_profiles += `
+    				<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
+    					<form action='go-with-profile' method='POST'>
+								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--item__cIconClose'>
+									<span>
+										<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
+									</span>
+								</span>
+								<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='${r.received[0].id}' token='${r.received[0]._token}'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
+											<span>Perfil ${nametype_profile}</span>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+											<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
+											<span>${name_profile}</span>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
+											<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
+										</span>
+										<span>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+										</span>
+										<span>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+										</span>
+									</span>
+								</button>
+							</form>
 						</div>
 	    			`;
 	    		}
 	    		c_profiles.html(tmp_profiles);
 	  		}else if(r.response == "mssg_personal"){
+	  			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	  			nametype_profile = "Natural";
 	  			tmp_profiles += `
 					<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
-						<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
-							<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
-									<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
+						<form action='go-with-profile' method='POST'>
+							<button type='submit' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
+								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
+										<span>Perfil ${nametype_profile}</span>
+									</span>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
+									</span>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
+										<span>${name_profile}</span>
+									</span>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
+										<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
+									</span>
+									<span>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
+									</span>
+									<span>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+									</span>
 								</span>
-								<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-									<span>${r.received[0].name + r.received[0].lastname}</span>
-								</span>
-								<span>
-									<input type='hidden' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
-								</span>
-							</span>
-						</button>
+							</button>
+						</form>
 					</div>
 					<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item c-NotBackground'>
 						<a href='javascript:void(0);' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' id='btn-addAccountEnterpriseShow'>

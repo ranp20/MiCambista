@@ -240,7 +240,7 @@
 					<img src="./views/assets/img/svg/benefits.svg" alt="" width="100" height="100">
 				</div>
 			</section>
-			<?php require_once 'views/home_includes/home-contact.php'; ?>
+			<?php /*require_once 'views/home_includes/home-contact.php';*/ ?>
 		</div>
 	</main>
 	<?php require_once 'views/home_includes/home-footer.php'; ?>

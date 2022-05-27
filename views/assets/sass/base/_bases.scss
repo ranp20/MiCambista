@@ -61,7 +61,8 @@ strong, b{
 	text-shadow: 0 0 6px #ccc;
 }
 /* UTILITIES CLASS */
-.btn-pri_theme-def{
+.btn-pri_theme-def,
+.SwalBtn1.customSwalBtn{
 	opacity: 1;
   cursor: pointer;
   display: inline-block;
@@ -3127,4 +3128,23 @@ strong, b{
 			}
 		}
 	}
+}
+/* ESTILOS PARA SWEETALERT2 */
+.alertSwal__cIcon{
+	svg{
+		fill: $frmconvert_colorschema;
+	}
+}
+.alertSwal__cTitle{
+	margin-bottom: 1.15rem;
+	color: $frmconvert_colorschema;
+	h1,h2,h3,h4,h5,h6,p{
+		font-size: 1.75rem;
+	}
+}
+.alertSwal__cText{
+	margin-bottom: 1.65rem;
+}
+.SwalBtn1.customSwalBtn{
+	font-weight: 600;
 }

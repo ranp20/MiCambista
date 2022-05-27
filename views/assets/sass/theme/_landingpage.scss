@@ -1114,12 +1114,13 @@
 
 		/* BENEFITS FOR USER */
 		&--benefits{
+			margin-bottom: 2rem;
 			@media (min-width: 692px){
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				margin-bottom: 4rem;
 			}
-
 			@media (min-width: 1024px){
 				display: grid;
 		    grid-template-columns: 1fr 1fr;
@@ -1127,13 +1128,10 @@
 		    align-items: center;
 		    justify-content: center;
 			}
-
 			&--cList{
-
 				@media (min-width: 692px){
 					order: 2 !important;
 				}
-
 				&--title{
 					color: $color-links;
 					margin-bottom: 1.5rem;

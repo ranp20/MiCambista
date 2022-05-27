@@ -14,13 +14,13 @@
 		</div>
 		<ul class="cControlP__cont--sdRight--c--m">
 			<li class="cControlP__cont--sdRight--c--m--item">
-				<a href="my-profile" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
+				<a href="my-profile" class="cControlP__cont--sdRight--c--m--link">
 					<img src="<?= $url ?>views/assets/img/svg/profiles-3.svg" alt="icon_user-profiles" width="100" height="100">
 					<span>Ver perfil</span>
 				</a>
 			</li>
 			<li class="cControlP__cont--sdRight--c--m--item">
-				<a href="change-profile" class="cControlP__cont--sdRight--c--m--link" id="control-panel">
+				<a href="change-profile" class="cControlP__cont--sdRight--c--m--link">
 					<img src="<?= $url ?>views/assets/img/svg/profiles-1.svg" alt="icon_user-change-profile" width="100" height="100">
 					<span>Cambiar perfil</span>
 				</a>

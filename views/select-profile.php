@@ -55,7 +55,7 @@ require_once '../php/process_data-list.php';
 													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
 												</span>
 											</span>
-											<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='{$list_profiles[0]['id_enterprise']}' data-token='{$list_profiles[0]['_token']}'>
+											<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='{$list_profiles[0]['id']}' data-token='{$list_profiles[0]['_token']}'>
 												<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
 													<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
 														<img src='{$url}views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>

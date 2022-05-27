@@ -67,12 +67,51 @@ class Client extends Connection{
 			return $err->getMessage();
 		}
   }
+  // -------------- OBTENER DATOS DE EMPRESA LUEGO DE ELIMINAR UNA NUEVA
+  function get_enterprise_data_before_delete($id_client){
+  	try{
+			$sql = "CALL sp_list_after_delete_profile_enterprise(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+			return $data;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
   // -------------- ACTUALIZAR LOS MULTIPLES PERFILES
   function update_multiple_profiles($id_client){
   	try{
 			$sql = "CALL sp_update_multiple_profiles_client(:id_client)";
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			return $stm->rowCount() > 0 ? 'true' : 'false';
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
+  // -------------- ACTUALIZAR MULTIPLES PERFILES
+  function update_client_multiprofiles($id_client){
+  	try{
+			$sql = "CALL sp_update_multiple_profiles(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			return $stm->rowCount() > 0 ? 'true' : 'false';
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
+  // -------------- ELIMINAR PERFIL DE EMPRESA
+  function delete_multiprofiles_enterprise($arr_multiprofiles){
+  	try{
+			$sql = "CALL sp_delete_multiple_profiles(:_token, :id_client)";
+			$stm = $this->con->prepare($sql);
+			foreach ($arr_multiprofiles as $key => $value){
+				$stm->bindValue($key, $value);
+			}
 			$stm->execute();
 			return $stm->rowCount() > 0 ? 'true' : 'false';
 		}catch(PDOException $err){

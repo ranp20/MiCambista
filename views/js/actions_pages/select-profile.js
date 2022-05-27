@@ -80,9 +80,9 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 										<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px' version='1.1' viewBox='0 0 700 700'><g><path d='m535.61 94.387c-102.45-102.45-268.78-102.45-371.23 0-102.45 102.45-102.45 268.78 0 371.23 102.45 102.45 268.78 102.45 371.23 0 102.45-102.45 102.45-268.78 0-371.23zm-24.746 24.746c88.785 88.785 88.785 232.95 0 321.74-88.785 88.785-232.95 88.785-321.74 0s-88.785-232.95 0-321.74c88.785-88.785 232.95-88.785 321.74 0zm-185.61 160.87-68.199-68.199c-6.832-6.8242-6.832-17.922 0-24.746 6.8242-6.832 17.922-6.832 24.746 0l68.199 68.199 68.199-68.199c6.8242-6.832 17.922-6.832 24.746 0 6.832 6.8242 6.832 17.922 0 24.746l-68.199 68.199 68.199 68.199c6.832 6.8242 6.832 17.922 0 24.746-6.8242 6.832-17.922 6.832-24.746 0l-68.199-68.199-68.199 68.199c-6.8242 6.832-17.922 6.832-24.746 0-6.832-6.8242-6.832-17.922 0-24.746z' fill-rule='evenodd'/></g></svg>
 									</span>
 								</span>
-								<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
+								<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' data-id='${r.received[0].id}' token='${r.received[0]._token}'>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
-										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon' data-id='${r.received[0].id_enterprise}' token='${r.received[0]._token}'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
 											<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
@@ -153,6 +153,7 @@ $(document).on("click", ".cControlP__cont--containDash--c__cBtnsOpts-m--item__cI
 	e.preventDefault();
 	let client_token = $(this).parent().find("a").attr("data-token");
 	let idClient = $(this).parent().find("a").attr("data-id");
+	let idMulti = $(this).parent().find("a").attr("data-multiid");
 	Swal.fire({
 	  title: '¿Deseas eliminar este perfil?',
 	  html: `<p class='font-w-300'>Los datos serán eliminados y deberás agregarlo de nuevo para poder utilizarlo en otras operaciones.</p>`,
@@ -166,6 +167,7 @@ $(document).on("click", ".cControlP__cont--containDash--c__cBtnsOpts-m--item__cI
 	  	var formdata = new FormData();
 	  	formdata.append("token", client_token);
 	  	formdata.append("id_client", idClient);
+	  	formdata.append("id_multiprofile", idMulti);
 	  	$.ajax({
 				url: "./controllers/c_delete-profile-enterprise.php",
 				method: "POST",
@@ -177,15 +179,60 @@ $(document).on("click", ".cControlP__cont--containDash--c__cBtnsOpts-m--item__cI
 		    	//console.log('Insertando la información');
 		    },
 		    success: function(e){
-		    	console.log(e);
-					/*
-					Swal.fire({
-			      title: 'Perfil Eliminado!',
-			      html: `<span class='font-w-300'>El perfil ha sido eliminado correctamente. Deberá seleccionar un nuevo perfil.</span>`,
-			      icon: 'success',
-			      confirmButtonText: 'Aceptar'
-			    });
-			    */
+		    	let c_profiles = $("#c_listTypeProfileOfUser");
+	    		let tmp_profiles = "";
+		    	if(e != ""){
+		    		let r = JSON.parse(e);
+		    		if(r.response == "true"){
+		    			tmp_profiles += `
+							<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
+								<a href='convert-divise' class='cControlP__cont--containDash--c__cBtnsOpts-m--link'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+											<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
+											<span>${r.received[0].name + r.received[0].lastname}</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item c-NotBackground'>
+								<a href='javascript:void(0);' class='cControlP__cont--containDash--c__cBtnsOpts-m--link' id='btn-addAccountEnterpriseShow'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+											<img src='./views/assets/img/svg/add-profile.svg' alt='' width='100' height='100' style='width:auto;height:auto;padding:1.75rem;'>
+										</span>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
+											<span>Agregar empresa</span>
+										</span>
+									</span>
+								</a>
+							</div>
+		    			`;
+		    			c_profiles.html(tmp_profiles);
+							Swal.fire({
+					      title: 'Perfil Eliminado!',
+					      html: `<span class='font-w-300'>El perfil ha sido eliminado correctamente. Deberá seleccionar un nuevo perfil.</span>`,
+					      icon: 'success',
+					      confirmButtonText: 'Aceptar'
+					    });
+		    		}else{
+		    			Swal.fire({
+					      title: 'Error!',
+					      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+					      icon: 'warning',
+					      confirmButtonText: 'Aceptar'
+					    });
+		    		}
+		    	}else{
+		    		Swal.fire({
+				      title: 'Error!',
+				      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+				      icon: 'warning',
+				      confirmButtonText: 'Aceptar'
+				    });
+		    	}
 		    },
 			 	statusCode: {
 			    404: function(){

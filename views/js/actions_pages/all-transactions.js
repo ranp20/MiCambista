@@ -3,8 +3,8 @@ $(() => {
 });
 var idClient = $("#input-idClientValListTransac").val();
 let listAllTransactions = () => {
-	
 	var table = $("#all_transac-cli").DataTable({
+		"destroy": true,
 		"ajax":{
 			"url": "controllers/c_list-all-transactions-byIdClient-all.php",
 			"data": { id_client : idClient },
@@ -238,7 +238,8 @@ let listAllTransactions = () => {
 	        }
 	    },
 	    "info": "Mostrando _START_ - _END_ de _TOTAL_ registros"
-		}
+		},
+		//"responsive": "false"
 	});
 };
 // ------------ TROZO DE VANILLA JS

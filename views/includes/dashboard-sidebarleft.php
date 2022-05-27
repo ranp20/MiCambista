@@ -24,7 +24,7 @@
 				</a>
 			</li>
 			<li class="cControlP__cont--sdLeft--c--m--item">
-				<a href="#" class="cControlP__cont--sdLeft--c--m--link">
+				<a href="javascript:void(0);" class="cControlP__cont--sdLeft--c--m--link">
 					<img src="<?= $url ?>views/assets/img/svg/dashboard-item-4.svg" alt="icon_sdl_item4" width="100" height="100">
 					<span>Recomienda y gana</span>
 				</a>

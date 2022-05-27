@@ -404,3 +404,78 @@
 		}
   }
 }
+/* ESTILOS EN DATATABLES - ALL OPERATIONS */
+#all_transac-cli_wrapper thead tr th{
+	padding: 0.65rem 0.5rem;
+}
+#all_transac-cli_wrapper{
+	table{
+		thead{
+			tr{
+				border: 1px solid $border-color-table;
+				th{
+					//border: 1px solid $border-color-table;
+					//border-top: 1px solid $border-color-table;
+					border-top-width: 0;
+					border-left-width: 0;
+					border-bottom-width: 0;
+					border-right-width: 0;
+					padding: 10px 8px;
+					color: #656d77;
+					font-size: .95rem;
+				}
+			}
+		}
+		tbody{
+			overflow-x: hidden;
+			overflow-y: auto;
+			tr{
+				overflow-x: hidden;
+				overflow-y: auto;
+				//border: 1px solid $border-color-table;
+				&:first-child{
+					//border-top: 2px solid $border-color-table;							
+				}
+				&:nth-child(2n+1){
+					//background-color: $bgc-th-table;
+				}
+				&:hover{
+					background-color: rgba(0,0,0,.12);
+				}
+				td{
+					font-size: 0.9rem;
+					//border: 1px solid $border-color-table;
+					border-top: 1px solid $border-color-table;
+					border-bottom-width: 0;
+					padding: 8px;
+					overflow-x: hidden;
+					overflow-y: auto;
+				}
+			}
+		}
+	}
+}
+#all_transac-cli_wrapper .row:nth-child(2){
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+#all_transac-cli_wrapper .row:nth-child(3) .col-sm-12.col-md-5,
+#all_transac-cli_wrapper .row:nth-child(3) .col-sm-12.col-md-7{
+	display: flex;
+}
+#all_transac-cli_wrapper .row:nth-child(3) #all_transac-cli_info{
+	text-align: left;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: auto;
+}
+#all_transac-cli_wrapper .row:nth-child(3) #all_transac-cli_paginate{
+	text-align: right;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  margin-left: auto;
+}

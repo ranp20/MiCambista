@@ -150,7 +150,7 @@ $g_setting = $call_config->get_config();
 					</div>
 				</div>
 			</section>
-			<?php require_once 'home_includes/home-contact.php'; ?>
+			<?php /*require_once 'home_includes/home-contact.php';*/ ?>
 		</div>
 	</main>
 	<?php require_once 'home_includes/home-footer.php'; ?>

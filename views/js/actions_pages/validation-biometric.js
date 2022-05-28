@@ -1,11 +1,4 @@
 $(function(){
-  // ------------ MOSTRAR/OCULTAR EL FORMULARIO DE VALIDACIÓN BIOMÉTRICA
-  /*
-  btnOpenVideo.addEventListener("click", function(){
-    c_totalfrmModal.classList.add("show");
-    c_containfrmModal.classList.add("show");
-  });
-  */
   btn_frmCloseModal.addEventListener("click", function(){
     c_totalfrmModal.classList.remove("show");
     c_containfrmModal.classList.remove("show");
@@ -16,19 +9,6 @@ $(function(){
       c_containfrmModal.classList.remove("show");  
     }
   });
-  // ------------ NAVEGACIÓN ENTRE ANCLAS INTERNAS PARA LOS PASOS
-  // MOSTRAR EL PRIMER LINK Y SU SECCIÓN
-  /*
-  linksAnch.eq(0).add($(`.cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step[id="${firstLinkAnch}"]`)).addClass("active");
-  // MOSTRAR SECCIÓN DE ACUERDO AL LINK
-  linksAnch.on("click", function(){
-    var t = $(this);
-    var tindex = t.index();
-    var tattribute = t.data("target").slice(1);
-    // linksAnch.eq(tindex).add(itemsAnch.eq(tindex)).addClass("active").siblings().removeClass("active");
-    linksAnch.eq(tindex).add($(`.cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step[id="${tattribute}"]`)).addClass('active').siblings().removeClass("active");
-  });
-  */
 });
 // VARIABLES PARA LOS TABS
 const linksAnchParent = $("#c_statusPointSteps_validBiom");
@@ -55,6 +35,7 @@ var checkActiveDevices = false;
 var streamCaptura = "";
 var recordingTimeMS = 6000;
 var recordedblobData = "";
+var recordingDataToSend = "";
 // ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO FRONTAL
 $("#photo_dni-front").on("change", function(e){
   let readerImg = new FileReader();
@@ -81,51 +62,6 @@ $("#photo_dni-back").on("change", function(e){
     }
   }
 });
-// ------------ 2. IR AL PASO #2
-/*
-$(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep:nth-child(2)", function(e){
-  e.preventDefault();
-  // VARIABLES DE INPUT PARA LAS FOTOS
-  var photoDNI_front = $("#photo_dni-front").val();
-  var photoDNI_back = $("#photo_dni-back").val();
-  if(photoDNI_front != "" && photoDNI_front != null && photoDNI_front != undefined && photoDNI_front != "null"){
-    if(photoDNI_back != "" && photoDNI_back != null && photoDNI_back != undefined && photoDNI_back != "null"){
-      c_statusPointSteps_Items.eq(0).removeClass("active");
-      c_statusPointSteps_Items.eq(0).addClass("complete");
-      c_statusPointSteps_Items.eq(1).addClass("active");
-      c_StepPoint_Item.eq(0).removeClass("active");
-      c_StepPoint_Item.eq(1).addClass("active");
-      c_StepPoint_Item.eq(2).removeClass("active");
-    }else{
-      linksAnch.eq(0).addClass("active");
-      linksAnch.eq(1).removeClass("active");
-      linksAnch.eq(2).removeClass("active");
-      c_StepPoint_Item.eq(0).addClass("active");
-      c_StepPoint_Item.eq(1).removeClass("active");
-      c_StepPoint_Item.eq(2).removeClass("active");
-      Swal.fire({
-        title: 'Completar información!',
-        text: 'No se agregó una foto trasera del DNI.',
-        icon: 'warning',
-        confirmButtonText: 'Aceptar'
-      });
-    }
-  }else{
-    linksAnch.eq(0).addClass("active");
-    linksAnch.eq(1).removeClass("active");
-    linksAnch.eq(2).removeClass("active");
-    c_StepPoint_Item.eq(0).addClass("active");
-    c_StepPoint_Item.eq(1).removeClass("active");
-    c_StepPoint_Item.eq(2).removeClass("active");
-    Swal.fire({
-      title: 'Completar información!',
-      text: 'No se agregó una foto frontal del DNI.',
-      icon: 'warning',
-      confirmButtonText: 'Aceptar'
-    });
-  }
-});
-*/
 $(document).on("click", "#btn_stepNext_validBiom", function(e){
   e.preventDefault();
   // VARIABLES DE INPUT PARA LAS FOTOS
@@ -191,51 +127,6 @@ function startRecording(stream, lengthInMS){
   ])
   .then(() => data);
 }
-// ------------ 3. PASAR AL PASO FINAL
-/*
-$(document).on("click", ".cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep:nth-child(3)", function(e){
-  e.preventDefault();
-  // VARIABLES DE INPUT PARA LAS FOTOS
-  var photoDNI_front = $("#photo_dni-front").val();
-  var photoDNI_back = $("#photo_dni-back").val();
-  if(photoDNI_front != "" && photoDNI_front != null && photoDNI_front != undefined && photoDNI_front != "null"){
-    if(photoDNI_back != "" && photoDNI_back != null && photoDNI_back != undefined && photoDNI_back != "null"){
-      c_statusPointSteps_Items.eq(0).removeClass("active");
-      c_statusPointSteps_Items.eq(0).addClass("complete");
-      c_statusPointSteps_Items.eq(1).addClass("active");
-      c_StepPoint_Item.eq(0).removeClass("active");
-      c_StepPoint_Item.eq(1).addClass("active");
-      c_StepPoint_Item.eq(2).removeClass("active");
-    }else{
-      linksAnch.eq(0).addClass("active");
-      linksAnch.eq(1).removeClass("active");
-      linksAnch.eq(2).removeClass("active");
-      c_StepPoint_Item.eq(0).addClass("active");
-      c_StepPoint_Item.eq(1).removeClass("active");
-      c_StepPoint_Item.eq(2).removeClass("active");
-      Swal.fire({
-        title: 'Completar información!',
-        text: 'No se agregó una foto trasera del DNI.',
-        icon: 'warning',
-        confirmButtonText: 'Aceptar'
-      });
-    }
-  }else{
-    linksAnch.eq(0).addClass("active");
-    linksAnch.eq(1).removeClass("active");
-    linksAnch.eq(2).removeClass("active");
-    c_StepPoint_Item.eq(0).addClass("active");
-    c_StepPoint_Item.eq(1).removeClass("active");
-    c_StepPoint_Item.eq(2).removeClass("active");
-    Swal.fire({
-      title: 'Completar información!',
-      text: 'No se agregó una foto frontal del DNI.',
-      icon: 'warning',
-      confirmButtonText: 'Aceptar'
-    });
-  }
-});
-*/
 btnOpenVideo.addEventListener("click", function(){
   // ------------ PEDIR PERMISOS PARA USAR DISPOSITIVOS (Cámara y micrófono)
   navigator.mediaDevices.getUserMedia({
@@ -276,27 +167,22 @@ startRecordButton.addEventListener("click", function(){
       contVideoRecording.classList.add("playRecording");
       recordedblobData = new Blob(recordedChunks, { type: "video/webm" });
       recording.src = URL.createObjectURL(recordedblobData);
-      //downloadButton.href = recording.src;
-      //downloadButton.download = "RecordedVideo.webm";
-      //log("Successfully recorded " + recordedblobData.size + " bytes of " + recordedblobData.type + " media.");
+      // USANDO PLUGINS - WHAMMY
+      /*
+      videoEncoder = new Whammy.Video();
+      for (var i = 0; i < images.length; i++) {
+          videoCtx.putImageData(images[i].image, 0, 0);
+          videoEncoder.add(videoCtx, images[i].duration);
+      }
+
+      blob = videoEncoder.compile();
+      file = (window.webkitURL || window.URL).createObjectURL(blob);
+      */
 
       // GUARDAR EN VARIABLE/DESCARGAR A PARTIR DEL BLOB
-      
       recordingBlobSlice_one = URL.createObjectURL(recordedblobData);
       recordingBlobSlice_two = recordingBlobSlice_one.split("blob:https://localhost/");
       blobSaveServer = recordingBlobSlice_two[1];
-      
-      /*
-      var readerBlobVideo = new FileReader();
-      readerBlobVideo.onload = function(e){
-        blobToVideoData = e.target.result;
-      }
-      readerBlobVideo.readAsDataURL(recordedblobData);
-      */
-      /*
-      downloadButton_test.href = "blob:https://localhost/" + recordingBlobSlice_two[1];
-      downloadButton_test.download = "descargadeprueba.webm";
-      */
     });
   }else{
     console.log("Error, no se activo ningún dispositivo");

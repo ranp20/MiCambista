@@ -34,23 +34,23 @@ if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['c
 						<div class="sendBeforeCompleteDivise__charger--loader"></div>
 					</div>
 				</div>
-				<!-- CONTENIDO - PERFIL EN USO -->
-				<div class="cControlP__cont--containDash--cProfileUsed">
-					<div class="cControlP__cont--containDash--cProfileUsed__cLeftTxt">
-						<span>Perfil: </span>
-						<span><?php echo $_SESSION['cli_micambista'][0]['profile_name'];?></span>
-					</div>
-					<div class="cControlP__cont--containDash--cProfileUsed__cRightTxt">
-						<a href="change-profile" id="change-profile">
-							<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cIcon">
-								<svg focusable="false" viewBox="0 0 24 24" color="#FFF" aria-hidden="true" width="25px" height="25px"><path d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"></path></svg>
-							</span>
-							<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cTxt">Cambiar Perfil</span>
-						</a>
-					</div>
-				</div>
 				<!-- CONTENIDO - CONVERSOR DE DIVISAS-->
 				<div class="cControlP__cont--containDash--c" id="cont-convert-divise">
+					<!-- CONTENIDO - PERFIL EN USO -->
+					<div class="cControlP__cont--containDash--cProfileUsed" id="c-changeProfileSelect">
+						<div class="cControlP__cont--containDash--cProfileUsed__cLeftTxt">
+							<span>Perfil: </span>
+							<span><?php echo $_SESSION['cli_micambista'][0]['profile_name'];?></span>
+						</div>
+						<div class="cControlP__cont--containDash--cProfileUsed__cRightTxt">
+							<a href="change-profile" id="change-profile">
+								<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cIcon">
+									<svg focusable="false" viewBox="0 0 24 24" color="#FFF" aria-hidden="true" width="25px" height="25px"><path d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"></path></svg>
+								</span>
+								<span class="cControlP__cont--containDash--cProfileUsed__cRightTxt__cTxt">Cambiar Perfil</span>
+							</a>
+						</div>
+					</div>
 					<div class="cControlP__cont--containDash--c--cConvertDivise">
 						<div class="cControlP__cont--containDash--c--cConvertDivise--cF">
 							<div class="c-convert__cFrmConvert pt-3rem">
@@ -76,7 +76,7 @@ if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['c
 											<span>Se actualizará el tipo de cambio en:</span>
 											<p>
 												<svg class="MuiSvgIcon-root mr-2" width="26" height="26" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path></svg>
-												<span id="timeoutChangeDivise">0.00</span>
+												<span id="timeoutChangeDivise">0:00</span>
 											</p>
 										</div>
 										<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cFunction">
@@ -132,71 +132,15 @@ if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['c
 					</div>
 				</div>
 				<!-- CONTENIDO - FORMULARIO DE COMPLETADO DE CAMBIO -->
-				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise">
-					<div class="cControlP__cont--containDash--c--cCdivise">
-						<div class="cControlP__cont--containDash--c--cCdivise--cTitle">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="changecurridcli">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="typechangecurridcli">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefixcurridcli">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="quantitycurridcli">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="type_receivedcli">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefix_receivedcli">
-							<h2 class="cControlP__cont--containDash--c--cCdivise--cTitle--title">Completa los datos</h2>
-							<p class="cControlP__cont--containDash--c--cCdivise--cTitle--desc">Selecciona el banco de envío y la cuenta donde recibes</p>
-						</div>
-						<form method="POST" class="cControlP__cont--containDash--c--cCdivise--cF">
-							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="valIdUser_sess" value="<?= $idclient; ?>">
-							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
-								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿Desde qué banco nos envía su dinero?</label>
-								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem" id="selListallBanks_CData">
-									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData" id="selListAllBanks--img_CData">
-										<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--placeholder">Selecciona un banco</span>
-										<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--imgbank">
-									</div>
-									<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
-									<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--icon_CData" src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
-									<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData" id="listAllsBanks_CData"></ul>
-								</div>
-								<span id="msgerrorNounSelBankSend_CData"></span>
-							</div>
-							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
-								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿En qué cuenta recibirás tu dinero?</label>
-								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks">
-									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem" id="selListallaccountsBanks_CData">
-										<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData" id="selListAllaccountsBanks--img_CData">
-											<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--placeholder">Selecciona una de tus cuentas</span>
-											<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--imgbank">
-										</div>
-										<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
-										<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--icon_CData" src="<?= $url ?>views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
-										<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData" id="listAllsAccountsBanks_CData"></ul>
-									</div>
-									<span id="msgerrorNounSelAccountBankReceived_CData"></span>
-									<button type="button" id="btn-addAccountform" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--caddBanks">
-										<span>Agregar cuenta</span>
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-									</a>
-								</div>
-							</div>
-							<div class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions">
-								<button type="submit" class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert" id="btn-cCompleteDiviseCli">Completar cambio
-									<div class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert--contloader">
-										<span class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert--contloader--loader"></span>
-									</div>
-								</button>
-								<a href="convert-divise" class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--btnCancel">Cancelar</a>
-							</div>
-						</form>
-					</div>
-				</div>
+				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise"></div>
 				<?php require_once 'includes/dashboard-contain-footer.php'; ?>
 			</section>
 			<?php require_once 'includes/dashboard-formaddaccountbank_by_tcurrent.php'; ?>
 		</div>
 	</div>		
-	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>
-	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/convert-divise.js"></script>
-	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/convert-divise-with-coupon.js"></script>
-	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/complete-divise.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>views/js/actions_pages/dashboard-client.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>views/js/actions_pages/convert-divise.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>views/js/actions_pages/convert-divise-with-coupon.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>views/js/actions_pages/complete-divise.js"></script>
 </body>
 </html>

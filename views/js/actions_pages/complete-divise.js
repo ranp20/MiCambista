@@ -5,18 +5,20 @@ $(() => {
 	const c_totalfrmAddAccount = document.querySelector(".cformAddAccountBank");
 	const c_containfrmAddAccount = document.querySelector(".cformAddAccountBank--form");
 
-	btn_frmOpenAddAccount.addEventListener("click", function(){
-		c_totalfrmAddAccount.classList.add("show");
-		c_containfrmAddAccount.classList.add("show");
+	if(btn_frmOpenAddAccount != null && btn_frmOpenAddAccount != undefined){
+		btn_frmOpenAddAccount.addEventListener("click", function(){
+			c_totalfrmAddAccount.classList.add("show");
+			c_containfrmAddAccount.classList.add("show");
 
-		$("#selListAllBanks--img_CData").find("span").text("Selecciona un banco");
-		$("#selListAllBanks--img_CData").find("img").attr("src", "");
-		$("#selListallBanks_CData").find("input").removeAttr("idbank");
-		$("#selListAllaccountsBanks--img_CData").find("span").text("Selecciona una de tus cuentas");
-		$("#selListAllaccountsBanks--img_CData").find("span").css({"margin-right":"0"});
-		$("#selListAllaccountsBanks--img_CData").find("img").attr("src", "");
-		$("#selListallaccountsBanks_CData").find("input").removeAttr("idaccountbank");
-	});
+			$("#selListAllBanks--img_CData").find("span").text("Selecciona un banco");
+			$("#selListAllBanks--img_CData").find("img").attr("src", "");
+			$("#selListallBanks_CData").find("input").removeAttr("idbank");
+			$("#selListAllaccountsBanks--img_CData").find("span").text("Selecciona una de tus cuentas");
+			$("#selListAllaccountsBanks--img_CData").find("span").css({"margin-right":"0"});
+			$("#selListAllaccountsBanks--img_CData").find("img").attr("src", "");
+			$("#selListallaccountsBanks_CData").find("input").removeAttr("idaccountbank");
+		});
+	}
 	c_totalfrmAddAccount.addEventListener('click', e => {
 		if(e.target === c_totalfrmAddAccount){
 			c_totalfrmAddAccount.classList.remove('show');
@@ -27,7 +29,22 @@ $(() => {
 		c_containfrmAddAccount.classList.remove("show");
 	});
 });
-var idClient = $("#valIdUser_sess").val();
+$(document).on("click", "#btn-addAccountform", function(){
+	$(".cformAddAccountBank").add($(".cformAddAccountBank--form")).addClass("show");
+});
+//var idClient = $("#valIdUser_sess").val();
+// ------------ VALIDAR LA INTEGRIDAD DEL INPUT[id-client]
+var idClient = document.getElementById("valIdUser_sess");
+if(idClient != null && idClient != undefined){
+	$("#valIdUser_sess").on("change", function(e){
+		if($(this).val() == 0 || $(this).val() == ""){
+			window.location.href = "signin";		
+		}
+	});
+}else{
+	window.location.href = "signin";
+}
+//console.log(idClient.value);
 // ------------ FORMATEAR A SOLO DOS DECIMALES
 function twodecimals(n) {
   let t = n.toString();
@@ -44,7 +61,6 @@ $(document).on("click", "#selListallBanks", function(e){
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 	}).done( function (res) {
 		var template = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -204,7 +220,6 @@ $(document).on("click", "#checkaccount-cli", function(){
 // ------------ AGREGAR CUENTA BANCARIA
 $(document).on("click", "#btn-AddAccountBank", function(e){
 	e.preventDefault();
-
 	// ------------ AGREGAR MENSAJE EN LOS SPAN
 	($("#selListallBanks--input").attr("idbank")) ? $("#msgerrorNounSelBank").text("") : $("#msgerrorNounSelBank").text("Debes seleccionar un banco");
 	($("#numaccount-cli").val() != "") ? $("#msgerrorNounNumAccount").text("") : $("#msgerrorNounNumAccount").text("Debes ingresar tu número de cuenta");
@@ -212,26 +227,27 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	($("#selListcurrencyType--input").attr("idcurrencytype")) ? $("#msgerrorNounSelCurrentType").text("") : $("#msgerrorNounSelCurrentType").text("Debes seleccionar una moneda");
 	($("#aliasaccount-cli").val() != "") ? $("#msgerrorNounAliasAccount").text("") : $("#msgerrorNounAliasAccount").text("Debes ingresar un alias");
 	($("#checkaccount-cli").is(":checked")) ? $("#msgerrorNouncheckedAccount").text("") : $("#msgerrorNouncheckedAccount").text("Debes declarar que es tu cuenta personal");
-
-	if($("#checkaccount-cli").is(":checked")){
+	if($("#selListallBanks--input").attr("idbank") != "" && $("#selListallBanks--input").attr("idbank") != undefined && 
+	$("#numaccount-cli").val() != "" && $("#numaccount-cli").val() != 0 && $("#numaccount-cli").val() != null && 
+	$("#selListtypeAccount--input").attr("idtypeaccount") != "" && $("#selListtypeAccount--input").attr("idtypeaccount") != undefined &&
+	$("#selListcurrencyType--input").attr("idcurrencytype") != "" && $("#selListcurrencyType--input").attr("idcurrencytype") != undefined &&
+	$("#aliasaccount-cli").val() != "" && $("#aliasaccount-cli").val() != 0 && $("#aliasaccount-cli").val() != null &&
+	$("#checkaccount-cli").is(":checked")){
 		var obj_form = {
-			idclient: idClient,
+			idclient: idClient.value,
 			idbank: $("#selListallBanks--input").attr("idbank"),
 			numaccount: $("#numaccount-cli").val(),
 			idtypeaccount: $("#selListtypeAccount--input").attr("idtypeaccount"),
 			idcurrenttype: $("#selListcurrencyType--input").attr("idcurrencytype"),
 			aliasaccount: $("#aliasaccount-cli").val(),
 		};
-
 		var formdata = new FormData();
-
 		formdata.append("id_client", obj_form['idclient']);
 		formdata.append("id_bank", obj_form['idbank']);
 	  formdata.append("numaccount", obj_form['numaccount']);
 	  formdata.append("id_typeaccount", obj_form['idtypeaccount']);
 	  formdata.append("id_currencytype", obj_form['idcurrenttype']);
 	  formdata.append("aliasaccount", obj_form['aliasaccount']);
-
 	  $.ajax({
 	    url: "controllers/c_add-account-banks.php",
 	    method: "POST",
@@ -240,7 +256,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	    cache: false,
 	    processData: false,
 	  }).done((res) => {
-
 	  	if(res = "insertado"){
 		  	$(".cformAddAccountBank").removeClass("show");
 				$(".cformAddAccountBank--form").removeClass("show");
@@ -257,18 +272,20 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	     	$("#numaccount-cli").val("");
 	     	$("#aliasaccount-cli").val("")
 	     	$('#form-AddAccountBank')[0].reset();
-	      
 	     	// ------------ LISTAR LAS CUENTA DEL USUARIO
-	      
 	  	}else{
 	  		console.log('Error, no se insertó');
 	  	}
 	  });
 	}else{
-		console.log('No ahy datos');
+		Swal.fire({
+      title: 'Atención!',
+      html: `<span class='font-w-300'>Debe completar toda la información.</span>`,
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+    });
 	}
 });
-
 // ------------ LISTAR LOS BANCOS JUNTO AL NOMBRE - FORM COMPLETE DIVISE
 $(document).on("click", "#selListallBanks_CData", function(e){
 	$("#msgerrorNounSelBankSend_CData").text("");
@@ -282,7 +299,6 @@ $(document).on("click", "#selListallBanks_CData", function(e){
 		data: { type_currency : tipocambio}
 	}).done((res) => {
 		var template = "";
-
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			if(res.length <= 0 || res == []){
@@ -338,13 +354,12 @@ $(document).on("click", "#selListallaccountsBanks_CData", function(e){
 	}else{
 		exchangeTypeCurrent = "Soles";
 	}
-
 	$.ajax({
 		url: "controllers/c_list-account-banks_byTypeCurrent.php",
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-		data: { id_client : idClient, type_currency : exchangeTypeCurrent}
+		data: { id_client : idClient.value, type_currency : exchangeTypeCurrent}
 	}).done( function (res) {
 		var template = "";
 		if(!btnshowaccounts.hasClass("show")){
@@ -358,7 +373,6 @@ $(document).on("click", "#selListallaccountsBanks_CData", function(e){
 				$("#listAllsAccountsBanks_CData").html(template);
 			}else{
 				res.forEach((e) => {
-
 					var cuentabank = e.cuenta;
       		var limitecuenta = (cuentabank.length >= 4) ? cuentabank.replace(cuentabank.substring(0, 10), "*******") : cuentabank;
       		var alias = e.alias;
@@ -393,11 +407,9 @@ function listAccountsCDivise(){
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-		data: { id_client : idClient }
+		data: { id_client : idClient.value }
 	}).done( function (res) {
-	
 		var template = "";
-
 		if(res.length <= 0 || res == []){
 			template += `
 					<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData--itemanybanks">
@@ -407,7 +419,6 @@ function listAccountsCDivise(){
 			$("#listAllsAccountsBanks_CData").html(template);
 		}else{
 			res.forEach((e) => {
-
 				var cuentabank = e.cuenta;
     		var limitecuenta = (cuentabank.length >= 4) ? cuentabank.replace(cuentabank.substring(0, 10), "*******") : cuentabank;
     		var alias = e.alias;
@@ -431,7 +442,6 @@ function listAccountsCDivise(){
 		}
 	});
 }
-
 // ------------ FIJAR LA CUENTA BANCARIA
 $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData--item", function(e){
 	e.preventDefault();
@@ -442,22 +452,18 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cContro
 			accountnum: $(this).find("input").attr("accnum"),
 			accountimg: $(this).find(".cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData--item--cImg").find("img").attr("src")
 		};
-	
 		$("#selListAllaccountsBanks--img_CData").find("span").text(getinfoaccountbanks['accountnum']);
 		$("#selListAllaccountsBanks--img_CData").find("span").css({"margin-right":".5rem"});
 		$("#selListAllaccountsBanks--img_CData").find("img").attr("src", getinfoaccountbanks['accountimg']);
 		$("#selListallaccountsBanks_CData").find("input").attr("idaccountbank", getinfoaccountbanks['accountid']);
 	});
 });
-
 // ------------ AGREGAR TRANSACCIÓN
 $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	e.preventDefault();
 	window.onbeforeunload = null;
 	($("#selListallBanks_CData").find("input").attr("idbank")) ? $("#msgerrorNounSelBankSend_CData").text("") : $("#msgerrorNounSelBankSend_CData").text("Debes seleccionar el banco donde transferirás");
 	($("#selListallaccountsBanks_CData").find("input").attr("idaccountbank")) ? $("#msgerrorNounSelAccountBankReceived_CData").text("") : $("#msgerrorNounSelAccountBankReceived_CData").text("Debes seleccionar tu cuenta para recibir");
-
-
 	if($("#selListallBanks_CData").find("input").attr("idbank") && $("#selListallaccountsBanks_CData").find("input").attr("idaccountbank")){
 		var send = parseFloat($("#quantitycurridcli").val());
 		var tasa = parseFloat($("#changecurridcli").val());
@@ -468,9 +474,8 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 		}else{
 			cambio = send * tasa;
 		}
-
 		var getDataTransac = {
-			id_client: idClient,
+			id_client: idClient.value,
 			id_bank: $("#selListallBanks_CData").find("input").attr("idbank"),
 			id_account_bank: $("#selListallaccountsBanks_CData").find("input").attr("idaccountbank"),
 			type_send: type,
@@ -481,9 +486,7 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 			amount_received: twodecimals(cambio),
 			tasa_change: $("#changecurridcli").val(),
 		};
-
 		var formdata = new FormData();
-
 		formdata.append("id_client", getDataTransac['id_client']);
 		formdata.append("id_bank", getDataTransac['id_bank']);
 		formdata.append("id_account_bank", getDataTransac['id_account_bank']);
@@ -494,7 +497,6 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 		formdata.append("prefix_received", getDataTransac['prefix_received']);
 		formdata.append("amount_received", getDataTransac['amount_received']);
 		formdata.append("tasa_change", getDataTransac['tasa_change']);
-
 		$.ajax({
 	    url: "controllers/c_add-transaction.php",
 	    method: "POST",
@@ -502,6 +504,9 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	    contentType: false,
 	    cache: false,
 	    processData: false,
+	    beforeSend: function(){
+	    	//console.log('Insertando la información');
+	    },
 	  }).done((e) => {
 	  	if(e.length){
 		  	var r = JSON.parse(e);
@@ -513,13 +518,28 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 						window.location.replace("complete-divise");
 					}, 2000);
 		  	}else{
-		  		console.log('Error, ocurrió algo al momento de insertar el registro.');
+		  		Swal.fire({
+			      title: 'Error!',
+			      html: `<span class='font-w-300'>Lo sentimos, hubo un error al insertar la información.</span>`,
+			      icon: 'error',
+			      confirmButtonText: 'Aceptar'
+			    });
 		  	}
 	  	}else{
-	  		console.log('Error, lo sentimos hubo un error al insertar el registro.');
+	  		Swal.fire({
+		      title: 'Error!',
+		      html: `<span class='font-w-300'>Lo sentimos, hubo un error al insertar la información.</span>`,
+		      icon: 'error',
+		      confirmButtonText: 'Aceptar'
+		    });
 	  	}
 	  });
 	}else{
-		console.log('No se enviaron los datos');
+		Swal.fire({
+      title: 'Atención!',
+      html: `<span class='font-w-300'>Debe completar toda la información.</span>`,
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+    });
 	}
 });

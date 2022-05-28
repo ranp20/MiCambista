@@ -199,8 +199,12 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	($("#selListcurrencyType--input").attr("idcurrencytype")) ? $("#msgerrorNounSelCurrentType").text("") : $("#msgerrorNounSelCurrentType").text("Debes seleccionar una moneda");
 	($("#aliasaccount-cli").val() != "") ? $("#msgerrorNounAliasAccount").text("") : $("#msgerrorNounAliasAccount").text("Debes ingresar un alias");
 	($("#checkaccount-cli").is(":checked")) ? $("#msgerrorNouncheckedAccount").text("") : $("#msgerrorNouncheckedAccount").text("Debes declarar que es tu cuenta personal");
-
-	if($("#checkaccount-cli").is(":checked")){
+	if($("#selListallBanks--input").attr("idbank") != "" && $("#selListallBanks--input").attr("idbank") != undefined && 
+	$("#numaccount-cli").val() != "" && $("#numaccount-cli").val() != 0 && $("#numaccount-cli").val() != null && 
+	$("#selListtypeAccount--input").attr("idtypeaccount") != "" && $("#selListtypeAccount--input").attr("idtypeaccount") != undefined &&
+	$("#selListcurrencyType--input").attr("idcurrencytype") != "" && $("#selListcurrencyType--input").attr("idcurrencytype") != undefined &&
+	$("#aliasaccount-cli").val() != "" && $("#aliasaccount-cli").val() != 0 && $("#aliasaccount-cli").val() != null &&
+	$("#checkaccount-cli").is(":checked")){
 		var obj_form = {
 			idclient: idClient,
 			idbank: $("#selListallBanks--input").attr("idbank"),
@@ -216,7 +220,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	  formdata.append("id_typeaccount", obj_form['idtypeaccount']);
 	  formdata.append("id_currencytype", obj_form['idcurrenttype']);
 	  formdata.append("aliasaccount", obj_form['aliasaccount']);
-
 	  $.ajax({
 	    url: "./controllers/c_add-account-banks.php",
 	    method: "POST",
@@ -268,7 +271,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 		     	$('#form-AddAccountBank')[0].reset();
 		      
 		     	// ------------ LISTAR LAS CUENTA DEL USUARIO 
-		      
 		  	}else{
 		  		Swal.fire({
 		        title: 'Error!',
@@ -276,7 +278,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 		        icon: 'error',
 		        confirmButtonText: 'Aceptar'
 		      });
-		  		//console.log('Error, no se insertó');
 		  	}
 	  	}else{
 	  		Swal.fire({
@@ -285,7 +286,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	        icon: 'error',
 	        confirmButtonText: 'Aceptar'
 	      });
-	  		//console.log('Error, no se insertó');
 	  	}
 	  });
 	}else{
@@ -298,7 +298,6 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 		console.log('No hay datos');
 	}
 });
-
 function listAccountsUser(){
 	$.ajax({
     url: "./controllers/c_list-account-banks.php",
@@ -373,7 +372,6 @@ function listAccountsUser(){
 		});
   });
 }
-
 // ------------ LISTAR EL DETALLE DE LA CUENTA 
 function listAccountDetails(){
 	var idaccountdetail = $("#val-idaccountdetail").val();
@@ -432,17 +430,14 @@ $(document).on("keyup", "#aliasacccountupdate-cli", function(){
 // ------------ FORMULARIO DE ACTUALIZACIÓN DE DETALLE DE CUENTA 
 $(document).on("click", "#btn-updateDetailsAccount", function(e){
 	e.preventDefault();
-
 	($("#numaccountupdate-cli").val() != "") ? $("#msgerrorNounNumbDetailAccount").text("") : $("#msgerrorNounNumbDetailAccount").text("Debes colocar un numero de cuenta");
 	($("#aliasacccountupdate-cli").val() != "") ? $("#msgerrorNounAliasDetailAccount").text("") : $("#msgerrorNounAliasDetailAccount").text("Debes colocar un alias");
 	if($("#numaccountupdate-cli").val() != "" && $("#aliasacccountupdate-cli").val() != ""){
-
 		var formdata = new FormData();
 		formdata.append("n_account", $("#numaccountupdate-cli").val());
 		formdata.append("a_account", $("#aliasacccountupdate-cli").val());
 	  formdata.append("id_client", idClient);
 	  formdata.append("id_account", $("#val-idaccountdetail").val());
-
 		$.ajax({
 		  url: "./controllers/c_update-account-bank.php",
 		  method: "POST",
@@ -488,21 +483,21 @@ $(document).on("click", "#btn-AceptDeleteAccount", function(e){
 	e.preventDefault();
 	var idaccountdetail = $("#val-idaccountdetail").val();
 	$.ajax({
-		  url: "./controllers/c_delete-account-bank.php",
-		  method: "POST",
-		  datatype: "JSON",
-		  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-		  data: { id_client : idClient, id_account : idaccountdetail}
-		}).done( function (res){
-			if(res == "true"){
-				$(".alert-DeleteAccount").removeClass("show");
-				$(".alert-DeleteAccount--c").removeClass("show");
-				$(".cformDetailsAccount").removeClass("show");
-				$(".cformDetailsAccount--contDetails").removeClass("show");
-				listAccountDetails();
-				listAccountsUser();
-			}else{
-				console.log('Error al eliminar el registro');
-			}
-		});
+	  url: "./controllers/c_delete-account-bank.php",
+	  method: "POST",
+	  datatype: "JSON",
+	  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+	  data: { id_client : idClient, id_account : idaccountdetail}
+	}).done( function (res){
+		if(res == "true"){
+			$(".alert-DeleteAccount").removeClass("show");
+			$(".alert-DeleteAccount--c").removeClass("show");
+			$(".cformDetailsAccount").removeClass("show");
+			$(".cformDetailsAccount--contDetails").removeClass("show");
+			listAccountDetails();
+			listAccountsUser();
+		}else{
+			console.log('Error al eliminar el registro');
+		}
+	});
 });

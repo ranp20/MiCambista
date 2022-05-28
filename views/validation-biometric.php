@@ -4,6 +4,12 @@
 session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
+}else{
+	if(isset($_SESSION['cli_micambista'][0]['video_validation']) && !empty($_SESSION['cli_micambista'][0]['video_validation']) &&
+		 isset($_SESSION['cli_micambista'][0]['photo_dni_front']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_front']) && 
+		 isset($_SESSION['cli_micambista'][0]['photo_dni_back']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_back'])){
+			header("Location: my-profile");
+	}
 }
 require_once '../php/process_data-list.php';
 ?>
@@ -12,9 +18,9 @@ require_once '../php/process_data-list.php';
 <head>
 	<title>Mi Cambista | Validación Biométrica </title>
 	<?php require_once 'includes/header_links.php'; ?>
-	<!--<script type="text/javascript" src="<?= $url ?>views/js/face-api/face-api.min.js"></script>-->
 	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<script type="text/javascript" src="<?= $url ?>views/js/whammy/whammy.js"></script>
 </head>
 <body>
 	<div id="box-ModalValidAccBiometric"></div>
@@ -26,11 +32,11 @@ require_once '../php/process_data-list.php';
 			<section class="cControlP__cont--containDash">
 				<div class="cControlP__cont--containDash--c" id="cont-valid-biometric">
 					<div class="cControlP__cont--containDash--c--validBiom">
-						<?php require_once 'includes/dashboard-validation-biometric.php'; ?>
+						<?php require_once 'includes/dashboard-validation-biometric.php';?>
 					</div>
 				</div>
 			</section>
-			<?php require_once 'includes/dashboard-form-validation-media.php'; ?>
+			<?php require_once 'includes/dashboard-form-validation-media.php';?>
 		</div>
 	</div>
 	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/dashboard-client.js"></script>

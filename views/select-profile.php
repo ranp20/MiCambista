@@ -42,6 +42,7 @@ require_once '../php/process_data-list.php';
 							$tmp_multiprofiles = "";
 							$type_profileused = "Personal_profile";
 							$name_profileused = "";
+							$name_profileused_redux = "";
 							$nametype_profileused = "Natural";
 							if($dataCli[0]['multiple_profiles'] == "YES"){
 								require_once '../php/class/client.php';
@@ -49,6 +50,7 @@ require_once '../php/process_data-list.php';
 								$list_profiles = $client->get_enterprise_data($dataCli[0]['id']);
 								if(!empty($list_profiles)){
 									$name_profileused = $name;
+									$name_profileused_redux = (strlen($name_profileused) > 28) ? substr($name_profileused, 0, 28) . "..." : $name_profileused;
 									$nametype_profileused = "Natural";
 									$tmp_multiprofiles .= "
 										<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
@@ -62,7 +64,7 @@ require_once '../php/process_data-list.php';
 															<img src='{$url}views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 														</span>
 														<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-															<span>{$name_profileused}</span>
+															<span>{$name_profileused_redux}</span>
 														</span>
 														<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 															<span>Continuar como perfil ".strtolower($nametype_profileused)."</span>
@@ -71,7 +73,7 @@ require_once '../php/process_data-list.php';
 															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='{$type_profileused}'>
 														</span>
 														<span>
-															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused}'>
+															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused_redux}'>
 														</span>
 													</span>
 												</button>
@@ -82,6 +84,7 @@ require_once '../php/process_data-list.php';
 										$nametype_profileused = "Natural";
 									}else{
 										$name_profileused = $list_profiles[0]['name_enterprise'];
+										$name_profileused_redux = (strlen($name_profileused) > 28) ? substr($name_profileused, 0, 28) . "..." : $name_profileused;
 										$type_profileused = "Enterprise_profile";
 										$nametype_profileused = "Empresa";
 										$tmp_multiprofiles .= "
@@ -101,7 +104,7 @@ require_once '../php/process_data-list.php';
 																<img src='{$url}views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 															</span>
 															<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-																<span>{$name_profileused}</span>
+																<span>{$name_profileused_redux}</span>
 															</span>
 															<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 																<span>Continuar como perfil ".strtolower($nametype_profileused)."</span>
@@ -110,7 +113,7 @@ require_once '../php/process_data-list.php';
 																<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='{$type_profileused}'>
 															</span>
 															<span>
-																<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused}'>
+																<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused_redux}'>
 															</span>
 														</span>
 													</button>
@@ -120,6 +123,7 @@ require_once '../php/process_data-list.php';
 									}
 								}else{
 									$name_profileused = $name;
+									$name_profileused_redux = (strlen($name_profileused) > 28) ? substr($name_profileused, 0, 28) . "..." : $name_profileused;
 									$type_profileused = "Personal_profile";
 									$nametype_profileused = "Natural";
 									$tmp_multiprofiles .= "
@@ -134,7 +138,7 @@ require_once '../php/process_data-list.php';
 															<img src='{$url}views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 														</span>
 														<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-															<span>{$name_profileused}</span>
+															<span>{$name_profileused_redux}</span>
 														</span>
 														<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 															<span>Continuar como perfil ".strtolower($nametype_profileused)."</span>
@@ -143,7 +147,7 @@ require_once '../php/process_data-list.php';
 															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='{$type_profileused}'>
 														</span>
 														<span>
-															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused}'>
+															<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='{$name_profileused_redux}'>
 														</span>
 													</span>
 												</button>
@@ -165,6 +169,7 @@ require_once '../php/process_data-list.php';
 								}
 							}else{
 								$name_profileused = $name;
+								$name_profileused_redux = (strlen($name_profileused) > 28) ? substr($name_profileused, 0, 28) . "..." : $name_profileused;
 								$type_profileused = "Personal_profile";
 								$tmp_multiprofiles .= "
 									<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
@@ -178,7 +183,7 @@ require_once '../php/process_data-list.php';
 														<img src='{$url}views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 													</span>
 													<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-														<span>{$name_profileused}</span>
+														<span>{$name_profileused_redux}</span>
 													</span>
 													<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 														<span>Continuar como perfil ".strtolower($nametype_profileused)."</span>

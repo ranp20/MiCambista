@@ -1,5 +1,5 @@
 #m-show-hpage{
-	@include burger-incomplete-design(30px, 23px, $color-links, flex-end);
+	@include burger-incomplete-design(30px, 23px, $theme_color-links, flex-end);
 
 	@media (min-width: 991px){
   	display: none;
@@ -115,7 +115,7 @@
 								display: block;
 								text-decoration: underline;
     						margin-bottom: .8rem;
-    						color: $color-links;
+    						color: $theme_color-links;
 
     						@media (min-width: 991px){
 							    margin: 0;
@@ -305,7 +305,7 @@
 					}
 
 					&--title{
-						color: $color-links;
+						color: $theme_color-links;
     				font-size: 1.9rem;
     				line-height: 1.4;
 
@@ -364,7 +364,7 @@
     				}
 
 						&--cT{
-							color: $color-links;
+							color: $theme_color-links;
 							display: flex;
 							align-items: center;
 							justify-content: center;
@@ -373,7 +373,7 @@
 								padding: 0 1rem;
 								line-height: 1.6;
 								p{
-									color: $color-links;
+									color: $theme_color-links;
 									&:nth-child(2){
 										font-size: 1.4rem;
     								font-weight: 600;
@@ -382,10 +382,10 @@
 							}
 							&--cr{
 								padding: 0 1rem;
-								border-left: 1px solid $color-links;
+								border-left: 1px solid $theme_color-links;
 								line-height: 1.65;
 								p{
-									color: $color-links;
+									color: $theme_color-links;
 
 									&:nth-child(2){
 										font-size: 1.4rem;
@@ -415,7 +415,7 @@
 
 									&--ChangeVal{
 										text-align: center;
-										background-color: $color-links;
+										background-color: $theme_color-links;
 										border-radius: 9px 0 0 9px;
 										color: #fff;
 										width: 110px;
@@ -448,7 +448,7 @@
 									    top: 7px;
 									    font-size: 0.8rem;
     									right: 13px;
-    									color: $color-links;
+    									color: $theme_color-links;
 
     									@media (min-width: 991px){
 												top: 10px;
@@ -466,7 +466,7 @@
 									    line-height: 1.92;
 									    background-color: rgba(59,130,246,0.5);
 									    border-radius: 0 9px 9px 0;
-									    color: $color-links;
+									    color: $theme_color-links;
 
 									    &[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
 									    	-webkit-appearance: none;
@@ -490,7 +490,7 @@
 									    left: 0;
 									    transform: translateY(-50%);
 									    padding: 0 0 0 .9rem;
-									    color: $color-links;
+									    color: $theme_color-links;
 										}
 									}
 								}
@@ -538,10 +538,10 @@
 								svg{
 									fill: #fff;
 									circle{
-										stroke: $color-links;
+										stroke: $theme_color-links;
 									}
 									line{
-										stroke: $color-links;
+										stroke: $theme_color-links;
 									}
 								}
 								span{
@@ -605,7 +605,7 @@
     				}
 
 						&--T{
-							color: $color-links;
+							color: $theme_color-links;
 							font-size: 1.09rem;
     					font-weight: bold;
     					margin-bottom: 0.5rem;
@@ -746,7 +746,7 @@
 							}
 							
 							&--deskShow{
-								color: $color-links;
+								color: $theme_color-links;
 
 								@media (min-width: 991px){
 									font-size: 1.15rem;
@@ -754,7 +754,7 @@
 							}
 
 							&--txt{
-								color: $color-links;
+								color: $theme_color-links;
 
 								@media (min-width: 1440px){
 									font-size: .95rem;
@@ -784,7 +784,7 @@
 			}
 
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				margin-bottom: 0.5rem;
 				font-size: 1.8rem;
 
@@ -854,7 +854,7 @@
 
 					&--c{
 						&--title{
-							color: $color-links;
+							color: $theme_color-links;
 							margin-bottom: .5rem;
 	    				font-size: 1.6rem;
 						}
@@ -862,7 +862,7 @@
 							font-size: 1.1rem;
 							line-height: 1.4;
 							&--bold{
-								color: $color-links;
+								color: $theme_color-links;
 								display: block;
 							}
 							&--light{
@@ -908,7 +908,7 @@
 		    }
 
 				&--title{
-					color: $color-links;
+					color: $theme_color-links;
 					margin-bottom: 0.5rem;
 					font-size: 1.8rem;
 
@@ -985,7 +985,7 @@
 								}
 
 								&--numbtitle{
-									color: $color-links;
+									color: $theme_color-links;
 									font-size: 3.2rem;
 
 									@media (min-width: 991px){
@@ -1006,7 +1006,7 @@
 									}
 
 									b{
-										color: $color-links;
+										color: $theme_color-links;
 									}
 								}	
 							}
@@ -1032,7 +1032,7 @@
 					    	}
 
 								&--numbtitle{
-									color: $color-links;
+									color: $theme_color-links;
 									font-size: 3.2rem;
 
 									@media (min-width: 692px){
@@ -1054,7 +1054,7 @@
 						    	}
 
 									b{
-										color: $color-links;
+										color: $theme_color-links;
 									}
 								}	
 					    }
@@ -1133,7 +1133,7 @@
 					order: 2 !important;
 				}
 				&--title{
-					color: $color-links;
+					color: $theme_color-links;
 					margin-bottom: 1.5rem;
 					font-size: 1.8rem;
 
@@ -1167,7 +1167,7 @@
 						}
 
 						b{
-							color: $color-links;
+							color: $theme_color-links;
 						}
 					}
 				}
@@ -1217,7 +1217,7 @@
 					}
 					
 					&--title{
-						color: $color-links;
+						color: $theme_color-links;
 						margin-bottom: .5rem;
 						font-size: 1.8rem;
 
@@ -1301,7 +1301,7 @@
 				}
 
 				&__title{
-					color: $color-secondary;
+					color: $theme_color-links;
     			text-align: center;
     			margin: 0 auto 1.45rem auto;
 
@@ -1311,7 +1311,7 @@
     			h1{
 						font-weight: 700;
     				display: inline-block;
-						border-bottom: thin solid $color-secondary;
+						border-bottom: thin solid $theme_color-links;
 						font-size: 1.85rem;
 						@media (min-width: 690px){
 							font-size: 2.2rem;
@@ -1331,7 +1331,7 @@
 					&__item{
 						margin-bottom: 1.5rem;
 						&__title{
-							color: $color-secondary;
+							color: $theme_color-links;
 							font-weight: bold;
 							margin-bottom: 1rem;
 							font-size: 1.45rem;
@@ -1345,7 +1345,7 @@
 
 						}
 						&__subtitle{
-							color: $color-secondary;
+							color: $theme_color-links;
 							font-weight: bold;
 							margin-top: 1.5rem;
 							margin-bottom: 1rem;
@@ -1439,7 +1439,7 @@
 
 	/* FOOTER TOP */
 	&--contT{
-		background-color: $color-links;
+		background-color: $theme_color-links;
 
 		@media (min-width: 897px){
 			padding: 2.5rem 0;

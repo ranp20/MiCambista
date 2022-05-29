@@ -1,49 +1,41 @@
 #cont-complete-exchange{
 	position: relative;
-
 	.cControlP__cont--containDash--c--cCFinalDivise{
 		max-width: 420px;
 		width: 95%;
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
-
 		&--cTitle{
 			margin-bottom: 2rem;
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				margin-bottom: 1rem;
 				font-size: 1.7rem;
 			}
-
 			&--cIcon{
 				margin-bottom: 0.5rem;
 				img{
-
 				}
 			}
-
 			&--textdesc{
 				margin-bottom: 1rem;
 			}
-
 			&--textvalchange{
 				font-size: 1.45rem;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-
 				span{
-					color: $color-links;
+					color: $theme_color-links;
 				}
 				svg{
 					cursor: pointer;
-					stroke: $color-links;
+					stroke: $theme_color-links;
 					margin-left: 0.5rem;
 				}
 			}
 		}
-
 		&--cContInfo{
 			text-align: left;
 			&--subtitle{
@@ -51,7 +43,6 @@
 				color: $color-paragraph;
 				font-size: 1.35rem;
 			}
-
 			&--cTopbankMiCambistainfo{
 				background-color: #fff;
 				padding: .9rem;
@@ -60,67 +51,55 @@
 				align-items: center;
 				justify-content: space-between;
 				margin-bottom: 1.5rem;
-
 				&:nth-child(2){
 					padding: .9rem;
 				}
-
 				&:nth-child(3){
 					padding: .75rem 1rem;
 				}
-
 				svg{
-					stroke: $color-links;
+					stroke: $theme_color-links;
 					cursor: pointer;
 				}
-
 				&--cImg{
 					width: 6rem;
-
 					img{
 						width: 100%;
 					}
 				}
-
 				&--cinfo{
 					text-align: right;
-
 					&--top{
-						color: $color-links;
+						color: $theme_color-links;
 						margin-bottom: 0.5rem;
 						font-size: 0.85rem;
 					}
-
 					&--bottom{
-						color: $color-links;
+						color: $theme_color-links;
 						display: flex;
 						align-items: center;
 						justify-content: flex-start;
 						font-weight: 600;
-
 						svg{
-							stroke: $color-links;
+							stroke: $theme_color-links;
 							margin-left: 0.5rem;
 							cursor: pointer;
 						}
 					}
 				}
-
 				&--ruc{
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-					color: $color-links;
+					color: $theme_color-links;
 					margin: 0;
 					font-size: 1.05rem;
 					font-weight: 600;
 				}
 			}
-
 			&--infoStepInit{
 				line-height: 1.5;
 			}
-
 			&--showTitleinfo{
 				text-align: right;
 				display: flex;
@@ -132,23 +111,19 @@
 					text-decoration: underline;
 					color: $color-paragraph;
 				}
-
 				svg{
 					cursor: pointer;
 					fill: transparent;
-					stroke: $color-links;
+					stroke: $theme_color-links;
 					margin-left: 0.5rem;
 				}
-
 				&__cModalNumOpBankExample{
 					position: absolute;
 					top: -150px;
     			right: 20px;
-
     			@media (min-width: 768px){
     				right: -145px;
     			}
-
     			img{
     				max-width: 160px;
 				    width: 90%;
@@ -161,12 +136,10 @@
     			}
 				}
 			}
-
 			&--cFormSendtransac{
 				&--form{
 					&--cinputNumOp{
 						margin-bottom: 0.65rem;
-
 						input{
 							outline: none;
 							background-color: #fff;
@@ -179,26 +152,22 @@
 							min-height: 48px;
 							max-height: 48px;
 							height: auto;
-
 							&.non-validval{
 								box-shadow: inset 0 0 2px 2px red;
 							}
 						}
-
 						span{
 							color: red;
 					    font-size: .85rem;
 					    margin-left: .5rem;
 						}
 					}
-
 					&--Step{
 						color: $color-paragraph;
 						font-size: 1.1rem;
 						font-weight: 600;
 						margin-bottom: 1rem;
 					}
-
 					&--cBtns{
 						text-align: center;
 						&--btnTransac{
@@ -215,7 +184,6 @@
 							color: $color-paragraph;
 							margin-bottom: 1.2rem;
 						}
-
 						&--cancelLink{
 							cursor: pointer;
 							display: block;

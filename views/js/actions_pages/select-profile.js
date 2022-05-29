@@ -67,11 +67,13 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 	    	let tmp_profiles = "";
 	    	let type_prefileused = "Personal_profile";
 	    	let name_profile = "";
+	    	let name_profile_redux = "";
 	    	let nametype_profile = "Natural";
 	    	if(e != ""){
 	    		let r = JSON.parse(e);
 		    	if(r.response == "true" || r.response == true){
 	    			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	    			name_profile_redux = (name_profile.length >= 28) ? name_profile.substring(28, 0) + "..." : name_profile;
 	    			nametype_profile = "Natural";
 	    			tmp_profiles += `
 						<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
@@ -85,7 +87,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 											<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-											<span>${name_profile}</span>
+											<span>${name_profile_redux}</span>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 											<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
@@ -94,7 +96,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
 										</span>
 										<span>
-											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile_redux}'>
 										</span>
 									</span>
 								</button>
@@ -105,6 +107,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 		    			nametype_profile = "Natural";
 		    		}else{
 		    			name_profile = r.received[0].name_enterprise;
+		    			name_profile_redux = (name_profile.length >= 28) ? name_profile.substring(28, 0) + "..." : name_profile;
 		    			type_prefileused = "Enterprise_profile";
 		    			nametype_profile = "Empresa";
 		    			tmp_profiles += `
@@ -124,7 +127,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 												<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 											</span>
 											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-												<span>${name_profile}</span>
+												<span>${name_profile_redux}</span>
 											</span>
 											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 												<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
@@ -133,7 +136,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 												<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
 											</span>
 											<span>
-												<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+												<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile_redux}'>
 											</span>
 										</span>
 									</button>
@@ -227,6 +230,7 @@ $(document).on("click", ".cControlP__cont--containDash--c__cBtnsOpts-m--item__cI
 	    		let tmp_profiles = "";
 	    		let type_prefileused = "Personal_profile";
 	    		let name_profile = "";
+	    		let name_profile_redux = "";
 	    		let nametype_profile = "Natural";
 		    	if(e != ""){
 		    		let r = JSON.parse(e);
@@ -288,11 +292,13 @@ function list_multiprofiles(){
 			let tmp_profiles = "";
 			let type_prefileused = "Personal_profile";
 			let name_profile = "";
+			let name_profile_redux = "";
 			let nametype_profile = "Natural";
 	  	if(e != ""){
 	  		let r = JSON.parse(e);
 	  		if(r.response == "true"){
 	  			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	  			name_profile_redux = (name_profile.length >= 28) ? name_profile.substring(28, 0) + "..." : name_profile;
 	  			nametype_profile = "Natural";
 	  			tmp_profiles += `
 					<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
@@ -306,7 +312,7 @@ function list_multiprofiles(){
 										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-										<span>${name_profile}</span>
+										<span>${name_profile_redux}</span>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 										<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
@@ -315,7 +321,7 @@ function list_multiprofiles(){
 										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
 									</span>
 									<span>
-										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile_redux}'>
 									</span>
 								</span>
 							</button>
@@ -326,6 +332,7 @@ function list_multiprofiles(){
 	    			nametype_profile = "Natural";
 	    		}else{
 	    			name_profile = r.received[0].name_enterprise;
+	    			name_profile_redux = (name_profile.length >= 28) ? name_profile.substring(28, 0) + "..." : name_profile;
 	    			type_prefileused = "Enterprise_profile";
 	    			nametype_profile = "Empresa";
 	    			tmp_profiles += `
@@ -345,7 +352,7 @@ function list_multiprofiles(){
 											<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-											<span>${name_profile}</span>
+											<span>${name_profile_redux}</span>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 											<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
@@ -354,7 +361,7 @@ function list_multiprofiles(){
 											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
 										</span>
 										<span>
-											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+											<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile_redux}'>
 										</span>
 									</span>
 								</button>
@@ -365,6 +372,7 @@ function list_multiprofiles(){
 	    		c_profiles.html(tmp_profiles);
 	  		}else if(r.response == "mssg_personal"){
 	  			name_profile = r.received[0].name + " " + r.received[0].lastname;
+	  			name_profile_redux = (name_profile.length >= 28) ? name_profile.substring(28, 0) + "..." : name_profile;
 	  			nametype_profile = "Natural";
 	  			tmp_profiles += `
 					<div class='cControlP__cont--containDash--c__cBtnsOpts-m--item'>
@@ -378,7 +386,7 @@ function list_multiprofiles(){
 										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
-										<span>${name_profile}</span>
+										<span>${name_profile_redux}</span>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cfkLinkTxtDeco'>
 										<span>Continuar como perfil ${nametype_profile.toLowerCase()}</span>
@@ -387,7 +395,7 @@ function list_multiprofiles(){
 										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-typeprofile_used' autocomplete='off' spellcheck='false' value='${type_prefileused}'>
 									</span>
 									<span>
-										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile}'>
+										<input type='hidden' class='non-visvalipt h-alternative-shwnon s-fkeynone-step' name='ipt-nameprofile_used' autocomplete='off' spellcheck='false' value='${name_profile_redux}'>
 									</span>
 								</span>
 							</button>

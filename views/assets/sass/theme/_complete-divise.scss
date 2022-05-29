@@ -5,7 +5,6 @@
 	opacity: 0;
 	pointer-events: none;
 	user-select: none;
-
 	&.sendShow{
 		display: block;
 		visibility: visible;
@@ -16,7 +15,6 @@
 		animation-duration: .2s;
 		animation-timing-function: ease-in-out;
 	}
-
 	@keyframes sendShowConvert{
 		0%{
 			display: none;
@@ -38,16 +36,14 @@
 		max-width: 450px;
     width: 95%;
     margin: 0 auto 0 auto;
-		
 		&--cTitle{
 			margin-bottom: 2rem;
 			margin-left: auto;
 			margin-right: auto;
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 			}
 		}
-
 		&--cF{
 			max-width: 410px;
 			width: 100%;
@@ -60,7 +56,6 @@
 				justify-content: flex-start;
 			  text-align: left;
 			  margin-bottom: 1rem;
-
 			  /* MENSAJE DE ERROR - BANCO DESDE DONDE SE ENVÍA */
 				#msgerrorNounSelBankSend_CData{
 			    color: red;
@@ -73,7 +68,6 @@
 			    font-size: 0.9rem;
 			    padding-top: 0.3rem;	
 				}
-
 			  /* LISTADO DE BANCOS */
 			  &--cSelItem{
 					width: 100%;
@@ -89,7 +83,6 @@
 					min-height: 48px;
 					max-height: 48px;
 					height: auto;
-
 					&--cInputFake_CData{
 						display: flex;
 						align-items: center;
@@ -102,7 +95,6 @@
 							width: 4.1rem;
 						}
 					}
-
 					&--inputVal_CData{
 						cursor: pointer;
 						outline: none;
@@ -110,7 +102,6 @@
 	    			border: thin solid transparent;
 	    			width: 0;
 					}
-
 					/* LISTADO DE BANCOS */
 					&--MenuListBanks_CData{
 				    display: none;
@@ -127,7 +118,6 @@
 				    border-bottom: none;
 				    padding: 0;
 				    margin: 0;
-
 				    &.show{
 				    	border-top: thin solid transparent;
 				    	border-left: thin solid #ddd;
@@ -137,29 +127,24 @@
 				    	display: block;
 				    	z-index: 9;
 				    }
-
 				    &--itemanybanks{
 				    	display: flex;
 					    align-items: center;
 					    justify-content: flex-start;
 					    padding: .9rem 1rem;
 					    background-color: #eee;
-
 					    span{
 					    	color: $color-paragraph;
 					    }
 				    }
-
 				    &--item{
 				    	display: flex;
 				    	align-items: center;
 				    	justify-content: flex-start;
 				    	padding: .9rem 1rem;
-
 				    	&:hover{
 				    		background-color: #CFEADE;
 				    	}
-
 				    	&--cImg{
 				    		width: 4.5rem;
 				    		margin-right: 1rem;
@@ -169,7 +154,6 @@
 				    		}
 				    	}
 				    }
-
 				    &--itemanybanks_CData{
 				    	display: flex;
 				    	align-items: center;
@@ -182,7 +166,6 @@
 				    }
 					}
 				}
-
 				&--label{
 					display: block;
 			    width: 100%;
@@ -190,7 +173,6 @@
 			    color: $color-paragraph;
 			    font-size: 0.95rem;
 				}
-
 				&--clistaddBanks{
 					width: 100%;
 					display: flex;
@@ -200,7 +182,6 @@
 					border-radius: 5px;
 					margin-bottom: 1rem;
 					position: relative;
-
 					/* LISTADO DE CUENTAS BANCARIAS */
 				  &--cSelItem{
 						width: 100%;
@@ -216,7 +197,6 @@
 						min-height: 48px;
 						max-height: 48px;
 						height: auto;
-
 						/* MENSAJE DE ERROR - NOMBRE DE BANCO */
 						#msgerrorNounSelBank{
 					    color: red;
@@ -225,7 +205,6 @@
 					    bottom: -22px;
 					    left: 10px;
 						}
-
 						&--cInputFake_CData{
 							display: flex;
 							align-items: center;
@@ -238,7 +217,6 @@
 								width: 4.1rem;
 							}
 						}
-
 						&--inputVal_CData{
 							cursor: pointer;
 							outline: none;
@@ -246,7 +224,6 @@
 		    			border: thin solid transparent;
 		    			width: 0;
 						}
-
 						/* LISTADO DE CUENTAS */
 						&--MenuListAccountsBanks_CData{
 					    display: none;
@@ -263,7 +240,6 @@
 					    border-bottom: none;
 					    padding: 0;
 					    margin: 0;
-
 					    &.show{
 					    	border-top: thin solid transparent;
 					    	border-left: thin solid #ddd;
@@ -276,30 +252,26 @@
 					    	overflow-y: auto;
     						height: auto;
 					    }
-
 					    &--item{
 					    	display: flex;
 					    	align-items: center;
 					    	justify-content: space-between;
 					    	padding: .9rem 1rem;
-
 					    	&:hover{
 					    		background-color: #CFEADE;
 					    	}
-
 					    	&--cInfoBank{
 					    		font-size: 0.9rem;
 					    		&--numaccountbank{
 					    			color: $color-paragraph;
 					    		}
 					    		&--guion{
-					    			color: $color-links;
+					    			color: $theme_color-links;
 					    		}
 					    		&--aliasccountbank{
-					    			color: $color-links;
+					    			color: $theme_color-links;
 					    		}
 					    	}
-
 					    	&--cImg{
 					    		width: 4.5rem;
 					    		img{
@@ -308,7 +280,6 @@
 					    		}
 					    	}
 					    }
-
 					    &--itemanybanks_CData{
 					    	display: flex;
 					    	align-items: center;
@@ -321,8 +292,6 @@
 					    }
 						}
 					}
-
-
 					&--input{
 						display: block;
 						width: 100%;
@@ -331,7 +300,6 @@
 						line-height: 2;
 						font-size: 1rem;
 					}
-
 					&--icon{
 						width: 29px;
 				    top: 0;
@@ -345,7 +313,6 @@
 				    justify-content: center;
 				    text-align: center;
 				    vertical-align: middle;
-
 				    @media (min-width: 768px){
 							padding: 0 0.8rem 0 0.5rem;
 							width: 31px;
@@ -353,7 +320,6 @@
 						}
 					}
 				}
-
 				&--clistaddBanks{
 					width: 100%;
 					background-color: transparent;
@@ -370,11 +336,9 @@
 						border-radius: 5px;
 						box-shadow: 0 5px 10px 1px rgba(0,0,0,.06);
 						position: relative;
-
 						@media (min-width: 768px){
 							padding: 0.8rem 0.7rem 0.8rem 0.7rem;
 						}
-
 						&--input{
 							display: block;
 							width: 100%;
@@ -383,7 +347,6 @@
 							line-height: 2;
 							font-size: 1rem;
 						}
-
 						&--icon{
 							width: 29px;
 					    top: 0;
@@ -397,7 +360,6 @@
 					    justify-content: center;
 					    text-align: center;
 					    vertical-align: middle;
-
 					    @media (min-width: 768px){
 								padding: 0 0.8rem 0 0.5rem;
 								width: 31px;
@@ -405,13 +367,12 @@
 							}
 						}
 					}
-
 					&--caddBanks{
 						display: block;
 						text-align: left;
 				    padding: 1rem 0.8rem 1rem 0.8rem;
 				    border-radius: 0 0 0.5rem 0.5rem;
-				    color: $color-links;
+				    color: $theme_color-links;
 				    border: none;
 				    width: 100%;
 				    background-color: #E1F2EC;
@@ -419,15 +380,11 @@
 				    position: relative;
 				    top: -4px;
 				    box-shadow: 0 5px 10px 1px rgba(0,0,0,.06);
-
     				&:hover{
     					background-color: #CFEADE;
     				}
-
     				span{
-
     				}
-
     				svg{
     					vertical-align: middle;
 					    position: relative;
@@ -436,13 +393,11 @@
 					}
 				}
 			}
-
 			&--cBtnsActions{
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-
 				&--submitConvert{
 					display: inline-block;
 					width: 80%;
@@ -456,12 +411,10 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-
 					&.sendShowComplete{
 						opacity: .4;
 						cursor: not-allowed;
 					}
-
 					&--contloader{
 						position: relative;
 				    width: auto;
@@ -470,17 +423,14 @@
 				    align-items: center;
 				    justify-content: center;
 				    margin-left: 0.5rem;
-
 						&.show{
 							display: flex;
 						}
-
 						&--loader{
 							@include loader(white, 16px);
 						}
 					}
 				}
-
 				&--btnCancel{
 					display: inline-block;
 					width: 80%;

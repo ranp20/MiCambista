@@ -523,7 +523,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				font-size: 1.25rem;
 
 				@media (min-width: 768px){
@@ -818,7 +818,7 @@ strong, b{
 			}
 			label{
 				margin-left: 0.4rem;
-				color: $color-links;
+				color: $theme_color-links;
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI CUENTA PERSONAL */
 			#msgerrorNouncheckedAccount{
@@ -931,7 +931,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				font-size: 1.25rem;
 
 				@media (min-width: 768px){
@@ -1018,7 +1018,7 @@ strong, b{
 			}
 			label{
 				margin-left: 0.4rem;
-				color: $color-links;
+				color: $theme_color-links;
 				cursor: pointer;
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI EMPRESA */
@@ -1130,7 +1130,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				font-size: 1.2rem;
 
 				@media (min-width: 768px){
@@ -1217,7 +1217,7 @@ strong, b{
 					}
 					span{
 						justify-self: flex-start;
-						color: $color-links;
+						color: $theme_color-links;
 					}
 				}
 			}
@@ -1268,7 +1268,7 @@ strong, b{
 							margin-bottom: 0.5rem;
 						}
 						span{
-							color: $color-links;
+							color: $theme_color-links;
 						}
 					}
 				}
@@ -2029,7 +2029,7 @@ strong, b{
 					padding: 2rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $color-links;
+						color: $theme_color-links;
 						text-align: center;
 						font-weight: 500;
 					}
@@ -2049,19 +2049,15 @@ strong, b{
 							justify-content: space-between;
 							flex-wrap: wrap;
 							margin-bottom: 1.25rem;
-
 							&:first-child{
 								margin-bottom: 1.1rem;
 							}
-
 							p{
-								color: $color-links;
+								color: $theme_color-links;
 							}
-
 							span{
 								color: $color-paragraph;
 							}
-
 							&--cStatus{
 								padding: 0.5rem 1rem;
 								border-radius: 5px;
@@ -2107,7 +2103,7 @@ strong, b{
 					padding: 2rem 0 3rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $color-links;
+						color: $theme_color-links;
 						text-align: center;
 						font-weight: 500;
 					}
@@ -2125,7 +2121,7 @@ strong, b{
 						margin: 0;
 						&--item{
 							& > p{
-								color: $color-links;
+								color: $theme_color-links;
 							}
 
 							&--cAccBank{
@@ -2142,7 +2138,7 @@ strong, b{
 										display: flex;
 										align-items: center;
 										svg{
-											stroke: $color-links;
+											stroke: $theme_color-links;
 											margin-left: 0.5rem;
 											cursor: pointer;
 										}
@@ -2151,10 +2147,10 @@ strong, b{
 									&:last-child{
 										p{
 											&:last-child{
-												color: $color-links;
+												color: $theme_color-links;
 
 												svg{
-													stroke: $color-links;
+													stroke: $theme_color-links;
 													margin-left: 0.5rem;
 													cursor: pointer;
 												}
@@ -2190,7 +2186,7 @@ strong, b{
 								text-align: center;
 								vertical-align: middle;
 								padding: 0 1rem;
-								background-color: $color-links;
+								background-color: $theme_color-links;
 								color: #fff;
 								right: 0;
 								height: 100%;
@@ -2294,7 +2290,7 @@ strong, b{
 		background-color: #fff;
 		max-width: 450px;
 		width: 95%;
-		color: $color-links;
+		color: $theme_color-links;
 		border-radius: 1.5rem;
 		padding: 2rem;
 		position: relative;

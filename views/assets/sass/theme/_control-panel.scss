@@ -1,5 +1,5 @@
 #m-show-hpagepanel{
-	@include burger-incomplete-design(30px, 23px, $color-links, flex-start);
+	@include burger-incomplete-design(30px, 23px, $theme_color-links, flex-start);
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
@@ -119,7 +119,7 @@ $top-header-desktop: 85px;
 						}
 
 						p{
-							color: $color-links;
+							color: $theme_color-links;
 							position: relative;
 							top: 2px;
 						}
@@ -373,16 +373,16 @@ $top-header-desktop: 85px;
 						font-size: 1.35rem;
 
 						@media (min-width: 991px){
-							font-size: 1.85rem;
+							font-size: 1.95rem;
 							margin-bottom: .5rem;
 						}
 					}
 					h3{
 						color: $color-paragraph;
-						font-size: 1.2rem;
+						font-size: 1rem;
 						font-weight: 300;
 						@media (min-width: 991px){
-							font-size: 1.5rem;
+							font-size: 1.3rem;
 						}
 					}
 				}
@@ -564,7 +564,7 @@ $top-header-desktop: 85px;
 					margin-right: auto;
 
     			&--title{
-						color: $color-links;
+						color: $theme_color-links;
 						margin-bottom: 0.5rem;
 						font-size: 1.5rem;
 					}
@@ -605,7 +605,7 @@ $top-header-desktop: 85px;
 							}
 
 							p{
-								color: $color-links;
+								color: $theme_color-links;
 							}
 						}
 					}
@@ -694,7 +694,7 @@ $top-header-desktop: 85px;
 
 					svg{
 						fill: none;
-						stroke: $color-links;
+						stroke: $theme_color-links;
 					}
 				}
 
@@ -721,7 +721,7 @@ $top-header-desktop: 85px;
 					}
 					&--cnamcli{
 						p{
-							color: $color-links;
+							color: $theme_color-links;
 							font-size: 1.1rem;
 					    font-weight: bold;
 					    line-height: 1.5;

@@ -33,7 +33,7 @@ $g_setting = $call_config->get_config();
 			</a>
 			<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli">
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIcon">
-					<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="">
+					<img src="<?= $url ?>views/assets/img/svg/male-dark.svg" alt="">
 				</div>
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cNamecli">
 					<p>

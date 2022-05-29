@@ -5,7 +5,7 @@
 		</div>
 		<div class="cControlP__cont--sdRight--c--cNamecli">
 			<div class="cControlP__cont--sdRight--c--cNamecli--cImg">
-				<img src="<?= $url ?>views/assets/img/svg/user-male.svg" alt="icon_user-male" width="100" height="100">
+				<img src="<?= $url ?>views/assets/img/svg/male-dark.svg" alt="icon_user-male" width="100" height="100">
 			</div>
 			<div class="cControlP__cont--sdRight--c--cNamecli--cnamcli">
 				<p><?= $name; ?></p>

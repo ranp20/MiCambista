@@ -36,7 +36,7 @@
 				width: 100%;
 				&--title{
 					font-size: 1.2rem;
-					color: $color-links;
+					color: $theme_color-links;
 					line-height: 1.5;
 					font-weight: 600;
 
@@ -275,7 +275,7 @@
 				&--cReferedU{
 					margin-bottom: 1rem;
 					&--title{
-						color: $color-links;
+						color: $theme_color-links;
 						margin-bottom: 0.5rem;
 						line-height: 1.5;
 						font-size: 1rem;
@@ -317,7 +317,7 @@
 					}
 					a{
 						text-decoration: underline;
-						color: $color-links;
+						color: $theme_color-links;
 					}
 				}
 				&--cBtnsActions{
@@ -344,7 +344,7 @@
 
 						a{
 							text-decoration: underline;
-							color: $color-links;
+							color: $theme_color-links;
 						}
 					}
 				}

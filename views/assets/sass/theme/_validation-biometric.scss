@@ -201,7 +201,7 @@
 
 					&.step-complete{
 						span{
-							background-color: $color-links;
+							background-color: $theme_color-links;
 							position: relative;
 
 							&:after{
@@ -215,7 +215,7 @@
 						}
 
 						p{
-							color: $color-links;
+							color: $theme_color-links;
 							font-weight: bold;
 						}
 					}
@@ -306,7 +306,7 @@
 						margin-right: auto;
 
 						&--title{
-							color: $color-links;
+							color: $theme_color-links;
 							font-size: 1.45rem;
     					font-weight: 600;
 

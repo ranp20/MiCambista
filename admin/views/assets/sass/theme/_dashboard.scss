@@ -538,6 +538,7 @@
 					&__cCardBody{
 						padding: 1rem 1rem;
 						&__contCol{
+							/* CONTENEDOR - TÍTULO DEL ELEMENTO */
 							&__cardTitle{
 								margin: .5rem 0 .85rem 0;
 								font-size: 1.25rem;
@@ -548,6 +549,7 @@
 								align-items: center;
 								padding: 0 .25rem;
 							}
+							/* CONTENEDOR - AGRUPACIÓN DE ELEMENTOS */
 							&__cardGrpControlsinfo{
 								display:flex;
 								align-items: flex-start;
@@ -565,10 +567,14 @@
 									margin-bottom: .25rem;
 									padding-left: .25rem;
 	    						padding-right: .25rem;
+	    						overflow-x: auto;
+	    						overflow-y: auto;
 
 									@media (min-width: 768px){
 										width: 33.3333333%;
 										//width: 32.89%;
+										overflow-x: unset;
+	    							overflow-y: unset;
 									}
 
 									&__label{
@@ -626,6 +632,84 @@
 										border-radius: 4px;	
 									}
 								}
+							}
+							/* CONTENEDOR -BOTONES DE ACCIÓN (VALIDACIÓN) */
+							&__cGrpBtnsValidOpts{
+								display: flex;
+						    align-items: center;
+						    justify-content: flex-end;
+						    flex: 0 0 100%;
+						    flex-flow: wrap row;
+						    margin-top: 1rem;
+						    &__c{
+						    	display: flex;
+							    align-items: center;
+							    justify-content: flex-end;
+							    flex: 0 0 100%;
+							    flex-flow: wrap row;
+							    margin-top: 1rem;
+									&__btn{
+										border: none;
+										box-sizing: border-box;
+										border-radius: 5px;
+										padding: .65rem .5rem;
+										margin-bottom: .5rem;
+										display: block;
+										width: 100%;
+										font-size: 0.95rem;
+
+										@media (min-width: 768px){
+											&:first-child{
+												margin-left: 0;
+												margin-right: 0;
+												margin-top: 0;
+												margin-bottom: 0;
+											}
+											display: inline-block;
+											width: auto;
+											margin-right: 0;
+											margin-top: 0;
+											margin-bottom: 0;
+											margin-left: 0.7rem;
+											padding: 0.65rem 0.75rem;
+										}
+										@media (min-width: 991px){
+											max-width: 15.5rem;
+											width: 100%;
+										}
+										&.btn__valid-cust-success{
+											background-color: $btn-color-green;
+											&:hover{
+												background-color: darken($btn-color-green, 5%);
+											}
+										}
+										&.btn__valid-cust-danger{
+											background-color: $btn-color-red;
+											&:hover{
+												background-color: darken($btn-color-red, 5%);
+											}
+										}
+										&__cIcon{
+											min-width: 30px;
+											min-height: 30px;
+											width: 30px;
+											height: 30px;
+											display: inline-block;
+											svg{
+												position: relative;
+												top: 3px;
+												left: auto;
+												right: auto;
+												bottom: auto;
+												fill: #fff;
+											}
+										}
+										&__cText{
+											vertical-align: middle;
+											color: #fff;
+										}
+									}
+						    }
 							}
 						}
 					}

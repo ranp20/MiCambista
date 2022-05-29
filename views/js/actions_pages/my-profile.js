@@ -1,7 +1,6 @@
-// ------------ PREGUNTAR SI DE VERDAD DESEEA REGRESAR - SE PERDERÁN LOS CAMBIOS
-// window.onbeforeunload = function(event) {
-//   event.returnValue = "¿Deseas salir?";
-// };
+$(() => {
+	//listInfoGeneralUser();
+});
 // ------------ MOSTRAR EL MODAL DE VALIDACIÓN
 $(document).on("click", "#link-SValidModalAccBiometric", function(){
 	$("#box-ModalValidAccBiometric").addClass("show");
@@ -18,5 +17,31 @@ $(document).on("click", "#link-SValidModalAccBiometric", function(){
 $(document).on("click", "#icon-closeModalVAccBiometric", function(){$("#box-ModalValidAccBiometric").removeClass("show");});
 let contValidationBio = document.querySelector("#box-ModalValidAccBiometric");
 contValidationBio.addEventListener("click", e => {
-	if(e.target === contValidationBio) contValidationBio.classList.remove("show");
+	if(e.target === contValidationBio){contValidationBio.classList.remove("show");}
 })
+/*
+function listInfoGeneralUser(){
+	$.ajax({
+		url: "./controllers/c_delete-profile-enterprise.php",
+		method: "POST",
+		data: formdata,
+		contentType: false,
+    cache: false,
+    processData: false,
+    beforeSend: function(){
+    	//console.log('Insertando la información');
+    },
+    success: function(e){
+    	console.log(e);
+    },
+	 	statusCode: {
+	    404: function(){
+	      console.log('Error 404: La página de consulta no fue encontrada.');
+	    }
+	  },
+	  error:function(x,xs,xt){
+	    console.log(JSON.stringify(x));
+	  }
+	});
+}
+*/

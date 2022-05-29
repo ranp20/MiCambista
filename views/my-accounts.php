@@ -4,6 +4,10 @@
 session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
+}else{
+	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+		header("Location: complete-register");
+	}
 }
 require_once '../php/process_data-list.php';
 ?>
@@ -24,6 +28,7 @@ require_once '../php/process_data-list.php';
 			<section class="cControlP__cont--containDash">
 				<div class="cControlP__cont--containDash--c" id="cont-my-accounts">
 					<div class="cControlP__cont--containDash--c--myAccounts">
+					<!-- 
 						<div class="cControlP__cont--containDash--c--myAccounts--msgCKash">
 							<img src="<?= $url ?>views/assets/img/svg/kash-my-accounts.svg" alt="">
 							<div class="cControlP__cont--containDash--c--myAccounts--msgCKash--cTitle">
@@ -34,6 +39,7 @@ require_once '../php/process_data-list.php';
 								<a href="#" class="cControlP__cont--containDash--c--myAccounts--msgCKash--cTitle--link">¿Cómo ganar kash?</a>
 							</div>
 						</div>
+						 -->
 						<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList" id="listAccountByThisUser">
 							<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount">
 								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount--cTitle">

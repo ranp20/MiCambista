@@ -137,47 +137,50 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 	  formdata.append("id_client", idClientInitial);
 
 	  $.ajax({
-	    url: "controllers/c_add-complete-register.php",
+	    url: "./php/process_complete-register.php",
 	    method: "POST",
 	    data: formdata,
 	    contentType: false,
 	    cache: false,
 	    processData: false,
 	  }).done((e) => {
-	  	if(e == "true"){
-	  		$("#msgAlertLogin").html(`
-	  			<div class='message-success'>
-						<div class='message-success__content'>
-							<div class='message-success__content--btnclosed' id='btnclosed'></div>
-							<h2 class='message-success__content--title'>Registro Completo!</h2>
-							<p class='message-success__content--text'>Felicidades, has completado el registro correctamente!</p>
+	  	if(e != ""){
+	  		var r = JSON.parse(e);
+		  	if(r.response == "true"){
+		  		$("#msgAlertLogin").html(`
+		  			<div class='message-success'>
+							<div class='message-success__content'>
+								<div class='message-success__content--btnclosed' id='btnclosed'></div>
+								<h2 class='message-success__content--title'>Registro Completo!</h2>
+								<p class='message-success__content--text'>Felicidades, has completado el registro correctamente!</p>
+							</div>
+						</div>
+		  		`);
+					setTimeout(function(){
+						location.replace("welcome");
+					}, 500);
+		  	}else{
+		  		$("#msgAlertLogin").html(`
+	  			<div class="msgAlertLogin--error">
+						<div class="msgAlertLogin--error--c">
+							<span class="msgAlertLogin--error--c--close" id="btnCloseErr"></span>
+							<h3 class="msgAlertLogin--error--c--title">¡Error!</h3>
+							<p class="msgAlertLogin--error--c--desc">Lo sentimos, hubo un error al completar el regitro.</p>
 						</div>
 					</div>
-	  		`);
-				setTimeout(function(){
-					location.replace("control-panel");
-				}, 500);
-	  	}else{
-	  		$("#msgAlertLogin").html(`
-  			<div class="msgAlertLogin--error">
-					<div class="msgAlertLogin--error--c">
-						<span class="msgAlertLogin--error--c--close" id="btnCloseErr"></span>
-						<h3 class="msgAlertLogin--error--c--title">¡Error!</h3>
-						<p class="msgAlertLogin--error--c--desc">Lo sentimos, hubo un error al completar el regitro.</p>
-					</div>
-				</div>
-	  		`);
-	  		setTimeout(function(){
-					$('.msgAlertLogin--error').addClass('disabled');
-				}, 5500);
-				// ------------ CERRAR EL MENSAJE DE ERROR 
-				let containermodal = document.querySelector('.msgAlertLogin--error');
-				containermodal.addEventListener('click', e => {
-					if(e.target === containermodal)	containermodal.classList.add('disabled');
-				});
-				document.querySelector("#btnCloseErr").addEventListener("click", function(){
-					document.querySelector(".msgAlertLogin--error").classList.add("disabled");
-				});
+		  		`);
+		  		setTimeout(function(){
+						$('.msgAlertLogin--error').addClass('disabled');
+					}, 5500);
+					// ------------ CERRAR EL MENSAJE DE ERROR 
+					let containermodal = document.querySelector('.msgAlertLogin--error');
+					containermodal.addEventListener('click', e => {
+						if(e.target === containermodal)	containermodal.classList.add('disabled');
+					});
+					document.querySelector("#btnCloseErr").addEventListener("click", function(){
+						document.querySelector(".msgAlertLogin--error").classList.add("disabled");
+					});
+		  	}
 	  	}
 		});
 	}else{

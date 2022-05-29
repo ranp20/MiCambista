@@ -57,8 +57,13 @@ function listCompleteExchange(){
 	});
 }
 // ------------ EVENTO KEYPRESS - INPUT DE NÚMERO DE OPERACIÓN
-$(document).on("keypress", "#v-validNumOperationTransc", function(e){
+$(document).on("keypress keyup", "#v-validNumOperationTransc", function(e){
 	var charCode = (e.which) ? e.which : e.keyCode;
+  if(e.target.value.length >= 8){
+  	$(this).addClass("non-validval");
+  	$(this).next().text("Solo se permite un máximo de 8 números *");
+  	return false;
+  }
   if (charCode > 31 && (charCode < 48 || charCode > 57)){
     $(this).addClass("non-validval");
     $(this).next().text("Solo se permiten números en este control *");

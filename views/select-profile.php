@@ -4,12 +4,17 @@
 session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
+}else{
+	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+		header("Location: complete-register");
+	}else{
+		if(isset($_SESSION['cli_micambista'][0]['profile_type']) && !empty($_SESSION['cli_micambista'][0]['profile_type']) && 
+			 isset($_SESSION['cli_micambista'][0]['profile_name']) && !empty($_SESSION['cli_micambista'][0]['profile_name'])){
+			header("Location: convert-divise");
+		}
+	}
 }
 require_once '../php/process_data-list.php';
-if(isset($_SESSION['cli_micambista'][0]['profile_type']) && !empty($_SESSION['cli_micambista'][0]['profile_type']) && 
-	 isset($_SESSION['cli_micambista'][0]['profile_name']) && !empty($_SESSION['cli_micambista'][0]['profile_name'])){
-	header("Location: convert-divise");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es" translate="no">

@@ -2,9 +2,8 @@
 if(!isset($_SESSION)){
 	header("Location: signin");
 }else{
-	if(isset($_SESSION['cli_micambista'])){
+	if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
 		$idclient = $_SESSION['cli_micambista'][0]['id'];
-
 		require_once 'class/client.php';
 		$client = new Client();
 		$dataCli = $client->get_data_by_id($idclient);

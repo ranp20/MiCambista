@@ -4,14 +4,19 @@
 session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
+}else{
+	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+		header("Location: complete-register");
+	}else{
+		if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['cli_micambista'][0]['profile_type'])){
+			header("Location: select-profile");
+		}
+	}
 }
 require_once '../php/process_data-list.php';
 require_once '../php/class/settings.php';
 $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
-if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['cli_micambista'][0]['profile_type'])){
-	header("Location: select-profile");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es" translate="no">

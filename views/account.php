@@ -1,6 +1,12 @@
 <?php 
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
+session_start();
+if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
+  if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+    header("Location: complete-register");
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es" translate="no">

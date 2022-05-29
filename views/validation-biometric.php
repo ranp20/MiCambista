@@ -5,10 +5,14 @@ session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
 }else{
-	if(isset($_SESSION['cli_micambista'][0]['video_validation']) && !empty($_SESSION['cli_micambista'][0]['video_validation']) &&
-		 isset($_SESSION['cli_micambista'][0]['photo_dni_front']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_front']) && 
-		 isset($_SESSION['cli_micambista'][0]['photo_dni_back']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_back'])){
-			header("Location: my-profile");
+	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+		header("Location: complete-register");
+	}else{
+		if(isset($_SESSION['cli_micambista'][0]['video_validation']) && !empty($_SESSION['cli_micambista'][0]['video_validation']) &&
+			 isset($_SESSION['cli_micambista'][0]['photo_dni_front']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_front']) && 
+			 isset($_SESSION['cli_micambista'][0]['photo_dni_back']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_back'])){
+				header("Location: my-profile");
+		}
 	}
 }
 require_once '../php/process_data-list.php';

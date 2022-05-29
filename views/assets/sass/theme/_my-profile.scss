@@ -5,135 +5,74 @@
 	
 	.cControlP__cont--containDash--c--myProfile{
 		padding: 2rem 0;
-		max-width: 800px;
+		max-width: 51.5rem;
 		width: 95%;
 		margin-left: auto;
 		margin-right: auto;
 		min-height: 100vh;
 		height: 100%;
-
 		&--cTitle{
 			margin-bottom: 1rem;
 			padding: 0 0.5rem 0 0.5rem;
-
 			@media (min-width: 768px){
 				padding: 0;
 			}
-
 			&--title{
-				color: $color-links;
+				color: $theme_color-links;
 				margin-bottom: 0.5rem;
 			}
-
 			&--desc{
 				line-height: 1.5;
 			}
 		}
-
-		&--cContDataUser{
+		&--cDataUser{
 			background-color: #fff;
 			border-radius: 1.5rem;
 			box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
 			padding: 1.5rem;
-
 			@media (min-width: 768px){
 				padding: 2.5rem 3rem;
 			}
-
-			/* DATOS NO ACTUALIZABLES POR EL USUARIO */
-			&--itemDnonUpdatable-data{
+			&--item{
 				display: flex;
 				align-items: flex-start;
 				justify-content: space-between;
 				flex-wrap: wrap;
 				flex: 0 0 100%;
-				user-select: none;
-
 				@media (min-width: 768px){
 					gap: 1rem;
 				}
-
 				&--control{
-					flex: 100%;
-					margin-bottom: 1rem;
-					line-height: 1.35;
-
-					@media (min-width: 768px){
-						flex: 45%;
-					}
-
-					&--label{
-						color: $color-links;
-						text-transform: uppercase;
-						font-weight: 600;
-					}
-
-					&--input{
-					}
-				}
-			}
-
-			/* DATOS ACTUALIZABLES */
-			&--itemDdata-uddate{
-				display: flex;
-				align-items: flex-start;
-				justify-content: space-between;
-				flex-wrap: wrap;
-				flex: 0 0 100%;
-				user-select: auto;
-
-				@media (min-width: 768px){
-					gap: 1rem;
-				}
-
-				&--control{
-					flex: 100%;
-					margin-bottom: 1rem;
-					line-height: 1.35;
-
-					@media (min-width: 769px){
-						flex: 45%;
-					}
-
-					&--label{
-						color: $color-links;
-						text-transform: uppercase;
-						font-weight: 600;
-					}
-
-					&--input{
-					}
-				}
-			}
-
-			/* SOLO UN DATO A ACTUALIZAR */
-			&--itemUdata-uddate{
-				display: flex;
-				align-items: flex-start;
-				justify-content: space-between;
-				flex-wrap: wrap;
-				flex: 0 0 100%;
-
-				@media (min-width: 768px){
-					gap: 1rem;
-				}
-
-				&--control{
-					flex: 100%;
 					margin-bottom: 1rem;
 					line-height: 1.35;
 					&--label{
-						color: $color-links;
-						text-transform: uppercase;
-						font-weight: 600;
+						color: $theme_color-links;
+						font-weight: 500;
 					}
-
 					&--input{
+					}
+					&--cUptData{
+						display: flex;
+				    flex-flow: wrap row;
+				    align-items: center;
+				    justify-content: space-between;
+				    flex: 0 0 100%;
+				    &--txt{
 
+				    }
+				    &--cIcon{
+				    	cursor: pointer;
+				    	min-width: 28px;
+				    	min-height: 28px;
+				    	width: 28px;
+				    	height: 28px;
+				    	svg{
+				    		fill: $theme_color-links;
+				    	}
+				    }
 					}
 				}
 			}
-
 			/* DATOS DE VALIDACIÓN Y CAMBIO DE CONTRASEÑA */
 			&--cDataValidate{
 				padding-top: 1rem;
@@ -142,26 +81,22 @@
 					margin: 0;
 					&--item{
 					}
-
 					&--link{
 						cursor: pointer;
 						border: none;
 						background-color: transparent;
 						display: block;
 						margin-bottom: 1.5rem;
-
 						&--cIcon{
 							width: 30px;
 					    height: 30px;
 					    display: inline-block;
 					    margin-right: 1rem;
 					    vertical-align: middle;
-
 							svg{
-								fill: $color-links;
+								fill: $theme_color-links;
 							}
 						}
-
 						span{
 							vertical-align: middle;
 							color: $color-paragraph;

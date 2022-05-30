@@ -118,4 +118,17 @@ class Client extends Connection{
 			return $err->getMessage();
 		}
   }
+  // -------------- OBTENER EL ESTADO ACTUAL DE LA VALIDACIÓN DE DATOS BIOMÉTRICOS
+  function get_status_biometric_validation($id_client){
+  	try{
+			$sql = "CALL sp_status_biometric_validation(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			$data = $stm->fetchAll(PDO::FETCH_ASSOC);
+			return $data;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
 }

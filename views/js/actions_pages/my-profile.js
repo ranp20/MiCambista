@@ -22,7 +22,7 @@ contValidationBio.addEventListener("click", e => {
 /*
 function listInfoGeneralUser(){
 	$.ajax({
-		url: "./controllers/c_delete-profile-enterprise.php",
+		url: "./controllers/c_list-info-general.php",
 		method: "POST",
 		data: formdata,
 		contentType: false,

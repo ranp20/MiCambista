@@ -51,7 +51,42 @@ img{
 .alt-mayus{
 	text-transform: uppercase !important;
 }
-
+.non-visvalipt{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
+}
+.h-alternative-shwnon{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
+}
+.s-fkeynone-step{
+	width: 0;
+	height: 0;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	background-color: #fff;
+	border: none;
+	line-height: unset;
+	user-select: none;
+}
 .ta-right{text-align: right;}
 .ta-left{text-align: left;}
 .ta-center{text-align: center;}

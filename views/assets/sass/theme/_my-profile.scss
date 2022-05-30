@@ -80,12 +80,45 @@
 					padding: 0;
 					margin: 0;
 					&--item{
+						&__c{
+							&__mssgValidOpt{
+								display: inline-block;
+								margin-left: 0.5rem;
+								&.c-colormssg-process{
+									span{
+										color: orange;
+										vertical-align: top;
+										svg{
+											fill: orange;
+										}
+									}
+								}
+								&.c-colormssg-success{
+									span{
+										color: green;
+										vertical-align: top;
+										svg{
+											fill: green;
+										}
+									}
+								}
+								&.c-colormssg-danger{
+									span{
+										color: red;
+										vertical-align: top;
+										svg{
+											fill: red;
+										}
+									}
+								}
+							}
+						}
 					}
 					&--link{
 						cursor: pointer;
 						border: none;
 						background-color: transparent;
-						display: block;
+						display: inline-block;
 						margin-bottom: 1.5rem;
 						&--cIcon{
 							width: 30px;
@@ -98,7 +131,7 @@
 							}
 						}
 						span{
-							vertical-align: middle;
+							//vertical-align: middle;
 							color: $color-paragraph;
 						}
 					}

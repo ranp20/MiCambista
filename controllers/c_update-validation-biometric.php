@@ -32,7 +32,7 @@ class Complete_ValidBiometric extends Connection{
 
 		$arr_upbiometric = [
 			"complete_account" => $statusaccount,
-			"video_validation" => $_POST['videoBlob_valid'],
+			//"video_validation" => $_POST['videoBlob_valid'],
 			"photo_dni_front" => $img_front,
 			"photo_dni_back" => $img_back,
 			"id_client" => $_POST['id_client'],
@@ -50,7 +50,8 @@ class Complete_ValidBiometric extends Connection{
 
 			if(move_uploaded_file($front_file_temp, $front_file_folder . $front_file_lowercase)){
 				if(move_uploaded_file($back_file_temp, $back_file_folder . $back_file_lowercase)){
-					$sql = "CALL sp_update_validation_biometric(:complete_account, :video_validation, :photo_dni_front, :photo_dni_back, :id_client)";
+					//$sql = "CALL sp_update_validation_biometric(:complete_account, :video_validation, :photo_dni_front, :photo_dni_back, :id_client)";
+					$sql = "CALL sp_update_validation_biometric(:complete_account, :photo_dni_front, :photo_dni_back, :id_client)";
 					$stm = $this->con->prepare($sql);
 					foreach ($arr_upbiometric as $key => $value) {
 						$stm->bindValue($key, $value);

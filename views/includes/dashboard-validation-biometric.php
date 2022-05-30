@@ -1,28 +1,16 @@
 <div class="cControlP__cont--containDash--c--validBiom--cont">
 	<form action="" method="POST" id="mcamb_frm-validbiometric" enctype="multipart/form-data">
 		<ul class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus" id="c_statusPointSteps_validBiom">
-			<!--
-			<li data-target="#anchor_step_one" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep active">
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">1</span>
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN DE IDENTIDAD</span>
-			</li>
-			<li data-target="#anchor_step_two" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">2</span>
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">GRABAR VIDEO SELFIE</span>
-			</li>
-			<li data-target="#anchor_step_three" class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">3</span>
-				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN</span>
-			</li>
-			-->
 			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep active">
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">1</span>
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN DE IDENTIDAD</span>
 			</li>
+			<!-- 
 			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">2</span>
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">GRABAR VIDEO SELFIE</span>
 			</li>
+ 			-->
 			<li class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep">
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--point">3</span>
 				<span class="cControlP__cont--containDash--c--validBiom--cont--cLeftStatus--pointStep--text">VERIFICACIÓN</span>
@@ -60,6 +48,7 @@
 				</div>
 				<button type="button" class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--btnOneToNextStep" id="btn_stepNext_validBiom">CONTINUAR</button>
 			</section>
+			<!-- 
 			<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="anchor_step_two">
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
 					<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">INSTRUCCIONES</h2>
@@ -69,6 +58,7 @@
 					<button type="button" id="btn-stop_recordbiometric" class="btn-pri_theme-def">Subir video</button>
 				</div>
 			</section>
+ 			-->
 			<section class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step" id="anchor_step_three">
 				<div class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle">
 					<h2 class="cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step--cTitle--title">COMPLETADO</h2>

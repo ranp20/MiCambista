@@ -4,8 +4,15 @@
 session_start();
 if(!isset($_SESSION['cli_micambista'])){
 	header("Location: signin");
+}else{
+	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+		header("Location: complete-register");
+	}
 }
 require_once '../php/process_data-list.php';
+require_once '../php/class/client.php';
+$classCli = new CLient();
+$list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_micambista'][0]['id']);
 ?>
 <!DOCTYPE html>
 <html lang="es" translate="no">

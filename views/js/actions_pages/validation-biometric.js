@@ -1,41 +1,46 @@
 $(function(){
-  btn_frmCloseModal.addEventListener("click", function(){
-    c_totalfrmModal.classList.remove("show");
-    c_containfrmModal.classList.remove("show");
-  });
+  // VARIABLES PARA EL MODAL DE VIDEO
+  /*
+  const btn_frmCloseModal = document.querySelector("#icon_frmbtnClose");
+  const c_totalfrmModal = document.querySelector(".cformValidMediaBiometric");
+  const c_containfrmModal = document.querySelector(".cformValidMediaBiometric--form");
+  var btnOpenVideo = document.getElementById("btn-stop_recordbiometric");
+  var downloadButton = document.getElementById("btn-ValidMediaBiometric");
+  var startRecordButton = document.getElementById("init_vidValidationBio");
+  var recording = document.getElementById("c_video-valididentity__opViewVideo");
+  var videoTag = document.getElementById("c_video-valididentity");
+  var loaderValidVid = document.getElementById("gif-load-validvideo");
+  var contVideoRecording = document.getElementById("c_playVideoRecording");
+  var blobSaveServer = "";
+  var checkActiveDevices = false;
+  var streamCaptura = "";
+  var recordingTimeMS = 6000;
+  var recordedblobData = "";
+  var recordingDataToSend = "";
+  if(btn_frmCloseModal != null && btn_frmCloseModal != undefined){
+    btn_frmCloseModal.addEventListener("click", function(){
+      c_totalfrmModal.classList.remove("show");
+      c_containfrmModal.classList.remove("show");
+    });
+  }
   c_totalfrmModal.addEventListener('click', e => {
     if(e.target === c_totalfrmModal){
       c_totalfrmModal.classList.remove('show');
       c_containfrmModal.classList.remove("show");  
     }
   });
+  */
 });
 // VARIABLES PARA LOS TABS
 const linksAnchParent = $("#c_statusPointSteps_validBiom");
 const linksAnch = linksAnchParent.find("li");
 const itemsAnch = $(".cControlP__cont--containDash--c--validBiom--cont--cRightValIdentity--step");
-//const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
-// VARIABLES PARA EL MODAL DE VIDEO
-const btn_frmCloseModal = document.querySelector("#icon_frmbtnClose");
-const c_totalfrmModal = document.querySelector(".cformValidMediaBiometric");
-const c_containfrmModal = document.querySelector(".cformValidMediaBiometric--form");
 const c_statusPointSteps = $("#c_statusPointSteps_validBiom");
 const c_listStepValidation = $("#c-listStepsValidation");
 var c_statusPointSteps_Items = c_statusPointSteps.find("li");
 var c_StepPoint_Item = c_listStepValidation.find("section");
-var btnOpenVideo = document.getElementById("btn-stop_recordbiometric");
-var downloadButton = document.getElementById("btn-ValidMediaBiometric");
-var startRecordButton = document.getElementById("init_vidValidationBio");
-var recording = document.getElementById("c_video-valididentity__opViewVideo");
-var videoTag = document.getElementById("c_video-valididentity");
-var loaderValidVid = document.getElementById("gif-load-validvideo");
-var contVideoRecording = document.getElementById("c_playVideoRecording");
-var blobSaveServer = "";
-var checkActiveDevices = false;
-var streamCaptura = "";
-var recordingTimeMS = 6000;
-var recordedblobData = "";
-var recordingDataToSend = "";
+
+//const firstLinkAnch = linksAnch.eq(0).data("target").slice(1);
 // ------------ VISUALIZAR LA IMAGEN A CARGAR - FOTO FRONTAL
 $("#photo_dni-front").on("change", function(e){
   let readerImg = new FileReader();
@@ -105,6 +110,7 @@ $(document).on("click", "#btn_stepNext_validBiom", function(e){
   }
 });
 // ESTADO DE GRABACIÓN DEL VIDEO
+/*
 function wait(delayInMS){
   return new Promise(resolve => setTimeout(resolve, delayInMS));
 }
@@ -168,16 +174,14 @@ startRecordButton.addEventListener("click", function(){
       recordedblobData = new Blob(recordedChunks, { type: "video/webm" });
       recording.src = URL.createObjectURL(recordedblobData);
       // USANDO PLUGINS - WHAMMY
-      /*
-      videoEncoder = new Whammy.Video();
-      for (var i = 0; i < images.length; i++) {
-          videoCtx.putImageData(images[i].image, 0, 0);
-          videoEncoder.add(videoCtx, images[i].duration);
-      }
+      // videoEncoder = new Whammy.Video();
+      // for (var i = 0; i < images.length; i++) {
+      //     videoCtx.putImageData(images[i].image, 0, 0);
+      //     videoEncoder.add(videoCtx, images[i].duration);
+      // }
 
-      blob = videoEncoder.compile();
-      file = (window.webkitURL || window.URL).createObjectURL(blob);
-      */
+      // blob = videoEncoder.compile();
+      // file = (window.webkitURL || window.URL).createObjectURL(blob);
 
       // GUARDAR EN VARIABLE/DESCARGAR A PARTIR DEL BLOB
       recordingBlobSlice_one = URL.createObjectURL(recordedblobData);
@@ -188,8 +192,10 @@ startRecordButton.addEventListener("click", function(){
     console.log("Error, no se activo ningún dispositivo");
   }
 });
+*/
 // ------------ ALMACENAR LOS DATOS BIOMÉTRICOS DEL USUARIO
-$(document).on("click", "#btn-ValidMediaBiometric", function(e){
+
+$(document).on("click", "#btn_stepNext_validBiom", function(e){
   e.preventDefault();
   let idClient = $("#ipt-idClientVal").val();
   var formdata = new FormData();
@@ -201,7 +207,7 @@ $(document).on("click", "#btn-ValidMediaBiometric", function(e){
   for (var i = 0;i < docback_filelength; i ++) {
     formdata.append("imagen_back", $('.imagen_back')[0].files[i]);
   }
-  formdata.append("videoBlob_valid", blobSaveServer);
+  //formdata.append("videoBlob_valid", blobSaveServer);
   formdata.append("id_client", idClient);
 
   $.ajax({
@@ -215,23 +221,60 @@ $(document).on("click", "#btn-ValidMediaBiometric", function(e){
     console.log(e);
     if(e == "true"){
       // CERRA EL MODAL DE GRABAR VIDEO Y PASAR A EL PASO FINAL DE REDIRECCIONAMIENTO...
-      c_totalfrmModal.classList.remove("show");
-      c_containfrmModal.classList.remove("show");
-      Swal.fire({
-        title: 'Éxito!',
-        text: 'El video se guardó correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-        timer: 3500
-      });
+      // c_totalfrmModal.classList.remove("show");
+      // c_containfrmModal.classList.remove("show");
+      // Swal.fire({
+      //   title: 'Éxito!',
+      //   text: 'El video se guardó correctamente.',
+      //   icon: 'success',
+      //   confirmButtonText: 'Aceptar',
+      //   timer: 3500
+      // });
+      // CERRAR LOS PASOS ANTERIORES Y ACTIVAR LOS SIGUIENTES
+      // c_statusPointSteps_Items.eq(0).removeClass("active");
+      // c_statusPointSteps_Items.eq(0).addClass("complete");
+      // c_statusPointSteps_Items.eq(1).removeClass("active");
+      // c_statusPointSteps_Items.eq(1).addClass("complete");
+      // c_statusPointSteps_Items.eq(2).addClass("complete");
+      // c_StepPoint_Item.eq(0).removeClass("active");
+      // c_StepPoint_Item.eq(1).removeClass("active");
+      // c_StepPoint_Item.eq(2).addClass("active");
+
       c_statusPointSteps_Items.eq(0).removeClass("active");
       c_statusPointSteps_Items.eq(0).addClass("complete");
-      c_statusPointSteps_Items.eq(1).removeClass("active");
       c_statusPointSteps_Items.eq(1).addClass("complete");
-      c_statusPointSteps_Items.eq(2).addClass("complete");
       c_StepPoint_Item.eq(0).removeClass("active");
-      c_StepPoint_Item.eq(1).removeClass("active");
       c_StepPoint_Item.eq(2).addClass("active");
+      // MOSTRAR MENSAJE DE VALIDACIÓN TERMINADA AL USUARIO
+      Swal.fire({
+        title: '',
+        html: `<div class="alertSwal">
+                <div class="alertSwal__cIcon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="60px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m332.08 394.24-110.88-101.36 21.281-22.957 84.559 77.84 123.2-178.64 25.203 17.359z"/><path d="m105.28 183.68h-30.801v-134.96h132.72v30.801h-101.92z"/><path d="m623.28 183.68h-31.359v-104.16h-101.92v-30.801h133.28z"/><path d="m207.2 519.12h-132.72v-135.52h30.801v104.16h101.92z"/><path d="m623.28 519.12h-133.28v-31.359h101.92v-104.16h31.359z"/></g></svg>
+                </div>
+                <div class="alertSwal__cTitle">
+                  <h3>¡Éxito!</h3>
+                </div>
+                <div class="alertSwal__cText">
+                  <p>Se ha completado el registro de validación biométrica.</p>
+                  <p class='txt-theme-color'>Se le notificará en su perfil cuando el sistema haya validado la información en nuestro servidor.</p>
+                </div>
+                <button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
+              </div>`,
+        icon: '',
+        showCancelButton: false,
+        showConfirmButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false,
+        allowEscapeKey:false,
+        allowEnterKey:true
+      });
+      $(document).on('click', '.SwalBtn1', function() {
+        swal.clickConfirm();
+        window.onbeforeunload = null;
+        window.location.href = "my-profile";
+      });
     }else{
       Swal.fire({
         title: 'Error!',
@@ -242,6 +285,7 @@ $(document).on("click", "#btn-ValidMediaBiometric", function(e){
     }
   });
 });
+
 // ------------ REDIRIGIR DE ACUERDO A LA VALIDACIÓN FINAL
 $(document).on("click", "#btn-finalVerifyValidBiom", function(){
 	c_statusPointSteps_Items.eq(2).removeClass("active");

@@ -8,10 +8,9 @@ if(!isset($_SESSION['cli_micambista'])){
 	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
 		header("Location: complete-register");
 	}else{
-		if(isset($_SESSION['cli_micambista'][0]['video_validation']) && !empty($_SESSION['cli_micambista'][0]['video_validation']) &&
-			 isset($_SESSION['cli_micambista'][0]['photo_dni_front']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_front']) && 
+		if(isset($_SESSION['cli_micambista'][0]['photo_dni_front']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_front']) && 
 			 isset($_SESSION['cli_micambista'][0]['photo_dni_back']) && !empty($_SESSION['cli_micambista'][0]['photo_dni_back'])){
-				header("Location: my-profile");
+				//header("Location: my-profile");
 		}
 	}
 }

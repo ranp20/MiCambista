@@ -67,6 +67,9 @@ $urlCli =  $actual_link . "/";
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
 	-->
+	<!-- SWEET ALERTS 2 -->
+	<link rel="stylesheet" href="<?php echo $urlCli; ?>node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="<?php echo $urlCli; ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<!-- HEADER LINKS (FIN) -->
 </head>
 <body>
@@ -250,6 +253,7 @@ $urlCli =  $actual_link . "/";
 						</div>
 						<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
+								<input type="hidden" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="val-id_client" value="<?php echo $_GET['client']; ?>">
 								<h3 class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardTitle">DOCUMENTO DE IDENTIDAD:</h3>
 							</div>
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
@@ -317,15 +321,15 @@ $urlCli =  $actual_link . "/";
 								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts">
 									<?php
 										$tmp_validstatus = "";
-										if($client_details[0]['validation_status'] == "incomplete" || $client_details[0]['validation_status'] == "Incomplete"){
+										if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "in_review"){
 											$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success'>
+											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
 												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
 													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
 												</span>
 												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
 											</button>
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger'>
+											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
 												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
 													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
 												</span>
@@ -348,5 +352,6 @@ $urlCli =  $actual_link . "/";
 		</div>
 	</main>
 	<script type="text/javascript" src="<?= $url; ?>js/main.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>js/actions_pages/details-client.js"></script>
 </body>
 </html>

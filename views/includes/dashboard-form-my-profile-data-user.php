@@ -1,69 +1,23 @@
 <form action="" method="POST" id="form-dataUserGenerals">
-	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item">
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Nombres</label>
-			<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--input">TIMOTHY RICHARD</p>
+	<div class="cControlP__cont--containDash--c--myProfile--cDataUser">
+		<div>
+			<span>
+				<span>
+					<span>
+						<span>
+							<span>
+								<span>
+									<span>
+										<input type="hidden" id="ipt-idCliValUpdateMyProfile" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" autocomplete='off' spellcheck='false' name="p_idclient" value="<?= $_SESSION['cli_micambista'][0]['id'];?>" oncontextmenu="return false;">
+									</span>
+								</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
 		</div>
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Apellidos</label>
-			<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--input">ANGELINO ARONI</p>
-		</div>
-	</div>
-	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item">
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Documento</label>
-			<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--input">
-				<span>DNI</span> 
-				<span>76295926</span>
-			</p>
-		</div>
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Teléfono</label>
-			<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData">
-				<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--txt">947220630</p>
-				<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--cIcon">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m442.01 113.75h-258.37c-28.996 0-52.5 23.504-52.5 52.5v280c0 28.996 23.504 52.5 52.5 52.5h280c28.988 0 52.5-23.504 52.5-52.5v-258.13l49.832-49.84c7.3828-7.3867 11.531-17.395 11.531-27.844 0-10.438-4.1484-20.457-11.531-27.844l-18.559-18.559c-7.3867-7.3828-17.406-11.531-27.844-11.531-10.449 0-20.457 4.1484-27.844 11.531zm-35 35h-223.37c-9.668 0-17.5 7.832-17.5 17.5v280c0 9.668 7.832 17.5 17.5 17.5h280c9.6602 0 17.5-7.832 17.5-17.5v-223.13l-148.69 148.69c-5.5039 5.4961-12.504 9.2422-20.125 10.762l-55.379 11.078c-5.7344 1.1484-11.664-0.64844-15.805-4.7852-4.1367-4.1406-5.9336-10.07-4.7852-15.805l11.078-55.379c1.5195-7.6211 5.2656-14.621 10.762-20.125zm63.059-13.562 24.746 24.746-187.12 187.12c-0.61328 0.61328-1.3828 1.0312-2.2344 1.1992l-29.633 5.9219 5.9219-29.633c0.16797-0.85156 0.58594-1.6211 1.1992-2.2344zm49.5 0-24.754-24.754 21.656-21.656c0.82422-0.8125 1.9336-1.2773 3.0977-1.2773 1.1562 0 2.2656 0.46484 3.0898 1.2773l18.566 18.566c0.8125 0.82422 1.2773 1.9336 1.2773 3.0898 0 1.1641-0.46484 2.2734-1.2773 3.0977z" fill-rule="evenodd"/></g></svg>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item">
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Correo</label>
-			<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData">
-				<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--txt">apk125@gmail.com</p>
-				<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--cIcon">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m442.01 113.75h-258.37c-28.996 0-52.5 23.504-52.5 52.5v280c0 28.996 23.504 52.5 52.5 52.5h280c28.988 0 52.5-23.504 52.5-52.5v-258.13l49.832-49.84c7.3828-7.3867 11.531-17.395 11.531-27.844 0-10.438-4.1484-20.457-11.531-27.844l-18.559-18.559c-7.3867-7.3828-17.406-11.531-27.844-11.531-10.449 0-20.457 4.1484-27.844 11.531zm-35 35h-223.37c-9.668 0-17.5 7.832-17.5 17.5v280c0 9.668 7.832 17.5 17.5 17.5h280c9.6602 0 17.5-7.832 17.5-17.5v-223.13l-148.69 148.69c-5.5039 5.4961-12.504 9.2422-20.125 10.762l-55.379 11.078c-5.7344 1.1484-11.664-0.64844-15.805-4.7852-4.1367-4.1406-5.9336-10.07-4.7852-15.805l11.078-55.379c1.5195-7.6211 5.2656-14.621 10.762-20.125zm63.059-13.562 24.746 24.746-187.12 187.12c-0.61328 0.61328-1.3828 1.0312-2.2344 1.1992l-29.633 5.9219 5.9219-29.633c0.16797-0.85156 0.58594-1.6211 1.1992-2.2344zm49.5 0-24.754-24.754 21.656-21.656c0.82422-0.8125 1.9336-1.2773 3.0977-1.2773 1.1562 0 2.2656 0.46484 3.0898 1.2773l18.566 18.566c0.8125 0.82422 1.2773 1.9336 1.2773 3.0898 0 1.1641-0.46484 2.2734-1.2773 3.0977z" fill-rule="evenodd"/></g></svg>
-				</div>
-			</div>
-		</div>
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Ocupación</label>
-			<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData">
-				<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--txt">Gerente de Administración y Finanzas</p>
-				<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--cIcon">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m442.01 113.75h-258.37c-28.996 0-52.5 23.504-52.5 52.5v280c0 28.996 23.504 52.5 52.5 52.5h280c28.988 0 52.5-23.504 52.5-52.5v-258.13l49.832-49.84c7.3828-7.3867 11.531-17.395 11.531-27.844 0-10.438-4.1484-20.457-11.531-27.844l-18.559-18.559c-7.3867-7.3828-17.406-11.531-27.844-11.531-10.449 0-20.457 4.1484-27.844 11.531zm-35 35h-223.37c-9.668 0-17.5 7.832-17.5 17.5v280c0 9.668 7.832 17.5 17.5 17.5h280c9.6602 0 17.5-7.832 17.5-17.5v-223.13l-148.69 148.69c-5.5039 5.4961-12.504 9.2422-20.125 10.762l-55.379 11.078c-5.7344 1.1484-11.664-0.64844-15.805-4.7852-4.1367-4.1406-5.9336-10.07-4.7852-15.805l11.078-55.379c1.5195-7.6211 5.2656-14.621 10.762-20.125zm63.059-13.562 24.746 24.746-187.12 187.12c-0.61328 0.61328-1.3828 1.0312-2.2344 1.1992l-29.633 5.9219 5.9219-29.633c0.16797-0.85156 0.58594-1.6211 1.1992-2.2344zm49.5 0-24.754-24.754 21.656-21.656c0.82422-0.8125 1.9336-1.2773 3.0977-1.2773 1.1562 0 2.2656 0.46484 3.0898 1.2773l18.566 18.566c0.8125 0.82422 1.2773 1.9336 1.2773 3.0898 0 1.1641-0.46484 2.2734-1.2773 3.0977z" fill-rule="evenodd"/></g></svg>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item">
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-tab-2">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">Nacionalidad</label>
-			<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData">
-				<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--txt">Sin especificar</p>
-				<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--cUptData--cIcon">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m442.01 113.75h-258.37c-28.996 0-52.5 23.504-52.5 52.5v280c0 28.996 23.504 52.5 52.5 52.5h280c28.988 0 52.5-23.504 52.5-52.5v-258.13l49.832-49.84c7.3828-7.3867 11.531-17.395 11.531-27.844 0-10.438-4.1484-20.457-11.531-27.844l-18.559-18.559c-7.3867-7.3828-17.406-11.531-27.844-11.531-10.449 0-20.457 4.1484-27.844 11.531zm-35 35h-223.37c-9.668 0-17.5 7.832-17.5 17.5v280c0 9.668 7.832 17.5 17.5 17.5h280c9.6602 0 17.5-7.832 17.5-17.5v-223.13l-148.69 148.69c-5.5039 5.4961-12.504 9.2422-20.125 10.762l-55.379 11.078c-5.7344 1.1484-11.664-0.64844-15.805-4.7852-4.1367-4.1406-5.9336-10.07-4.7852-15.805l11.078-55.379c1.5195-7.6211 5.2656-14.621 10.762-20.125zm63.059-13.562 24.746 24.746-187.12 187.12c-0.61328 0.61328-1.3828 1.0312-2.2344 1.1992l-29.633 5.9219 5.9219-29.633c0.16797-0.85156 0.58594-1.6211 1.1992-2.2344zm49.5 0-24.754-24.754 21.656-21.656c0.82422-0.8125 1.9336-1.2773 3.0977-1.2773 1.1562 0 2.2656 0.46484 3.0898 1.2773l18.566 18.566c0.8125 0.82422 1.2773 1.9336 1.2773 3.0898 0 1.1641-0.46484 2.2734-1.2773 3.0977z" fill-rule="evenodd"/></g></svg>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item">
-		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control col-desk-1">
-			<label for="" class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--label">¿Es USTED UNA PERSONA POLÍTICAMENTE EXPUESTA?</label>
-			<p class="cControlP__cont--containDash--c--myProfile--cDataUser--item--control--input">NO</p>
-		</div>
-	</div>
+	<div class="c-DataUser__item" id="c__userData-iptsProfile"></div>
 	<div class="cControlP__cont--containDash--c--myProfile--cDataUser--cDataValidate">
 		<div class="cControlP__cont--containDash--c--myProfile--cDataUser--cDataValidate--m">
 			<!--  

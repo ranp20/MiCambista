@@ -66,9 +66,55 @@
 				    	min-height: 28px;
 				    	width: 28px;
 				    	height: 28px;
+				    	button{
+				    		border: none;
+				    		box-shadow: unset;
+				    		background-color: unset;
+				    		outline: none;
+				    	}
 				    	svg{
 				    		fill: $theme_color-links;
 				    	}
+				    }
+				    /* CONTENEDOR DE CAMPOS EDITABLES */
+				    &--dtUpdFocus{
+				      position: relative;
+					    display: block;
+					    width: 100%;
+					    border: thin solid #ddd;
+					    border-radius: 5px;
+					    padding: .4rem 4rem .5rem 0.65rem;
+					    input{
+					    	display: block;
+					    	outline: none;
+					    	border: none;
+					    	line-height: 1;
+					    	width: 100%;
+					    	height: 100%;
+					    }
+					    button{
+					    	position: absolute;
+					    	display: inline-block;
+					    	border: none;
+					    	box-shadow: unset;
+					    	padding: 0;
+					    	margin: 0;
+					    	background-color: transparent;
+					    	top: 6px;
+					    	svg{
+					    		vertical-align: top;
+					    	}
+					    }
+					    &__btn-confirm{
+					    	fill: green;
+					    	right: 34px;
+					    }
+					    &__btn-cancel{
+					    	right: 2px;
+					    	svg{
+					    		fill: red;
+					    	}
+					    }
 				    }
 					}
 				}

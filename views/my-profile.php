@@ -19,6 +19,8 @@ $list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_m
 <head>
 	<title>Mi Cambista | Mi Perfil </title>
 	<?php require_once 'includes/header_links.php'; ?>
+	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<div id="box-ModalValidAccBiometric"></div>
@@ -34,7 +36,6 @@ $list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_m
 							<h2 class="cControlP__cont--containDash--c--myProfile--cTitle--title">MI PERFIL</h2>
 							<p class="cControlP__cont--containDash--c--myProfile--cTitle--desc">En Mi Cambista nos preocupamos por la seguridad de tu información y la protegemos a través de un protocolo de seguridad que garantiza la privacidad de tus datos.</p>
 						</div>
-						<div class="cControlP__cont--containDash--c--myProfile--cDataUser">
 							<?php require_once 'includes/dashboard-form-my-profile-data-user.php';?>
 						</div>
 					</div>

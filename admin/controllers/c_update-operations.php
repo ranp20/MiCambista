@@ -6,6 +6,8 @@ if(isset($_POST) && count($_POST) > 0){
 		$action = "Completed";
 	}else if($_POST['action'] == "in-completed"){
 		$action = "Pending";
+	}else if($_POST['action'] == "in-review"){
+		$action = "In_review";
 	}else if($_POST['action'] == "in-canceled"){
 		$action = "Cancel";
 	}else{

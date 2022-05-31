@@ -43,6 +43,8 @@ function listTransactionsByIdClient_tablero(){
 					statusSend = `<span class="process"></span>`;
 				}else if(v.estado == "Completed"){
 					statusSend = `<span class="complete"></span>`;
+				}else if(v.estado == "In_review"){
+					statusSend = `<span class="in_review"></span>`;
 				}else if(v.estado == "Cancel"){
 					statusSend = `<span class="cancel"></span>`;
 				}else{
@@ -206,6 +208,76 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 										<span id="mssg_iptValidOperationFromDashboard"></span>
 									</div>
 								</form>
+							</div>
+						</div>`;
+				}else if(v.estado == "In_review"){
+					estado = `<div class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item--cStatus in_review">
+											<span id="t-statusTransCli">en revisión</span>
+										</div>`;
+					tmpDetailTrans = `
+						<div class="cListDetailsTransactions--contDetails--c--DetailOP">
+							<div class="cListDetailsTransactions--contDetails--c--DetailOP--cTitle">
+								<h3>Detalles de la operación</h3>
+							</div>
+							<div class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails">
+								<ul class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m">
+									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
+										<p>Estado:</p>
+										${estado}
+									</li>
+									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
+										<p>Pedido:</p>
+										<span id="t-codigoTransCli">${v.codigo}</span>
+									</li>
+									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
+										<p>Solicitado:</p>
+										<p id="t-solicitedTransCli">${v.prefijorequest+" "+valFormat}</p>
+									</li>
+									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
+										<p>Tasa de cambio:</p>
+										<span id="t-tasaTransCli">${v.tasa}</span>
+									</li>
+									<li class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item">
+										<p>Cuenta que recibe:</p>
+										<div class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item--cAccBank">
+											<img src="${pathimgbank}" alt="" id="t-imgbankTransCli">
+											<span id="t-naccountTransCli">${limitecuenta}</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="cListDetailsTransactions--contDetails--c--CompleteOP">
+							<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cTitle">
+								<h3>Completa tu operación</h3>
+								<input type="hidden" id="t-idTransferBank" value="${v.id_transferbank}">
+								<input type="hidden" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' id="ipt-codTransacOrder-id" value="${e[0].id}">
+							</div>
+							<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails">
+								<ul class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m mb-2_5rem">
+									<li class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item">
+										<p>Cuenta a transferir:</p>
+										<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank">
+											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
+												<img src="${pathimgtransferbank}" alt="" id="t-imgbankPlatformtransfer">
+												<p>
+													<span id="t-numbankPlatformtransfer">${v.naccplatform}</span>
+													<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+												</p>
+											</div>
+											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
+												<p>Mi Cambista S.A.C - RUC <span id="t-rucbankPlatformtransfer">${v.rucplatform}</span></p>
+											</div>
+											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
+												<p>Monto a enviar:</p>
+												<p>
+													<span id="t-transferedTransCli">${v.prefijosend+" "+valFormat_trans}</span>
+													<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+												</p>
+											</div>
+										</div>
+									</li>
+								</ul>
 							</div>
 						</div>`;
 				}else if(v.estado == "Cancel"){

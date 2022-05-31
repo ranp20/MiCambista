@@ -3,12 +3,13 @@ if(isset($_POST) && count($_POST) > 0){
 	
 	$option = $_POST['option'];
 	$sql = "";
-
 	if(isset($_POST['option']) && !empty($_POST['option'])){
 		if($option == "Completed"){
 			$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Completed' ORDER BY ttrans.id DESC";
-		}else if($option == "Pendings" || $option == "Processed"){
+		}else if($option == "Pendings"){
 			$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Pending' ORDER BY ttrans.id DESC";
+		}else if($option == "Processed"){
+			$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'In_review' ORDER BY ttrans.id DESC";
 		}else if($option == "Canceled"){
 			$sql = "SELECT * FROM tbl_transactions ttrans WHERE ttrans.status_send = 'Cancel' ORDER BY ttrans.id DESC";
 		}else{

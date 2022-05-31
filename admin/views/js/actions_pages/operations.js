@@ -5,17 +5,25 @@ $(document).on('change', '#selOpts-OperationsFilter', function(e){
   var optionSel = $(this).find("option:selected").attr("data-short");
   var optionSelText = $(this).find("option:selected").text();
  	$("#title-shortOption").text(optionSelText);
-  if(optionSel == "Recents" || optionSel == "Pendings" || optionSel == "Processed"){
+  if(optionSel == "Recents" || optionSel == "Pendings"){
   	$("#title-shortOption").removeClass("completed");
   	$("#title-shortOption").removeClass("cancel");
+  	$("#title-shortOption").removeClass("in_review");
   	$("#title-shortOption").addClass("processed");
+  }else if(optionSel == "Processed"){
+  	$("#title-shortOption").removeClass("completed");
+  	$("#title-shortOption").removeClass("cancel");
+  	$("#title-shortOption").removeClass("processed");
+  	$("#title-shortOption").addClass("in_review");
   }else if(optionSel == "Completed"){
 		$("#title-shortOption").removeClass("processed");
 		$("#title-shortOption").removeClass("cancel");
+		$("#title-shortOption").removeClass("in_review");
 		$("#title-shortOption").addClass("completed");
   }else{
   	$("#title-shortOption").removeClass("completed");
   	$("#title-shortOption").removeClass("processed");
+  	$("#title-shortOption").removeClass("in_review");
   	$("#title-shortOption").addClass("cancel");
   }
   listAllTransactions(optionSel);
@@ -78,6 +86,11 @@ var listAllTransactions = (optionSel = null) => {
 	        	statustmp = `<div class='st_transacOpe'>
 	        								<span class='st_transacOpe__completed'></span>
 	        								<span class='st_transacOpe__completed__text'>Finalizado</span>
+	        							</div>`;
+	        }else if(data == "In_review"){
+	        	statustmp = `<div class='st_transacOpe'>
+	        								<span class='st_transacOpe__in_review'></span>
+	        								<span class='st_transacOpe__in_review__text'>En revisión</span>
 	        							</div>`;
 	        }else if(data == "Cancel"){
 	        	statustmp = `<div class='st_transacOpe'>
@@ -351,6 +364,7 @@ function listUpdateItems(listAllItems, action){
 	}).done((e) => {
 		var r = JSON.parse(e);
 		if(r.response == "updated"){
+			$("#c-action-buttons").removeClass("activeSelected");
 			Swal.fire({
         title: 'Acualizado!',
         text: 'El/Los registro(s) se han actualizado correctamente.',

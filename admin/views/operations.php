@@ -41,7 +41,7 @@ if(!isset($_SESSION['admin_micambista'])){
 										<option selected>Seleccione una opción</option>
 										<option value="1" data-short="Recents">Recientes</option>
 										<option value="1" data-short="Pendings">Pendientes</option>
-										<option value="1" data-short="Processed">En Proceso</option>
+										<option value="1" data-short="Processed">En Revisión</option>
 										<option value="1" data-short="Canceled">Cancelados</option>
 										<option value="2" data-short="Completed">Completadas</option>
 									</select>
@@ -73,6 +73,9 @@ if(!isset($_SESSION['admin_micambista'])){
 					<div class="cDash-adm--containRight--cContain__cActionButtonsItems__c-actionButtons" id="c-allActionsButtons">
 						<button type="button" data-action="in-completed" title="Finalizado">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29px" height="29px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m131.07 252.54-44.27 44.27 183.59 225.7 342.81-464.17-29.098-20.836-324.58 315.19z" fill-rule="evenodd"/></g></svg>
+						</button>
+						<button type="button" data-action="in-review" title="En revisión">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 488.85 488.85" style="enable-background:new 0 0 488.85 488.85;" xml:space="preserve"><g><path d="M244.425,98.725c-93.4,0-178.1,51.1-240.6,134.1c-5.1,6.8-5.1,16.3,0,23.1c62.5,83.1,147.2,134.2,240.6,134.2   s178.1-51.1,240.6-134.1c5.1-6.8,5.1-16.3,0-23.1C422.525,149.825,337.825,98.725,244.425,98.725z M251.125,347.025   c-62,3.9-113.2-47.2-109.3-109.3c3.2-51.2,44.7-92.7,95.9-95.9c62-3.9,113.2,47.2,109.3,109.3   C343.725,302.225,302.225,343.725,251.125,347.025z M248.025,299.625c-33.4,2.1-61-25.4-58.8-58.8c1.7-27.6,24.1-49.9,51.7-51.7   c33.4-2.1,61,25.4,58.8,58.8C297.925,275.625,275.525,297.925,248.025,299.625z"/></g></svg>
 						</button>
 						<button type="button" data-action="in-process" title="En proceso">
 							<svg xmlns="http://www.w3.org/2000/svg" width="29px" height="29px" version="1.1" viewBox="0 0 700 700"><g><path d="m350 23.332c-68.07 0-133.36 27.043-181.49 75.176-48.133 48.137-75.176 113.42-75.176 181.49s27.043 133.36 75.176 181.49c48.137 48.133 113.42 75.176 181.49 75.176s133.36-27.043 181.49-75.176c48.133-48.137 75.176-113.42 75.176-181.49s-27.043-133.36-75.176-181.49c-48.137-48.133-113.42-75.176-181.49-75.176zm0 466.67c-55.695 0-109.11-22.125-148.49-61.508-39.383-39.383-61.508-92.797-61.508-148.49s22.125-109.11 61.508-148.49c39.383-39.383 92.797-61.508 148.49-61.508s109.11 22.125 148.49 61.508c39.383 39.383 61.508 92.797 61.508 148.49s-22.125 109.11-61.508 148.49c-39.383 39.383-92.797 61.508-148.49 61.508z"/><path d="m513.33 256.67h-140v-93.336c0-8.3359-4.4453-16.039-11.664-20.207s-16.117-4.168-23.336 0-11.664 11.871-11.664 20.207v116.67c0 6.1875 2.457 12.125 6.832 16.5s10.312 6.832 16.5 6.832h163.33c8.3359 0 16.039-4.4453 20.207-11.664 4.168-7.2188 4.168-16.117 0-23.336-4.168-7.2188-11.871-11.664-20.207-11.664z"/></g></svg>

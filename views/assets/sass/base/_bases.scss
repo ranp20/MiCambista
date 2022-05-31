@@ -185,29 +185,27 @@ strong, b{
   flex-flow: nowrap row;
   align-items: center;
   justify-content: flex-start;
-	&__pending{
+	&__pending,
+	&__completed,
+	&__cancel,
+	&__in_review{
 		margin-right: 1rem;
 	  min-width: 10px;
 	  width: 10px;
 	  height: 10px;
-	  background-color: #ff0;
 	  border-radius: 50%;
 	}
+	&__pending{
+	  background-color: #ff0;
+	}
 	&__completed{
-		margin-right: 1rem;
-    min-width: 10px;
-    width: 10px;
-    height: 10px;
     background-color: lightgreen;
-    border-radius: 50%;
 	}
 	&__cancel{
-		margin-right: 1rem;
-    min-width: 10px;
-    width: 10px;
-    height: 10px;
     background-color: red;
-    border-radius: 50%;
+	}
+	&__in_review{
+		background-color: orange;
 	}
 }
 .btn_ItemEditReg{
@@ -227,6 +225,9 @@ strong, b{
 }
 .pt-3rem{
 	padding-top: 3rem;
+}
+.mb-2_5rem{
+	margin-bottom: 2.5rem !important;
 }
 .w-100{
 	width: 100%;
@@ -2077,6 +2078,10 @@ strong, b{
 									background-color: yellow;
 								}
 
+								&.in_review{
+									background-color: orange;
+								}
+
 								&.cancel{
 									background-color: #e26066;
 								}
@@ -2115,17 +2120,13 @@ strong, b{
 						font-weight: 500;
 					}
 				}
-
 				&--cDetails{
 					padding: 1rem;
-
 					@media (min-width: 991px){
 						padding: 0;
 					}
-
 					&--m{
 						padding: 0;
-						margin: 0;
 						&--item{
 							& > p{
 								color: $theme_color-links;

@@ -24,6 +24,11 @@ let listAllTransactions = () => {
 	        								<span class='statusPoint_transac__completed'></span>
 	        								<span>finalizado</span>
 	        							</div>`;
+	        }else if(data == "In_review"){
+	        	statustmp = `<div class='statusPoint_transac'>
+	        								<span class='statusPoint_transac__in_review'></span>
+	        								<span>en revisión</span>
+	        							</div>`;
 	        }else if(data == "Cancel"){
 	        	statustmp = `<div class='statusPoint_transac'>
 	        								<span class='statusPoint_transac__cancel'></span>

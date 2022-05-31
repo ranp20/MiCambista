@@ -164,6 +164,9 @@
 											&.complete{
 												background-color: #60E266;
 											}
+											&.in_review{
+												background-color: orange;
+											}
 											&.cancel{
 												background-color: #E26066;
 											}

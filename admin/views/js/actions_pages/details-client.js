@@ -37,9 +37,22 @@ if(cItemsBtnsValid != null && cItemsBtnsValid != undefined){
 					  	if(e != ""){
 					  		let r = JSON.parse(e);
 					  		if(r.res == "update_confirm"){
-
-					  		}else if(r.res == "update_confirm"){
-
+					  			Swal.fire({
+							      title: 'Validación aceptada!',
+							      html: `<span class='font-w-300'>Ahora el cliente puede acceder a cambios con montos mayores.</span>`,
+							      icon: 'success',
+							      confirmButtonText: 'Aceptar'
+							    });
+					  		}else if(r.res == "update_canceled"){
+					  			$("#c-imgFrontValidDoc").html(`<span>No se subió imagen</span>`);
+					  			$("#c-imgBackValidDoc").html(`<span>No se subió imagen</span>`);
+					  			$("#c-btnActionsToMultimediaDocs").html(``);
+					  			Swal.fire({
+							      title: 'CANCELADA!',
+							      html: `<span class='font-w-300'>El cliente deberá subir nuevamente su información biométrica.</span>`,
+							      icon: 'success',
+							      confirmButtonText: 'Aceptar'
+							    });
 					  		}else{
 					  			window.location.href = "../clientes";
 					  		}

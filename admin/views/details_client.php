@@ -264,16 +264,14 @@ $urlCli =  $actual_link . "/";
 				          	if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front'])){
 				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_front'];
 				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
-						          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
-						          </div>
-				          		";
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
+							          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
+							          </div>";
 				          	}else{
 				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
-						          	<span>No se subió imagen</span>
-						          </div>
-				          		";
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
+						          		<span>No se subió imagen</span>
+						          	</div>";
 				          	}
 				          	echo $tmp_dnifront;
 				          ?>
@@ -285,16 +283,14 @@ $urlCli =  $actual_link . "/";
 				          	if(isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back'])){
 				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_back'];
 				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
 						          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
-						          </div>
-				          		";
+						          </div>";
 				          	}else{
 				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo'>
-						          	<span>No se subió imagen</span>
-						          </div>
-				          		";
+						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
+							          	<span>No se subió imagen</span>
+							          </div>";
 				          	}
 				          	echo $tmp_dnifront;
 				          ?>
@@ -318,7 +314,7 @@ $urlCli =  $actual_link . "/";
 							</div>
 							 -->
 							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
-								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts">
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts" id="c-btnActionsToMultimediaDocs">
 									<?php
 										$tmp_validstatus = "";
 										if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "in_review"){
@@ -336,8 +332,24 @@ $urlCli =  $actual_link . "/";
 												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
 											</button>
 											</div>";
+										}else if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "accepted"){
+											$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
+											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
+												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
+												</span>
+												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
+											</button>
+											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
+												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
+												</span>
+												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
+											</button>
+											</div>";
 										}else{
-											$tmp_validstatus .= "<div><span class='mssg__txtLineSuccess'>VALIDACIÓN ACEPTADA</span></div>";
+											// $tmp_validstatus .= "<div><span class='mssg__txtLineSuccess'>VALIDACIÓN ACEPTADA</span></div>";
+											// echo "La validación fue aceptada, depende del cliente si se quiere dejar sin botones luego de actualizar.";
 										}
 										echo $tmp_validstatus;
 									?>

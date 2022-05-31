@@ -232,7 +232,7 @@ strong, b{
 	width: 100%;
 }
 .bold-pricolor{
-	color: $color-secondary;
+	color: $theme_color-links;
 	font-weight: bold;
 }
 .non-linktocursor{
@@ -3153,6 +3153,9 @@ strong, b{
 /* ESTILOS PARA SWEETALERT2 */
 .alertSwal{
 	padding: 1rem 0 0 0;
+	.txt-center{
+		text-align: center;
+	}
 	&__cIcon{
 		svg{
 			fill: $frmconvert_colorschema;
@@ -3167,6 +3170,20 @@ strong, b{
 	}
 	&__cText{
 		margin-bottom: 1.65rem;
+	}
+	&__cM{
+		text-align: left;
+    padding: 0 0 0 40px;
+    margin-bottom: 1rem;
+		li{
+			background-image: url("../../../views/assets/img/svg/check-svg.f96b9692.svg");
+	    background-repeat: no-repeat;
+	    background-size: 15px;
+	    background-position: 0;
+	    padding-left: 25px;
+			color: $color-paragraph;
+			text-align: left;
+		}
 	}
 }
 .SwalBtn1.customSwalBtn{

@@ -15,7 +15,8 @@ var name_currreceived = document.querySelector("#name_current_received");
 //var ipt_amount_received_two = document.querySelector("#val_amount_received");
 //var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
 //var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
-var amountMaxReceived = "1000.00";
+//var amountMaxReceived = "1000.00";
+var coupon_name = "";
 
 // ------------ CUPÓN DE DESCUENTO
 $(document).on("click", "#btn-coDescRatePercent", function(e){
@@ -49,6 +50,7 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 			}else{
 				var r = JSON.parse(e);
 				var coupon = (r[0].cupon).toUpperCase();
+				coupon_name = r[0].cupon;
 				var val_buy_at = r[0].buy_price;
 				var val_sell_at = r[0].sell_price;
 				//console.log(r);
@@ -57,7 +59,6 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 			  rates_two = [val_buy_at, val_sell_at];
 				current_USD_two = rates_two[0];
 				current_PEN_two = rates_two[1];
-
 
 				// ------------ CAMBIAR EL NOMBRE DE LOS IDS DE CONVERSIÓN
 				$("#frm-iConvDivi").attr("id", "frm-iConvDivi_coupon");
@@ -149,28 +150,7 @@ $(document).on("click", "#btn-closeFkIptValidCoupon", function(e){
 	e.preventDefault();
 	window.onbeforeunload = null;
   window.location.href = "convert-divise";
-/*
-	let cnt_ValidCouponConvert = $("#cnt-ValidCouponConvert");
-	let cnt_InputCouponcontrol = $(".c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl");
-	let vl_valuesRatesAll = $("#vl-valuesRatesAll");
-	vl_valuesRatesAll.children("div")[0].remove();
-	$("#c_valYValidCouponIpt").remove();
-	// ------------ MOSTRAR EL INPUT PARA AGREGAR CUPÓN
-	cnt_ValidCouponConvert.after(function(){
-		cnt_InputCouponcontrol.remove();
-		return `
-			<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">
-				<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl__iptRsltCoupon">
-					<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
-					<button type="button" id="btn-coDescRatePercent">Agregar</button>
-				</div>
-				<span id="m-couponMessageErr"></span>
-			</div>
-		`;
-	});
-	*/
 });
-
 // ------------ FUNCTION - CONVERT DIVISE
 function convert_coupon(amount, prefixFrom, prefixtTo){
 	if(prefixFrom == "$" && prefixtTo == "S/."){
@@ -348,85 +328,164 @@ $(document).on("submit", "#frm-iConvDivi_coupon", function(e){
 	let amount_rece_two = amount_rece_one.toString().split(",");
 	let amount_rece_three = parseFloat(amount_rece_two[0] + amount_rece_two[1]);
 
-	if(amount_rece_three < amountMax_rece){
-		//console.log('Es menor el monto a enviar');
-		if($("#val_amount_send_coupon").val() != "" && $("#val_amount_send_coupon").val() != 0 && $("#val_amount_send_coupon").val() != 0.00 && $("#val_amount_received_coupon").val() != "" && $("#val_amount_received_coupon").val() != 0 && $("#val_amount_received_coupon").val() != 0.00){
+	if($("#val_amount_send_coupon").val() != "" && $("#val_amount_send_coupon").val() != 0 && $("#val_amount_send_coupon").val() != 0.00 && $("#val_amount_received_coupon").val() != "" && $("#val_amount_received_coupon").val() != 0 && $("#val_amount_received_coupon").val() != 0.00){
 
-			var typeCURR = $(this).find("#txtDivise-one").text();
-			var quantityCURR = $("#val_amount_send_coupon").val().replace(/[$,]/g,'');
-			var prefixCURR = $(this).find("#spanprefix-one").text();
-			var type_received = $(this).find("#txtDivise-two").text();
-			var prefix_received = $(this).find("#spanprefix-two").text();
-			
-			var valcambiocurr;
-			if(typeCURR == "Soles"){
-				valcambiocurr = current_USD;
-			}else{
-				valcambiocurr = current_PEN;
-			}
-			
-			var formData = new FormData();
-			formData.append("cambioval", valcambiocurr);
-			formData.append("prefix", prefixCURR);
-			formData.append("val_type", typeCURR);
-			formData.append("val_send", quantityCURR);
-			formData.append("type_received", type_received);
-			formData.append("prefix_received", prefix_received);
+		var typeCURR = $(this).find("#txtDivise-one").text();
+		var quantityCURR = $("#val_amount_send_coupon").val().replace(/[$,]/g,'');
+		var prefixCURR = $(this).find("#spanprefix-one").text();
+		var type_received = $(this).find("#txtDivise-two").text();
+		var prefix_received = $(this).find("#spanprefix-two").text();
+		
+		var valcambiocurr;
+		if(typeCURR == "Soles"){
+			valcambiocurr = current_USD;
+		}else{
+			valcambiocurr = current_PEN;
+		}
+		
+		var formData = new FormData();
+		formData.append("cambioval", valcambiocurr);
+		formData.append("prefix", prefixCURR);
+		formData.append("val_type", typeCURR);
+		formData.append("val_send", quantityCURR);
+		formData.append("type_received", type_received);
+		formData.append("prefix_received", prefix_received);
+		formData.append("ammount_send", amount_rece_three);
+		formData.append("coupon_name", coupon_name);
 
-			$.ajax({
-				url: "php/process_convert-divise.php",
-				method: "POST",
-				dataType: "JSON",
-				data: formData,
-		    contentType: false,
-		    cache: false,
-		    processData: false,
-			}).done(function(e){
-				if(e != ""){
-					$("#changecurridcli").val(e.cambioval);
-					$("#prefixcurridcli").val(e.prefix);
-					$("#typechangecurridcli").val(e.divise);
-					$("#quantitycurridcli").val(e.quantity);
-					$("#type_receivedcli").val(e.type_received);
-					$("#prefix_receivedcli").val(e.prefix_received);
+		$.ajax({
+			url: "php/process_convert-divise-with-coupon.php",
+			method: "POST",
+			dataType: "JSON",
+			data: formData,
+	    contentType: false,
+	    cache: false,
+	    processData: false,
+		}).done(function(e){
+			if(e != ""){
+				if(e.res == "coup-yesapplicable"){
+					$("#changecurridcli").val(e.received.cambioval);
+					$("#prefixcurridcli").val(e.received.prefix);
+					$("#typechangecurridcli").val(e.received.divise);
+					$("#quantitycurridcli").val(e.received.quantity);
+					$("#type_receivedcli").val(e.received.type_received);
+					$("#prefix_receivedcli").val(e.received.prefix_received);
 					setTimeout(function(){
 						$("#cont-convert-divise").addClass("sendShow");
 						$("#cont-complete-divise").addClass("sendShow");
 					}, 2000);
+					$("#cont-complete-divise").html(`
+						<div class="cControlP__cont--containDash--c--cCdivise">
+						<div class="cControlP__cont--containDash--c--cCdivise--cTitle">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="ipt-profile-type" value="${e.received.profile_type}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="ipt-profile-name" value="${e.received.profile_name}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="changecurridcli" value="${e.received.cambioval}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="typechangecurridcli" value="${e.received.divise}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefixcurridcli" value="${e.received.prefix}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="quantitycurridcli" value="${e.received.quantity}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="type_receivedcli" value="${e.received.type_received}">
+							<input type="hidden" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="prefix_receivedcli" value="${e.received.prefix_received}">
+							<h2 class="cControlP__cont--containDash--c--cCdivise--cTitle--title">Completa los datos</h2>
+							<p class="cControlP__cont--containDash--c--cCdivise--cTitle--desc">Selecciona el banco de envío y la cuenta donde recibes</p>
+						</div>
+						<form method="POST" class="cControlP__cont--containDash--c--cCdivise--cF">
+							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
+								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿Desde qué banco nos envía su dinero?</label>
+								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem" id="selListallBanks_CData">
+									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData" id="selListAllBanks--img_CData">
+										<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--placeholder">Selecciona un banco</span>
+										<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--cInputFake_CData--imgbank">
+									</div>
+									<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
+									<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--icon_CData" src="./views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+									<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData" id="listAllsBanks_CData"></ul>
+								</div>
+								<span id="msgerrorNounSelBankSend_CData"></span>
+							</div>
+							<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl">
+								<label for="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--label">¿En qué cuenta recibirás tu dinero?</label>
+								<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks">
+									<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem" id="selListallaccountsBanks_CData">
+										<div class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData" id="selListAllaccountsBanks--img_CData">
+											<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--placeholder">Selecciona una de tus cuentas</span>
+											<img src="" alt="" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--cInputFake_CData--imgbank">
+										</div>
+										<input type="text" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--inputVal_CData" readonly id="selListallBanks--input_CData">
+										<img class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--icon_CData" src="./views/assets/img/svg/arrow-bottom-dashboard.svg" alt="">
+										<ul class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--cSelItem--MenuListAccountsBanks_CData" id="listAllsAccountsBanks_CData"></ul>
+									</div>
+									<span id="msgerrorNounSelAccountBankReceived_CData"></span>
+									<button type="button" id="btn-addAccountform" class="cControlP__cont--containDash--c--cCdivise--cF--cControl--clistaddBanks--caddBanks">
+										<span>Agregar cuenta</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+									</a>
+								</div>
+							</div>
+							<div class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions">
+								<button type="submit" class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert" id="btn-cCompleteDiviseCli">Completar cambio
+									<div class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert--contloader">
+										<span class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--submitConvert--contloader--loader"></span>
+									</div>
+								</button>
+								<a href="convert-divise" class="cControlP__cont--containDash--c--cCdivise--cF--cBtnsActions--btnCancel">Cancelar</a>
+							</div>
+						</form>
+					</div>`);
+				}else if(e.res == "coup-notapplicable"){
+					let from_ammount_format = e.received.from_ammount.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					$("#btn-initConvertPlatform").attr("type", "button");
+					$("#btn-initConvertPlatform").attr("disabled", "disabled");
+					$("#btn-initConvertPlatform").removeClass("completeFrm");
+					$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+					$("#btn-initConvertPlatform").find("div").removeClass("show");
+					$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+					
+					Swal.fire({
+					  title: '',
+					  html: `<div class="alertSwal txt-center">
+						  			<div class="alertSwal__cTitle">
+						  				<h3>NO APLICABLE</h3>
+						  			</div>
+					  				<div class="alertSwal__cText">
+					  					<p>El <strong class="bold-pricolor">monto a enviar</strong> no es válido para este cupón.</p>
+											<p>Por favor vuelva a introducir montos mayores al valor aplicable.</p>
+										</div>
+										<div class="alertSwal__cText">
+											<p>Valor del cupón: <strong class="bold-pricolor">$ ${from_ammount_format}</strong></p>
+										</div>
+										<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
+									</div>`,
+					  icon: '',
+					  showCancelButton: false,
+					  showConfirmButton: false,
+					  confirmButtonColor: '#3085d6',
+					  confirmButtonText: 'Aceptar',
+					  allowOutsideClick: false,
+					  allowEscapeKey:false,
+					  allowEnterKey:true
+					});
+					$(document).on('click', '.SwalBtn1', function() {
+				    swal.clickConfirm();
+				    $("#btn-initConvertPlatform").attr("type", "submit");
+						$("#btn-initConvertPlatform").attr("disabled", false);
+						$("#btn-initConvertPlatform").removeClass("completeFrm");
+						$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+						$("#btn-initConvertPlatform").find("div").removeClass("show");
+						$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+				  });
 				}else{
-					console.log('No se envió la respuesta');
+					console.log('Lo sentimos, hubo un error al procesar la información.');
 				}
-			});
-		}else{
-			$("#btn-initConvertPlatform").attr("type", "button");
-			$("#btn-initConvertPlatform").attr("disabled", "disabled");
-			$("#btn-initConvertPlatform").removeClass("completeFrm");
-			$("#btn-initConvertPlatform").removeClass("sendShowComplete");
-			$("#btn-initConvertPlatform").find("div").removeClass("show");
-			$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
-		}
+			}else{
+				console.log('No se envió la respuesta');
+			}
+		});
 	}else{
-		console.log("El valor excede el monto máximo");
 		$("#btn-initConvertPlatform").attr("type", "button");
 		$("#btn-initConvertPlatform").attr("disabled", "disabled");
 		$("#btn-initConvertPlatform").removeClass("completeFrm");
 		$("#btn-initConvertPlatform").removeClass("sendShowComplete");
 		$("#btn-initConvertPlatform").find("div").removeClass("show");
 		$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
-		
-		$("#mssg-messageAlertMaxAmount").addClass("show");
-		$("#mssg-messageAlertMaxAmount").html(`
-			<div class="box-ModalValidAccBiometric--c">
-				<span class="box-ModalValidAccBiometric--c--close" id="icon-closeModalVAccBiometric"></span>
-				<h2 class="box-ModalValidAccBiometric--c--title">Completar Perfil</h2>
-				<p>Para realizar operaciones mayores a <strong class="bold-pricolor">$ 1,000</strong> deberás:</p>
-				<ul class="box-ModalValidAccBiometric--c--m">
-					<li>Completar tu <strong class="bold-pricolor">información de perfil</strong> al 100%.</li>
-					<li>Verificar tu identidad.</li>
-				</ul>
-				<p>Haz click en <strong class="bold-pricolor">completar mi perfil</strong> para agregar tus datos.</p>
-				<a href="my-profile" class="box-ModalValidAccBiometric--c--btnNextStep">Completar mi perfil</a>
-			</div>
-		`);
 	}
 });

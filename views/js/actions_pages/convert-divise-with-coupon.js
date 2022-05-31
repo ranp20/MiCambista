@@ -448,7 +448,7 @@ $(document).on("submit", "#frm-iConvDivi_coupon", function(e){
 						  			</div>
 					  				<div class="alertSwal__cText">
 					  					<p>El <strong class="bold-pricolor">monto a enviar</strong> no es válido para este cupón.</p>
-											<p>Por favor vuelva a introducir montos mayores al valor aplicable.</p>
+											<p>Por favor vuelva a introducir <strong class="bold-pricolor">montos mayores</strong> al valor aplicable.</p>
 										</div>
 										<div class="alertSwal__cText">
 											<p>Valor del cupón: <strong class="bold-pricolor">$ ${from_ammount_format}</strong></p>

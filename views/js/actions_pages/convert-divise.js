@@ -251,6 +251,7 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 	let amount_rece_one = $("#val_amount_received").val();
 	let amount_rece_two = amount_rece_one.toString().split(",");
 	let amount_rece_three = parseFloat(amount_rece_two[0] + amount_rece_two[1]);
+	let ammountMax_format = amountMax_rece.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 	if($("#val_amount_send").val() != "" && $("#val_amount_send").val() != 0 && $("#val_amount_send").val() != 0.00 && $("#val_amount_received").val() != "" && $("#val_amount_received").val() != 0 && $("#val_amount_received").val() != 0.00){
 
@@ -370,7 +371,7 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 						  			</div>
 					  				<div class="alertSwal__cText">
 					  					<p>En estos momentos el sistema esta validanco su información.</p>
-											<p>Por favor vuelva en cuanto se actualice el estado de validación o continue con el cambio con <strong class="bold-pricolor">monto menores a $ ${amountMax_rece}</strong></p>
+											<p>Por favor vuelva en cuanto se actualice el estado de validación o continue con el cambio con <strong class="bold-pricolor">monto menores a $ ${ammountMax_format}</strong></p>
 										</div>
 										<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
 									</div>`,
@@ -408,10 +409,54 @@ $(document).on("submit", "#frm-iConvDivi", function(e){
 						  			</div>
 					  				<div class="alertSwal__cText">
 					  					<p>El sistema encontró que los datos no coinciden con ud.</p>
-											<p>Por favor vuelva a subir unos nuevos para poder acceder a cambios mayores a <strong class="bold-pricolor">$ ${amountMax_rece}</strong> o continue el cambio con <strong class="bold-pricolor">montos menores</strong> a este.</p>
+											<p>Por favor vuelva a subir unos nuevos para poder acceder a cambios mayores a <strong class="bold-pricolor">$ ${ammountMax_format}</strong> o continue el cambio con <strong class="bold-pricolor">montos menores</strong> a este.</p>
 										</div>
 					  				<div class="alertSwal__cText">
 						  		 		<p>Haz click en <strong class="bold-pricolor">validación biométrica</strong> para agregar nuevamente tus datos.</p>
+										</div>
+										<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
+									</div>`,
+					  icon: '',
+					  showCancelButton: false,
+					  showConfirmButton: false,
+					  confirmButtonColor: '#3085d6',
+					  confirmButtonText: 'Aceptar',
+					  allowOutsideClick: false,
+					  allowEscapeKey:false,
+					  allowEnterKey:true
+					});
+					$(document).on('click', '.SwalBtn1', function() {
+				    swal.clickConfirm();
+				    $("#btn-initConvertPlatform").attr("type", "submit");
+						$("#btn-initConvertPlatform").attr("disabled", false);
+						$("#btn-initConvertPlatform").removeClass("completeFrm");
+						$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+						$("#btn-initConvertPlatform").find("div").removeClass("show");
+						$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+				  });
+				}else if(e.res == "st-limit_change"){
+					$("#btn-initConvertPlatform").attr("type", "button");
+					$("#btn-initConvertPlatform").attr("disabled", "disabled");
+					$("#btn-initConvertPlatform").removeClass("completeFrm");
+					$("#btn-initConvertPlatform").removeClass("sendShowComplete");
+					$("#btn-initConvertPlatform").find("div").removeClass("show");
+					$("#cont-convert-divise").removeClass("hidd_toNextStepTrans");
+					
+					Swal.fire({
+					  title: '',
+					  html: `<div class="alertSwal txt-center">
+						  			<div class="alertSwal__cTitle">
+						  				<h3>Completar perfil</h3>
+						  			</div>
+					  				<div class="alertSwal__cText">
+					  					<p>Para realizar operaciones mayores a <strong class="bold-pricolor">$ ${ammountMax_format}</strong> deberás:</p>
+										</div>
+										<ul class="alertSwal__cM">
+											<li>Completar tu <strong class="bold-pricolor">información de perfil</strong> al 100%.</li>
+											<li>Verificar tu identidad.</li>
+										</ul>
+					  				<div class="alertSwal__cText">
+						  		 		<p>Haz click en <strong class="bold-pricolor">validación biométrica</strong> para agregar tus datos.</p>
 										</div>
 										<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
 									</div>`,

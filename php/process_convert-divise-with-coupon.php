@@ -35,37 +35,53 @@ if(isset($_POST) && $_POST > 0){
 			"profile_name" => $profile_name,
 			"from_ammount" => $from_ammount
 		];
-		if($ammount_send >= $from_ammount){
-			$r = array(
-				"res" => 'coup-yesapplicable',
-				"received" => $arr_data
-			);
-		}else{
-			$r = array(
-				"res" => 'coup-notapplicable',
-				"received" => $arr_data
-			);
-			/*
-			if($st_validation == "accepted"){
+
+		if($_POST['type_received'] == "Dólares"){
+			if($_POST['ammount_send'] >= $from_ammount){
 				$r = array(
-					"res" => 'st-accepted',
+					"res" => 'coup-yesapplicable',
 					"received" => $arr_data
-				);
-			}else if($st_validation == "in_review"){
-				$r = array(
-					"res" => 'st-in_review'
-				);
-			}else if($st_validation == "rejected"){
-				$r = array(
-					"res" => 'st-rejected'
 				);
 			}else{
 				$r = array(
-					"res" => 'st-limit_change'
+					"res" => 'coup-notapplicable',
+					"received" => $arr_data
 				);
 			}
-			*/
+		}else if($_POST['val_type'] == "Dólares"){
+			if($_POST['val_send'] >= $from_ammount){
+				$r = array(
+					"res" => 'coup-yesapplicable',
+					"received" => $arr_data
+				);
+			}else{
+				$r = array(
+					"res" => 'coup-notapplicable',
+					"received" => $arr_data
+				);
+			}
 		}
+
+		/*
+		if($st_validation == "accepted"){
+			$r = array(
+				"res" => 'st-accepted',
+				"received" => $arr_data
+			);
+		}else if($st_validation == "in_review"){
+			$r = array(
+				"res" => 'st-in_review'
+			);
+		}else if($st_validation == "rejected"){
+			$r = array(
+				"res" => 'st-rejected'
+			);
+		}else{
+			$r = array(
+				"res" => 'st-limit_change'
+			);
+		}
+		*/
 	}else{
 		$r = array(
 			"res" => 'false'

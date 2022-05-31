@@ -25,6 +25,63 @@ if(isset($_POST) && $_POST > 0){
 			"profile_type" => $profile_type,
 			"profile_name" => $profile_name
 		];
+
+		if($_POST['type_received'] == "Dólares"){
+			if($_POST['ammount_send'] < $ammount_max){
+				$r = array(
+					"res" => 'st-less_limit',
+					"received" => $arr_data
+				);
+			}else{
+				if($st_validation == "accepted"){
+					$r = array(
+						"res" => 'st-accepted',
+						"received" => $arr_data
+					);
+				}else if($st_validation == "in_review"){
+					$r = array(
+						"res" => 'st-in_review'
+					);
+				}else if($st_validation == "rejected"){
+					$r = array(
+						"res" => 'st-rejected'
+					);
+				}else{
+					$r = array(
+						"res" => 'st-limit_change'
+					);
+				}
+			}
+		}else if($_POST['val_type'] == "Dólares"){
+			if($_POST['val_send'] < $ammount_max){
+				$r = array(
+					"res" => 'st-less_limit',
+					"received" => $arr_data
+				);
+			}else{
+				if($st_validation == "accepted"){
+					$r = array(
+						"res" => 'st-accepted',
+						"received" => $arr_data
+					);
+				}else if($st_validation == "in_review"){
+					$r = array(
+						"res" => 'st-in_review'
+					);
+				}else if($st_validation == "rejected"){
+					$r = array(
+						"res" => 'st-rejected'
+					);
+				}else{
+					$r = array(
+						"res" => 'st-limit_change'
+					);
+				}
+			}
+		}
+/*
+		print_r($_POST);
+		exit();
 		if($ammount_send < $ammount_max){
 			$r = array(
 				"res" => 'st-less_limit',
@@ -50,6 +107,7 @@ if(isset($_POST) && $_POST > 0){
 				);
 			}
 		}
+		*/
 	}else{
 		$r = array(
 			"res" => 'false'

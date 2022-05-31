@@ -1,7 +1,7 @@
 <footer class="cFooter">
 	<div class="cFooter--contT">
 		<div class="cFooter--contT--c box">
-			<section class="cFooter--contT--c--sec">
+			<section class="cFooter--contT--c--sec pl-pr-15">
 				<div class="cFooter--contT--c--sec--c">
 					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logofooter_MiCambista" width="100" height="100" decoding="async">
 					<p class="cFooter--contT--c--sec--c--text">Somos la startup financiera que revoluciona la forma de administrar el dinero a través de una plataforma 100% digital.</p>
@@ -67,7 +67,7 @@
 		</div>
 	</div>
 	<div class="cFooter--contB">
-		<div class="cFooter--contB--c box">
+		<div class="cFooter--contB--c box pl-pr-15">
 			<p>2021&copy; Todos los derechos reservados <b>Mi Cambista</b> </p>
 			<p>Mi Cambista S.A.C RUC 1070446633 | Registro SBS: 04448888- 2019</p>
 		</div>

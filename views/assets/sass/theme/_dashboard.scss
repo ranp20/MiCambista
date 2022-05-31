@@ -323,14 +323,14 @@
 						width: auto;
 							svg{
 								cursor: pointer;
-								fill: steelblue;
+								fill: $theme_color-links;
 							}
 						}
 					}
 					&--cTitle{
 						margin-bottom: 1rem;
 						p{
-							color: steelblue;
+							color: $theme_color-links;
 							font-size: 1.25rem;
 							display: flex;
 							flex-flow: wrap row;
@@ -343,7 +343,7 @@
 							svg{
 								max-width: 30px;
 								width: auto;
-								fill: steelblue;
+								fill: $theme_color-links;
 							}
 							span{
 								margin-left: .5rem;

@@ -19,6 +19,8 @@ require_once '../php/process_data-list.php';
 	<!-- INCLUIR DATATABLES -->
 	<link rel="stylesheet" type="text/css" href="<?= $url ?>views/js/DataTables/datatables.min.css">
 	<script type="text/javascript" charset="utf8" src="<?= $url ?>views/js/DataTables/datatables.min.js"></script>
+	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body class="min-height">
 	<div class="cControlP">

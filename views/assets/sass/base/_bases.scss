@@ -143,6 +143,14 @@ strong, b{
 	color: $theme_color-links;
 	font-weight: 600;
 }
+.pl-pr-15{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	@media (min-width: 991px){
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
 .non-visvalipt{
 	width: 0;
 	height: 0;

@@ -1442,7 +1442,7 @@
 		background-color: $theme_color-links;
 
 		@media (min-width: 897px){
-			padding: 2.5rem 0;
+			padding: 2.5rem 0 1.5rem 0;
 		}
 
 		&--c{
@@ -1483,6 +1483,15 @@
 						&--link{
 							display: inline-block;
     					margin-right: .65rem;
+    					@media (min-width: 991px){
+    						margin-right: 1.15rem;
+    					}
+    					&:last-child{
+    						margin-top: 0;
+    						margin-bottom: 0;
+    						margin-left: 0;
+    						margin-right: 0;
+    					}
 							&--icon{
 								max-width: 35px;
 							}
@@ -1494,10 +1503,11 @@
 					line-height: 2.35;
 					padding-bottom: 1.7rem;
 					&--title{
-
+						font-size: 1.5rem;
 					}
 					&--m{
-						list-style-type: square;
+						list-style: none;
+						padding: 0;
 						&--item{
 
 						}
@@ -1525,7 +1535,7 @@
 
 	/* FOOTER BOTTOM */
 	&--contB{
-		background-color: rgba(59,130,246,0.5);
+		background-color: $theme_color-links;
 		color: #fff;
 		padding: 1.5rem 0;
 		&--c{

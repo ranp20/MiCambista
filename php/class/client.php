@@ -131,4 +131,18 @@ class Client extends Connection{
 			return $err->getMessage();
 		}
   }
+  // -------------- ACTUALIZAR PERSONA POLÍTICAMENTE EXPUESTA
+  function update_politically_exposed($arr_update){
+  	try{
+			$sql = "CALL sp_update_politically_exposed(:politically_exposed,:id_client)";
+			$stm = $this->con->prepare($sql);
+			foreach ($arr_update as $key => $value){
+				$stm->bindValue($key, $value);
+			}
+			$stm->execute();
+			return $stm->rowCount() > 0 ? 'true' : 'false';
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
 }

@@ -235,6 +235,9 @@ strong, b{
 	color: $color-secondary;
 	font-weight: bold;
 }
+.non-linktocursor{
+	cursor: default !important;
+}
 /* MESSAGE AND OTHERS STYLES */
 .msgAlertLogin{
 	&--error{

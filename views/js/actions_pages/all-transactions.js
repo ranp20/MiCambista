@@ -1,7 +1,7 @@
 $(() => {
 	listAllTransactions();
 });
-var idClient = $("#input-idClientValListTransac").val();
+var idClient = $("#ipt-idClientValListTransac").val();
 let listAllTransactions = () => {
 	var table = $("#all_transac-cli").DataTable({
 		"destroy": true,

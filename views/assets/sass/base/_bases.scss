@@ -2179,26 +2179,40 @@ strong, b{
 					&--form{
 						padding: 1rem 0 2rem 0;
 						&--control{
-							position: relative;
-							&--input{
-								background-color: #fff;
-								border-radius: 5px;
-								border: thin solid #ddd;
-								padding: .9rem;
-								width: 100%;
+							display: block;
+							&__cIpt{
+								position: relative;
+								&--input{
+									background-color: #fff;
+									border-radius: 5px;
+									border: thin solid #ddd;
+									padding: .9rem;
+									width: 100%;
+									outline: none;
+									&.non-validval{
+										box-shadow: inset 0 0 2px 2px red;
+									}
+								}
+								&--btnCTransac{
+									cursor: pointer;
+									position: absolute;
+									text-align: center;
+									vertical-align: middle;
+									padding: 0 1rem;
+									background-color: $theme_color-links;
+									color: #fff;
+									right: 0;
+									height: 100%;
+									border: none;
+									border-radius: 0 5px 5px 0;
+								}
 							}
-							&--btnCTransac{
-								cursor: pointer;
-								position: absolute;
-								text-align: center;
-								vertical-align: middle;
-								padding: 0 1rem;
-								background-color: $theme_color-links;
-								color: #fff;
-								right: 0;
-								height: 100%;
-								border: none;
-								border-radius: 0 .6rem .6rem 0;
+
+							#mssg_iptValidOperationFromDashboard{
+								color: red;
+								font-size: 0.9rem;
+								display: block;
+								word-break: break-all;
 							}
 						}
 					}

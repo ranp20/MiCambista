@@ -61,7 +61,7 @@
 																				<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
 																			</span>
 																			<span class='cControlP__cont--containDash--c--myProfile--cDataUser--cDataValidate--m--item__c__mssgValidOpt__cTxt'>
-																				<span>Completado. Datos correctos</span>
+																				<span>Completado. Datos verificados.</span>
 																			</span>
 																		</div>";
 						}else if($list_stvalidation[0]['validation_status'] == "rejected"){

@@ -1,4 +1,5 @@
-<?php 
+<?php
+$response = "";
 if(isset($_POST) && $_POST > 0){
 	$arr_data = [
 		"cambioval" => $_POST['cambioval'],

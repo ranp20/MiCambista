@@ -3,6 +3,9 @@ window.onload = function(){
 	var minTimeout = 60 * 5;
   startTimer(minTimeout, element);
 }
+$(() => {
+	//listValidationStatus();
+});
 let inputsAll = document.querySelectorAll("input");
 // ------------ PREGUNTAR SI DESEA ABANDONAR LA PÁGINA - INPUTS
 inputsAll.forEach(function(e, i){
@@ -31,6 +34,42 @@ var currSpanPrefixSend = ipt_amount_send.previousElementSibling.textContent;
 var currSpanPrefixReceived =  ipt_amount_received.previousElementSibling.textContent;
 var amountMaxReceived = "";
 
+var idClient_current = $("#input-idClientVal").val();
+var validInfostatus = "";
+// LISTAR EL ESTADO DE LA VALIDACIÓN BIOMÉTRICA
+/*
+function listValidationStatus(){
+	var formdata = new FormData();
+	formdata.append("id_client", idClient_current);
+	$.ajax({
+		url: "./controllers/c_list-validation-status.php",
+		method: "POST",
+		data: formdata,
+		contentType: false,
+		cache: false,
+		processData: false,
+		beforeSend: function(){
+			//console.log('Insertando la información');
+		},
+		error:function(x,xs,xt){
+		  console.log(JSON.stringify(x));
+		}
+	}).done((e) => {
+		if(e != ""){
+			let r = JSON.parse(e);
+	  	validInfostatus = r[0].valid_estado;
+		}else{
+			Swal.fire({
+	      title: 'Error!',
+	      html: `<span class='font-w-300'>Lo sentimos, no se econtró el usuario.</span>`,
+	      icon: 'warning',
+	      confirmButtonText: 'Aceptar'
+	    });
+		}
+	});
+}
+*/
+console.log(validInfostatus);
 // LISTAR LAS TARIFAS PARA LA CONVERSIÓN
 $.ajax({
   url: "./controllers/c_list-rates-convert-divise.php",

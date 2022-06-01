@@ -37,6 +37,12 @@ var listAllTransactions = (optionSel = null) => {
     	"type": "POST",
 		},
 		"columns":[
+			{"data":"id",
+				"render": function ( data, type, row ){
+					let ipt_checks = `<input type="checkbox" name="operations[]" id="${row.id}" value="${row.id}">`;
+					return ipt_checks;
+				}
+			},
 			{"data":"id"},
 			{"data":"code_order"},
 			{"data":"amount_send",
@@ -331,8 +337,10 @@ $(document).on("click", "#tbl_operations tbody tr", function(){
 		var idItem = $(this).find("td:first-child").text();
 		if($(this).hasClass("selected")){
 			pushItemSeleted(listItemSelected, idItem);
+			$(this).find("td:first-child input[type=checkbox]").attr("checked","checked")
 		}else{
 			removeItemSelected(listItemSelected, idItem);
+			$(this).find("td:first-child input[type=checkbox]").attr("checked", false);
 		}
 	});
 	if(listItemSelected.length != 0 && listItemSelected != "[]"){
@@ -351,37 +359,53 @@ $(document).on("click", "#c-allActionsButtons button", function(){
 });
 // ------------ ACTUALIZAR ITEMS
 function listUpdateItems(listAllItems, action){
-	let formdata = new FormData();
-	formdata.append("id_list", JSON.stringify(listAllItems));
-	formdata.append("action", action);
 	var optionSel = $("#selOpts-OperationsFilter option:selected").attr("data-short");
 	$.ajax({
 		url: "../admin/controllers/c_update-operations.php",
 		type: "POST",
-		data: formdata,
-		contentType: false,
-    cache: false,
-    processData: false,
-	}).done((e) => {
-		var r = JSON.parse(e);
-		if(r.response == "updated"){
-			$("#c-action-buttons").removeClass("activeSelected");
-			Swal.fire({
-        title: 'Acualizado!',
-        text: 'El/Los registro(s) se han actualizado correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-        timer: 3500
-      });
-      listAllTransactions(optionSel);
-		}else{
-			Swal.fire({
-        title: 'Error!',
-        text: 'Lo sentimos, no se pudo actualizar el/los registro(s).',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-      listAllTransactions(optionSel);
-		}
+		dataType: "JSON",
+		data: { id_list : JSON.stringify($('[name="operations[]"]').serializeArray()), action : action},
+    beforeSend: function(){
+    	//console.log('Insertando la información');
+    },
+    success: function(e){
+    	//console.log(e);
+    	if(e != ""){
+    		if(e.response = "updated"){
+    			$("#c-action-buttons").removeClass("activeSelected");
+					Swal.fire({
+		        title: 'Acualizado!',
+		        text: 'El/Los registro(s) se han actualizado correctamente.',
+		        icon: 'success',
+		        confirmButtonText: 'Aceptar',
+		        timer: 3500
+		      });
+		      listAllTransactions(optionSel);
+		      //window.location.href = "operaciones";
+    		}else{
+    			Swal.fire({
+		        title: 'Error!',
+		        text: 'Lo sentimos, no se pudo actualizar el/los registro(s).',
+		        icon: 'error',
+		        confirmButtonText: 'Aceptar'
+		      });
+    		}
+    	}else{
+    		Swal.fire({
+	        title: 'Error!',
+	        text: 'Lo sentimos, no se pudo actualizar el/los registro(s).',
+	        icon: 'error',
+	        confirmButtonText: 'Aceptar'
+	      });
+    	}
+    },
+	 	statusCode: {
+	    404: function(){
+	      console.log('Error 404: La página de consulta no fue encotrada.');
+	    }
+	  },
+	  error:function(x,xs,xt){
+	    console.log(JSON.stringify(x));
+	  }
 	});
 }

@@ -3,9 +3,9 @@ $r = "";
 if(isset($_POST) && count($_POST) > 0){
 	$iListIds = 0;
 	$listDecode = json_decode($_POST['id_list'], true);
+	$arr_dataUpdate = [];
 	$action = "";
-	print_r($listDecode);
-	exit();
+	
 	if($_POST['action'] == "in-completed"){
 		$action = "Completed";
 	}else if($_POST['action'] == "in-process"){
@@ -18,10 +18,13 @@ if(isset($_POST) && count($_POST) > 0){
 		$action = "Pending";
 	}
 
+	for ($i=0; $i < count($listDecode); $i++){
+		array_push($arr_dataUpdate, [$action, $listDecode[$i]['value']]);
+	}
+
 	require_once 'connection.php';
-	while ($iListIds < count($listDecode)){
-		$sql = "UPDATE tbl_transactions SET status_send = '".$action[$iListIds]."' WHERE id = '".$listDecode[$iListIds]['id']."'";
-		//$sql = "UPDATE tbl_transactions SET status_send = '".$action."' WHERE id = '".$listDecode[$iListIds]['id']."'";
+	while ($iListIds < count($arr_dataUpdate)){
+		$sql = "UPDATE tbl_transactions SET status_send = '".$arr_dataUpdate[$iListIds][0]."' WHERE id = '".$arr_dataUpdate[$iListIds][1]."'";
 		$result = $con->prepare($sql);
 		$result->execute();
 		if($result == true){

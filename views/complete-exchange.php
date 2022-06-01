@@ -28,7 +28,7 @@ require_once '../php/process_data-list.php';
 								<img src="<?= $url; ?>views/assets/img/svg/transfer-complete-exchange.svg" alt="icon-transf-exchange" width="100" height="100">
 							</div>
 							<input type="hidden" id="vl-idUserSessFinal" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' value="<?= $idclient; ?>">
-							<p class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textdesc">Transfiere desde tu banco por internet el monto de:</p>
+							<p class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textdesc">Transfiere desde tu banca por internet el monto de:</p>
 							<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textvalchange">
 								<span id="vl-mountTotalToSend"></span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -51,7 +51,7 @@ require_once '../php/process_data-list.php';
 								</div>
 							</div>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
-								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">Instakash SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
+								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">MiCambista SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 							</div>
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>
@@ -69,7 +69,7 @@ require_once '../php/process_data-list.php';
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">
 								<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form">
 									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cinputNumOp">
-										<input type="text" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8">
+										<input type="text" autocomplete="off" spellcheck="false" class="" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8">
 										<span></span>
 									</div>
 									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>

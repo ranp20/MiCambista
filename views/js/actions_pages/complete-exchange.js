@@ -75,7 +75,7 @@ $(document).on("keypress keyup", "#v-validNumOperationTransc", function(e){
   }
 });
 // ------------ HOVER EN EL SVG - EJEMPLO DE NÚMERO DE OPERACIÓN
-$("svg[data-showModalHov='transfer_numOpBankExample']").hover(function(e){
+$("a[data-showModalHov='transfer_numOpBankExample']").hover(function(e){
 	e.preventDefault();
   var element = $(this);
   var modalContent = element.next();

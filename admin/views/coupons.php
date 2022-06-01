@@ -7,7 +7,7 @@ if(!isset($_SESSION['admin_micambista'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Cupones</title>
 	<?php require_once 'includes/header_links.php' ?>

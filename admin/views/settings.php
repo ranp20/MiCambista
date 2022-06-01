@@ -10,7 +10,7 @@ $settings = new List_Settings();
 $adm_config = $settings->list();
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Ajustes Generales</title>
 	<?php require_once 'includes/header_links.php' ?>

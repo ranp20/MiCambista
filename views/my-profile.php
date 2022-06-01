@@ -15,7 +15,7 @@ $classCli = new CLient();
 $list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_micambista'][0]['id']);
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Mi Perfil </title>
 	<?php require_once 'includes/header_links.php'; ?>

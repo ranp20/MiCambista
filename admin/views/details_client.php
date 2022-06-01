@@ -27,7 +27,7 @@ $urlCli =  $actual_link . "/";
 */
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Detalle del cliente</title>
 	<?php require_once 'includes/header_links.php'; ?>

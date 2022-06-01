@@ -19,7 +19,7 @@ $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Comenzar cambio </title>
 	<?php require_once 'includes/header_links.php'; ?>

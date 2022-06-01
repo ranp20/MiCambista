@@ -12,7 +12,7 @@ if(!isset($_SESSION['cli_micambista'])){
 require_once '../php/process_data-list.php';
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<title>Mi Cambista | Todas las transacciones </title>
 	<?php require_once 'includes/header_links.php'; ?>

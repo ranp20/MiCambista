@@ -10,7 +10,7 @@
   $g_setting = $call_config->get_config();
 ?>
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
 	<?php require_once 'views/includes/header_links.php' ?> 
 	<title>Mi Cambista | centro de cambio en línea con las mejores tasas</title>

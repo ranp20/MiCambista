@@ -297,11 +297,11 @@ $(document).on("click", "#selListallBanks_CData", function(e){
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 		data: { type_currency : tipocambio}
-	}).done((res) => {
+	}).done((e) => {
 		var template = "";
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
-			if(res.length <= 0 || res == []){
+			if(e.length <= 0 || e == []){
 				template += `
 						<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData--itemanybanks">
 							<span class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData--itemanybanks--desc">No se encontraron resultados</span>
@@ -309,7 +309,7 @@ $(document).on("click", "#selListallBanks_CData", function(e){
 					`;
 				$("#listAllsBanks_CData").html(template);
 			}else{
-				res.forEach((e) => {
+				e.forEach((e) => {
 					var pathimgbank = "./admin/views/assets/img/transferbanks/"+e.photo;
 					template += `
 						<li class="cControlP__cont--containDash--c--cCdivise--cF--cControl--cSelItem--MenuListBanks_CData--item" id="${e.id}">
@@ -343,7 +343,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cContro
 		$("#selListallBanks_CData").find("input").attr("idbank", getinfobanks['bankid']);
 	});
 });
-// ------------ LISTAR LAS CUENTAS BANCARIAS
+// ------------ LISTAR LAS CUENTAS BANCARIAS POR TIPO DE MONEDA A CAMBIAR
 $(document).on("click", "#selListallaccountsBanks_CData", function(e){
 	$("#msgerrorNounSelAccountBankReceived_CData").text("");
 	var btnshowaccounts = $("#listAllsAccountsBanks_CData");
@@ -400,7 +400,7 @@ $(document).on("click", "#selListallaccountsBanks_CData", function(e){
 		}
 	});
 });
-
+// ------------ LISTAR LAS CUENTAS BANCARIAS
 function listAccountsCDivise(){
 	$.ajax({
 		url: "controllers/c_list-account-banks.php",
@@ -461,6 +461,12 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCdivise--cF--cContro
 // ------------ AGREGAR TRANSACCIÓN
 $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	e.preventDefault();
+	$("#btn-cCompleteDiviseCli").attr("type","button");
+	$("#btn-cCompleteDiviseCli").attr("disabled","disabled");
+	$("#btn-cCompleteDiviseCli").removeClass("completeFrm");
+	$("#btn-cCompleteDiviseCli").addClass("send_showToConvertStep");
+	$("#btn-cCompleteDiviseCli").find("div").addClass("show");
+
 	window.onbeforeunload = null;
 	($("#selListallBanks_CData").find("input").attr("idbank")) ? $("#msgerrorNounSelBankSend_CData").text("") : $("#msgerrorNounSelBankSend_CData").text("Debes seleccionar el banco donde transferirás");
 	($("#selListallaccountsBanks_CData").find("input").attr("idaccountbank")) ? $("#msgerrorNounSelAccountBankReceived_CData").text("") : $("#msgerrorNounSelAccountBankReceived_CData").text("Debes seleccionar tu cuenta para recibir");
@@ -515,8 +521,85 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 					$(this).addClass("sendShowComplete");
 					$(this).find("div").addClass("show");
 					setTimeout(function(){
-						window.location.replace("complete-divise");
+						$("#cont-complete-divise").addClass("send_showToConvertStep");
+						$("#cont-complete-divise").addClass("send_showToConvertStep");
+						$("#cont-complete-exchange").addClass("sendShow");
+						$("#cont-complete-exchange").addClass("sendShow");
 					}, 2000);
+					let inputsAll = document.querySelectorAll("input");
+					// ------------ PREGUNTAR SI DESEA ABANDONAR LA PÁGINA - INPUTS
+					inputsAll.forEach(function(e, i){
+						e.addEventListener("input", function(){
+							window.onbeforeunload = function(event){
+							  event.returnValue = "Es posible que no se guarden los cambios que ha hecho";
+							};
+						});
+					});
+					$("#cont-complete-exchange").html(`
+						<div class="cControlP__cont--containDash--c--cCFinalDivise">
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle">
+								<h2 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--title">¡Último paso!</h2>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--cIcon">
+									<img src="./views/assets/img/svg/transfer-complete-exchange.svg" alt="icon-transf-exchange" width="100" height="100">
+								</div>
+								<input type="hidden" id="vl-idUserSessFinal" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' value="<?= $idclient; ?>">
+								<p class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textdesc">Transfiere desde tu banca por internet el monto de:</p>
+								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textvalchange">
+									<span id="vl-mountTotalToSend"></span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+								</h3>
+							</div>
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo">
+								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--subtitle">Banco a transferir:</h3>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cImg">
+										<img src="" alt="" id="vl-imgbankTotalToSend">
+									</div>
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo">
+										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--top">
+											Cuenta <span id="vl-typeaccountTotalToSend"></span> en <span id="vl-typecurrTotalToSend"></span>
+										</p>
+										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--bottom">
+											<span id="vl-numaccountTotalToSend"></span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+										</p>
+									</div>
+								</div>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
+									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">MiCambista SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+								</div>
+								<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo">
+									<a href="javascript:void(0);" data-showModalHov="transfer_numOpBankExample">
+										<span>¿Dónde lo encuentro?</span>
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+										</span>
+									</a>
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--showTitleinfo__cModalNumOpBankExample">
+										
+									</div>
+								</div>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">
+									<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form">
+										<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cinputNumOp">
+											<input type="text" autocomplete="off" spellcheck="false" class="" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8">
+											<span></span>
+										</div>
+										<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
+										<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
+											<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac">Enviar</button>
+											<a href="javascript:void(0);" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink" id="ipt_tOperCancel">
+												<span>Cancelar</span>
+											</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					`);
+
 		  	}else{
 		  		Swal.fire({
 			      title: 'Error!',
@@ -535,6 +618,12 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 	  	}
 	  });
 	}else{
+		$("#btn-cCompleteDiviseCli").attr("type","submit");
+		$("#btn-cCompleteDiviseCli").attr("disabled",false);
+		$("#btn-cCompleteDiviseCli").removeClass("completeFrm");
+		$("#btn-cCompleteDiviseCli").removeClass("send_showToConvertStep");
+		$("#btn-cCompleteDiviseCli").find("div").removeClass("show");
+		$("#cont-complete-divise").removeClass("hidd_toNextStepTrans");
 		Swal.fire({
       title: 'Atención!',
       html: `<span class='font-w-300'>Debe completar toda la información.</span>`,

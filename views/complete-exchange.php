@@ -20,6 +20,7 @@ require_once '../php/process_data-list.php';
 			<?php require_once 'includes/dashboard-sidebarleft.php'; ?>
 			<?php require_once 'includes/dashboard-sidebarright.php'; ?>
 			<section class="cControlP__cont--containDash">
+				<!-- 
 				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-exchange">
 					<div class="cControlP__cont--containDash--c--cCFinalDivise">
 						<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle">
@@ -84,6 +85,7 @@ require_once '../php/process_data-list.php';
 						</div>
 					</div>
 				</div>
+				 -->
 				<?php require_once 'includes/dashboard-contain-footer.php'; ?>
 			</section>
 			<?php require_once 'includes/dashboard-formaddaccountbank.php'; ?>

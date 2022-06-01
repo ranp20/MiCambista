@@ -2031,18 +2031,20 @@ strong, b{
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			padding: 1rem 0 0 1rem;
-
+			padding: 1rem 1rem 0 1rem;
 			svg{
 				fill: none;
 				stroke: $color-links;
+			}
+			@media (min-width: 960px){
+				padding: 1rem 0 0 1rem;
 			}
 		}
 
 		&--c{
 			&--DetailOP{
 				&--cTitle{
-					padding: 2rem 0;
+					padding: .5rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
 						color: $theme_color-links;
@@ -2064,9 +2066,9 @@ strong, b{
 							align-items: center;
 							justify-content: space-between;
 							flex-wrap: wrap;
-							margin-bottom: 1.25rem;
+							margin-bottom: .75rem;
 							&:first-child{
-								margin-bottom: 1.1rem;
+								margin-bottom: .85rem;
 							}
 							p{
 								color: $theme_color-links;
@@ -2120,7 +2122,7 @@ strong, b{
 
 			&--CompleteOP{
 				&--cTitle{
-					padding: 2rem 0 3rem 0;
+					padding: 2rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
 						color: $theme_color-links;
@@ -2186,7 +2188,7 @@ strong, b{
 					}
 
 					&--form{
-						padding: 1rem 0 2rem 0;
+						padding: 1rem 0 1rem 0;
 						&--control{
 							display: block;
 							&__cIpt{

@@ -138,6 +138,8 @@ $g_setting = $call_config->get_config();
 				</div>
 				<!-- CONTENIDO - FORMULARIO DE COMPLETADO DE CAMBIO -->
 				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise"></div>
+				<!-- CONTENIDO - RESUMEN TRANSACCIÓN Y CONTROL AGREGAR NRO DE OPERACIÓN -->
+				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-exchange"></div>
 				<?php require_once 'includes/dashboard-contain-footer.php'; ?>
 			</section>
 			<?php require_once 'includes/dashboard-formaddaccountbank_by_tcurrent.php'; ?>

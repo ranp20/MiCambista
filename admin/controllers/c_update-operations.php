@@ -1,13 +1,17 @@
 <?php
+$r = "";
 if(isset($_POST) && count($_POST) > 0){
+	$iListIds = 0;
 	$listDecode = json_decode($_POST['id_list'], true);
 	$action = "";
+	print_r($listDecode);
+	exit();
 	if($_POST['action'] == "in-completed"){
 		$action = "Completed";
-	}else if($_POST['action'] == "in-completed"){
+	}else if($_POST['action'] == "in-process"){
 		$action = "Pending";
 	}else if($_POST['action'] == "in-review"){
-		$action = "In_review";
+		$action = "Inreview";
 	}else if($_POST['action'] == "in-canceled"){
 		$action = "Cancel";
 	}else{
@@ -15,8 +19,9 @@ if(isset($_POST) && count($_POST) > 0){
 	}
 
 	require_once 'connection.php';
-	foreach($listDecode as $k => $v){
-		$sql = "UPDATE tbl_transactions SET status_send = '".$action."' WHERE id = '".$v['id']."'";
+	while ($iListIds < count($listDecode)){
+		$sql = "UPDATE tbl_transactions SET status_send = '".$action[$iListIds]."' WHERE id = '".$listDecode[$iListIds]['id']."'";
+		//$sql = "UPDATE tbl_transactions SET status_send = '".$action."' WHERE id = '".$listDecode[$iListIds]['id']."'";
 		$result = $con->prepare($sql);
 		$result->execute();
 		if($result == true){
@@ -28,8 +33,8 @@ if(isset($_POST) && count($_POST) > 0){
 				'response' => 'error'
 			);
 		}
+		$iListIds++;
 	}
-  
 }else{
 	header("Location: operaciones");
 }

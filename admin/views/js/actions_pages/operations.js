@@ -10,7 +10,7 @@ $(document).on('change', '#selOpts-OperationsFilter', function(e){
   	$("#title-shortOption").removeClass("cancel");
   	$("#title-shortOption").removeClass("in_review");
   	$("#title-shortOption").addClass("processed");
-  }else if(optionSel == "Processed"){
+  }else if(optionSel == "Inreview"){
   	$("#title-shortOption").removeClass("completed");
   	$("#title-shortOption").removeClass("cancel");
   	$("#title-shortOption").removeClass("processed");
@@ -87,7 +87,7 @@ var listAllTransactions = (optionSel = null) => {
 	        								<span class='st_transacOpe__completed'></span>
 	        								<span class='st_transacOpe__completed__text'>Finalizado</span>
 	        							</div>`;
-	        }else if(data == "In_review"){
+	        }else if(data == "Inreview"){
 	        	statustmp = `<div class='st_transacOpe'>
 	        								<span class='st_transacOpe__in_review'></span>
 	        								<span class='st_transacOpe__in_review__text'>En revisión</span>
@@ -308,7 +308,7 @@ var listAllTransactions = (optionSel = null) => {
 		]
 	});
 };
-// ------------ EDITAR LOS ITEMS SELECCINADOS
+// ------------ EDITAR LOS ITEMS SELECCIONADOS
 var listItemSelected = [];
 function pushItemSeleted(listItems, idItem){
 	var listSel = {
@@ -318,12 +318,14 @@ function pushItemSeleted(listItems, idItem){
 }
 function removeItemSelected(listItems, idItem){
 	$.each(listItems, function(i,v){
-		if(listItems[i].id == idItem){
-			listItems.splice([i],1);
+		if(listItems[i] != undefined){
+			if(listItems[i].id == idItem){
+				listItems.splice([i],1);
+			}
 		}
 	});
 }
-$(document).on("click", "#tbl_operations tbody tr", function(e){
+$(document).on("click", "#tbl_operations tbody tr", function(){
 	$.each($(this), function(i,v){
 		$(this).toggleClass("selected");
 		var idItem = $(this).find("td:first-child").text();
@@ -333,7 +335,6 @@ $(document).on("click", "#tbl_operations tbody tr", function(e){
 			removeItemSelected(listItemSelected, idItem);
 		}
 	});
-
 	if(listItemSelected.length != 0 && listItemSelected != "[]"){
 		$("#c-action-buttons").addClass("activeSelected");
 	}else{
@@ -341,7 +342,7 @@ $(document).on("click", "#tbl_operations tbody tr", function(e){
 	}
 });
 
-$(document).on("click", "#c-allActionsButtons button", function(e){
+$(document).on("click", "#c-allActionsButtons button", function(){
 	var attrIndexButton = "";
 	$.each($(this), function(i,v){
 		attrIndexButton = $(this).attr("data-action");

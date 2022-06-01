@@ -43,7 +43,7 @@ function listTransactionsByIdClient_tablero(){
 					statusSend = `<span class="process"></span>`;
 				}else if(v.estado == "Completed"){
 					statusSend = `<span class="complete"></span>`;
-				}else if(v.estado == "In_review"){
+				}else if(v.estado == "Inreview"){
 					statusSend = `<span class="in_review"></span>`;
 				}else if(v.estado == "Cancel"){
 					statusSend = `<span class="cancel"></span>`;
@@ -210,7 +210,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 								</form>
 							</div>
 						</div>`;
-				}else if(v.estado == "In_review"){
+				}else if(v.estado == "Inreview"){
 					estado = `<div class="cListDetailsTransactions--contDetails--c--DetailOP--cDetails--m--item--cStatus in_review">
 											<span id="t-statusTransCli">en revisión</span>
 										</div>`;
@@ -476,6 +476,6 @@ $(document).on("submit","#frm-validNroOperFromDash",function(e){
 	    });
 		}
 	}else{
-		console.log('Erro, no existe el código del pedido');
+		console.log('Error, no existe el código del pedido');
 	}
 });

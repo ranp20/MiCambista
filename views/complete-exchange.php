@@ -27,7 +27,7 @@ require_once '../php/process_data-list.php';
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--cIcon">
 								<img src="<?= $url ?>views/assets/img/svg/transfer-complete-exchange.svg" alt="">
 							</div>
-							<input type="hidden" id="vl-idUserSessFinal" value="<?= $idclient; ?>">
+							<input type="hidden" id="vl-idUserSessFinal" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' value="<?= $idclient; ?>">
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textdesc">Transfiere desde tu banco por internet el monto de:</p>
 							<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cTitle--textvalchange">
 								<span id="vl-mountTotalToSend"></span>
@@ -72,7 +72,9 @@ require_once '../php/process_data-list.php';
 									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
 									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
 										<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac">Enviar</button>
-										<a href="#" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink">Cancelar</a>
+										<a href="javascript:void(0);" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink" id="ipt_tOperCancel">
+											<span>Cancelar</span>
+										</a>
 									</div>
 								</form>
 							</div>

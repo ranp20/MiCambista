@@ -40,10 +40,10 @@ if(!isset($_SESSION['admin_micambista'])){
 									<select id="selOpts-OperationsFilter" class="one-hidden">
 										<option selected>Seleccione una opción</option>
 										<option value="1" data-short="Recents">Recientes</option>
-										<option value="1" data-short="Pendings">Pendientes</option>
-										<option value="1" data-short="Processed">En Revisión</option>
-										<option value="1" data-short="Canceled">Cancelados</option>
-										<option value="2" data-short="Completed">Completadas</option>
+										<option value="2" data-short="Pendings">Pendientes</option>
+										<option value="3" data-short="Inreview">En Revisión</option>
+										<option value="4" data-short="Canceled">Cancelados</option>
+										<option value="5" data-short="Completed">Completadas</option>
 									</select>
 								</div>
 							</div>
@@ -94,7 +94,7 @@ if(!isset($_SESSION['admin_micambista'])){
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="<?= $url ?>js/main.js"></script>
-	<script type="text/javascript" src="<?= $url ?>js/actions_pages/operations.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>js/main.js"></script>
+	<script type="text/javascript" src="<?= $url; ?>js/actions_pages/operations.js"></script>
 </body>
 </html>

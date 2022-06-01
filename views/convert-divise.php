@@ -140,7 +140,14 @@ $g_setting = $call_config->get_config();
 				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise"></div>
 				<!-- CONTENIDO - RESUMEN TRANSACCIÓN Y CONTROL AGREGAR NRO DE OPERACIÓN -->
 				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-exchange"></div>
-				<?php require_once 'includes/dashboard-contain-footer.php'; ?>
+				<?php require_once 'includes/dashboard-contain-footer.php';?>
+				<div>
+					<div>
+						<input type="hidden" autocomplete="off" placeholder="" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="v_transccoderegcurrtime-clisel" value="">
+						<input type="hidden" autocomplete="off" placeholder="" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="v_transccodeordercurrtime-clisel" value="">
+						<input type="hidden" autocomplete="off" placeholder="" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="v_transcidcurrtime-clisel" value="">
+					</div>
+				</div>
 			</section>
 			<?php require_once 'includes/dashboard-formaddaccountbank_by_tcurrent.php'; ?>
 		</div>

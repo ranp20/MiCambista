@@ -5,19 +5,6 @@
 	opacity: 0;
 	pointer-events: none;
 	user-select: none;
-	&.hidd_toNextStepTrans{
-		opacity: 0.7;
-		cursor: not-allowed;
-		user-select: none;
-		pointer-events: none;
-		transition: all ease-in-out .4s;
-
-		form, input, button, select, textarea{
-			user-select: none;
-			pointer-events: none;
-			cursor: not-allowed;
-		}
-	}
 	&.sendShow{
 		display: block;
 		visibility: visible;
@@ -28,15 +15,46 @@
 		animation-duration: .2s;
 		animation-timing-function: ease-in-out;
 	}
-	&.send_showToConvertStep{
+	&.sendTwoStep_Show{
 		display: none;
 		visibility: hidden;
 		opacity: 0;
+		cursor: not-allowed !important;
 		pointer-events: none;
 		user-select: none;
-		animation-name: sendShowConvert;
+		animation-name: sendTwoStepShowConvert;
 		animation-duration: .3s;
 		animation-timing-function: ease-in-out;
+	}
+	&.hidd_toNextStepTrans{
+		opacity: 0.7;
+		cursor: not-allowed !important;
+		user-select: none;
+		pointer-events: none;
+		transition: all ease-in-out .4s;
+
+		form, input, button, select, textarea{
+			user-select: none;
+			pointer-events: none;
+			cursor: not-allowed !important;
+		}
+	}
+
+	@keyframes sendTwoStepShowConvert{
+		0%{
+			display: block;
+			visibility: visible;
+			opacity: 1;
+			pointer-events: auto;
+			user-select: auto;
+		}
+		100%{
+			display: none;
+			visibility: hidden;
+			opacity: 0;
+			pointer-events: none;
+			user-select: none;
+		}
 	}
 	@keyframes sendShowConvert{
 		0%{

@@ -566,6 +566,7 @@ $(document).on("blur","#v-validNumOperationFromDashboard",function(){
 	$("#mssg_iptValidOperationFromDashboard").text("");
 	$(this).removeClass("non-validval");
 });
+// ------------ ACTUALIZAR EL ESTADO DE LA TRANSACCIÓN A "INREVIEW"
 $(document).on("submit","#frm-validNroOperFromDash",function(e){
 	e.preventDefault();
 	if($("#t-codigoTransCli").text() != "" && $("#t-codigoTransCli").text() != null && $("#t-codigoTransCli").text() != undefined && $("#t-codigoTransCli").text() != 0){	
@@ -575,7 +576,7 @@ $(document).on("submit","#frm-validNroOperFromDash",function(e){
 			let ipt_idtransac = $("#ipt-codTransacOrder-id").val();
 			let formdata = new FormData();
 			formdata.append("n_operation", ipt_numbOperation);
-			formdata.append("code_order", ipt_codeorder)
+			formdata.append("code_order", ipt_codeorder);
 			formdata.append("id_transaction",ipt_idtransac);
 			formdata.append("id_client", idClient);
 			$.ajax({

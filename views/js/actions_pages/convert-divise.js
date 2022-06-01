@@ -1,7 +1,7 @@
 window.onload = function(){
-  var element = document.querySelector('#timeoutChangeDivise');
+  var elementTConvertDivise = document.querySelector('#timeoutChangeDivise');
 	var minTimeout = 60 * 5;
-  startTimer(minTimeout, element);
+  startTimer(minTimeout, elementTConvertDivise);
 }
 $(() => {
 	//listValidationStatus();
@@ -569,21 +569,24 @@ contValidationBio.addEventListener("click", e => {
 	if(e.target === contValidationBio){contValidationBio.classList.remove("show");}
 });
 
-// ------------ FUNCIÓN - CUENTA REGRESIVA
-function startTimer(minTimeout, element) {
+// ------------ FUNCIÓN - CUENTA REGRESIVA (INICIAR, PARAR)
+var timerUpdate = null;
+function startTimer(minTimeout = null, elementTConvertDivise = null){
+  //intervalId = setInterval(actualizar, 1000); // Cada segundo
   var timer = minTimeout, minutes, seconds;
-  const timerUpdate = setInterval(function () {
-    minutes = parseInt(timer / 60, 10)
-    seconds = parseInt(timer % 60, 10);
-    minutes = minutes < 10 ? "" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    element.textContent = minutes + ":" + seconds;
-    if (--timer < 0){
-      timer = minTimeout;
-      element.textContent = "0:00";
-    	Swal.fire({
-			  title: '',
-			  html: `<div class="alertSwal__cIcon">
+  timerUpdate = setInterval(function () {
+  minutes = parseInt(timer / 60, 10)
+  seconds = parseInt(timer % 60, 10);
+  minutes = minutes < 10 ? "" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  elementTConvertDivise.textContent = minutes + ":" + seconds;
+  if (--timer < 0){
+    timer = minTimeout;
+    elementTConvertDivise.textContent = "0:00";
+  	Swal.fire({
+		  title: '',
+		  html: `<div class="alertSwal">
+			  			<div class="alertSwal__cIcon">
 			  				<svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" version="1.1" viewBox="0 0 700 700">
 								 <path d="m350 46.668c128.87 0 233.33 104.46 233.33 233.33s-104.46 233.33-233.33 233.33-233.33-104.46-233.33-233.33 104.46-233.33 233.33-233.33zm0 46.664c-103.09 0-186.67 83.574-186.67 186.67s83.574 186.67 186.67 186.67 186.67-83.574 186.67-186.67-83.574-186.67-186.67-186.67zm0 70c11.965 0 21.828 9.0078 23.176 20.613l0.15625 2.7227v83.16l63.234 63.738c8.375 8.4453 8.9688 21.684 1.8164 30.809l-1.9492 2.1914c-8.4453 8.375-21.684 8.9688-30.809 1.8164l-2.1914-1.9492-70-70.562c-3.6133-3.6406-5.9023-8.3516-6.5664-13.383l-0.19922-3.0508v-92.77c0-12.887 10.445-23.336 23.332-23.336z"/>
 								</svg>
@@ -595,21 +598,25 @@ function startTimer(minTimeout, element) {
 				  		 	<p>Los 5 minutos de cambio garantizado han finalizado.</p>
 							 	<p>El tipo de cambio se actualizará y puede haber variado.</p>
 							</div>
-							<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>`,
-			  icon: '',
-			  showCancelButton: false,
-			  showConfirmButton: false,
-			  confirmButtonColor: '#3085d6',
-			  confirmButtonText: 'Aceptar',
-			  allowOutsideClick: false,
-			  allowEscapeKey:false,
-			  allowEnterKey:true
-			});
-			$(document).on('click', '.SwalBtn1', function() {
-		    swal.clickConfirm();
-	      window.onbeforeunload = null;
-	      window.location.href = "convert-divise";
-		  });
-    }
-  }, 1000);
+							<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
+						</div>`,
+		  icon: '',
+		  showCancelButton: false,
+		  showConfirmButton: false,
+		  confirmButtonColor: '#3085d6',
+		  confirmButtonText: 'Aceptar',
+		  allowOutsideClick: false,
+		  allowEscapeKey:false,
+		  allowEnterKey:true
+		});
+		$(document).on('click', '.SwalBtn1', function() {
+	    swal.clickConfirm();
+      window.onbeforeunload = null;
+      window.location.href = "convert-divise";
+	  });
+  }
+}, 1000);
+}
+function stopTimerConvertion(){
+  clearInterval(timerUpdate);
 }

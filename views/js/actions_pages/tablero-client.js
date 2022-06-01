@@ -395,7 +395,7 @@ $(document).on("submit","#frm-validNroOperFromDash",function(e){
 			let ipt_idtransac = $("#ipt-codTransacOrder-id").val();
 			let formdata = new FormData();
 			formdata.append("n_operation", ipt_numbOperation);
-			formdata.append("code_order", ipt_codeorder)
+			formdata.append("code_order", ipt_codeorder);
 			formdata.append("id_transaction",ipt_idtransac);
 			formdata.append("id_client", idClient);
 			$.ajax({

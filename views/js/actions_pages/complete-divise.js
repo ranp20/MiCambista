@@ -624,7 +624,7 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 										</div>
 										<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
 										<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
-											<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac">Enviar</button>
+											<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac" id="btn-subtranscupdvalid">Enviar</button>
 											<button type="button" id="btn-canceltranscclicurrthis" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink" id="ipt_tOperCancel">
 												<span>Cancelar</span>
 											</button>
@@ -651,6 +651,13 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 					  $(this).next().html("");
 					});
 	  		}else{
+	  			$("#btn-cCompleteDiviseCli").attr("type","submit");
+					$("#btn-cCompleteDiviseCli").attr("disabled",false);
+					$("#btn-cCompleteDiviseCli").removeClass("completeFrm");
+					$("#btn-cCompleteDiviseCli").removeClass("send_showToConvertStep");
+					$("#btn-cCompleteDiviseCli").find("div").removeClass("show");
+					$("#cont-complete-divise").removeClass("hidd_toNextStepTrans");
+					$("#cont-complete-divise").removeClass("sendTwoStep_Show");
 	  			Swal.fire({
 			      title: 'Error!',
 			      html: `<span class='font-w-300'>Lo sentimos, hubo un error al guardar la información.</span>`,
@@ -659,6 +666,13 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 			    });	
 	  		}
 	  	}else{
+	  		$("#btn-cCompleteDiviseCli").attr("type","submit");
+				$("#btn-cCompleteDiviseCli").attr("disabled",false);
+				$("#btn-cCompleteDiviseCli").removeClass("completeFrm");
+				$("#btn-cCompleteDiviseCli").removeClass("send_showToConvertStep");
+				$("#btn-cCompleteDiviseCli").find("div").removeClass("show");
+				$("#cont-complete-divise").removeClass("hidd_toNextStepTrans");
+				$("#cont-complete-divise").removeClass("sendTwoStep_Show");
 	  		Swal.fire({
 		      title: 'Error!',
 		      html: `<span class='font-w-300'>Lo sentimos, hubo un error al guardar la información.</span>`,
@@ -686,24 +700,53 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 // ------------ EVENTO KEYPRESS - INPUT DE NÚMERO DE OPERACIÓN
 $(document).on("keypress keyup", "#v-validNumOperationTransc", function(e){
 	var charCode = (e.which) ? e.which : e.keyCode;
-  if(e.target.value.length >= 8){
-  	$(this).addClass("non-validval");
-  	$(this).next().text("Solo se permite un máximo de 8 números *");
-  	return false;
-  }
   if (charCode > 31 && (charCode < 48 || charCode > 57)){
     $(this).addClass("non-validval");
     $(this).next().text("Solo se permiten números en este control *");
+    $("#btn-subtranscupdvalid").attr("disabled","disabled");
+  	$("#btn-subtranscupdvalid").attr("type","button");
+  	$("#btn-subtranscupdvalid").addClass("disab-control-k");
     return false;
   }else{
-  	$(this).removeClass("non-validval");
-  	$(this).next().text("");
-  	return true;
+	  if(e.target.value.length >= 8){
+	  	$(this).addClass("non-validval");
+	  	$(this).next().text("Solo se permite un máximo de 8 números *");
+	  	return false;
+	  }else if(e.target.value.length < 6){
+	  	$("#btn-subtranscupdvalid").attr("disabled","disabled");
+	  	$("#btn-subtranscupdvalid").attr("type","button");
+	  	$("#btn-subtranscupdvalid").addClass("disab-control-k");
+	  }else{
+	  	$("#btn-subtranscupdvalid").attr("disabled", false);
+	  	$("#btn-subtranscupdvalid").attr("type","submit");
+	  	$("#btn-subtranscupdvalid").removeClass("disab-control-k");
+	  	$(this).removeClass("non-validval");
+	  	$(this).next().text("");
+  		return true;
+	  }
   }
+
 });
-$(document).on("blur","#v-validNumOperationTransc",function(){
-	$(this).removeClass("non-validval");
-  $(this).next().text("");
+$(document).on("blur","#v-validNumOperationTransc",function(e){
+	if(e.target.value.length < 6){
+  	$(this).addClass("non-validval");
+  	$(this).next().text("La longitud mínima es de 6 caracteres en números *");
+		$("#btn-subtranscupdvalid").attr("disabled","disabled");
+  	$("#btn-subtranscupdvalid").attr("type","button");
+  	$("#btn-subtranscupdvalid").addClass("disab-control-k");
+  }else if(e.target.value == "" || e.target.value.length == 0){
+  	$(this).addClass("non-validval");
+  	$(this).next().text("El siguiente campo no puede quedar vacío *");
+		$("#btn-subtranscupdvalid").attr("disabled","disabled");
+  	$("#btn-subtranscupdvalid").attr("type","button");
+  	$("#btn-subtranscupdvalid").addClass("disab-control-k");
+  }else{	
+		$(this).removeClass("non-validval");
+	  $(this).next().text("");
+	  $("#btn-subtranscupdvalid").attr("disabled", false);
+  	$("#btn-subtranscupdvalid").attr("type","submit");
+  	$("#btn-subtranscupdvalid").removeClass("disab-control-k");
+  }
 });
 // ------------ ACTUALIZAR EL ESTADO DE LA TRANSACCIÓN A "INREVIEW"
 $(document).on("submit","#frm-validNroOpeFromUltiStep",function(e){

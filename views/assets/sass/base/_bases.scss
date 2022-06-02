@@ -118,6 +118,12 @@ strong, b{
 	height: 100%;
 	background-color: #eee;
 }
+.disab-control-k{
+	opacity: .7;
+  cursor: not-allowed;
+  user-select: none;
+  pointer-events: none;
+}
 .step-hidden{
 	display: none;
 	pointer-events: none;

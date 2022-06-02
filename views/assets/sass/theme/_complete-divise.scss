@@ -19,19 +19,19 @@
 		display: none;
 		visibility: hidden;
 		opacity: 0;
-		cursor: not-allowed !important;
 		pointer-events: none;
 		user-select: none;
+		cursor: not-allowed !important;
 		animation-name: sendTwoStepShowConvert;
 		animation-duration: .3s;
 		animation-timing-function: ease-in-out;
 	}
 	&.hidd_toNextStepTrans{
 		opacity: 0.7;
-		cursor: not-allowed !important;
 		user-select: none;
 		pointer-events: none;
 		transition: all ease-in-out .4s;
+		cursor: not-allowed !important;
 
 		form, input, button, select, textarea{
 			user-select: none;

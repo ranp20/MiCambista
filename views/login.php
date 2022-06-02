@@ -20,8 +20,15 @@ $g_setting = $call_config->get_config();
         <img src="" alt="">
       </div>
       <div class="cLogin__cont--fLogin box">
+        <!-- 
+        <div class="cLogin__cont--fLogin--cLogo">
+          <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_MiCambista" width="100" height="100" decoding="async">
+        </div>
+        -->
         <div class="cLogin__cont--fLogin--cTitle">
-          <h2 class="cLogin__cont--fLogin--cTitle--title">Mi Cambista</h2>
+          <div class="cLogin__cont--fLogin--cTitle--cLogo">
+            <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_MiCambista" width="100" height="100" decoding="async">
+          </div>
           <p class="cLogin__cont--fLogin--cTitle--desc">Gana siempre con nosotros.</br>Mejores tasas, mayor ahorro.</p>
         </div>
         <form method="POST" class="cLogin__cont--fLogin--form" id="Login-PInstakash">

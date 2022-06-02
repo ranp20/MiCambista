@@ -14,7 +14,7 @@ require_once '../php/process_session_complete_register.php';
     <div class="cRecovpass__cont">
       <div class="cRecovpass__cont--fAccount box">
         <div class="cRecovpass__cont--fAccount--cTitle">
-          <h2 class="cRecovpass__cont--fAccount--cTitle--title">Tranquilo, lo solucionaremos</h2>
+          <h3 class="cRecovpass__cont--fAccount--cTitle--title">Tranquilo, lo solucionaremos</h3>
           <p class="cRecovpass__cont--fAccount--cTitle--desc">Ingresa tu correo electrónico y te enviaremos un link para generar una nueva contraseña.</p>
         </div>
         <form method="POST" class="cRecovpass__cont--fAccount--form" id="Recovpass-PInstakash">

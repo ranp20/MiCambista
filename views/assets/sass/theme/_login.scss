@@ -27,8 +27,33 @@
 				justify-content: center;
 				padding: 0;
 			}
+			&--cLogo{
+				max-width: 20rem;
+				margin-bottom: 2rem;
+				img{
+					max-width: 20rem;
+					width: 95%;
+					height: auto;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
 			&--cTitle{
 				margin-bottom: 2.5rem;
+				&--cLogo{
+					max-width: 18.5rem;
+					width: 95%;
+					margin-bottom: 0.25rem;
+					margin-left: auto;
+					margin-right: auto;
+					padding: 0.25rem;
+					img{
+						width: 100%;
+						height: auto;
+						object-fit: cover;
+						object-position: center;
+					}
+				}
 				&--title{
 					font-size: 3rem;
 					color: limegreen;
@@ -96,6 +121,9 @@
 						margin-bottom: 1rem;
 						text-decoration: underline;
 						color: $theme_color-links;
+						&:hover{
+							color: $theme_color-links;
+						}
 					}
 					&--btnLogin{
 						cursor: pointer;
@@ -152,6 +180,9 @@
 							margin-left: 0.4rem;
 							text-decoration: underline;
 							color: $theme_color-links;
+							&:hover{
+								color: $theme_color-links;
+							}
 						}
 					}
 				}

@@ -24,7 +24,7 @@ class Transactions extends Connection{
 	// -------------- LISTAR - VALIDAR SI EL CUPÓN INSERTADO LE CORRESPONDE AL USUARIO
 	function update_transaction_to_cancel($arr_updtransacwithnope){
 		try{
-			$sql = "CALL sp_update_transaction_to_cancel(:n_operation, :code_order, :id_transaction, :id_client)";
+			$sql = "CALL sp_update_transaction_to_cancel(:code_order, :id_transaction, :id_client)";
 			$stm = $this->con->prepare($sql);
 			foreach ($arr_updtransacwithnope as $key => $value) {
 				$stm->bindValue($key, $value);

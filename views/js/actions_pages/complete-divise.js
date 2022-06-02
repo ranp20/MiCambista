@@ -619,17 +619,17 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac">
 									<form method="POST" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form" id="frm-validNroOpeFromUltiStep">
 										<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cinputNumOp">
-											<input type="text" autocomplete="off" spellcheck="false" class="" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8">
+											<input type="text" autocomplete="off" spellcheck="false" class="" placeholder="Ingresa el nro. de operación" id="v-validNumOperationTransc" maxlength="8" required>
 											<span></span>
 										</div>
 										<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--Step">SOLO POSEES 15 MINUTOS PARA ENVIARNOS EL NRO. DE TU OPERACIÓN.</h3>
 										<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns">
 											<button type="submit" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--btnTransac" id="btn-subtranscupdvalid">Enviar</button>
-											<button type="button" id="btn-canceltranscclicurrthis" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink" id="ipt_tOperCancel">
-												<span>Cancelar</span>
-											</button>
 										</div>
 									</form>
+									<button type="button" id="btn-canceltranscclicurrthis" class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cFormSendtransac--form--cBtns--cancelLink">
+										<span>Cancelar</span>
+									</button>
 								</div>
 							</div>
 						</div>`);
@@ -857,8 +857,8 @@ $(document).on("click", "#btn-canceltranscclicurrthis", function(e){
 			  		 	<p>La solicitud de cambio será <strong class="bold-pricolor">cancelada</strong>.</p>
 						</div>
 						<div class="alertSwal__cBtnsActions">
-							<button type="button" role="button" tabindex="0" class="SwalBtn3 customSwalBtn cust-cancel">Cancelar</button>
 							<button type="button" role="button" tabindex="0" class="SwalBtn2 customSwalBtn cust-confirm">Aceptar</button>
+							<button type="button" role="button" tabindex="0" class="SwalBtn3 customSwalBtn cust-cancel">Cancelar</button>
 						</div>
 					</div>`,
 	  icon: '',
@@ -877,40 +877,29 @@ $(document).on("click", "#btn-canceltranscclicurrthis", function(e){
     swal.clickConfirm();
     if($("#v_transccodeordercurrtime-clisel").val() != "" && $("#v_transccodeordercurrtime-clisel").val() != null && 
 			$("#v_transccodeordercurrtime-clisel").val() != undefined && $("#v_transccodeordercurrtime-clisel").val() != 0){	
-			if($("#v-validNumOperationTransc").val() != "" && $("#v-validNumOperationTransc").val() != null && $("#v-validNumOperationTransc").val() != undefined){
-				let ipt_numbOperation = $("#v-validNumOperationTransc").val();
-				let ipt_codeorder = $("#v_transccodeordercurrtime-clisel").val();
-				let ipt_idtransac = $("#v_transcidcurrtime-clisel").val();
-				let formdata = new FormData();
-				formdata.append("n_operation", ipt_numbOperation);
-				formdata.append("code_order", ipt_codeorder);
-				formdata.append("id_transaction", ipt_idtransac);
-				formdata.append("id_client", idClient.value);
-				$.ajax({
-					url: "./php/process_update-cancel-transaction.php",
-					method: "POST",
-					data: formdata,
-					contentType: false,
-			    cache: false,
-			    processData: false,
-			    beforeSend: function(){
-			    	//console.log('Insertando la información');
-			    },
-			    success: function(e){
-			    	if(e != ""){
-			    		let r = JSON.parse(e);
-				    	if(r.res == "true"){
-				    		window.onbeforeunload = null;
-								window.location.href = "convert-divise";
-				    	}else{		    		
-				    		Swal.fire({
-						      title: 'Error!',
-						      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
-						      icon: 'error',
-						      confirmButtonText: 'Aceptar'
-						    });
-				    	}
-			    	}else{
+			let ipt_codeorder = $("#v_transccodeordercurrtime-clisel").val();
+			let ipt_idtransac = $("#v_transcidcurrtime-clisel").val();
+			let formdata = new FormData();
+			formdata.append("code_order", ipt_codeorder);
+			formdata.append("id_transaction", ipt_idtransac);
+			formdata.append("id_client", idClient.value);
+			$.ajax({
+				url: "./php/process_update-cancel-transaction.php",
+				method: "POST",
+				data: formdata,
+				contentType: false,
+		    cache: false,
+		    processData: false,
+		    beforeSend: function(){
+		    	//console.log('Insertando la información');
+		    },
+		    success: function(e){
+		    	if(e != ""){
+		    		let r = JSON.parse(e);
+			    	if(r.res == "true"){
+			    		window.onbeforeunload = null;
+							window.location.href = "convert-divise";
+			    	}else{		    		
 			    		Swal.fire({
 					      title: 'Error!',
 					      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
@@ -918,24 +907,24 @@ $(document).on("click", "#btn-canceltranscclicurrthis", function(e){
 					      confirmButtonText: 'Aceptar'
 					    });
 			    	}
-			    },
-				 	statusCode: {
-				    404: function(){
-				      console.log('Error 404: La página de consulta no fue encotrada.');
-				    }
-				  },
-				  error:function(x,xs,xt){
-				    console.log(JSON.stringify(x));
-				  }
-				});
-			}else{
-				Swal.fire({
-		      title: 'Atención!',
-		      html: `<span class='font-w-300'>El siguiente campo es obligatorio.</span>`,
-		      icon: 'warning',
-		      confirmButtonText: 'Aceptar'
-		    });
-			}
+		    	}else{
+		    		Swal.fire({
+				      title: 'Error!',
+				      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+				      icon: 'error',
+				      confirmButtonText: 'Aceptar'
+				    });
+		    	}
+		    },
+			 	statusCode: {
+			    404: function(){
+			      console.log('Error 404: La página de consulta no fue encotrada.');
+			    }
+			  },
+			  error:function(x,xs,xt){
+			    console.log(JSON.stringify(x));
+			  }
+			});
 		}else{
 			console.log('Error, no existe el código del pedido');
 		}

@@ -214,145 +214,206 @@ $urlCli =  $actual_link . "/";
 					<!--<button type="button" href="#" id="add-category" class="cDash-adm--containRight--cContain__addtitle--btn-add" data-toggle="modal" data-target="#addcategoryModal"><span class="cDash-adm--containRight--cContain__addtitle--btn-add__hidden">Agregar&nbsp;</span>+</button>-->
 				</div>
 				<div class="cDash-adm--containRight--cContain__cBody">
-					<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo">
-						<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardTitle">
-							<h4>GENERAL</h4>
-						</div>
-						<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
-								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Nombres</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['name']; ?></p>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Apellidos</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['lastname']; ?></p>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Email</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['email']; ?></p>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Teléfono</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['telephone']; ?></p>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">N° de Documento</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['n_document']; ?></p>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Sexo</label>
-				          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['t_sex']; ?></p>
-				        </div>
+					<div class="cBody-cGroupContains">					
+						<div class="cBody-cGroupContains__medium">
+							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo">
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardTitle">
+									<h4>GENERAL</h4>
+								</div>
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
+										<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Nombres</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['name']; ?></p>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Apellidos</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['lastname']; ?></p>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Email</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['email']; ?></p>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Teléfono</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['telephone']; ?></p>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">N° de Documento</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php echo $client_details[0]['n_document']; ?></p>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Sexo</label>
+						          <p class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__paragraphinfo"><?php  echo $client_details[0]['t_sex']; ?></p>
+						        </div>
+						        
+									</div>
+								</div>
+							</div>
+							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo">
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardTitle">
+									<h4>VALIDACIÓN BIOMÉTRICA</h4>
+								</div>
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
+										<input type="hidden" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="val-id_client" value="<?php echo $_GET['client']; ?>">
+										<h3 class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardTitle">DOCUMENTO DE IDENTIDAD:</h3>
+									</div>
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
+										<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI frontal</label>
+						          <?php
+						          $tmp_dnifront = "";
+						          	if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front'])){
+						          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_front'];
+						          		$tmp_dnifront = "
+								          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
+									          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
+									          </div>";
+						          	}else{
+						          		$tmp_dnifront = "
+								          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
+								          		<span>No se subió imagen</span>
+								          	</div>";
+						          	}
+						          	echo $tmp_dnifront;
+						          ?>
+						        </div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-tab-3">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI Posterior</label>
+						          <?php
+						          $tmp_dnifront = "";
+						          	if(isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back'])){
+						          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_back'];
+						          		$tmp_dnifront = "
+								          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
+								          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
+								          </div>";
+						          	}else{
+						          		$tmp_dnifront = "
+								          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
+									          	<span>No se subió imagen</span>
+									          </div>";
+						          	}
+						          	echo $tmp_dnifront;
+						          ?>
+						        </div>
+									</div>
+									<!-- 
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
+										<h3 class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardTitle">MULTIMEDIA</h3>
+									</div>
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
+						          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Video</label>
+						          <?php 
+					          		/*echo $client_details[0]['video_validation'];*/
+					          	?>
+						          	<video src="<?php /*echo "blob:https://localhost/".$client_details[0]['video_validation']*/ ?>" id="videoShowClient" controls playsinline></video>
+						          	<video width="320" height="240" controls="controls" poster="image" preload="metadata">
+						          	<source src="<?php /*echo "data:video/*;base64,".base64_encode($client_details[0]['video_validation']);*/ ?>" type="">
+					          	</div>
+						        </div>
+									</div>
+									 -->
+									<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
+										<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts" id="c-btnActionsToMultimediaDocs">
+											<?php
+												$tmp_validstatus = "";
+												if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "inreview"){
+													$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
+													<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+															<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
+														</span>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
+													</button>
+													<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+															<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
+														</span>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
+													</button>
+													</div>";
+												}else if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "accepted"){
+													$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
+													<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+															<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
+														</span>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
+													</button>
+													<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
+															<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
+														</span>
+														<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
+													</button>
+													</div>";
+												}else{
+													// $tmp_validstatus .= "<div><span class='mssg__txtLineSuccess'>VALIDACIÓN ACEPTADA</span></div>";
+													// echo "La validación fue aceptada, depende del cliente si se quiere dejar sin botones luego de actualizar.";
+												}
+												echo $tmp_validstatus;
+											?>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo">
-						<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardTitle">
-							<h4>VALIDACIÓN BIOMÉTRICA</h4>
-						</div>
-						<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
-								<input type="hidden" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="val-id_client" value="<?php echo $_GET['client']; ?>">
-								<h3 class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardTitle">DOCUMENTO DE IDENTIDAD:</h3>
-							</div>
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
-								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI frontal</label>
-				          <?php
-				          $tmp_dnifront = "";
-				          	if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front'])){
-				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_front'];
-				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
-							          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
-							          </div>";
-				          	}else{
-				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgFrontValidDoc'>
-						          		<span>No se subió imagen</span>
-						          	</div>";
-				          	}
-				          	echo $tmp_dnifront;
-				          ?>
-				        </div>
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">DNI Posterior</label>
-				          <?php
-				          $tmp_dnifront = "";
-				          	if(isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back'])){
-				          		$path_dnifront = "../views/assets/img/clients/dni/".$client_details[0]['photo_dni_back'];
-				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
-						          	<img src='{$path_dnifront}' alt='' width='100' height='100' style='width:200px;height:auto;'>
-						          </div>";
-				          	}else{
-				          		$tmp_dnifront = "
-						          	<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cimageinfo' id='c-imgBackValidDoc'>
-							          	<span>No se subió imagen</span>
-							          </div>";
-				          	}
-				          	echo $tmp_dnifront;
-				          ?>
-				        </div>
-							</div>
-							<!-- 
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
-								<h3 class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardTitle">MULTIMEDIA</h3>
-							</div>
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
-				        <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem">
-				          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Video</label>
-				          <?php 
-			          		/*echo $client_details[0]['video_validation'];*/
-			          	?>
-				          	<video src="<?php /*echo "blob:https://localhost/".$client_details[0]['video_validation']*/ ?>" id="videoShowClient" controls playsinline></video>
-				          	<video width="320" height="240" controls="controls" poster="image" preload="metadata">
-				          	<source src="<?php /*echo "data:video/*;base64,".base64_encode($client_details[0]['video_validation']);*/ ?>" type="">
-			          	</div>
-				        </div>
-							</div>
-							 -->
-							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol">
-								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts" id="c-btnActionsToMultimediaDocs">
-									<?php
-										$tmp_validstatus = "";
-										if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "in_review"){
-											$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
-													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
-												</span>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
-											</button>
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
-													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
-												</span>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
-											</button>
-											</div>";
-										}else if(isset($client_details[0]['photo_dni_front']) && !empty($client_details[0]['photo_dni_front']) && isset($client_details[0]['photo_dni_back']) && !empty($client_details[0]['photo_dni_back']) && $client_details[0]['validation_status'] == "accepted"){
-											$tmp_validstatus .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c'>	
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-success' data-valid='confirm'>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
-													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='28px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m124.28 346.64c-18.781-18.781-18.781-49.242 0-68.008 18.781-18.781 49.242-18.781 68.023 0l92.234 92.234 219.34-283.7c16.18-20.965 46.301-24.832 67.27-8.6523 20.965 16.18 24.832 46.301 8.6523 67.27l-250.47 323.97c-1.7812 2.7031-3.8633 5.2734-6.2344 7.6602-18.781 18.781-49.242 18.781-68.023 0l-130.77-130.77z'/></g></svg>
-												</span>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>CONFIRMAR VALIDACIÓN</span>
-											</button>
-											<button type='button' class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn btn__valid-cust-danger' data-valid='canceled'>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cIcon'>
-													<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='27px' height='27px' version='1.1' viewBox='0 0 700 700'><g xmlns='http://www.w3.org/2000/svg'><path d='m414.4 280 174.16-174.16c17.922-17.922 17.922-46.48 0-64.398-17.922-17.922-46.48-17.922-64.398 0l-174.16 174.16-174.16-174.16c-17.922-17.922-46.48-17.922-64.398 0-17.922 17.922-17.922 46.48 0 64.398l174.16 174.16-174.16 174.16c-17.922 17.922-17.922 46.48 0 64.398 8.957 8.9609 20.16 13.441 31.918 13.441 11.762 0 23.52-4.4805 31.922-13.441l174.72-174.16 174.16 174.16c8.9609 8.9609 20.719 13.441 31.922 13.441 11.762 0 23.52-4.4805 31.922-13.441 17.922-17.922 17.922-46.48 0-64.398z'/></g></svg>
-												</span>
-												<span class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cGrpBtnsValidOpts__c__btn__cText'>DENEGAR VALIDACIÓN</span>
-											</button>
-											</div>";
-										}else{
-											// $tmp_validstatus .= "<div><span class='mssg__txtLineSuccess'>VALIDACIÓN ACEPTADA</span></div>";
-											// echo "La validación fue aceptada, depende del cliente si se quiere dejar sin botones luego de actualizar.";
-										}
-										echo $tmp_validstatus;
-									?>
+						<div class="cBody-cGroupContains__small">
+							<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo">
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardTitle">
+									<h4>CUPONES</h4>
+								</div>
+								<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody">
+									<form action="" method="POST" id="c-savChckItems-coupon">
+										<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo">
+											<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem col-desk-1">
+												<input type="hidden" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" name="idupdate-client" value="<?php echo $_GET['client']; ?>">
+							          <label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__labelinfo">Cupones</label>
+							          <div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList">
+							          	<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList__c">
+							          		<label for="" class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList__c__label">Lista de cupones</label>
+							          		<div class="cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList__c__cList">	
+								          	<?php
+								          		require_once '../../php/class/coupon.php';
+															$coupons = new Coupon();
+															$listAll = $coupons->get_coupons();
+															$listCouponsByid = $coupons->get_coupons_by_idclient($_GET['client']);
+															$tmp_selCoupons = "";
+															$found = false;
+
+															foreach($listAll as $key_a => $val_a){
+														    $found = false;
+														    foreach($listCouponsByid as $key_b => $val_b) {
+													       if ($val_a['id'] == $val_b['id']) {
+												            $tmp_selCoupons .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList__c__cList__item'>
+												          		<input type='checkbox' name='cli_listcoupons[]' data-id='{$val_b['id']}' id='coupon-{$val_b['id']}' value='{$val_b['id']}' checked>
+												          		<label for='coupon-{$val_b['id']}'>{$val_b['code_coupon']}</label>
+												          	</div>";
+												            $found = true;
+													        }
+														    }
+														    if (!$found){
+														      $tmp_selCoupons .= "<div class='cDash-adm--containRight--cContain__cBody__cardBodyInfo__cCardBody__contCol__cardGrpControlsinfo__ctrlItem__cChckList__c__cList__item'>
+											          		<input type='checkbox' name='cli_listcoupons[]' data-id='{$val_a['id']}' id='coupon-{$val_a['id']}' value='{$val_a['id']}'>
+											          		<label for='coupon-{$val_a['id']}'>{$val_a['code_coupon']}</label>
+											          	</div>";
+														    }
+															}
+															echo $tmp_selCoupons;
+								          	?>
+							          		</div>
+							          	</div>
+							          </div>
+							        </div>
+										</div>
+						        <div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__colElement ta-right">
+						        	<button type="submit" class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody__colElement__btnFormAction">GUARDAR</button>
+						        </div>
+										
+									</form>
 								</div>
 							</div>
 						</div>

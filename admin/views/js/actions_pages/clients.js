@@ -18,6 +18,7 @@ selCoupons.select2({
   }
 });
 */
+/*
 // ------------ LISTAR DATOS EN EL MODAL
 $(document).on('click', `a.btn-update-client`, function(e){
   e.preventDefault();
@@ -64,7 +65,6 @@ $(document).on('click', `a.btn-update-client`, function(e){
          
       }, []);
       console.log(result.concat(list_AllCoupons));
-
       // ------------ LISTAR DATOS EN EL MODAL
       //console.log(list_AllCoupons);
       if(list_AllCoupons.length != 0){
@@ -88,17 +88,17 @@ $(document).on('click', `a.btn-update-client`, function(e){
         }
         sel_coupons.html("");
         sel_coupons.html(tmp_coupons);
-        /*
-        $.each(r.concat(list_AllCoupons),function(i,v){
-          // if(list_AllCoupons[i] != undefined && list_AllCoupons[i] != "undefined"){
-          //   listCoupoesjson.push(v);
-          // }
-          if(v != null){
-            listCoupoesjson.push(v);
-          };
-        });
-        console.log(listCoupoesjson);
-        */
+        
+        // $.each(r.concat(list_AllCoupons),function(i,v){
+        //   // if(list_AllCoupons[i] != undefined && list_AllCoupons[i] != "undefined"){
+        //   //   listCoupoesjson.push(v);
+        //   // }
+        //   if(v != null){
+        //     listCoupoesjson.push(v);
+        //   };
+        // });
+        // console.log(listCoupoesjson);
+        
       }else{
         console.log("No tiene cupones");
         for (var i = 0; i < r.length; i++){
@@ -115,8 +115,8 @@ $(document).on('click', `a.btn-update-client`, function(e){
       //console.log(listCoupoesjson);
     }
   });
-  
 });
+*/
 /*
 $.ajax({
   url: "../admin/controllers/c_list-coupons.php",
@@ -331,3 +331,4 @@ $(document).on('submit', '#form-update-client', function(e){
     }
   });
 });
+

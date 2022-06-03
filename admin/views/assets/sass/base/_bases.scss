@@ -444,3 +444,27 @@ img{
 		}
 	}
 }
+/* CONTENEDOR DE VARIOS CARDBODY */
+.cBody-cGroupContains{
+	display: flex;
+	flex-flow: wrap row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex: 0 0 100%;
+	&__medium{
+		display: inline-block;
+		width: 100%;
+		@media (min-width: 1280px){
+			width: 65%;
+		}
+	}
+	&__small{
+		display: inline-block;
+		width: 100%;
+		@media (min-width: 1280px){
+			width: 33.3333%;
+			max-width: 26rem;
+			margin-left: 1rem;
+		}
+	}
+}

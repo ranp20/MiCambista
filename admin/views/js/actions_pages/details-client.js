@@ -77,3 +77,31 @@ if(cItemsBtnsValid != null && cItemsBtnsValid != undefined){
 		});
 	});
 }
+$(document).on("submit", "#c-savChckItems-coupon", function(e){
+	e.preventDefault();
+	var formdata = $(this).serializeArray();
+  $.ajax({
+    url: "../../admin/controllers/c_update-client-coupon.php",
+    method: "POST",
+    dataType: 'JSON',
+    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+    data: formdata
+  }).done((e) => {
+    if(e.res == "updated"){
+      $('#updateModal').modal("hide");
+      Swal.fire({
+        title: 'Éxito!',
+        text: 'Se han actualizado los cupones para este cliente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
+    }else{
+      Swal.fire({
+        title: 'Error!',
+        text: 'Los sentimos, hubo un error al procesar la información.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+});

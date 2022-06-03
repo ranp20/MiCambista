@@ -22,4 +22,27 @@ class Coupon extends Connection{
 			return $e->getMessage();
 		}
 	}
+	// -------------- LISTAR - CUPONES
+	function get_coupons(){
+		try{
+			$sql = "SELECT id, code_coupon FROM {$this->table} ORDER BY id DESC";
+			$stm = $this->con->query($sql);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
+	// -------------- LISTAR - CUPONES
+	function get_coupons_by_idclient($id_client){
+		try{
+			$sql = "CALL sp_list_id_coupon_byidclient(:id_client)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
 }

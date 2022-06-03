@@ -55,7 +55,8 @@ if(!isset($_SESSION['admin_micambista'])){
 						</div>
 					</div>
 				</div>
-				<!-- MODAL - EDITAR ITEMS -->
+<!-- 
+
 				<div class="modal fade bootstrapmodalupdate-custom" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
@@ -69,14 +70,6 @@ if(!isset($_SESSION['admin_micambista'])){
 				      	<div class="cont-modalbootstrapupdate">
 					        <form action="" id="form-update-client" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
 					        	<input type="hidden" name="idupdate-client" id="idupdate-client">
-					        	<!--
-					        	<div class="cont-modalbootstrapupdate__form--control">
-					        		<label for="code_coupon-client-update" class="cont-modalbootstrapupdate__form--control__label complete">Cupones</label>
-					        		<select class="js-example-basic-multiple" id="c-contSelectItems__selCoupons" name="cli_coupons[]" multiple="multiple">
-					        			<option></option>
-					        		</select>
-					        	</div>
-					        	-->
 					        	<div class="cont-groupbox-controls">
 					        		<label for="" class="cont-groupbox-controls__label">Cupones</label>
 					        		<div id="cli_listCoupones"></div>
@@ -91,7 +84,8 @@ if(!isset($_SESSION['admin_micambista'])){
 				    </div>
 				  </div>
 				</div>
-				<!-- MODAL - DETAILS ITEMS -->
+
+
 				<div class="modal fade bootstrapmodalupdate-custom" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
@@ -119,7 +113,8 @@ if(!isset($_SESSION['admin_micambista'])){
 				    </div>
 				  </div>
 				</div>
-				<!-- FIN MODALS-->
+
+ -->
 			</div>
 		</div>
 	</main>

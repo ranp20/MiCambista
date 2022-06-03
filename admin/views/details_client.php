@@ -379,7 +379,7 @@ $urlCli =  $actual_link . "/";
 								          	<?php
 								          		require_once '../../php/class/coupon.php';
 															$coupons = new Coupon();
-															$listAll = $coupons->get_coupons();
+															$listAll = $coupons->get_coupons_addable();
 															$listCouponsByid = $coupons->get_coupons_by_idclient($_GET['client']);
 															$tmp_selCoupons = "";
 															$found = false;

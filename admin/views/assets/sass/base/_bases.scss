@@ -314,6 +314,7 @@ img{
 		@media (min-width: 767px){
 			float: right;
 	    margin: 0 0 0 auto;
+	    z-index: 99;
 		}
 	}
 	/* FILTRAR NÚMERO DE RESULTADOS */
@@ -337,6 +338,7 @@ img{
     @media (min-width: 767px){
 	    top: 15px;
 	    right: 10px;
+	    width: 86%;
     }
 
 		label{
@@ -480,6 +482,7 @@ img{
 		@media (min-width: 767px){
 			float: right;
 	    margin: 0 0 0 auto;
+	    z-index: 99;
 		}
 	}
 	/* FILTRAR NÚMERO DE RESULTADOS */
@@ -503,6 +506,7 @@ img{
     @media (min-width: 767px){
 	    top: 15px;
 	    right: 10px;
+	    width: 86%;
     }
 
 		label{

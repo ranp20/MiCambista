@@ -8,13 +8,13 @@ class Add_Coupon extends Connection{
 			"buy_percent_desc" => $_POST['buy_percent_desc'],
 			"buy_output_price" => $_POST['buy_output_price'],
 			"sell_percent_desc" => $_POST['sell_percent_desc'],
-			"sell_output_price" => $_POST['sell_output_price']
+			"sell_output_price" => $_POST['sell_output_price'],
+			"type_scope" => (isset($_POST['type_scope']) && !empty($_POST['type_scope'])) ? $_POST['type_scope'] : "addable"
 		];
-
 		if($_POST['buy_percent_desc'] != 0){
 			if ($_POST['sell_percent_desc'] != 0){
 				try{
-					$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :buy_percent_desc, :buy_output_price, :sell_percent_desc, :sell_output_price)";
+					$sql = "CALL sp_add_coupon (:code_coupon, :larger_amounts, :buy_percent_desc, :buy_output_price, :sell_percent_desc, :sell_output_price,:type_scope)";
 					$stm = $this->con->prepare($sql);
 					foreach ($arr_coupon as $key => $value) {
 						$stm->bindValue($key, $value);

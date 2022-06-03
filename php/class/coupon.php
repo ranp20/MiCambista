@@ -25,7 +25,7 @@ class Coupon extends Connection{
 	// -------------- LISTAR - CUPONES
 	function get_coupons_addable(){
 		try{
-			$sql = "SELECT id, code_coupon FROM {$this->table} ORDER BY id DESC";
+			$sql = "SELECT id, code_coupon FROM {$this->table} WHERE type_scope = 'addable' ORDER BY id DESC";
 			$stm = $this->con->query($sql);
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -36,7 +36,7 @@ class Coupon extends Connection{
 	// -------------- LISTAR - CUPONES WHERE type_coupon = "GENERAL"
 	function get_coupons_general(){
 		try{
-			$sql = "SELECT id, code_coupon FROM {$this->table} ORDER BY id DESC";
+			$sql = "SELECT id, code_coupon FROM {$this->table} WHERE type_scope = 'general' ORDER BY id DESC";
 			$stm = $this->con->query($sql);
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_ASSOC);

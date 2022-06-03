@@ -153,10 +153,23 @@ $(document).on("blur", "#sell_percent_desc-update", function(){
   $("#sell_price_dismiss-update").removeClass("invalid-format");
   $("#sell_price_dismiss-update").removeClass("valid-format");
 });
+// ------------ VALIDAR EL CHECK DE TIPO DE ÁMBITO DEL CUPÓN
+$(document).on("click", "#chck_typescopecoupon",function(e){
+  if($(this).is(":checked")){
+    $("#txt-scopeCoupon").addClass("active");
+    $("#txt-scopeCoupon").text("General");
+    $(this).val("general");
+  }else{
+    $("#txt-scopeCoupon").removeClass("active");
+    $("#txt-scopeCoupon").text("Aplicable");
+    $(this).val("addable");
+  }
+});
 // ------------ AGREGAR COUPON
 $(document).on('submit', '#form-add-coupon', function(e){
   e.preventDefault();
   var formdata = new FormData();
+  formdata.append("type_scope", $("#chck_typescopecoupon").val());
   formdata.append("code_coupon", $('#code_coupon').val());
   formdata.append("larger_amounts", $('#larger_amounts').val());
   formdata.append("buy_percent_desc", $('#buy_percent_desc').val());
@@ -171,38 +184,52 @@ $(document).on('submit', '#form-add-coupon', function(e){
     cache: false,
     processData: false,
   }).done((e) => {
-    if(e == "true"){
-      Swal.fire({
-        title: 'Agregado!',
-        text: 'El cupón se ha agregado correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      });
-      $('#form-add-coupon')[0].reset();
-      listCoupons();
-      $('#addcouponModal').modal("hide");
-      $("#buy_price_original").val(buy_at_original);
-      $("#buy_price_dismiss").val(buy_at_original);
-      $("#buy_price_original-update").val(buy_at_original);
-      $("#sell_price_original").val(sell_at_original);
-      $("#sell_price_dismiss").val(sell_at_original);
-      $("#sell_price_original-update").val(buy_at_original);
-    }else if(e == "err_buy_percent_desc"){
-      Swal.fire({
-        title: 'Error!',
-        text: 'El descuento de compra no puede ser menor o igual 0.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    }else if(e == "err_sell_percent_desc"){
-      Swal.fire({
-        title: 'Error!',
-        text: 'El descuento de venta no puede ser menor o igual 0.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
+    if(e != ""){
+      if(e == "true"){
+        Swal.fire({
+          title: 'Agregado!',
+          text: 'El cupón se ha agregado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        $('#form-add-coupon')[0].reset();
+        listCoupons();
+        $('#addcouponModal').modal("hide");
+        $("#buy_price_original").val(buy_at_original);
+        $("#buy_price_dismiss").val(buy_at_original);
+        $("#buy_price_original-update").val(buy_at_original);
+        $("#sell_price_original").val(sell_at_original);
+        $("#sell_price_dismiss").val(sell_at_original);
+        $("#sell_price_original-update").val(buy_at_original);
+      }else if(e == "err_buy_percent_desc"){
+        Swal.fire({
+          title: 'Error!',
+          text: 'El descuento de compra no puede ser menor o igual 0.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }else if(e == "err_sell_percent_desc"){
+        Swal.fire({
+          title: 'Error!',
+          text: 'El descuento de venta no puede ser menor o igual 0.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }else{
+        Swal.fire({
+          title: 'Error!',
+          text: 'Lo sentimos, hubo un error al procesar la información.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
     }else{
-      console.log("Error, no se pudo guardar el registro.");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Lo sentimos, hubo un error al procesar la información.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   });
 });
@@ -218,7 +245,7 @@ function listCoupons(searchVal){
     var template = "";
     if(res == '[]'){
       template = `<tr>
-          <td colspan="9">
+          <td colspan="10">
             <div class="msg-non-results-res">
               <img src="../admin/views/assets/img/icons/icon-sad-face.svg" alt="img_noun-img" class="msg-non-results-res__icon">
               <h3 class="msg-non-results-res__title">No se encontraron resultados...</h3>
@@ -229,7 +256,7 @@ function listCoupons(searchVal){
       var response = JSON.parse(res);
       if(response.length == 0){
         template = `<tr>
-            <td colspan="9">
+            <td colspan="10">
               <div class="msg-non-results-res">
                 <img src="../admin/views/assets/img/icons/icon-sad-face.svg" alt="img_noun-img" class="msg-non-results-res__icon">
                 <h3 class="msg-non-results-res__title">No se encontraron resultados...</h3>
@@ -238,6 +265,12 @@ function listCoupons(searchVal){
           </tr>`;
       }else{
         $.each(response, function(i,e){
+          var namescope = "";
+          if(e.type_scope == "general"){
+            namescope = `<span class='format-bold-positive'> General</span>`;
+          }else{
+            namescope = `<span class='format-bold-neutro'> Aplicable</span>`;
+          }
           template += `<tr id="item-${e.id}">
               <td class='center'>${e.id}</td>
               <td class='center'>${e.code_coupon}</td>
@@ -254,6 +287,9 @@ function listCoupons(searchVal){
               <td class='center'>
                 <span class='format-bold-positive'> ${e.sell_output_price}</span>
               </td>
+              <td class='center'>
+                ${namescope}
+              </td>
               <td class="cont-btn-update">
                 <a class="btn-update-coupon" data-toggle="modal" data-target="#updateModal"  href="#" 
                   data-id="${e.id}"
@@ -263,6 +299,7 @@ function listCoupons(searchVal){
                   data-buy_price_dismiss="${e.buy_output_price}"
                   data-sell_percent_desc="${e.sell_percent_desc}"
                   data-sell_price_dismiss="${e.sell_output_price}"
+                  data-type_scope="${e.type_scope}"
                   >Editar</a>
               </td>
               <td class="cont-btn-delete" id="cont-btn-delete">
@@ -299,6 +336,7 @@ $(document).on('click', '.btn-update-coupon', function(e){
       buy_price_dismiss: $(this).attr('data-buy_price_dismiss'),
       sell_percent_desc: $(this).attr('data-sell_percent_desc'),
       sell_price_dismiss: $(this).attr('data-sell_price_dismiss'),
+      type_scope: $(this).attr('data-type_scope'),
     };
     $('#idupdate-coupon').val(item_data['id']);
     $('#code_coupon-update').val(item_data['code_coupon']);
@@ -307,7 +345,36 @@ $(document).on('click', '.btn-update-coupon', function(e){
     $('#buy_price_dismiss-update').val(item_data['buy_price_dismiss']);
     $('#sell_percent_desc-update').val(item_data['sell_percent_desc']);
     $('#sell_price_dismiss-update').val(item_data['sell_price_dismiss']);
+    if(item_data['type_scope'] == "general"){
+      $("#c-SwitchUpdItem").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label active" id="txt-scopeCoupon-update">General</label>
+      <div class="cont-modalbootstrapupdate__form--control__cSwith__c">
+        <div class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont">
+          <input type="checkbox" id="chck_typescopecoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__input" name="type_scope" value="general" checked>
+          <label for="chck_typescopecoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__label"></label>
+        </div>
+      </div>`);
+    }else{
+      $("#c-SwitchUpdItem").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label" id="txt-scopeCoupon-update">Agregable</label>
+      <div class="cont-modalbootstrapupdate__form--control__cSwith__c">
+        <div class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont">
+          <input type="checkbox" id="chck_typescopecoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__input" name="type_scope" value="addable">
+          <label for="chck_typescopecoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__label"></label>
+        </div>
+      </div>`);
+    }
   });
+});
+// ------------ VALIDAR EL CHECK DE TIPO DE ÁMBITO DEL CUPÓN
+$(document).on("click", "#chck_typescopecoupon-update",function(e){
+  if($(this).is(":checked")){
+    $("#txt-scopeCoupon-update").addClass("active");
+    $("#txt-scopeCoupon-update").text("General");
+    $(this).val("general");
+  }else{
+    $("#txt-scopeCoupon-update").removeClass("active");
+    $("#txt-scopeCoupon-update").text("Aplicable");
+    $(this).val("addable");
+  }
 });
 // ------------ ACTUALIZAR POR ID
 $(document).on('submit', '#form-update-coupon', function(e){
@@ -319,6 +386,7 @@ $(document).on('submit', '#form-update-coupon', function(e){
   formdata.append("buy_output_price", $('#buy_price_dismiss-update').val());
   formdata.append("sell_percent_desc", $('#sell_percent_desc-update').val());
   formdata.append("sell_output_price", $('#sell_price_dismiss-update').val());
+  formdata.append("type_scope", $('#chck_typescopecoupon-update').val());
   formdata.append("id", $('#idupdate-coupon').val());
 
   $.ajax({
@@ -329,32 +397,45 @@ $(document).on('submit', '#form-update-coupon', function(e){
     cache: false,
     processData: false
   }).done((e) => {
-    console.log(e);
-    if(e == "true"){
-      Swal.fire({
-        title: 'Actualizado!',
-        text: 'El cupón se ha actualizado correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      });
-      listCoupons();
-      $('#updateModal').modal("hide");
-    }else if(e == "err_buy_percent_desc"){
-      Swal.fire({
-        title: 'Error!',
-        text: 'El descuento de compra no puede ser menor o igual 0.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    }else if(e == "err_sell_percent_desc"){
-      Swal.fire({
-        title: 'Error!',
-        text: 'El descuento de venta no puede ser menor o igual 0.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
+    if(e != ""){
+      if(e == "true"){
+        Swal.fire({
+          title: 'Actualizado!',
+          text: 'El cupón se ha actualizado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        listCoupons();
+        $('#updateModal').modal("hide");
+      }else if(e == "err_buy_percent_desc"){
+        Swal.fire({
+          title: 'Error!',
+          text: 'El descuento de compra no puede ser menor o igual 0.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }else if(e == "err_sell_percent_desc"){
+        Swal.fire({
+          title: 'Error!',
+          text: 'El descuento de venta no puede ser menor o igual 0.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }else{
+        Swal.fire({
+          title: 'Error!',
+          text: 'Lo sentimos, hubo un error al procesar la información.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
     }else{
-      console.log("Error, no se pudo actualizar el registro.");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Lo sentimos, hubo un error al procesar la información.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   });
 });

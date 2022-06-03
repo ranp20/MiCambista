@@ -42,6 +42,7 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>Tarifa Final (Compra)</th>
 											<th>Desc. de tarifa (Venta)</th>
 											<th>Tarifa Final (Venta)</th>
+											<th>Ámbito</th>
 											<th></th>
 											<th></th>
 										</tr>
@@ -64,7 +65,18 @@ if(!isset($_SESSION['admin_micambista'])){
 				      </div>
 				      <div class="modal-body">
 				      	<div class="cont-modalbootstrap">
-					        <form action="" id="form-add-coupon" method="POST" class="cont-modalbootstrap__form" autocomplete="false" enctype="multipart/form-data">
+					        <form action="" id="form-add-coupon" method="POST" class="cont-modalbootstrap__form" autocomplete="false">
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<div class="cont-modalbootstrap__form--control__cSwith">
+												<label for="" class="cont-modalbootstrap__form--control__cSwith__label" id="txt-scopeCoupon">Agregable</label>
+												<div class="cont-modalbootstrap__form--control__cSwith__c">
+													<div class="cont-modalbootstrap__form--control__cSwith__c__chckCont">
+														<input type="checkbox" id="chck_typescopecoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__input" name="type_scope" value="addable">
+														<label for="chck_typescopecoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__label"></label>
+													</div>
+												</div>
+											</div>
+					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
 					        		<label for="code_coupon" class="cont-modalbootstrap__form--control__label">Código del cupón</label>
 					        		<input id="code_coupon" class="cont-modalbootstrap__form--control__input" name="code_coupon" type="text" maxlength="100" required placeholder="Ingrese el código del cupón" autocomplete='off' spellcheck='false'>
@@ -137,6 +149,9 @@ if(!isset($_SESSION['admin_micambista'])){
 				      	<div class="cont-modalbootstrapupdate">
 					        <form action="" id="form-update-coupon" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
 					        	<input type="hidden" id="idupdate-coupon">
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<div class="cont-modalbootstrapupdate__form--control__cSwith" id="c-SwitchUpdItem"></div>
+					        	</div>
 					        	<div class="cont-modalbootstrapupdate__form--control">
 					        		<label for="code_coupon-update" class="cont-modalbootstrapupdate__form--control__label complete">Código del cupón</label>
 					        		<input id="code_coupon-update" class="cont-modalbootstrapupdate__form--control__input" name="code_coupon-update" type="text" maxlength="100" placeholder="Ingrese el código del cupón" autocomplete='off' spellcheck='false'>

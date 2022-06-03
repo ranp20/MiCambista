@@ -32,14 +32,14 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 		let formData = new FormData();
 		formData.append("codecoupon", frmValidCoupon);
 		$.ajax({
-			url: "controllers/c_list_check_coupon.php",
+			url: "./php/process_list-check-coupon.php",
 			method: "POST",
 			data: formData,
 	    contentType: false,
 	    cache: false,
 	    processData: false,
 		}).done(function(e){
-			//console.log(e);
+			console.log(e);
 			if(e == "[]"){
 				Swal.fire({
 	        title: 'Error!',

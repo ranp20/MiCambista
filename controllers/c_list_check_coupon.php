@@ -1,4 +1,5 @@
 <?php
+/*
 session_start();
 require_once '../php/class/db/connection.php';
 class List_Check_Coupon extends Connection{
@@ -9,10 +10,6 @@ class List_Check_Coupon extends Connection{
 			"code_coupon" => $code_coupon,
 			"id_client" => $id_client
 		];
-		/*
-		print_r($arr_chckcoupon);
-		exit();
-		*/
 		try{
 			$sql = "CALL sp_list_check_coupon(:code_coupon, :id_client)";
 			$stm = $this->con->prepare($sql);
@@ -30,3 +27,4 @@ class List_Check_Coupon extends Connection{
 }
 $check_coupon = new List_Check_Coupon();
 echo $check_coupon->list();
+*/

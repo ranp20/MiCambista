@@ -165,17 +165,30 @@ $(document).on("click", "#chck_typescopecoupon",function(e){
     $(this).val("addable");
   }
 });
+// ------------ VALIDAR EL CHECK DE ACTIVACIÓN DEL CUPÓN
+$(document).on("click", "#chck_stactivactioncoupon",function(e){
+  if($(this).is(":checked")){
+    $("#txt-stactivaction").addClass("active");
+    $("#txt-stactivaction").text("Activado");
+    $(this).val("active");
+  }else{
+    $("#txt-stactivaction").removeClass("active");
+    $("#txt-stactivaction").text("Desactivado");
+    $(this).val("inactive");
+  }
+});
 // ------------ AGREGAR COUPON
 $(document).on('submit', '#form-add-coupon', function(e){
   e.preventDefault();
   var formdata = new FormData();
-  formdata.append("type_scope", $("#chck_typescopecoupon").val());
   formdata.append("code_coupon", $('#code_coupon').val());
   formdata.append("larger_amounts", $('#larger_amounts').val());
   formdata.append("buy_percent_desc", $('#buy_percent_desc').val());
   formdata.append("buy_output_price", $('#buy_price_dismiss').val());
   formdata.append("sell_percent_desc", $('#sell_percent_desc').val());
   formdata.append("sell_output_price", $('#sell_price_dismiss').val());
+  formdata.append("type_scope", $("#chck_typescopecoupon").val());
+  formdata.append("activation", $("#chck_stactivactioncoupon").val());
   $.ajax({
     url: "../admin/controllers/c_add-coupon.php",
     method: "POST",
@@ -266,13 +279,21 @@ function listCoupons(searchVal){
       }else{
         $.each(response, function(i,e){
           var namescope = "";
+          var nameactivation = "";
           if(e.type_scope == "general"){
             namescope = `<span class='format-bold-positive'> General</span>`;
           }else{
             namescope = `<span class='format-bold-neutro'> Aplicable</span>`;
           }
+
+          if(e.activation == "active"){
+            nameactivation = `<div class='frmt-smallOpt success'><span>SI</span></div>`;
+          }else{
+            nameactivation = `<div class='frmt-smallOpt cancel'><span>NO</span></div>`;
+          }
           template += `<tr id="item-${e.id}">
               <td class='center'>${e.id}</td>
+              <td class='center'>${nameactivation}</td>
               <td class='center'>${e.code_coupon}</td>
               <td class='center'>${e.larger_amounts}</td>
               <td class='center'>
@@ -300,9 +321,10 @@ function listCoupons(searchVal){
                   data-sell_percent_desc="${e.sell_percent_desc}"
                   data-sell_price_dismiss="${e.sell_output_price}"
                   data-type_scope="${e.type_scope}"
+                  data-activation="${e.activation}"
                   >Editar</a>
               </td>
-              <td class="cont-btn-delete" id="cont-btn-delete">
+              <td class="cont-btn-delete">
                 <a class="btn-delete-coupon" data-toggle="modal" data-target="#deleteModal" href="#"
                   data-id="${e.id}"
                   >Eliminar</a>
@@ -337,6 +359,7 @@ $(document).on('click', '.btn-update-coupon', function(e){
       sell_percent_desc: $(this).attr('data-sell_percent_desc'),
       sell_price_dismiss: $(this).attr('data-sell_price_dismiss'),
       type_scope: $(this).attr('data-type_scope'),
+      activation: $(this).attr('data-activation')
     };
     $('#idupdate-coupon').val(item_data['id']);
     $('#code_coupon-update').val(item_data['code_coupon']);
@@ -354,7 +377,7 @@ $(document).on('click', '.btn-update-coupon', function(e){
         </div>
       </div>`);
     }else{
-      $("#c-SwitchUpdItem").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label" id="txt-scopeCoupon-update">Agregable</label>
+      $("#c-SwitchUpdItem").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label" id="txt-scopeCoupon-update">Aplicable</label>
       <div class="cont-modalbootstrapupdate__form--control__cSwith__c">
         <div class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont">
           <input type="checkbox" id="chck_typescopecoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__input" name="type_scope" value="addable">
@@ -362,9 +385,26 @@ $(document).on('click', '.btn-update-coupon', function(e){
         </div>
       </div>`);
     }
+    if(item_data['activation'] == "active"){
+      $("#c-SwitchUpdItem-activation").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label active" id="txt-stactivaction-update">Activado</label>
+      <div class="cont-modalbootstrapupdate__form--control__cSwith__c">
+        <div class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont">
+          <input type="checkbox" id="chck_stactivactioncoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__input" name="activation" value="active" checked>
+          <label for="chck_stactivactioncoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__label"></label>
+        </div>
+      </div>`);
+    }else{
+      $("#c-SwitchUpdItem-activation").html(`<label for="" class="cont-modalbootstrapupdate__form--control__cSwith__label" id="txt-stactivaction-update">Inactivo</label>
+      <div class="cont-modalbootstrapupdate__form--control__cSwith__c">
+        <div class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont">
+          <input type="checkbox" id="chck_stactivactioncoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__input" name="activation" value="addable">
+          <label for="chck_stactivactioncoupon-update" class="cont-modalbootstrapupdate__form--control__cSwith__c__chckCont__label"></label>
+        </div>
+      </div>`);
+    }
   });
 });
-// ------------ VALIDAR EL CHECK DE TIPO DE ÁMBITO DEL CUPÓN
+// ------------ VALIDAR EL CHECK DE TIPO DE ÁMBITO DEL CUPÓN - ACTUALIZAR
 $(document).on("click", "#chck_typescopecoupon-update",function(e){
   if($(this).is(":checked")){
     $("#txt-scopeCoupon-update").addClass("active");
@@ -374,6 +414,18 @@ $(document).on("click", "#chck_typescopecoupon-update",function(e){
     $("#txt-scopeCoupon-update").removeClass("active");
     $("#txt-scopeCoupon-update").text("Aplicable");
     $(this).val("addable");
+  }
+});
+// ------------ VALIDAR EL CHECK DE ACTIVACIÓN DEL CUPÓN - ACTUALIZAR
+$(document).on("click", "#chck_stactivactioncoupon-update",function(e){
+  if($(this).is(":checked")){
+    $("#txt-stactivaction-update").addClass("active");
+    $("#txt-stactivaction-update").text("Activo");
+    $(this).val("active");
+  }else{
+    $("#txt-stactivaction-update").removeClass("active");
+    $("#txt-stactivaction-update").text("Inactivo");
+    $(this).val("inactive");
   }
 });
 // ------------ ACTUALIZAR POR ID
@@ -387,6 +439,7 @@ $(document).on('submit', '#form-update-coupon', function(e){
   formdata.append("sell_percent_desc", $('#sell_percent_desc-update').val());
   formdata.append("sell_output_price", $('#sell_price_dismiss-update').val());
   formdata.append("type_scope", $('#chck_typescopecoupon-update').val());
+  formdata.append("activation", $('#chck_stactivactioncoupon-update').val());
   formdata.append("id", $('#idupdate-coupon').val());
 
   $.ajax({

@@ -56,4 +56,42 @@ class Coupon extends Connection{
 			return $e->getMessage();
 		}
 	}
+	// -------------- LISTAR - CUPONES
+	function get_type_scope_by_codecoupon($code_coupon){
+		try{
+			$sql = "SELECT type_scope FROM {$this->table} WHERE code_coupon = :code_coupon";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":code_coupon", $code_coupon);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
+	// -------------- LISTAR - CUPONES
+	function get_coupon_by_checkByCli($arr_validcoupon){
+		try{
+			$sql = "CALL sp_list_check_coupon(:code_coupon, :id_client)";
+			$stm = $this->con->prepare($sql);
+			foreach ($arr_validcoupon as $key => $value){
+				$stm->bindValue($key, $value);
+			}
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
+	// -------------- LISTAR - CUPONES
+	function get_coupon_slt_general($code_coupon){
+		try{
+			$sql = "CALL sp_list_coupon_slt_general(:code_coupon)";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":code_coupon", $code_coupon);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
 }

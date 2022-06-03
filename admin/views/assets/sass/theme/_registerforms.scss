@@ -76,9 +76,10 @@
 							/* CONTROL SWITCH */
 							&__cSwith{
 								display: block;
-								margin-left: auto;
-								right: 0;
-								text-align: right;
+								margin-right: auto;
+								left: 0;
+								text-align: left;
+								padding: 0.25rem;
 								&__label{
 									display: inline-block;
 									color: #bbb;
@@ -88,7 +89,7 @@
 								}
 								&__c{
 									display: inline-block;
-									margin-left: 0.5rem;
+									margin-right: 0.5rem;
 									&__chckCont{
 										position: relative;
 										display: inline-block;
@@ -478,9 +479,10 @@
 							/* CONTROL SWITCH */
 							&__cSwith{
 								display: block;
-								margin-left: auto;
-								right: 0;
-								text-align: right;
+								margin-right: auto;
+								left: 0;
+								text-align: left;
+								padding: 0.25rem;
 								&__label{
 									display: inline-block;
 									color: #bbb;

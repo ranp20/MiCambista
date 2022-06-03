@@ -35,7 +35,8 @@ if(!isset($_SESSION['admin_micambista'])){
 								<table class="cDash-adm--containRight--cContain__list-results">
 									<thead>
 										<tr>
-											<th>ID</th>
+											<th>id</th>
+											<th>Activado</th>
 											<th>Código</th>
 											<th>M. mayores a</th>
 											<th>Desc. de tarifa (Compra)</th>
@@ -67,14 +68,27 @@ if(!isset($_SESSION['admin_micambista'])){
 				      	<div class="cont-modalbootstrap">
 					        <form action="" id="form-add-coupon" method="POST" class="cont-modalbootstrap__form" autocomplete="false">
 					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="code_coupon" class="cont-modalbootstrap__form--control__label">Estado de activación</label>
 					        		<div class="cont-modalbootstrap__form--control__cSwith">
-												<label for="" class="cont-modalbootstrap__form--control__cSwith__label" id="txt-scopeCoupon">Agregable</label>
+												<div class="cont-modalbootstrap__form--control__cSwith__c">
+													<div class="cont-modalbootstrap__form--control__cSwith__c__chckCont">
+														<input type="checkbox" id="chck_stactivactioncoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__input" name="activation" value="inactive">
+														<label for="chck_stactivactioncoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__label"></label>
+													</div>
+												</div>
+												<label for="" class="cont-modalbootstrap__form--control__cSwith__label" id="txt-stactivaction">Desactivado</label>
+											</div>
+					        	</div>
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="code_coupon" class="cont-modalbootstrap__form--control__label">Tipo de Ámbito</label>
+					        		<div class="cont-modalbootstrap__form--control__cSwith">
 												<div class="cont-modalbootstrap__form--control__cSwith__c">
 													<div class="cont-modalbootstrap__form--control__cSwith__c__chckCont">
 														<input type="checkbox" id="chck_typescopecoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__input" name="type_scope" value="addable">
 														<label for="chck_typescopecoupon" class="cont-modalbootstrap__form--control__cSwith__c__chckCont__label"></label>
 													</div>
 												</div>
+												<label for="" class="cont-modalbootstrap__form--control__cSwith__label" id="txt-scopeCoupon">Agregable</label>
 											</div>
 					        	</div>
 					        	<div class="cont-modalbootstrap__form--control">
@@ -150,6 +164,11 @@ if(!isset($_SESSION['admin_micambista'])){
 					        <form action="" id="form-update-coupon" method="POST" class="cont-modalbootstrapupdate__form" autocomplete="false" enctype="multipart/form-data">
 					        	<input type="hidden" id="idupdate-coupon">
 					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="code_coupon-update" class="cont-modalbootstrapupdate__form--control__label complete">Estado de activación</label>
+					        		<div class="cont-modalbootstrapupdate__form--control__cSwith" id="c-SwitchUpdItem-activation"></div>
+					        	</div>
+					        	<div class="cont-modalbootstrap__form--control">
+					        		<label for="code_coupon-update" class="cont-modalbootstrapupdate__form--control__label complete">Tipo de Ámbito</label>
 					        		<div class="cont-modalbootstrapupdate__form--control__cSwith" id="c-SwitchUpdItem"></div>
 					        	</div>
 					        	<div class="cont-modalbootstrapupdate__form--control">

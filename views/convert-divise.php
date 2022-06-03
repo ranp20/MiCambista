@@ -118,7 +118,7 @@ $g_setting = $call_config->get_config();
 											</div>
 											<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl">
 												<div class="c-convert__cFrmConvert__mxFrmC__cFrm__cValidCoupon__cControl__iptRsltCoupon">
-													<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí">
+													<input type="text" name="v-frmCouponDescStrValid" id="v-frmCouponDescStrValid" maxlength="35" placeholder="Ingrese su cupón aquí" autocomplete='off' spellcheck='false'>
 													<button type="button" id="btn-coDescRatePercent">Agregar</button>
 												</div>
 												<span id="m-couponMessageErr"></span>

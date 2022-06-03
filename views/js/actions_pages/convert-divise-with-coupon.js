@@ -104,23 +104,24 @@ $(document).on("click", "#btn-coDescRatePercent", function(e){
 
 				// COLOCAR CONVERSIÓN DE EJEMPLO AL INICIO
 				var iptvalsend_example_one = $("#val_amount_send_coupon").val();
-				var iptvalsend_example_two = iptvalsend_example_one.toString().split(",");
-				var valinit_example = iptvalsend_example_two[0]+iptvalsend_example_two[1];
-
-				var descomp_valinitexample = valinit_example.toString().split('.');
+				var descomp_valinitexample = iptvalsend_example_one.toString().split('.');
 				var descomp_valinitexample_final = "";
+				var descom_replace_coma = "";
 				if(descomp_valinitexample[1] == undefined || descomp_valinitexample[1] == 'undefined' || descomp_valinitexample[1] == ""){
 					descomp_valinitexample_final = descomp_valinitexample[0]+'.00';
+					descom_replace_coma = descomp_valinitexample_final.replace(/,/g, '');
 				}else	if(descomp_valinitexample[1].length < 2){
 					descomp_valinitexample_final = descomp_valinitexample[0]+"."+descomp_valinitexample[1]+'0';
+					descom_replace_coma = descomp_valinitexample_final.replace(/,/g, '');
 				}else{
 					descomp_valinitexample_final = descomp_valinitexample[0]+"."+descomp_valinitexample[1];
+					descom_replace_coma = descomp_valinitexample_final.replace(/,/g, '');
 				}
 				document.querySelector("#val_amount_send_coupon").value = descomp_valinitexample_final.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				var ipt_amount_received_two = document.querySelector("#val_amount_received_coupon");
 				var currSpanPrefixSend = ipt_amount_send_two.previousElementSibling.textContent;
 				var currSpanPrefixReceived =  ipt_amount_received_two.previousElementSibling.textContent;
-				var first_calcreceived = convert_coupon(valinit_example, currSpanPrefixSend, currSpanPrefixReceived);
+				var first_calcreceived = convert_coupon(descom_replace_coma, currSpanPrefixSend, currSpanPrefixReceived);
 				var second_formatreceived = first_calcreceived.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				var thirty_formatreceived = second_formatreceived.toString().split(".");
 				var thirty_formatreceived_final = "";

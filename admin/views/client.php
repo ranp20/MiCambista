@@ -11,10 +11,16 @@ if(!isset($_SESSION['admin_micambista'])){
 <head>
 	<title>Mi Cambista | Clientes</title>
 	<?php require_once 'includes/header_links.php' ?>
+	<!--
 	<link href="../vendor/select2/select2/dist/css/select2.min.css" rel="stylesheet"/>
 	<script src="../vendor/select2/select2/dist/js/select2.min.js"></script>
+	-->
+	<!-- INCLUIR SWEETALERTS2 -->
 	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<!-- INCLUIR DATATABLES -->
+	<link rel="stylesheet" type="text/css" href="<?= $urlCli; ?>views/js/DataTables/datatables.min.css">
+	<script type="text/javascript" charset="utf8" src="<?= $urlCli; ?>views/js/DataTables/datatables.min.js"></script>
 </head>
 <body>
 	<main class="cDash-adm">
@@ -30,11 +36,27 @@ if(!isset($_SESSION['admin_micambista'])){
 				<div class="cDash-adm--containRight--cContain__cBody">
 					<div class="cDash-adm--containRight--cContain__cBody__cardBody">
 						<div class="cDash-adm--containRight--cContain__cBody__cardBody__cCardBody">
+							<div class="cDash-adm--containRight--cContain__cTitleBeforeTable">
+								<div class="cDash-adm--containRight--cContain__cTitleBeforeTable__title-OptionShort">
+									<h3 id="title-shortOption" class="cDash-adm--containRight--cContain__cTitleBeforeTable__title-OptionShort__title in_review">No validados</h3>
+								</div>
+								<div class="cDash-adm--containRight--cContain__cTitleBeforeTable__cSelOptions">
+									<select id="selOpts-ValidBiometricFilter" class="one-hidden">
+										<option selected>Seleccione una opción</option>
+										<option value="3" data-short="inreview">En Revisión</option>
+										<option value="2" data-short="notvalidated">No validados</option>
+										<option value="4" data-short="canceled">Cancelados</option>
+										<option value="1" data-short="validated">Validados</option>
+									</select>
+								</div>
+							</div>
+							<!--
 							<div class="cDash-adm--containRight--cContain__inputsearch-table">
 								<input type="text" class="cDash-adm--containRight--cContain__inputsearch-table--input" name="searchclients" id="searchclients" maxlength="100" placeholder="Buscar...">
 							</div>
+							-->
 							<div class="contain-table-responsive">
-								<table class="cDash-adm--containRight--cContain__list-results">
+								<table id="tbl_clients" class="cDash-adm--containRight--cContain__list-results" cellpadding="0" width="100%">
 									<thead>
 										<tr>
 											<th>Id</th>
@@ -45,11 +67,9 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>T. documento</th>
 											<th>Nro. documento</th>
 											<th class='center'>Sexo</th>
-											<th class='center'>Coupon</th>
 											<th></th>
 										</tr>
 									</thead>
-									<tbody id="tbl_clients"></tbody>
 								</table>
 							</div>
 						</div>

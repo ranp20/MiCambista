@@ -444,6 +444,172 @@ img{
 		}
 	}
 }
+/* TABLE - CLIENTS */
+/* TABLE - OPERATIONS */
+#tbl_clients_wrapper{
+
+	.dt-buttons.btn-group{
+		button{
+			padding: .175rem .75rem;
+			span{
+				display: block;
+				svg{
+					fill: #fff;
+					max-width: 38px;
+					width: auto;
+					position: relative;
+					top: 2px;
+				}
+			}
+			&.buttons-excel{
+				color: #fff;
+		    background-color: #28a745;
+		    border-color: #28a745;
+			}
+			&.buttons-pdf{
+				color: #fff;
+		    background-color: #dc3545;
+		    border-color: #dc3545;
+			}
+			&.buttons-print{
+				color: #fff;
+		    background-color: #17a2b8;
+		    border-color: #17a2b8;
+			}
+		}
+		@media (min-width: 767px){
+			float: right;
+	    margin: 0 0 0 auto;
+		}
+	}
+	/* FILTRAR NÚMERO DE RESULTADOS */
+	#tbl_clients_length{
+		margin-bottom: 1rem;
+		label{
+			select{
+				background-color: #fff;
+			}
+		}
+		@media (min-width: 767px){
+			position: absolute;
+    	top: 15px;
+		}
+	}
+	/* BÚSQUEDA EN TIEMPO REAL */
+	#tbl_clients_filter{
+		margin-bottom: 1rem;
+		position: relative;
+
+    @media (min-width: 767px){
+	    top: 15px;
+	    right: 10px;
+    }
+
+		label{
+			input{
+				background-color: #fff;
+			}
+		}
+	}
+	/* PAGINACIÓN */
+	#tbl_clients_paginate{
+		display: table;
+		background-color: #fff;
+    border-radius: 5px;
+    padding: 0;
+    //border: 1px solid #979797;
+    overflow: hidden;
+    margin: 0;
+
+    @media (max-width: 767px){
+    	margin: .5rem auto 0 auto;
+    }
+    @media (min-width: 767px){
+    	position: absolute;
+	    right: 0;
+	    bottom: 0px;
+    }
+
+		a.paginate_button{
+			background-color: #fff;
+		}
+
+		a.paginate_button.previous{
+			border-radius: 5px 0 0 5px;
+		}
+		
+		a.paginate_button.next{
+			border-radius: 0 5px 5px 0;
+		}
+
+		a.paginate_button.previous,
+		a.paginate_button.next{
+			//padding: 0.2rem .65rem;
+			background-color: #fff;
+		}
+
+		a.paginate_button.previous.disabled,
+		a.paginate_button.next.disabled{
+			cursor: not-allowed;
+		}
+
+		a.paginate_button.next{
+			border-left: 1px solid #979797;
+		}
+
+		a.paginate_button.current{
+			//padding: 0.2rem .65rem;
+			border-right: none;
+			border-top: none;
+			border-bottom: none;
+			border-left: 1px solid #979797;
+		}
+	}
+}
+#tbl_clients{
+	background-color: #fff;
+  //border: thin solid red;
+	border-collapse: collapse;
+	margin: 0.85rem 0 .85rem 0;
+	border-radius: 6px 6px 6px 6px;
+	border-bottom: none;
+
+	@media (min-width: 767px) {
+		margin: 0.85rem 0 1.3rem 0 !important;
+	}
+
+	thead{
+		border: none;
+		tr{
+			background-color: transparent;
+			border: none;
+			th{
+				//border: none;
+				color: #888;
+			}
+		}
+	}
+	tbody{
+		border-radius: 0 0 6px 6px;
+		tr{
+			//background-color: transparent;
+			cursor: pointer;
+
+			&.selected{
+				background-color: lightgreen;
+			}
+
+			td{
+				padding: 0.5rem;
+				border-top: 1px solid #eee;
+			}
+		}
+
+		tr:last-child{
+			border-radius: 0 0 6px 6px;
+		}
+	}
+}
 /* CONTENEDOR DE VARIOS CARDBODY */
 .cBody-cGroupContains{
 	display: flex;
@@ -465,6 +631,25 @@ img{
 			width: 33.3333%;
 			max-width: 26rem;
 			margin-left: 1rem;
+		}
+	}
+}
+/* BOTONES DENTRO DE TABLAS */
+.cont-btn-details{
+	padding: 8px;
+	margin: auto;
+	text-align: center;
+	a{
+		color: #fff;
+		padding: 0.5rem;
+		border-radius: 5px;
+		background-color: $btn-color-blue;
+		svg{
+			fill: #fff;
+		}
+
+		&:hover{
+			opacity: .6;
 		}
 	}
 }

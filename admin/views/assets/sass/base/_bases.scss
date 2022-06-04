@@ -704,3 +704,20 @@ img{
 		}
 	}
 }
+/* IMAGEN DE LOADER */
+.c_loadingDataItems{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	&__cImg{
+		margin: 0 auto;
+		max-width: 12rem;
+		width: auto;
+		height: auto;
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+}

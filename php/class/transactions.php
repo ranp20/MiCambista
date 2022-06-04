@@ -64,18 +64,4 @@ class Transactions extends Connection{
 			return $e->getMessage();
 		}
 	}
-	// -------------- LISTAR DETALLES DE TRANSACCIÓN POR ID DE TRANSACCIÓN
-	function get_transaction_byIdTransaction($id_transaction){
-		try{
-			$sql = "CALL sp_list_transaction_byIdTransaction(:id_transaction)";
-			$stm = $this->con->prepare($sql);
-			$stm->bindValue(":id_transaction", $id_transaction);
-			$stm->execute();
-			$data = $stm->fetchAll(PDO::FETCH_ASSOC); 
-			$res = json_encode($data);
-			return $res;
-		}catch(PDOException $e){
-			return $e->getMessage();
-		}
-	}
 }

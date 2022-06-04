@@ -80,17 +80,12 @@ if(!isset($_SESSION['admin_micambista'])){
 				        </button>
 				      </div>
 				      <div class="modal-body cont-total-update-items">
-				      	<div class="cont-modalbootstrapupdate">
-				      		<div class="cont-modalbootstrapupdate__cListInfo">
-				      			<input type="hidden" id="iddetails-transactions">
-					        	<div class="cont-modalbootstrapupdate__cListInfo__item">
-					        		<label for="" class="cont-modalbootstrapupdate__cListInfo__item__label complete">ID:</label>
-					        		<div class="cont-modalbootstrapupdate__cListInfo__item__cTxt">
-					        			<p>E-12967023838483</p>
-					        		</div>
-					        	</div>
-							      <div class="cont-modalbootstrapupdate__footer">
-							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CERRAR</button>
+				      	<div class="cont-modalbootstrapdetail">
+				      		<div class="cont-modalbootstrapdetail__cListInfo">
+				      			<input type="hidden" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" id="iddetails-transactions">
+				      			<div id="c-listDetailsTransaction"></div>
+							      <div class="cont-modalbootstrapdetail__footer">
+							        <button type="button" class="cont-modalbootstrapdetail__footer--btncancel" data-dismiss="modal">CERRAR</button>
 							      </div>
 				      		</div>
 				      	</div>

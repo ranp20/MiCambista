@@ -4,7 +4,7 @@ class List_DetailsTrans_ByIdTrans extends Connection{
 	function list(){
 		$id = $_POST['id_transaction'];
 		try{
-			$sql = "CALL sp_list_transaction_byIdTransaction(:id_transaction)";
+			$sql = "CALL sp_list_trans_byIdTransaction_byAdmin(:id_transaction)";
 			$stm = $this->con->prepare($sql);
 			$stm->bindValue(":id_transaction", $id);
 			$stm->execute();

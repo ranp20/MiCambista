@@ -1,7 +1,7 @@
 <?php 
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
   // CONFIGURACIÓN - LOCALHOST
-  $urlAdmin =  $actual_link . "/MiCambista/admin/";
+  $urlAdmin =  $actual_link . "/Memopay/admin/";
   // CONFIGURACIÓN - SERVIDOR
   /*
   $urlAdmin =  $actual_link . "/admin/";

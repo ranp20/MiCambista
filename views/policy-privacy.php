@@ -8,7 +8,7 @@ $g_setting = $call_config->get_config();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Políticas de Privacidad</title>
+	<title>Memopay | Políticas de Privacidad</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
@@ -56,7 +56,7 @@ $g_setting = $call_config->get_config();
 										<li>Moneda.</li>
 										<li>Adicionalmente, para cuentas bancarias de terceros se solicita la información del titular de la cuenta: Tipo de documento de identidad, número de documento y nombre completo.</li>
 									</ul>
-									<li>Asimismo, Mi Cambista requiere almacenar información relativa al comportamiento del usuario dentro del portal, entre la que se incluye:</li>
+									<li>Asimismo, Memopay requiere almacenar información relativa al comportamiento del usuario dentro del portal, entre la que se incluye:</li>
 									<ul>
 										<li>La URL de la que proviene el usuario (incluyendo las externas al portal Web).</li>
 										<li>URLs más visitadas por el usuario (incluyendo las externas al portal Web).</li>

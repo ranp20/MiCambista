@@ -100,15 +100,15 @@ $(document).on("click", ".cCRegister__cont--fCRegister--form--controls--cSelItem
 	});
 });
 // ------------ VALIDAR SI EL CAMPO DE NOMBRES ESTÁ VACÍO 
-$(document).on("keyup", "#names-micambista", function(){
+$(document).on("keyup", "#names-memopay", function(){
 	($(this).val() != 0) ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
 });
 // ------------ VALIDAR SI EL CAMPO DE APELLIDOS ESTÁ VACÍO 
-$(document).on("keyup", "#lastnames-micambista", function(){
+$(document).on("keyup", "#lastnames-memopay", function(){
 	($(this).val() != 0) ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
 });
 // ------------ VALIDAR SI EL CAMPO DE NÚMERO DE DOCUMENTO ESTÁ VACÍO 
-$(document).on("keypress keyup", "#nrodocument-micambista", function(e){
+$(document).on("keypress keyup", "#nrodocument-memopay", function(e){
 	var charCode = (e.which) ? e.which : e.keyCode;
   if (charCode > 31 && (charCode < 48 || charCode > 57)){
     $(this).addClass("non-validval");
@@ -122,17 +122,17 @@ $(document).on("keypress keyup", "#nrodocument-micambista", function(e){
 });
 $(document).on("submit", "#frm-complAccRegCli", function(e){
 	e.preventDefault();
-	($("#names-micambista").val() != "") ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
-	($("#lastnames-micambista").val() != "") ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
-	($("#nrodocument-micambista").val() != "") ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
+	($("#names-memopay").val() != "") ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
+	($("#lastnames-memopay").val() != "") ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
+	($("#nrodocument-memopay").val() != "") ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
 	($("#selListtypeSex--input").attr("idtypesex") && $("#selListtypeSex--input").attr("idtypesex") != undefined) ? $("#msgerrorNounSelTypeSex").text("") : $("#msgerrorNounSelTypeSex").text("Debes seleccionar una opción");
 
 	if($("#selListtypeSex--input").attr("idtypesex") != "" && $("#selListtypeSex--input").attr("idtypesex") != undefined){
 		var obj_cClient = {
-			namescli: $("#names-micambista").val(),
-			lastnamescli: $("#lastnames-micambista").val(),
+			namescli: $("#names-memopay").val(),
+			lastnamescli: $("#lastnames-memopay").val(),
 			typedocumentcli: ($("#selListtypeDocument--input").attr("idtypedocument") == undefined || $("#selListtypeDocument--input").attr("idtypedocument").length <= 0) ? "1" : $("#selListtypeDocument--input").attr("idtypedocument"),
-			num_documentcli: $("#nrodocument-micambista").val(),
+			num_documentcli: $("#nrodocument-memopay").val(),
 			typesexcli: $("#selListtypeSex--input").attr("idtypesex"),
 			prefixtypesex: $("#selListtypeSex--input").attr("typesexprefix"),
 		};

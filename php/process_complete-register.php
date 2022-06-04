@@ -19,7 +19,7 @@ if(isset($_POST) && !empty($_POST)){
     $completereg = new Complete_RegClient();
     $update = $completereg->update($arr_upregister);
     if($update == "true"){
-    	$_SESSION['cli_micambista'][0]['complete_account'] = $_SESSION['cli_micambista'][0]['complete_account'] + $arr_upregister['complete_account'];
+    	$_SESSION['cli_sessmemopay'][0]['complete_account'] = $_SESSION['cli_sessmemopay'][0]['complete_account'] + $arr_upregister['complete_account'];
     	$r = array(
 		    'response' => 'true',
 		  );

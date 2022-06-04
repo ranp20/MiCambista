@@ -1,7 +1,7 @@
 <?php 
 	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
   // CONFIGURACIÓN - LOCALHOST
-  $url_headassets =  $actual_link . "/MiCambista/";
+  $url_headassets =  $actual_link . "/Memopay/";
   // CONFIGURACIÓN - SERVIDOR
   /*
   $url_headassets =  $actual_link . "/";
@@ -24,7 +24,7 @@
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¡Gana con tus referidos!</a>
 					</li>
 					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
-						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¿Por qué MiCambista?</a>
+						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¿Por qué Memopay?</a>
 					</li>
 					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">Beneficios</a>
@@ -45,7 +45,7 @@
 			<div class="cMain__cont--infTop--hTop--citem--cLogo">
 				<div class="cMain__cont--infTop--hTop--citem--cLogo--logo">
 					<a href="./">
-						<img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_MiCambista" width="100" height="100" decoding="async">
+						<img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_Memopay" width="100" height="100" decoding="async">
 					</a>
 				</div>
 			</div>

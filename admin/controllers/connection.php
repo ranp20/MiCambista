@@ -2,13 +2,13 @@
 //CONFIGURACIÓN - SERVIDOR
 /*
 $servidor = "158.106.132.103";
-$dbname = "micambis_db_micambista";
-$usuario = "micambis_use_micambista";
+$dbname = "micambis_db_memopay";
+$usuario = "micambis_use_memopay";
 $password = "D^_~M)O%[K&#";
 */
 //CONFIGURACIÓN - LOCALHOST
 $servidor = "localhost";
-$dbname = "db_micambista";
+$dbname = "db_memopay";
 $usuario = "root";
 $password = "";
 

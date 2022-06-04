@@ -19,14 +19,14 @@ if (isset($_POST) && count($_POST) > 0) {
 				$status = round($getbyid[0]['complete_account']);
 				if($status <= 16){
 					session_start();
-					$_SESSION['cli_micambista'] = $getbyid;
+					$_SESSION['cli_sessmemopay'] = $getbyid;
 					$res = array(
             'response' => 'reg_incomplete',
             'received' => $getbyid,
           );
 				}else{
 					session_start();
-					$_SESSION['cli_micambista'] = $getbyid;
+					$_SESSION['cli_sessmemopay'] = $getbyid;
 					$res = array(
             'response' => 'reg_complete',
             'received' => $getbyid,

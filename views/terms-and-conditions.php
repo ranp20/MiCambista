@@ -8,7 +8,7 @@ $g_setting = $call_config->get_config();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Políticas de Privacidad</title>
+	<title>Memopay | Políticas de Privacidad</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>
@@ -25,7 +25,7 @@ $g_setting = $call_config->get_config();
 					<div class="cMain__cont__terms-and-conditions__c__cTermsAndConditions">
 						<div class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item">
 							<h5 class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item__subtitle">1. LA EMPRESA</h5>
-							<p>MI CAMBISTA es una empresa que tiene por finalidad realizar el servicio de cambio de divisas en el Perú a través de su portal web “www.micambista.com.pe” (en adelante el “Portal Web”). MI CAMBISTA se encuentra debidamente registrada con RUC. Nro. 20604340994, con domicilio legal en Jr. Andahuaylas 271 int 02 Lima-Lima-Lima, Perú.</p>
+							<p>MI CAMBISTA es una empresa que tiene por finalidad realizar el servicio de cambio de divisas en el Perú a través de su portal web “www.memopay.com.pe” (en adelante el “Portal Web”). MI CAMBISTA se encuentra debidamente registrada con RUC. Nro. 20604340994, con domicilio legal en Jr. Andahuaylas 271 int 02 Lima-Lima-Lima, Perú.</p>
 							<p>Asimismo, MI CAMBISTA se encuentra autorizada para operar como empresa de cambio de divisas y se encuentra registrada en la Superintendencia de Banca, Seguros y AFP (En adelante SBS) a través de su resolución SBS N° 04237-2019.</p>
 						</div>
 						<div class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item">
@@ -72,7 +72,7 @@ $g_setting = $call_config->get_config();
 							<p>Es importante recalcar que MI CAMBISTA opera a nivel nacional únicamente con cuentas bancarias del BCP E INTERBANK. Adicionalmente, para la provincia de Lima opera con cuentas bancarias de otras entidades financieras, siempre que hayan sido aperturadas en dicha provincia y por medio de transferencias interbancarias utilizando el Código de Cuenta Interbancario (CCI).</p>
 							<p>Una vez que haya completado los pasos, la operación estará vigente por un plazo de 15 minutos, tiempo en el cual EL CLIENTE deberá realizar la transferencia de los fondos.</p>
 							<h5 class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item__subtitle">5.4. Recepción de fondos</h5>
-							<p>Una vez que EL CLIENTE haya registrado su operación, deberá proceder a realizar la transferencia del monto a la cuenta bancaria de MI CAMBISTA, en un tiempo máximo de 15 minutos a partir del registro de su operación para poder mantener el tipo de cambio acordado. Seguidamente, deberá adjuntar o enviar el váucher de la transferencia realizada al correo “transferencias@micambista.com”.</p>
+							<p>Una vez que EL CLIENTE haya registrado su operación, deberá proceder a realizar la transferencia del monto a la cuenta bancaria de MI CAMBISTA, en un tiempo máximo de 15 minutos a partir del registro de su operación para poder mantener el tipo de cambio acordado. Seguidamente, deberá adjuntar o enviar el váucher de la transferencia realizada al correo “transferencias@memopay.com”.</p>
 							<p>MI CAMBISTA no acepta depósitos en efectivo.</p>
 							<p>MI CAMBISTA acepta transferencias bancarias a nivel nacional desde cualquier cuenta bancaria del BCP E INTERBANK.</p>
 							<p>MI CAMBISTA acepta transferencias interbancarias inmediatas de otras entidades financieras solo para cuentas bancarias aperturadas en la provincia de Lima. En caso que EL CLIENTE realice una transferencia interbancaria desde una cuenta aperturada en otra localidad, EL CLIENTE deberá asumir el costo de la transferencia inmediata cobrada por su entidad financiera y ejecutar la transferencia dentro de los horarios establecidos para la operativa interbancaria; el cual establece que el tiempo para realizar este tipo de operaciones es de Lunes a Viernes de 8:30 am y 3:45 pm de días hábiles.</p>
@@ -95,7 +95,7 @@ $g_setting = $call_config->get_config();
 							<p>EL CLIENTE realice un depósito en efectivo en la cuenta de MI CAMBISTA, se procederá a realizar la devolución a la cuenta del cliente del monto depositado, previamente el cliente deberá asumir todos los costos o gastos en los que incurra MI CAMBISTA para la devolución.</p>
 							<h5 class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item__subtitle">5.7. Historial de operaciones</h5>
 							<p>El CLIENTE tiene la opción de consultar sus 10 últimas operaciones históricas ingresando al PORTAL WEB con su usuario y contraseña.</p>
-							<p>En caso que EL CLIENTE desee consultar más de 10 operaciones, deberá solicitarlo enviando un correo electrónico a info@micambista.com.</p>
+							<p>En caso que EL CLIENTE desee consultar más de 10 operaciones, deberá solicitarlo enviando un correo electrónico a info@memopay.com.</p>
 						</div>
 						<div class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item">
 							<h3 class="cMain__cont__terms-and-conditions__c__cTermsAndConditions__item__subtitle">6. DEFINICIONES GENERALES</h3>

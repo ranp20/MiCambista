@@ -2,7 +2,7 @@
 	//COMPRIMIR ARCHIVOS DE TEXTO...
   (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
   session_start();
-  if(isset($_SESSION['cli_micambista'])){
+  if(isset($_SESSION['cli_sessmemopay'])){
   	header("Location: select-profile");
   }
   require_once './php/class/settings.php';
@@ -13,7 +13,7 @@
 <html lang="es">
 <head>
 	<?php require_once 'views/includes/header_links.php' ?> 
-	<title>Mi Cambista | centro de cambio en línea con las mejores tasas</title>
+	<title>Memopay | centro de cambio en línea con las mejores tasas</title>
 </head>
 <body>
 	<?php require_once 'views/includes/api_whatsapp.php';?>
@@ -23,7 +23,7 @@
 			<section class="cMain__cont--heroI" id="fromHereFixedHeadTop">
 				<div class="cMain__cont--heroI--c box">
 					<div class="cMain__cont--heroI--c--cheader">
-						<h1 class="cMain__cont--heroI--c--cheader--title">¡Gana cambiando con MiCambista!</h1>
+						<h1 class="cMain__cont--heroI--c--cheader--title">¡Gana cambiando con Memopay!</h1>
 						<p class="cMain__cont--heroI--c--cheader--desc">Dale a tu dinero el valor que merece</p>
 					</div>
 					<section class="cMain__cont--heroI--c--formuser">
@@ -155,7 +155,7 @@
 			</section>
 			<section class="cMain__cont--stepsU box">
 				<h2 class="cMain__cont--stepsU--title">¿Cómo funciona?</h2>
-				<h3 class="cMain__cont--stepsU--title-two">Mi Cambista es una Fintech que te permitirá hacer los cambios desde donde estés, solo debes seguir estos sencillos pasos:</h3>
+				<h3 class="cMain__cont--stepsU--title-two">Memopay es una Fintech que te permitirá hacer los cambios desde donde estés, solo debes seguir estos sencillos pasos:</h3>
 				<ul class="cMain__cont--stepsU--m">
 					<li class="cMain__cont--stepsU--m--item">
 						<img src="./views/assets/img/svg/step-1.svg" alt="" class="cMain__cont--stepsU--m--item--img">
@@ -172,7 +172,7 @@
 						<div class="cMain__cont--stepsU--m--item--c">
 							<h4 class="cMain__cont--stepsU--m--item--c--title">Paso 2</h4>
 							<p class="cMain__cont--stepsU--m--item--c--desc">
-								<b class="cMain__cont--stepsU--m--item--c--desc--bold">Transfiere los fondos a Mi Cambista.</b>
+								<b class="cMain__cont--stepsU--m--item--c--desc--bold">Transfiere los fondos a Memopay.</b>
 								<span class="cMain__cont--stepsU--m--item--c--desc--light">Realiza la transferencia desde tu banco a la cuenta indicada.</span>
 							</p>
 						</div>
@@ -183,7 +183,7 @@
 							<h4 class="cMain__cont--stepsU--m--item--c--title">Paso 3</h4>
 							<p class="cMain__cont--stepsU--m--item--c--desc">
 								<b class="cMain__cont--stepsU--m--item--c--desc--bold">Recibe tu cambio</b>
-								<span class="cMain__cont--stepsU--m--item--c--desc--light">Verifica el bono en tu cuenta y sigue ahorrando con Mi Cambista.</span>
+								<span class="cMain__cont--stepsU--m--item--c--desc--light">Verifica el bono en tu cuenta y sigue ahorrando con Memopay.</span>
 							</p>
 						</div>
 					</li>
@@ -215,7 +215,7 @@
 							<li class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep">
 								<div class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep--c">
 									<h1 class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep--c--numbtitle">03</h1>
-									<p class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep--c--desc">Recibirás <b>1 KASH </b>por cada amigo	que realice su primera operación. </br><b>1 KASH = $1 USD</b></p>
+									<p class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep--c--desc">Recibirás <b>1 USD </b>por cada amigo	que realice su primera operación.</p>
 								</div>
 								<a href="signin" class="cMain__cont--affiliateU--cCenter--csteps--msteps--finalstep--btnLogin">Ingresar ahora</a>
 							</li>
@@ -233,7 +233,7 @@
 						<li class="cMain__cont--benefits--cList--m--item">Obtendrás <b>las mejores tasas</b> del Perú.</li>
 						<li class="cMain__cont--benefits--cList--m--item"><b>Ahorrarás</b> dinero en cada cambio.</li>
 						<li class="cMain__cont--benefits--cList--m--item">Recibirás tu cambio en <b>pocos minutos</b>.</li>
-						<li class="cMain__cont--benefits--cList--m--item">Ganarás <b>1 KASH </b>por cada recomendación.</li>
+						<li class="cMain__cont--benefits--cList--m--item">Ganarás <b>1 USD </b>por cada recomendación.</li>
 					</ul>
 				</div>
 				<div class="cMain__cont--benefits--cimg">

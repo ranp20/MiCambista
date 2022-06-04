@@ -2,14 +2,14 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['admin_micambista'])){
+if(!isset($_SESSION['admin_sessmemopay'])){
 	header("Location: admin");
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Clientes</title>
+	<title>Memopay | Clientes</title>
 	<?php require_once 'includes/header_links.php' ?>
 	<!--
 	<link href="../vendor/select2/select2/dist/css/select2.min.css" rel="stylesheet"/>

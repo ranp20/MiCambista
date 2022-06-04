@@ -2,7 +2,7 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(isset($_SESSION['admin_micambista'])){
+if(isset($_SESSION['admin_sessmemopay'])){
 	header("Location: dashboard");
 }
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
@@ -11,7 +11,7 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Login Admin</title>
+	<title>Memopay | Login Admin</title>
 	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body class="c_body-loginAdm">
@@ -20,7 +20,7 @@ $url =  $actual_link . "/Camellogistics/admin/views/";
 		<div class="cLoginAdm__cont">
 			<div class="cLoginAdm__cont--fLogin box-small">
 				<div class="cLoginAdm__cont--fLogin--cLogo">
-					<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoLogin_MiCambista" width="100" height="100" decoding="async">
+					<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoLogin_Memopay" width="100" height="100" decoding="async">
 				</div>
 				<div class="cLoginAdm__cont--fLogin--cTitle">
 					<h2 class="cLoginAdm__cont--fLogin--cTitle--title">INICIAR SESIÓN</h2>

@@ -2,14 +2,14 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();	
-if(!isset($_SESSION['admin_micambista'])){
+if(!isset($_SESSION['admin_sessmemopay'])){
 	header("Location: admin");
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Cupones</title>
+	<title>Memopay | Cupones</title>
 	<?php require_once 'includes/header_links.php' ?>
 	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>

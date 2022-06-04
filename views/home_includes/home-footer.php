@@ -3,7 +3,7 @@
 		<div class="cFooter--contT--c box">
 			<section class="cFooter--contT--c--sec pl-pr-15">
 				<div class="cFooter--contT--c--sec--c">
-					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logofooter_MiCambista" width="100" height="100" decoding="async">
+					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logofooter_Memopay" width="100" height="100" decoding="async">
 					<p class="cFooter--contT--c--sec--c--text">Somos la startup financiera que revoluciona la forma de administrar el dinero a través de una plataforma 100% digital.</p>
 					<div class="cFooter--contT--c--sec--c--cIcon">
 						<a href="javascript:void(0);" class="cFooter--contT--c--sec--c--cIcon--link">
@@ -53,7 +53,7 @@
 					<h3 class="cFooter--contT--c--sec--c--title">Datos de contacto</h3>
 					<ul class="cFooter--contT--c--sec--c--m">
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">contacto@micambista.net</a>
+							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">contacto@memopay.net</a>
 						</li>
 						<li class="cFooter--contT--c--sec--c--m--item">
 							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Lunes a Viernes 9 a.m - 7 p.m</a>
@@ -68,8 +68,8 @@
 	</div>
 	<div class="cFooter--contB">
 		<div class="cFooter--contB--c box pl-pr-15">
-			<p>2021&copy; Todos los derechos reservados <b>Mi Cambista</b> </p>
-			<p>Mi Cambista S.A.C RUC 1070446633 | Registro SBS: 04448888- 2019</p>
+			<p>2021&copy; Todos los derechos reservados <b>Memopay</b> </p>
+			<p>Memopay S.A.C RUC 1070446633 | Registro SBS: 04448888- 2019</p>
 		</div>
 	</div>
 </footer>

@@ -2,18 +2,18 @@
 session_start();
 $r = "";
 if(isset($_POST) && $_POST > 0){
-	if(isset($_SESSION['cli_micambista'][0]['validation_status']) && isset($_SESSION['cli_micambista'][0]['profile_type']) && isset($_SESSION['cli_micambista'][0]['profile_name'])){
+	if(isset($_SESSION['cli_sessmemopay'][0]['validation_status']) && isset($_SESSION['cli_sessmemopay'][0]['profile_type']) && isset($_SESSION['cli_sessmemopay'][0]['profile_name'])){
 		require_once 'class/rates.php';
 		require_once 'class/client.php';
 		$client = new Client();
 		$rates = new Rates();
 		$listMaxRates = $rates->get_maximum_convert_divise();
-		$list_state = $client->get_status_biometric_validation($_SESSION['cli_micambista'][0]['id']);
+		$list_state = $client->get_status_biometric_validation($_SESSION['cli_sessmemopay'][0]['id']);
 		$st_validation = $list_state[0]['validation_status'];
 		$ammount_max = floatval($listMaxRates[0]['mxaammountcv']);
 		$ammount_send = floatval($_POST['ammount_send']);
-		$profile_type = $_SESSION['cli_micambista'][0]['profile_type'];
-		$profile_name = $_SESSION['cli_micambista'][0]['profile_name'];
+		$profile_type = $_SESSION['cli_sessmemopay'][0]['profile_type'];
+		$profile_name = $_SESSION['cli_sessmemopay'][0]['profile_name'];
 		$arr_data = [
 			"cambioval" => $_POST['cambioval'],
 			"prefix" => $_POST['prefix'],

@@ -14,7 +14,7 @@ $g_setting = $call_config->get_config();
 		<div class="cControlP__cont--hTop--c--cLogHorario">
 			<div class="cControlP__cont--hTop--c--cLogHorario--cLogo">
 				<a href="welcome">
-					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo-panelcontrol_MiCambista" width="100" height="100" decoding="async">
+					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo-panelcontrol_Memopay" width="100" height="100" decoding="async">
 				</a>
 			</div>
 			<div class="cControlP__cont--hTop--c--cLogHorario--cHorario">

@@ -9,7 +9,7 @@ $g_setting = $call_config->get_config();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Mi Cambista | Login </title>
+  <title>Memopay | Login </title>
   <?php require_once 'includes/header_links.php'; ?>
   <!-- INCLUIR SWEET ALERT 2 -->
   <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
@@ -27,12 +27,12 @@ $g_setting = $call_config->get_config();
       <div class="cLogin__cont--fLogin box">
         <!-- 
         <div class="cLogin__cont--fLogin--cLogo">
-          <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_MiCambista" width="100" height="100" decoding="async">
+          <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_Memopay" width="100" height="100" decoding="async">
         </div>
         -->
         <div class="cLogin__cont--fLogin--cTitle">
           <div class="cLogin__cont--fLogin--cTitle--cLogo">
-            <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_MiCambista" width="100" height="100" decoding="async">
+            <img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_Memopay" width="100" height="100" decoding="async">
           </div>
           <p class="cLogin__cont--fLogin--cTitle--desc">Gana siempre con nosotros.</br>Mejores tasas, mayor ahorro.</p>
         </div>
@@ -51,7 +51,7 @@ $g_setting = $call_config->get_config();
           </div>
           <div class="cLogin__cont--fLogin--form--cBtnsActions">
             <a href="recover-password" class="cLogin__cont--fLogin--form--cBtnsActions--recovPass">¿Olvidaste tu contraseña?</a>
-            <button class="cLogin__cont--fLogin--form--cBtnsActions--btnLogin" id="btn-loginCliMiCambista" type="submit">Ingresar</button>
+            <button class="cLogin__cont--fLogin--form--cBtnsActions--btnLogin" id="btn-loginCliMemopay" type="submit">Ingresar</button>
             <!-- 
             <a href="javascript:void(0);" id="btnLognWithGoogleAuth" class="cLogin__cont--fLogin--form--cBtnsActions--btnLoginWithGoogle">
               <span class="cLogin__cont--fLogin--form--cBtnsActions--btnLoginWithGoogle__cIcon">
@@ -62,7 +62,7 @@ $g_setting = $call_config->get_config();
               </span>
             </a>
              -->
-            <p class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount">¿Eres nuevo en Mi Cambista?<a href="signup" class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount--link">Regístrate</a></p>
+            <p class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount">¿Eres nuevo en Memopay?<a href="signup" class="cLogin__cont--fLogin--form--cBtnsActions--btnAccount--link">Regístrate</a></p>
           </div>
         </form>
       </div>

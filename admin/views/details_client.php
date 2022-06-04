@@ -2,7 +2,7 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['admin_micambista'])){
+if(!isset($_SESSION['admin_sessmemopay'])){
 	header("Location: admin");
 }
 if(isset($_GET['client']) && !empty($_GET) && is_numeric($_GET['client'])){
@@ -16,9 +16,9 @@ if(isset($_GET['client']) && !empty($_GET) && is_numeric($_GET['client'])){
 
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 // CONFIGURACIÓN - LOCALHOST
-$urlAdmin =  $actual_link . "/MiCambista/admin/";
-$url =  $actual_link . "/" ."micambista/admin/views/";
-$urlCli =  $actual_link . "/" ."micambista/";
+$urlAdmin =  $actual_link . "/Memopay/admin/";
+$url =  $actual_link . "/" ."Memopay/admin/views/";
+$urlCli =  $actual_link . "/" ."Memopay/";
 // CONFIGURACIÓN - SERVIDOR
 /*
 $urlAdmin =  $actual_link . "/admin/";
@@ -29,7 +29,7 @@ $urlCli =  $actual_link . "/";
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Detalle del cliente</title>
+	<title>Memopay | Detalle del cliente</title>
 	<?php require_once 'includes/header_links.php'; ?>
 	<!-- HEADER LINKS (INICIO) -->
 	<meta charset="UTF-8">
@@ -39,21 +39,21 @@ $urlCli =  $actual_link . "/";
 	<meta http-equiv="Pragma" content="no-cache"/>
 	<meta http-equiv="Expires" content="0"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-	<meta name="description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
+	<meta name="description" content="¡Gana cambiando con Memopay! Dale a tu dinero el valor que merece."/>
 	<meta name="theme-color" content="#FFF394">
 	<meta name="author" content="R@np-2021"/>
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 	<meta name="twitter.card" content="summary">
 	<meta property="og:locale" content="es_ES"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:site_name" content="Mi Cambista - Panel de Administración"/>
-	<meta property="og:url" name="twitter.url" content="https://localhost/MiCambista/admin">
-	<meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Mi Cambista"/>
-	<meta property="og:description" name="twitter.description" content="¡Gana cambiando con MiCambista! Dale a tu dinero el valor que merece."/>
+	<meta property="og:site_name" content="Memopay - Panel de Administración"/>
+	<meta property="og:url" name="twitter.url" content="https://localhost/Memopay/admin">
+	<meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Memopay"/>
+	<meta property="og:description" name="twitter.description" content="¡Gana cambiando con Memopay! Dale a tu dinero el valor que merece."/>
 	<!--<meta property="og:image" name="twitter.image" content="<?php echo $url; ?>assets/img/svg/logo.svg"/>-->
 	<link rel="icon" type="image/x-icon" href="../views/assets/img/svg/logo.svg"/>
 	<!--<link rel="apple-touch-icon" href="<?php echo $url; ?>assets/img/svg/logo.svg">-->
-	<link rel="canonical" href="https://localhost/MiCambista/admin">
+	<link rel="canonical" href="https://localhost/Memopay/admin">
 	<!-- JQUERY UNCOMPRESSED -->
 	<script type="text/javascript" src="<?= $url ?>js/jquery/jquery-3.6.0.min.js"></script>
 	<!-- BOOTSTRAP DOWNLOADED -->
@@ -83,7 +83,7 @@ $urlCli =  $actual_link . "/";
 			  </span>
 			  <div class="cDash-adm--csidebarLeft__sidenav__logo">
 			  	<a href="admin" class="cDash-adm--csidebarLeft__sidenav__logo__link">
-						<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoDashboard_MiCambista" width="100" height="100" decoding="async">
+						<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoDashboard_Memopay" width="100" height="100" decoding="async">
 					</a>
 			  </div>
 			  <ul class="cDash-adm--csidebarLeft__sidenav__mnav">

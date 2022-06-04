@@ -2,10 +2,10 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['cli_micambista'])){
+if(!isset($_SESSION['cli_sessmemopay'])){
 	header("Location: signin");
 }else{
-	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+	if($_SESSION['cli_sessmemopay'][0]['complete_account'] <= 16){
 		header("Location: complete-register");
 	}
 }
@@ -14,7 +14,7 @@ require_once '../php/process_data-list.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Bienvenida </title>
+	<title>Memopay | Bienvenida </title>
 	<?php require_once 'includes/header_links.php'; ?>
 </head>
 <body>
@@ -28,13 +28,13 @@ require_once '../php/process_data-list.php';
 					<div class="cControlP__cont--containDash--c--cWelcome">
 						<div class="cControlP__cont--containDash--c--cWelcome--cMsgWelcome">
 							<div class="cControlP__cont--containDash--c--cWelcome--cMsgWelcome--cTitle">
-								<h2 class="cControlP__cont--containDash--c--cWelcome--cMsgWelcome--cTitle--title">¡Bienvendo a Mi Cambista!</h2>
+								<h2 class="cControlP__cont--containDash--c--cWelcome--cMsgWelcome--cTitle--title">¡Bienvendo a Memopay!</h2>
 								<p class="cControlP__cont--containDash--c--cWelcome--cMsgWelcome--cTitle--desc">Con nosotros todo es más fácil, ahora puedes cambiar </br> dólares desde cualquier lugar.</p>
 							</div>
 						</div>
 						<div class="cControlP__cont--containDash--c--cWelcome--cGotoConvert">
 							<div class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle">
-								<h3 class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--title">¡Cambia ahora con </br>Mi Cambista!</h3>
+								<h3 class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--title">¡Cambia ahora con </br>Memopay!</h3>
 								<p class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--desc">¿Qué esperas para realizar tu cambio de divisas?</p>
 								<a href="convert-divise" class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--btnlinkmobile">Hacer cambio</a>
 								<a href="convert-divise" class="cControlP__cont--containDash--c--cWelcome--cGotoConvert--cTitle--btnlinkdesktop">Quiero cambiar</a>

@@ -2,10 +2,10 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['cli_micambista'])){
+if(!isset($_SESSION['cli_sessmemopay'])){
 	header("Location: signin");
 }else{
-	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+	if($_SESSION['cli_sessmemopay'][0]['complete_account'] <= 16){
 		header("Location: complete-register");
 	}
 }
@@ -14,7 +14,7 @@ require_once '../php/process_data-list.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Mis cuentas </title>
+	<title>Memopay | Mis cuentas </title>
 	<?php require_once 'includes/header_links.php'; ?>
 	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>

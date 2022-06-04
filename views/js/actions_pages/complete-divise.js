@@ -586,22 +586,22 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 							</div>
 							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo">
 								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--subtitle">Banco a transferir:</h3>
-								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
-									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cImg">
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo b-shadow-light">
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cImg">
 										<img src="${pathbank}" alt="img-bank-to-send" id="vl-imgbankTotalToSend">
 									</div>
-									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo">
-										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--top">
+									<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo">
+										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo--top">
 											Cuenta <span id="vl-typeaccountTotalToSend">${minustype}</span> en <span id="vl-typecurrTotalToSend">${minuscurr}</span>
 										</p>
-										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--bottom">
+										<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo--bottom">
 											<span id="vl-numaccountTotalToSend">${r.received[0].cuentaplatform}</span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 										</p>
 									</div>
 								</div>
-								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
-									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">MiCambista SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend">${r.received[0].ruc}</span></h3>
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo b-shadow-light">
+									<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--ruc">Memopay SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend">${r.received[0].ruc}</span></h3>
 									<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 								</div>
 								<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>

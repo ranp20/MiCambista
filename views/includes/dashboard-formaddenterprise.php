@@ -14,7 +14,7 @@
 			<span id="msgerrorNounRUCEnterprise"></span>
 		</div>
 		<div class="cformAddAccountEnterprise--form--cControl">
-			<input type="hidden" id="input-idClientValEnterprise" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+			<input type="hidden" id="input-idClientValEnterprise" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 			<label for="nameenpterprise-cli" class="cformAddAccountEnterprise--form--cControl--label">Ingresa el nombre de tu empresa</label>
 			<input type="text" id="nameenpterprise-cli" required name="nameenpterprise-cli" class="cformAddAccountEnterprise--form--cControl--input" placeholder="Nombre de la empresa" autocomplete="off" spellcheck="false">
 			<span id="msgerrorNounNameEnterprise"></span>

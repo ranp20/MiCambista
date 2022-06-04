@@ -10,7 +10,7 @@
 		</div>
 		<div class="cformAddAccountBank--form--cControl">
 			<input type="text" autocomplete="off" spellcheck="false" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" readonly id="valIdUser_sess" value="<?= $idclient;?>">
-			<input type="hidden" id="input-idClientVal" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+			<input type="hidden" id="input-idClientVal" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 			<label for="typecurrent-cli" class="cformAddAccountBank--form--cControl--label">Banco</label>
 			<div class="cformAddAccountBank--form--cControl--cSelItem" id="selListallBanks">
 				<div class="cformAddAccountBank--form--cControl--cSelItem--cInputFake" id="selListAllBanks--img">

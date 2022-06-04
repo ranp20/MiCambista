@@ -2,8 +2,8 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
-  if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+if(isset($_SESSION['cli_sessmemopay']) && !empty($_SESSION['cli_sessmemopay'])){
+  if($_SESSION['cli_sessmemopay'][0]['complete_account'] <= 16){
     header("Location: complete-register");
   }
 }
@@ -11,7 +11,7 @@ if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Mi Cambista | Registro </title>
+  <title>Memopay | Registro </title>
   <?php require_once 'includes/header_links.php'; ?>
   <!-- INCLUIR SWEET ALERT 2 -->
   <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
@@ -23,7 +23,7 @@ if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
     <div class="cAccount__cont">
       <div class="cAccount__cont--fAccount box">
         <div class="cAccount__cont--fAccount--cTitle">
-          <h2 class="cAccount__cont--fAccount--cTitle--title">¡Bienvenido a Mi Cambista!</h2>
+          <h2 class="cAccount__cont--fAccount--cTitle--title">¡Bienvenido a Memopay!</h2>
           <p class="cAccount__cont--fAccount--cTitle--desc">Registrate y realiza tus operaciones </br> de forma segura desde nuestra plataforma digital.</p>
         </div>
         <form method="POST" class="cAccount__cont--fAccount--form" id="frm-accountRegCli">

@@ -8,7 +8,7 @@
 							<span>
 								<span>
 									<span>
-										<input type="hidden" id="ipt-idCliValUpdateMyProfile" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" autocomplete='off' spellcheck='false' name="p_idclient" value="<?= $_SESSION['cli_micambista'][0]['id'];?>" oncontextmenu="return false;">
+										<input type="hidden" id="ipt-idCliValUpdateMyProfile" class="non-visvalipt h-alternative-shwnon s-fkeynone-step" autocomplete='off' spellcheck='false' name="p_idclient" value="<?= $_SESSION['cli_sessmemopay'][0]['id'];?>" oncontextmenu="return false;">
 									</span>
 								</span>
 							</span>

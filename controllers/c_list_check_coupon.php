@@ -5,7 +5,7 @@ require_once '../php/class/db/connection.php';
 class List_Check_Coupon extends Connection{
 	function list(){
 		$code_coupon = $_POST['codecoupon'];
-		$id_client = (isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])) ? $_SESSION['cli_micambista'][0]['id'] : null;
+		$id_client = (isset($_SESSION['cli_sessmemopay']) && !empty($_SESSION['cli_sessmemopay'])) ? $_SESSION['cli_sessmemopay'][0]['id'] : null;
 		$arr_chckcoupon = [
 			"code_coupon" => $code_coupon,
 			"id_client" => $id_client

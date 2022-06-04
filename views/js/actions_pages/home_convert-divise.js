@@ -236,7 +236,7 @@ function startTimerHome(minTimeout) {
       window.onbeforeunload = null;
       // URL - LOCALHOST
       
-      window.location.href = "/MiCambista";
+      window.location.href = "/Memopay";
       
       // URL - SERVIDOR
       /*

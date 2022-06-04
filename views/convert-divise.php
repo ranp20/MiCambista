@@ -2,13 +2,13 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['cli_micambista'])){
+if(!isset($_SESSION['cli_sessmemopay'])){
 	header("Location: signin");
 }else{
-	if($_SESSION['cli_micambista'][0]['complete_account'] <= 16){
+	if($_SESSION['cli_sessmemopay'][0]['complete_account'] <= 16){
 		header("Location: complete-register");
 	}else{
-		if(!isset($_SESSION['cli_micambista'][0]['profile_type']) && !isset($_SESSION['cli_micambista'][0]['profile_type'])){
+		if(!isset($_SESSION['cli_sessmemopay'][0]['profile_type']) && !isset($_SESSION['cli_sessmemopay'][0]['profile_type'])){
 			header("Location: select-profile");
 		}
 	}
@@ -21,7 +21,7 @@ $g_setting = $call_config->get_config();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Comenzar cambio </title>
+	<title>Memopay | Comenzar cambio </title>
 	<?php require_once 'includes/header_links.php'; ?>
 	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
@@ -45,7 +45,7 @@ $g_setting = $call_config->get_config();
 					<div class="cControlP__cont--containDash--cProfileUsed" id="c-changeProfileSelect">
 						<div class="cControlP__cont--containDash--cProfileUsed__cLeftTxt">
 							<span>Perfil: </span>
-							<span><?php echo $_SESSION['cli_micambista'][0]['profile_name'];?></span>
+							<span><?php echo $_SESSION['cli_sessmemopay'][0]['profile_name'];?></span>
 						</div>
 						<div class="cControlP__cont--containDash--cProfileUsed__cRightTxt">
 							<a href="change-profile" id="change-profile">
@@ -60,7 +60,7 @@ $g_setting = $call_config->get_config();
 						<div class="cControlP__cont--containDash--c--cConvertDivise--cF">
 							<div class="c-convert__cFrmConvert pt-3rem">
 								<div class="c-convert__cFrmConvert__cSlogOfSite">
-									<h3>¡Gana cambiando con MiCambista!</h3>
+									<h3>¡Gana cambiando con Memopay!</h3>
 									<p>Mejores tasas, mayor ahorro</p>
 								</div>
 								<div class="c-convert__cFrmConvert__mxFrmC">

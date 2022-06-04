@@ -9,7 +9,7 @@
 			<h3 class="cformValidMediaBiometric--form--cTitle--title">Subir video de verificación</h3>
 		</div>
 		<div class="cformValidMediaBiometric--form--cControl">
-			<input type="hidden" id="ipt-idClientVal" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+			<input type="hidden" id="ipt-idClientVal" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 			<div class="cformValidMediaBiometric--form--cControl--cVideo" id="c_videoAuthorizeValidation">
 				<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos">
 					<div class="cformValidMediaBiometric--form--cControl--cVideo__cVideos__video">

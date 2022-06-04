@@ -2,7 +2,7 @@
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
 session_start();
-if(!isset($_SESSION['cli_micambista'])){
+if(!isset($_SESSION['cli_sessmemopay'])){
 	header("Location: signin");
 }
 require_once '../php/process_data-list.php';
@@ -10,7 +10,7 @@ require_once '../php/process_data-list.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Mi Cambista | Completar operación </title>
+	<title>Memopay | Completar operación </title>
 	<?php require_once 'includes/header_links.php'; ?>
 </head>
 <body>
@@ -37,22 +37,22 @@ require_once '../php/process_data-list.php';
 						</div>
 						<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo">
 							<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--subtitle">Banco a transferir:</h3>
-							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
-								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cImg">
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo b-shadow-light">
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cImg">
 									<img src="" alt="" id="vl-imgbankTotalToSend">
 								</div>
-								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo">
-									<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--top">
+								<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo">
+									<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo--top">
 										Cuenta <span id="vl-typeaccountTotalToSend"></span> en <span id="vl-typecurrTotalToSend"></span>
 									</p>
-									<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--cinfo--bottom">
+									<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--cinfo--bottom">
 										<span id="vl-numaccountTotalToSend"></span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 									</p>
 								</div>
 							</div>
-							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo b-shadow-light">
-								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMiCambistainfo--ruc">MiCambista SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
+							<div class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo b-shadow-light">
+								<h3 class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--cTopbankMemopayinfo--ruc">Memopay SAC - RUC&nbsp; <span id="vl-rucaccountTotalToSend"></span></h3>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 cursor-pointer"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 							</div>
 							<p class="cControlP__cont--containDash--c--cCFinalDivise--cContInfo--infoStepInit">Una vez realizado coloque el número de operación <b>emitido por su banco</b> dentro del casillero mostrado debajo darle a enviar.</p>

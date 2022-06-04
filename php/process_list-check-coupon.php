@@ -2,10 +2,10 @@
 session_start();
 $r = "";
 if(isset($_POST) && !empty($_POST)){
-	if(isset($_SESSION['cli_micambista']) && isset($_SESSION['cli_micambista'][0]['id'])){
+	if(isset($_SESSION['cli_sessmemopay']) && isset($_SESSION['cli_sessmemopay'][0]['id'])){
 		$arr_chckcoupon = [
 			"code_coupon" => $_POST['codecoupon'],
-			"id_client" => $_SESSION['cli_micambista'][0]['id']
+			"id_client" => $_SESSION['cli_sessmemopay'][0]['id']
 		];
 		require_once 'class/coupon.php';
 		$coupon = new Coupon();

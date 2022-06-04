@@ -6,7 +6,7 @@ require_once '../php/process_session_complete_register.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Mi Cambista | Recuperar contraseña </title>
+    <title>Memopay | Recuperar contraseña </title>
     <?php require_once 'includes/header_links.php'; ?>
 </head>
 <body>

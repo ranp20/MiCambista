@@ -187,7 +187,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 												</p>
 											</div>
 											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
-												<p>Mi Cambista S.A.C - RUC <span id="t-rucbankPlatformtransfer">${v.rucplatform}</span></p>
+												<p>Memopay S.A.C - RUC <span id="t-rucbankPlatformtransfer">${v.rucplatform}</span></p>
 											</div>
 											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
 												<p>Monto a enviar:</p>
@@ -266,7 +266,7 @@ $(document).on("click", ".cControlP__cont--containDash--c--cCDashboard--cLeftBox
 												</p>
 											</div>
 											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
-												<p>Mi Cambista S.A.C - RUC <span id="t-rucbankPlatformtransfer">${v.rucplatform}</span></p>
+												<p>Memopay S.A.C - RUC <span id="t-rucbankPlatformtransfer">${v.rucplatform}</span></p>
 											</div>
 											<div class="cListDetailsTransactions--contDetails--c--CompleteOP--cDetails--m--item--cAccBank--item">
 												<p>Monto a enviar:</p>

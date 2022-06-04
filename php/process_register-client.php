@@ -33,7 +33,7 @@ if(isset($_POST) && count($_POST) > 0){
           $getdata = $user->get_clients($arr_datacli['email']);
           if (count($getdata) > 0) {
             session_start();
-            $_SESSION['cli_micambista'] = $getdata;
+            $_SESSION['cli_sessmemopay'] = $getdata;
 
             $res = array(
               'response' => 'true',

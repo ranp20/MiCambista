@@ -5,8 +5,8 @@
 		/*
 		protected $con = null;
 		private $host = "158.106.132.103";
-		private $dbname = "micambis_db_micambista";
-		private $username = "micambis_use_micambista";
+		private $dbname = "micambis_db_memopay";
+		private $username = "micambis_use_memopay";
 		private $password = "D^_~M)O%[K&#";
 		private $charset = "utf8";
 		*/
@@ -14,7 +14,7 @@
 		// CONFIGURACIÓN - LOCALHOST
 		protected $con = null;
 		private $host = "localhost";
-		private $dbname = "db_micambista";
+		private $dbname = "db_memopay";
 		private $username = "root";
 		private $password = "";
 		private $charset = "utf8";

@@ -1,6 +1,6 @@
 <div class="cformDetailsAccount">
 	<div class="cformDetailsAccount--contDetails" id="cont-DetailsAccountUser">
-		<input type="hidden" id="input-idClientValUpdateAccount" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+		<input type="hidden" id="input-idClientValUpdateAccount" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 		<input type="hidden" id="val-idaccountdetail">
 		<div class="cformDetailsAccount--contDetails--cTitle">
 			<h3 class="cformDetailsAccount--contDetails--cTitle--title">Detalle de la cuenta</h3>

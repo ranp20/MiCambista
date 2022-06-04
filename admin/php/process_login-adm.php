@@ -16,7 +16,7 @@ if(isset($_POST) && count($_POST) > 0){
 
 			if($getbyid > 0){
 				session_start();
-				$_SESSION['admin_micambista'] = $getbyid; 
+				$_SESSION['admin_sessmemopay'] = $getbyid; 
 				
 				$res = array(
           'response' => 'true',

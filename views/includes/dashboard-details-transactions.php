@@ -4,7 +4,7 @@
 			<span>
 				<span>
 					<span>
-						<input type="hidden" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' id="ipt-idClientValListTransac" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+						<input type="hidden" class='non-visvalipt h-alternative-shwnon s-fkeynone-step' autocomplete='off' spellcheck='false' id="ipt-idClientValListTransac" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 					</span>
 				</span>
 			</span>

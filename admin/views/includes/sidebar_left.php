@@ -5,7 +5,7 @@
 	  </span>
 	  <div class="cDash-adm--csidebarLeft__sidenav__logo">
 	  	<a href="admin" class="cDash-adm--csidebarLeft__sidenav__logo__link">
-				<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoDashboard_MiCambista" width="100" height="100" decoding="async">
+				<img src="<?= $url; ?>assets/img/logos/logo_principal/Memopay_logo.png" alt="logoDashboard_Memopay" width="100" height="100" decoding="async">
 			</a>
 	  </div>
 	  <ul class="cDash-adm--csidebarLeft__sidenav__mnav">

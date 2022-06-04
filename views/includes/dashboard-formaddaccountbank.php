@@ -9,7 +9,7 @@
 			<h3 class="cformAddAccountBank--form--cTitle--title">Agregar cuenta bancaria</h3>
 		</div>
 		<div class="cformAddAccountBank--form--cControl">
-			<input type="hidden" id="input-idClientVal" value="<?= $_SESSION['cli_micambista'][0]['id']; ?>">
+			<input type="hidden" id="input-idClientVal" value="<?= $_SESSION['cli_sessmemopay'][0]['id']; ?>">
 			<label for="typecurrent-cli" class="cformAddAccountBank--form--cControl--label">Banco</label>
 			<div class="cformAddAccountBank--form--cControl--cSelItem" id="selListallBanks">
 				<div class="cformAddAccountBank--form--cControl--cSelItem--cInputFake" id="selListAllBanks--img">

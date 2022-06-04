@@ -16,9 +16,11 @@ $g_setting = $call_config->get_config();
   <div class="cLogin">
     <div class="msgAlertLogin" id="msgAlertLogin"></div>
     <div class="cLogin__cont">
+      <!-- 
       <div class="cLogin__cont--imgbanner">
         <img src="" alt="">
       </div>
+       -->
       <div class="cLogin__cont--fLogin box">
         <!-- 
         <div class="cLogin__cont--fLogin--cLogo">

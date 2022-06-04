@@ -82,7 +82,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			&--title{
-				color: $theme_color-links;
+				color: $theme_color-text;
 			}
 		}
 		&--cF{
@@ -307,10 +307,10 @@
 					    			color: $color-paragraph;
 					    		}
 					    		&--guion{
-					    			color: $theme_color-links;
+					    			color: $theme_color-text;
 					    		}
 					    		&--aliasccountbank{
-					    			color: $theme_color-links;
+					    			color: $theme_color-text;
 					    		}
 					    	}
 					    	&--cImg{
@@ -413,7 +413,7 @@
 						text-align: left;
 				    padding: 1rem 0.8rem 1rem 0.8rem;
 				    border-radius: 0 0 0.5rem 0.5rem;
-				    color: $theme_color-links;
+				    color: $theme_color-text;
 				    border: none;
 				    width: 100%;
 				    background-color: #E1F2EC;
@@ -444,14 +444,18 @@
 					width: 80%;
 					cursor: pointer;
 					border: none;
-					background-color: yellow;
+					background-color: $theme_color_buttons;
 					border-radius: 5px;
 					padding: 1rem 2rem;
-					color: $color-paragraph;
+					color: $theme_color-text-header;
 					margin-bottom: 1rem;
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					transition: ease-out .2s;
+					&:hover{
+						background-color: darken($theme_color_buttons, 10%);
+					}
 					&.sendShowComplete{
 						opacity: .4;
 						cursor: not-allowed;

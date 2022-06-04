@@ -1,7 +1,8 @@
 /* FUENTES PRINCIPALES */
 	$theme-font-family							: 'Roboto', sans-serif;
-	
-/* VARIABLES GENERALES DEL PROYECTO */
+
+/*	
+// VARIABLES GENERALES DEL PROYECTO
 	$max-width											: 1560px;
 	$max-width-client								: 1440px;
 	$color-primary									: #FFFF00;
@@ -13,15 +14,44 @@
 	$color-links-photo							: #C9DDFB;
 	$border-color-table							: #dee2e6;
 	$bgc-th-table										: #f2f2f2;
-/* VARIABLES SECUNDARIAS */
+// VARIABLES SECUNDARIAS
 	
-/* CUSTOMS VARIABLES */
+// CUSTOMS VARIABLES
 	$frmconvert_line-height					: 4.2rem;
 	$frmconvert_fontsize-convert		: 1.65rem;
 	$frmconvert_widthyheightbutton	: 50px;
 	$frmconvert_colorschema					: #0D8284;
 
-/* COLORS - THEME */
+// COLORS - THEME
 	$theme_color-links							: #0D8284;
 	$theme_color-tenue							: #C3E5D9;
 	$theme_titles-links							: #0D8284;
+*/
+// VARIABLES GENERALES DEL PROYECTO
+	$max-width											: 1560px;
+	$max-width-client								: 1440px;
+	$color-primary									: #FFFF00;
+	$color-secondary								: steelblue;
+	$white        									: #FFFFFF;
+	$color-paragraph								:	#676767;
+	$color-links										: steelblue;
+	$color-links-gradient						: deepskyblue;
+	$color-links-photo							: #C9DDFB;
+	$border-color-table							: #dee2e6;
+	$bgc-th-table										: #f2f2f2;
+// VARIABLES SECUNDARIAS
+	
+// CUSTOMS VARIABLES
+	$frmconvert_line-height					: 4.2rem;
+	$frmconvert_fontsize-convert		: 1.65rem;
+	$frmconvert_widthyheightbutton	: 50px;
+	$frmconvert_colorschema					: #ff7800;
+
+// COLORS - THEME
+	$theme_color-links							: #ff7800;
+	$theme_color-tenue							: #C3E5D9;
+	$theme_titles-links							: #ff7800;
+	$theme_color-text								: #001F5A;
+	$theme_color-text-white					: #002A8D;
+	$theme_color_buttons						: #ff7800;
+	$theme_color-text-header				: #fff;

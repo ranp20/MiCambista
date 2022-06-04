@@ -48,7 +48,7 @@ require_once '../php/process_data-list.php';
 								</div>
 								<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount--cbtnDesc">
 									<button type="button" id="btn-addAccountform" class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount--cbtnDesc--link">Agregar cuenta</button>
-									<p class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount--cbtnDesc--desc">Las cuentas que agregues deberás ser <b>tuyas o de tu empresa.</b> Puedes tener hasta <b>20 cuentas agregadas,</b> 10 tuyas en soles y 10 en dólares.</p>
+									<p class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cAddAccount--cbtnDesc--desc">Las cuentas que agregues deberás ser <strong class="bold-pricolor">tuyas o de tu empresa.</strong> Puedes tener hasta <strong class="bold-pricolor">20 cuentas agregadas,</strong> 10 tuyas en soles y 10 en dólares.</p>
 								</div>
 							</div>
 							<div class="cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts">

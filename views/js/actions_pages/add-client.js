@@ -11,7 +11,6 @@ $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
 			res.forEach((e) => {
-				
 				var pathimgflag = "./admin/assets/img/flags/"+e.photo;
 				template += `
 					<li class="list-prefixtocountryflags__m__item" id="${e.id}">
@@ -125,63 +124,77 @@ $(document).on("click", "#btn-register", function(e){
 	($("#pass-instkreg").val() != "") ? $("#errorNounPasswordAcc").text("") : $("#errorNounPasswordAcc").text("Debes colocar una contraseña");
 
 	if($("#email-instkreg").val() != "" && $("#pass-instkreg").val() != ""){
-		
-		var formData = new FormData();
-		var telephone = $("#telephone-instkreg").val();
-		var telwithoutspace = telephone.replace(/ /g, "");
-	  formData.append("u-email", $("#email-instkreg").val());
-	  formData.append("u-id_country", $("#flag--numbercountryselect").find("img").attr("id"));
-	  formData.append("u-telephone", telwithoutspace);
-	  formData.append("u-password", $("#pass-instkreg").val());
-
-	  $.ajax({
-	  	url: "./php/process_register-client.php",
-	    method: "POST",
-	    data: formData,
-	    contentType: false,
-	    cache: false,
-	    processData: false,
-	  }).done(function(e){
-	  	var res = JSON.parse(e);
-	  	if(res.response == "true"){
-	  		$("#msgAlertLogin").html(`
-	  			<div class='message-success'>
-						<div class='message-success__content'>
-							<div class='message-success__content--btnclosed' id='btnclosed'></div>
-							<h2 class='message-success__content--title'>Agregado!</h2>
-							<p class='message-success__content--text'>Éxito, el usuario a sido agregado correctamente!</p>
-						</div>
-					</div>
-	  		`);
-				setTimeout(function(){
-					location.replace("complete-register");
-				}, 500);
-	  	}else if(res.response == "err_equals"){
-	  		$("#msgAlertLogin").html(`
-	  			<div class="msgAlertLogin--error">
-						<div class="msgAlertLogin--error--c">
-							<span class="msgAlertLogin--error--c--close" id="btnCloseErr"></span>
-							<h3 class="msgAlertLogin--error--c--title">¡Atención!</h3>
-							<p class="msgAlertLogin--error--c--desc">El usuario ya existe. </br>Por favor, inicie sesión o registre nuevos datos</p>
-						</div>
-					</div>
-	  		`);
-	  		setTimeout(function(){
-					$('.msgAlertLogin--error').addClass('disabled');
-				}, 5500);
-				// ------------ CERRAR MODALES DE ALERTAS - VANILLA JS 
-				let containermodal = document.querySelector('.msgAlertLogin--error');
-				containermodal.addEventListener('click', e => {
-					if(e.target === containermodal)	containermodal.classList.add('disabled');
-				});
-				document.querySelector("#btnCloseErr").addEventListener("click", function(){
-					document.querySelector(".msgAlertLogin--error").classList.add("disabled");
-				});
-	  	}else{
-	  		console.log('Error!, No se pudo registrar al usuario.');
-	  	}
-	  });
+		if($("#pass-instkreg").val() == $("#pass-repeatinstkreg").val()){
+			var formData = new FormData();
+			var telephone = $("#telephone-instkreg").val();
+			var telwithoutspace = telephone.replace(/ /g, "");
+		  formData.append("u-email", $("#email-instkreg").val());
+		  formData.append("u-id_country", $("#flag--numbercountryselect").find("img").attr("id"));
+		  formData.append("u-telephone", telwithoutspace);
+		  formData.append("u-password", $("#pass-instkreg").val());
+		  $.ajax({
+		  	url: "./php/process_register-client.php",
+		    method: "POST",
+		    data: formData,
+		    contentType: false,
+		    cache: false,
+		    processData: false,
+		  }).done(function(e){
+		  	var r = JSON.parse(e);
+		  	if(r.response == "true"){
+		  		Swal.fire({
+			      title: 'Éxito!',
+			      html: `<span class='font-w-300'>El usuario fue registrado correctamente.</span>`,
+			      icon: 'success',
+			      confirmButtonText: 'Aceptar'
+			    });
+					setTimeout(function(){
+						location.replace("complete-register");
+					}, 500);
+		  	}else if(r.response == "err_equals"){
+		  		Swal.fire({
+			      title: 'Atención!',
+			      html: `<span class='font-w-300'>El usuario ya existe. Por favor inicie sesión o registre un nuevos datos.</span>`,
+			      icon: 'warning',
+			      confirmButtonText: 'Aceptar'
+			    });
+		  	}else if(r.response == "error_email"){
+		  		Swal.fire({
+			      title: 'Atención!',
+			      html: `<span class='font-w-300'>El email ingresado no es válido, asegúrate de colocar al menos @ o .com.</span>`,
+			      icon: 'warning',
+			      confirmButtonText: 'Aceptar'
+			    });
+		  	}else if(r.response == "error_pass"){
+		  		Swal.fire({
+			      title: 'Atención!',
+			      html: `<span class='font-w-300'>La contraseña debe tener por lo menos 4 o 15 caracteres, debe contener al menos un número y un solo guión o guión bajo.</span>`,
+			      icon: 'warning',
+			      confirmButtonText: 'Aceptar'
+			    });
+		  	}else{
+		  		Swal.fire({
+			      title: 'Error!',
+			      html: `<span class='font-w-300'>Lo sentimos, hubo un problema al procesar la información.</span>`,
+			      icon: 'error',
+			      confirmButtonText: 'Aceptar'
+			    });
+		  	}
+		  });
+		}else{
+			Swal.fire({
+	      title: 'Atención!',
+	      html: `<span class='font-w-300'>Los campos de contraseña deben coincidir.</span>`,
+	      icon: 'warning',
+	      confirmButtonText: 'Aceptar'
+	    });
+		}
 	}else{
-		console.log("Error al insertar");
+		Swal.fire({
+      title: 'Atención!',
+      html: `<span class='font-w-300'>Debe rellenar los campos requeridos.</span>`,
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+    });
 	}
 });

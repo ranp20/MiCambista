@@ -147,43 +147,34 @@ $(document).on("click", "#btn-CompleteRegister", function(e){
 	  	if(e != ""){
 	  		var r = JSON.parse(e);
 		  	if(r.response == "true"){
-		  		$("#msgAlertLogin").html(`
-		  			<div class='message-success'>
-							<div class='message-success__content'>
-								<div class='message-success__content--btnclosed' id='btnclosed'></div>
-								<h2 class='message-success__content--title'>Registro Completo!</h2>
-								<p class='message-success__content--text'>Felicidades, has completado el registro correctamente!</p>
-							</div>
-						</div>
-		  		`);
+		  		Swal.fire({
+			      title: 'Éxito!',
+			      html: `<span class='font-w-300'>Se ha completado su registro correctamente.</span>`,
+			      icon: 'success',
+			      confirmButtonText: 'Aceptar'
+			    });
 					setTimeout(function(){
 						location.replace("welcome");
 					}, 500);
 		  	}else{
-		  		$("#msgAlertLogin").html(`
-	  			<div class="msgAlertLogin--error">
-						<div class="msgAlertLogin--error--c">
-							<span class="msgAlertLogin--error--c--close" id="btnCloseErr"></span>
-							<h3 class="msgAlertLogin--error--c--title">¡Error!</h3>
-							<p class="msgAlertLogin--error--c--desc">Lo sentimos, hubo un error al completar el regitro.</p>
-						</div>
-					</div>
-		  		`);
+		  		Swal.fire({
+			      title: 'Error!',
+			      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar la información.</span>`,
+			      icon: 'error',
+			      confirmButtonText: 'Aceptar'
+			    });
 		  		setTimeout(function(){
 						$('.msgAlertLogin--error').addClass('disabled');
 					}, 5500);
-					// ------------ CERRAR EL MENSAJE DE ERROR 
-					let containermodal = document.querySelector('.msgAlertLogin--error');
-					containermodal.addEventListener('click', e => {
-						if(e.target === containermodal)	containermodal.classList.add('disabled');
-					});
-					document.querySelector("#btnCloseErr").addEventListener("click", function(){
-						document.querySelector(".msgAlertLogin--error").classList.add("disabled");
-					});
 		  	}
 	  	}
 		});
 	}else{
-		console.log('Error, no hay datos.');
+		Swal.fire({
+      title: 'Atención!',
+      html: `<span class='font-w-300'>Debe rellenar los campos requeridos.</span>`,
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+    });
 	}
 });

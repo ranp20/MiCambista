@@ -30,7 +30,7 @@ $top-header-desktop: 85px;
 			left: 0;
 			position: fixed;
 			background-color: $theme_color-text;
-			box-shadow: 0 0 10px 1px rgba(0, 0, 0, .2);
+			box-shadow: 0 0 20px 3px rgba(0, 0, 0, .2);
 			min-height: 3rem;
 			padding: 15px;
 	    display: flex;
@@ -279,16 +279,27 @@ $top-header-desktop: 85px;
 							}
 						}
 						&.active{
-							background-color: $theme_color_buttons;
-							box-shadow: -3px 0 0 0px $theme_color-links inset;
+							background-color: $theme_color-opaque;
+							box-shadow: -4px 0 0 0px $theme_color-links inset;
 							color: $theme_color-text;
-						}
-						&:hover{
-							background-color: $theme_color_buttons;
-							color: $theme_color-text-white;
-							&__cIcon{
+							span{
 								svg{
 									fill: $theme_color-text;
+								}
+							}
+						}
+						&:hover{
+							background-color: $theme_color-opaque;
+							color: $theme_color-text;
+							span{
+								svg{
+									fill: $theme_color-text;
+								}
+								svg.cControlP__cont--sdLeft--c--m--link__cIcon__svgstroke{
+									fill: none !important;
+									path{
+										stroke: $theme_color-text;
+									}
 								}
 							}
 						}
@@ -618,6 +629,9 @@ $top-header-desktop: 85px;
 									width: 100%;
 									height: auto;
 								}
+								svg{
+									fill: $theme_color_buttons;
+								}
 							}
 							p{
 								color: $theme_color-text;
@@ -776,15 +790,26 @@ $top-header-desktop: 85px;
 						span{
 						}
 						&.active{
-							background-color: $theme_color_buttons;
-							box-shadow: -3px 0 0 0px #0D8284 inset;
+							background-color: $theme_color-opaque;
+							box-shadow: -3px 0 0 0px $theme_color_buttons inset;
+							span{
+								color: $theme_color-text;
+								svg{
+									fill: $theme_color-text;
+								}
+							}
 						}
 						@media (min-width: 991px){
 							padding: 1rem 0 1rem 2.2rem;
 						}
 						&:hover{
-							background-color: $theme_color_buttons;
+							background-color: $theme_color-opaque;
 							color: $theme_color-text;
+							span{
+								svg{
+									fill: $theme_color-text;
+								}
+							}
 						}
 					}
 				}

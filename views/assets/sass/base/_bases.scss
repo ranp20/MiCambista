@@ -73,10 +73,11 @@ strong, b{
   margin-left: auto;
   margin-right: auto;
   border: none;
-  background-color: #ff0;
+  background-color: $theme_color_buttons;
   padding: 1rem;
   border-radius: 5px;
-  color: $color-paragraph;
+  color: $theme_color-text-header;
+  transition: ease-out .2s;
 
   @media (min-width: 768px){
   	width: 90%;
@@ -86,7 +87,7 @@ strong, b{
   	opacity: 1;
   }
   &:hover{
-  	background-color: darken($color-primary, 5%);
+  	background-color: darken($theme_color_buttons, 10%);
   }
 }
 .col-tab-2{
@@ -336,7 +337,7 @@ strong, b{
     z-index: 999;
     
 		&--loader{
-			@include loader(yellow, 55px);
+			@include loader($theme_color_buttons, 55px);
 		}
 	}
 
@@ -956,7 +957,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $theme_color-links;
+				color: $theme_color-text;
 				font-size: 1.25rem;
 
 				@media (min-width: 768px){
@@ -1043,7 +1044,7 @@ strong, b{
 			}
 			label{
 				margin-left: 0.4rem;
-				color: $theme_color-links;
+				color: $theme_color-text;
 				cursor: pointer;
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI EMPRESA */
@@ -1065,14 +1066,18 @@ strong, b{
 			margin-left: auto;
 			margin-right: auto;
 			border: none;
-			background-color: yellow;
+			background-color: $theme_color_buttons;
 			padding: 1rem;
 			border-radius: 5px;
-			color: $color-paragraph;
+			color: $theme_color-text-header;
+			transition: ease-out .2s;
 
 			&.active{
 				opacity: 1;
 				cursor: pointer;
+			}
+			&:hover{
+				background-color: darken($theme_color_buttons, 10%);
 			}
 		}
 	}
@@ -2060,14 +2065,13 @@ strong, b{
 					padding: .5rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $theme_color-links;
+						color: $theme_color-text;
 						text-align: center;
 						font-weight: 500;
 					}
 				}
 				&--cDetails{
 					padding: 1rem;
-
 					@media (min-width: 991px){
 						padding: 0;
 					}
@@ -2084,7 +2088,7 @@ strong, b{
 								margin-bottom: .85rem;
 							}
 							p{
-								color: $theme_color-links;
+								color: $theme_color-text;
 							}
 							span{
 								color: $color-paragraph;
@@ -2138,7 +2142,7 @@ strong, b{
 					padding: 2rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $theme_color-links;
+						color: $theme_color-text;
 						text-align: center;
 						font-weight: 500;
 					}
@@ -2152,7 +2156,7 @@ strong, b{
 						padding: 0;
 						&--item{
 							& > p{
-								color: $theme_color-links;
+								color: $theme_color-text;
 							}
 
 							&--cAccBank{
@@ -2169,7 +2173,7 @@ strong, b{
 										display: flex;
 										align-items: center;
 										svg{
-											stroke: $theme_color-links;
+											stroke: $theme_color-text;
 											margin-left: 0.5rem;
 											cursor: pointer;
 										}
@@ -2178,10 +2182,10 @@ strong, b{
 									&:last-child{
 										p{
 											&:last-child{
-												color: $theme_color-links;
+												color: $theme_color-text;
 
 												svg{
-													stroke: $theme_color-links;
+													stroke: $theme_color-text;
 													margin-left: 0.5rem;
 													cursor: pointer;
 												}
@@ -2248,13 +2252,17 @@ strong, b{
 				display: block;
 				max-width: 320px;
 				width: 95%;
-				background-color: yellow;
+				background-color: $theme_color_buttons;
 				border-radius: 5px;
 				padding: 1rem;
-				color: $color-paragraph;
+				color: $theme_color-text-header;
 				margin-left: auto;
 				margin-right: auto;
-
+				transition: ease-out .2s;
+				&:hover{
+					color: $theme_color-text-header;
+					background-color: darken($theme_color_buttons, 10%);
+				}
 				@media (min-width: 991px){
 					width: 100%;
 				}
@@ -2336,7 +2344,7 @@ strong, b{
 		max-width: 450px;
 		width: 95%;
 		color: $theme_color-links;
-		border-radius: 1.5rem;
+		border-radius: 5px;
 		padding: 2rem;
 		position: relative;
 		transform: translateY(-200%);
@@ -2356,21 +2364,32 @@ strong, b{
 
 		&--close{
 			cursor: pointer;
-			width: 18px;
-			height: 18px;
-			background:
-				linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, $color-links-gradient 45%, $color-links-gradient 55%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0) 100%), 
-				linear-gradient(135deg, #fff 0%, #fff 50%, $color-links-gradient 45%, $color-links-gradient 55%, #fff 57%, #fff 100%);
-			border-radius: 50%;
-			box-shadow: 0 0 0 1px #fff, 0 0 0 6px #fff, 0 0 0 8px $color-links-gradient;
-			position: absolute;
-			top: 0;
-			right: 0;
-			cursor: pointer;
+	    display: inline-block;
+	    vertical-align: middle;
+	    position: absolute;
+	    width: auto;
+	    height: auto;
+	    top: 5px;
+	    right: 0;
+			svg{
+				fill: $theme_color_buttons;
+		    position: relative;
+		    margin-right: .35rem;
+		    width: 2rem;
+		    height: 2rem;
+		    display: inline-block;
+		    font-size: 1.5rem;
+		    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+		    flex-shrink: 0;
+		    user-select: none;
+		    vertical-align: middle;
+		    top: 3px;
+			}
 		}
 
 		&--title{
 			margin-bottom: 0.5rem;
+			color: $theme_color-text;
 			@media (min-width: 1024px){
 				font-size: 1.65rem;
 			}
@@ -2405,9 +2424,12 @@ strong, b{
 		&--btnNextStep{
 			padding: .7rem 3rem;
 	    display: inline-block;
-	    background-image: linear-gradient(45deg, $color-links, deepskyblue);
-	    color: #fff;
-	    border-radius: 1.5rem;
+	    border-radius: 5px;
+	    background-color: $theme_color_buttons;
+	    color: $theme_color-text-header;
+	    &:hover{
+	    	background-color: darken($theme_color_buttons, 10%);
+	    }
 		}
 	}
 }
@@ -3128,8 +3150,8 @@ strong, b{
 			&__sButtonSub{
 				max-width: 420px;
 				width: 100%;
-				background-color: $frmconvert_colorschema;
-				color: #fff;
+				background-color: $theme_color_buttons;
+				color: $theme_color-text-header;
 				font-weight: bold;
 				padding: 0 1rem;
 				line-height: 2.85rem;
@@ -3144,10 +3166,11 @@ strong, b{
 		    justify-content: center;
 		    flex: 0 0 100%;
 		    margin: 1rem auto 0 auto;
+		    transition: ease-out .2s;
 
 				&:hover{
-					opacity: 0.75;
-					color: #fff;
+					color: $theme_color-text-header;
+					background-color: darken($theme_color_buttons, 10%);
 				}
 				@media (min-width: 768px){
 					&{
@@ -3264,10 +3287,11 @@ strong, b{
 			  }
 			}
 			&.cust-confirm{
-		  	color: $color-paragraph;
-		  	background-color: #ff0;
+		  	color: $theme_color-text-header;
+		  	background-color: $theme_color_buttons;
+		  	transition: ease-out .2s;
 			  &:hover{
-			  	background-color: darken($color-primary, 5%);
+			  	background-color: darken($theme_color_buttons, 10%);
 			  }
 			}
 		}

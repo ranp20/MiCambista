@@ -18,6 +18,9 @@ require_once '../php/process_data-list.php';
 <head>
   <title>Mi Cambista | Completar registro </title>
   <?php require_once 'includes/header_links.php'; ?>
+  <!-- INCLUIR SWEET ALERT 2 -->
+  <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+  <script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
   <div class="cCRegister">

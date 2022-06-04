@@ -326,14 +326,13 @@
 						width: auto;
 							svg{
 								cursor: pointer;
-								fill: $theme_color-links;
+								fill: $theme_color_buttons;
 							}
 						}
 					}
 					&--cTitle{
 						margin-bottom: 1rem;
 						p{
-							color: $theme_color-links;
 							font-size: 1.25rem;
 							display: flex;
 							flex-flow: wrap row;
@@ -346,11 +345,12 @@
 							svg{
 								max-width: 30px;
 								width: auto;
-								fill: $theme_color-links;
+								fill: $theme_color_buttons;
 							}
 							span{
 								margin-left: .5rem;
 								vertical-align: middle;
+								color: $theme_color-text;
 							}
 						}
 					}
@@ -436,4 +436,8 @@
   align-items: flex-end;
   justify-content: end;
   margin-left: auto;
+}
+#all_transac-cli_wrapper .row:nth-child(3) #all_transac-cli_paginate .pagination .paginate_button.page-item.active a{
+	background-color: $theme_color-text;
+	border-color: $theme_color-text-white;
 }

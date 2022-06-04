@@ -5,10 +5,8 @@
   	display: none;
   }	
 }
-
 .cMain{
 	&__cont{
-
 		/* HEADER TOP */
 		&--infTop{
 			position: sticky;
@@ -22,31 +20,26 @@
 	    padding: 1rem 0;
 
 	    @media (min-width: 991px){
-	      height: 7rem;
+	      height: 5rem;
 		    display: flex;
 		    align-items: center;
 		    justify-content: space-between;
 	    }
-
 	    &.reduxheight{
 	    	box-shadow: 0 1px 30px 1px rgb(0 0 0 / 20%);
     		height: 5rem;	
 	    }
-
-
 			&--hTop{
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				&--citem{
-					
 					@media (min-width: 991px){
 				    width: 100%;
 				    display: flex;
 				    align-items: center;
 				    justify-content: space-between;
 			    }
-
 					&--cm{
 						display: block;
 				    position: fixed;
@@ -115,7 +108,7 @@
 								display: block;
 								text-decoration: underline;
     						margin-bottom: .8rem;
-    						color: $theme_color-text-header;
+    						color: $theme_color-text;
 
     						@media (min-width: 991px){
 							    margin: 0;
@@ -196,7 +189,7 @@
 							    max-width: 250px;
 							    width: 100%;
 							    border: none;
-							    color: #fff;
+							    color: $theme_color_buttons;
 							    padding: 0.8rem 0.5rem;
 							    border: thin solid $theme_color_buttons;
 							    border-radius: 0.6rem;
@@ -219,6 +212,7 @@
 								    display: inline;
 								    background-color: $theme_color_buttons;
 								    border: thin solid transparent;
+								    color: $theme_color-text-header;
 							    }
 								}
 							}
@@ -280,9 +274,11 @@
 	    @media (min-width: 692px){
 	    	padding: 3rem 0 6.5rem 0;
 	    }
+	    @media (min-width: 1200px){
+	    	padding: 2.55rem 0 6.5rem 0;
+	    }
 
 			&--c{
-
 				@media (min-width: 768px){
 					display: flex;
     			flex: 0 0 100%;
@@ -1066,7 +1062,7 @@
 								width: 100%;
 								background-color: $theme_color_buttons;
 								border: none;
-								color: #fff;
+								color: $theme_color-text-header;
 								padding: 0.8rem 0.5rem;
 								border-radius: 0.6rem;
 								margin-top: 1rem;
@@ -1077,7 +1073,8 @@
 								margin-right: auto;
 
 								&:hover{
-									color: #fff;
+									color: $theme_color-text-header;
+									background-color: darken($theme_color_buttons, 10%);
 								}
 
 								@media (min-width: 692px){

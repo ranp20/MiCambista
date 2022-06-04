@@ -1,7 +1,7 @@
 <?php
 //COMPRIMIR ARCHIVOS DE TEXTO...
 (substr_count($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) ? ob_start("ob_gzhandler") : ob_start();
-require_once '../php/process_session_complete_register.php';
+//require_once '../php/process_session_complete_register.php';
 require_once '../php/class/settings.php';
 $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
@@ -11,6 +11,9 @@ $g_setting = $call_config->get_config();
 <head>
   <title>Mi Cambista | Login </title>
   <?php require_once 'includes/header_links.php'; ?>
+  <!-- INCLUIR SWEET ALERT 2 -->
+  <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+  <script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
   <div class="cLogin">

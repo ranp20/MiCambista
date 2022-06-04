@@ -1,7 +1,7 @@
 <?php 
 if(isset($_POST) && count($_POST) > 0){
 	if (preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['u-email'])) {
-		if (preg_match('/^[0-9a-zA-Z]+$/', $_POST['u-password'])) {
+		if (preg_match('/^([A-Za-z\d]-?_?){4,15}[A-Za-z\d]$/', $_POST['u-password'])) {
 			
 			require_once '../php/class/client.php';
       $user       = new Client();
@@ -14,7 +14,6 @@ if(isset($_POST) && count($_POST) > 0){
       }else{
 
       	$_token = md5($_POST['u-email'] . $_POST['u-password']);
-
       	$params = count($_POST);
 				$statusaccount = $params * 4;
 

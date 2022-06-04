@@ -2,7 +2,6 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-
 	.cControlP__cont--containDash--c--validBiom{
 		padding: 1rem 0;
 		width: 95%;
@@ -10,11 +9,9 @@
 		margin-right: auto;
 		min-height: 100vh;
 		height: 100%;
-
 		&--cont{
 			background-color: #fff;
 			border-radius: 1.5rem;
-
 			form{
 				border-radius: 1.5rem;
 				box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
@@ -23,18 +20,15 @@
 				flex-flow: wrap row;
 				align-items: flex-start;
 				justify-content: center;
-
 				@media (min-width: 991px){
 					justify-content: space-between;
 			    flex-flow: nowrap column;
 			    align-items: center;
 				}
-
 				@media (min-width: 1200px){
 					padding: 1rem 2.5rem;
 				}
 			}
-
 			/************************** ESTADO O PROGRESO DE LA VALIDACIÓN **************************/
 			&--cLeftStatus{
 				margin-right: auto;
@@ -105,7 +99,7 @@
 							content: "";
 							cursor: initial;
 							position: absolute;
-					    border-bottom: 2px solid $color-links-gradient;
+					    border-bottom: 2px solid $theme_color-text-white;
 					    width: 100%;
 					    top: 20px;
 					    left: 50%;
@@ -116,7 +110,7 @@
 					&.active{
 						span:first-child{
 							background-color: #fff;
-							border: 4px solid #00bfff;
+							border: 4px solid $theme_color-text-white;
 						}
 						span:nth-child(2){
 							font-weight: bold;
@@ -125,7 +119,7 @@
 
 					&.complete{
 						span:first-child{
-							background-color: $color-links-gradient;
+							background-color: $theme_color-text;
 							color: #fff;
 						}
 						span:nth-child(2){
@@ -160,7 +154,7 @@
 							&:after{
 								content: "";
 								position: absolute;
-						    border-bottom: 4px solid $color-links-gradient;
+						    border-bottom: 4px solid $theme_color-text;
 						    width: 100%;
 						    top: 20px;
 						    left: 50%;
@@ -174,7 +168,7 @@
 						height: 40px;
 						border-radius: 50%;
 						background-color: #fff;
-						border: 2px solid $color-links-gradient;
+						border: 2px solid $theme_color-text-white;
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -189,7 +183,7 @@
 					}
 
 					&--text{
-						color: $color-links-gradient;
+						color: $theme_color-text-white;
 						font-size: .9rem;
 						font-weight: 400;
 						margin-left: .85rem;
@@ -306,7 +300,7 @@
 						margin-right: auto;
 
 						&--title{
-							color: $theme_color-links;
+							color: $theme_color-text;
 							font-size: 1.45rem;
     					font-weight: 600;
 
@@ -422,7 +416,7 @@
 							    padding: 0.25rem 1rem;
 							    border-radius: 1.5rem;
 							    background-color: #c9ddfb;
-							    color: #4682b4;
+							    color: $theme_color-text-white;
 							    font-weight: 600;
 							    font-size: .75rem;
 							    outline: none;
@@ -502,14 +496,16 @@
 						border: none;
 						padding: .8rem 3rem;
 				    display: inline-block;
-				    background-image: linear-gradient(45deg,
-																							$color-links,
-																							deepskyblue);
-				    color: #fff;
-				    border-radius: 1.5rem;
+				    background-color: $theme_color_buttons;
+				    color: $theme_color-text-header;
+				    border-radius: 5px;
 				    text-transform: uppercase;
 				    font-weight: 600;
 				    letter-spacing: 0.2rem;
+				    transition: ease-out .2s;
+				    &:hover{
+				    	background-color: darken($theme_color_buttons, 10%);
+				    }
 					}
 				}
 			}

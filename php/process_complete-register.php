@@ -1,5 +1,6 @@
 <?php
 session_start();
+$r = "";
 if(isset($_POST) && !empty($_POST)){
 	$params = count($_POST);
 	if($params == 7){
@@ -19,22 +20,22 @@ if(isset($_POST) && !empty($_POST)){
     $update = $completereg->update($arr_upregister);
     if($update == "true"){
     	$_SESSION['cli_micambista'][0]['complete_account'] = $_SESSION['cli_micambista'][0]['complete_account'] + $arr_upregister['complete_account'];
-    	$res = array(
+    	$r = array(
 		    'response' => 'true',
 		  );
     }else{
-    	$res = array(
+    	$r = array(
 		    'response' => 'false',
 		  );
     }
 	}else{
-		$res = array(
+		$r = array(
 	    'response' => 'err_missing_data',
 	  );
 	}
 }else{
-	$res = array(
+	$r = array(
     'response' => 'false',
   );
 }
-die(json_encode($res));
+die(json_encode($r));

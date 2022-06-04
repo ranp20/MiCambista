@@ -303,7 +303,7 @@ img{
     z-index: 999;
     
 		&--loader{
-			@include loader(yellow, 55px);
+			@include loader($theme_color_buttons, 55px);
 		}
 	}
 }

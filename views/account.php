@@ -26,7 +26,7 @@ if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
           <h2 class="cAccount__cont--fAccount--cTitle--title">¡Bienvenido a Mi Cambista!</h2>
           <p class="cAccount__cont--fAccount--cTitle--desc">Registrate y realiza tus operaciones </br> de forma segura desde nuestra plataforma digital.</p>
         </div>
-        <form method="POST" class="cAccount__cont--fAccount--form" id="Account-PInstakash">
+        <form method="POST" class="cAccount__cont--fAccount--form" id="frm-accountRegCli">
           <div class="cAccount__cont--fAccount--form--controls">
             <div class="cAccount__cont--fAccount--form--controls--cIcon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="cAccount__cont--fAccount--form--controls--cIcon--email"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
@@ -36,15 +36,20 @@ if(isset($_SESSION['cli_micambista']) && !empty($_SESSION['cli_micambista'])){
           </div>
           <div class="cAccount__cont--fAccount--form--controls--g-Listprefix">
             <div class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect">
-              <div id="flag--numbercountryselect" class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cflagIcon">
-                <img src="./views/assets/img/Peru.jpg" alt="" id="1">
+              <div class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cflagIcon">
+                <div class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cflagIcon__cIcon" id="flag--numbercountryselect">
+                  <img src="./views/assets/img/Peru.jpg" alt="flag-icon-sel" id="1" width="100" height="100">
+                </div>
                 <ul class="list-prefixtocountryflags__m" id="list-prefixtocountryflags"></ul>
               </div>
               <div class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cIcon">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cIcon--arrowbottom" version="1.1" x="0px" y="0px" viewBox="0 0 48 60" style="enable-background:new 0 0 48 48;" xml:space="preserve"><g><path d="M47.8,7.1C47.4,6.4,46.7,6,46,6H2C1.3,6,0.6,6.4,0.2,7.1s-0.3,1.5,0.1,2.1l22,32c0.4,0.5,1,0.9,1.6,0.9s1.3-0.3,1.6-0.9   l22-32C48.1,8.5,48.1,7.7,47.8,7.1z"/></g></svg>
+                <svg class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cIcon--arrowbottom" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.08298L5 5L9 1" stroke="#ff7800" stroke-width="1.25727" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="cAccount__cont--fAccount--form--controls--g-Listprefix--fakeselect--cIptFkPrefix">
+                <span id="iptcountryPrefixSel">+ 51</span>
               </div>
             </div>
-            <input type="text" name="telephone-instkreg" pattern="" id="telephone-instkreg" value="+ 51 " maxlength="20" class="cAccount__cont--fAccount--form--controls--g-Listprefix--input" required>
+            <input type="text" name="telephone-instkreg" id="telephone-instkreg" value="" maxlength="11" data-valformat=withspacesforthreenumbers class="cAccount__cont--fAccount--form--controls--g-Listprefix--input" required placeholder="Teléfono">
             <span id="errorNounTelephoneAcc"></span>
           </div>
           <div class="cAccount__cont--fAccount--form--controls">

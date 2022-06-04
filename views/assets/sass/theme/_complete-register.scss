@@ -345,9 +345,9 @@
 						#msgerrorNounNroDocumentCli{
 							color: red;
 					    font-size: .9rem;
-							position: static;
+							position: absolute;
 					    bottom: -22px;
-					    left: 10px;
+					    left: 0;
 						}
 
 						&--cIcon{
@@ -387,7 +387,7 @@
 					    display: flex;
 					    align-items: center;
 					    justify-content: space-between;
-					    padding: 0.8rem 0 0.45rem 0;
+					    padding: .951rem 0 .45rem 0;
 					    cursor: pointer;
 					    position: relative;
 					    border-bottom: thin solid #ccc;

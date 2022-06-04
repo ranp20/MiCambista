@@ -6,19 +6,19 @@ $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix
 		method: "POST",
 		dataType: "JSON",
 		contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-	}).done( function (res) {
+	}).done((e) => {
 		var template = "";
 		if(!btnshow.hasClass("show")){
 			btnshow.addClass("show");
-			res.forEach((e) => {
-				var pathimgflag = "./admin/assets/img/flags/"+e.photo;
+			$.each(e, function(i,v){
+				var pathimgflag = "./admin/views/assets/img/flags/"+v.photo;
 				template += `
-					<li class="list-prefixtocountryflags__m__item" id="${e.id}">
+					<li class="list-prefixtocountryflags__m__item" id="${v.id}">
             <div class="list-prefixtocountryflags__m__item--contImg">
-              <img src="${pathimgflag}" alt="">
+              <img src="${pathimgflag}" alt="flag-country-${i}" width="100" height="100">
             </div>
-            <span class="list-prefixtocountryflags__m__item--namecountry">${e.name}</span>
-            <span class="list-prefixtocountryflags__m__item--prefixcountry">${e.prefix}</span>                     
+            <span class="list-prefixtocountryflags__m__item--namecountry">${v.name}</span>
+            <span class="list-prefixtocountryflags__m__item--prefixcountry">${v.prefix}</span>                     
           </li>
 				`;
 			});
@@ -29,18 +29,24 @@ $(document).on("click", ".cAccount__cont--fAccount--form--controls--g-Listprefix
 		}
 	});
 });
+// ------------ FORMATO - SEPARADOR DE NÚMERO TELEFÓNICO (+51)
+$(document).on("keyup", "input[data-valformat=withspacesforthreenumbers]", function(e){
+	let val = e.target.value;
+  $(this).val(val.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3'));
+});
 // ------------ MOSTRAR/OCULTAR EL LISTADO DE PAÍSES
 $(document).on("click", ".list-prefixtocountryflags__m__item", function(e){
 	e.preventDefault();
+	var getinfocountries = {};
 	$.each($(this), function(i, v){
-		var getinfocountries = {
+		getinfocountries = {
 			countryid: $(this).attr("id"),
-			countryprefix: $(this).find(".list-prefixtocountryflags__m__item--prefixcountry").text(), 
+			countryprefix: $(this).find(".list-prefixtocountryflags__m__item--prefixcountry").text(),
 			countryflag: $(this).find(".list-prefixtocountryflags__m__item--contImg").find("img").attr("src")
 		};
 		$("#flag--numbercountryselect").find("img").attr("id", getinfocountries['countryid']);
 		$("#flag--numbercountryselect").find("img").attr("src", getinfocountries['countryflag']);
-		$(".cAccount__cont--fAccount--form--controls--g-Listprefix").find("input").val(getinfocountries['countryprefix']);
+		$("#iptcountryPrefixSel").text(getinfocountries['countryprefix']);
 	});
 });
 // ------------ VERIFICAR SI LAS CONTRASEÑAS COINCIDEN
@@ -117,20 +123,24 @@ $(document).on("click", "#icon-secondPassControl", function(){
 	}
 });
 // ------------ REGISTRO DE CLIENTE 
-$(document).on("click", "#btn-register", function(e){
+$(document).on("submit", "#frm-accountRegCli", function(e){
 	e.preventDefault();
+
 	($("#email-instkreg").val() != "") ? $("#errorNounEmailAcc").text("") : $("#errorNounEmailAcc").text("Debes colocar un correo electrónico");
 	($("#telephone-instkreg").val().length > 0 || $("#telephone-instkreg").val() != "") ? $("#errorNounTelephoneAcc").text("") : $("#errorNounTelephoneAcc").text("Debes colocar un teléfono válido");
 	($("#pass-instkreg").val() != "") ? $("#errorNounPasswordAcc").text("") : $("#errorNounPasswordAcc").text("Debes colocar una contraseña");
 
 	if($("#email-instkreg").val() != "" && $("#pass-instkreg").val() != ""){
 		if($("#pass-instkreg").val() == $("#pass-repeatinstkreg").val()){
-			var formData = new FormData();
-			var telephone = $("#telephone-instkreg").val();
-			var telwithoutspace = telephone.replace(/ /g, "");
+			let formData = new FormData();
+			let telephone = $("#telephone-instkreg").val();
+			let prefixCel = $("#iptcountryPrefixSel").text();
+			let prefixwithoutspace = prefixCel.replace(/ /g, "");
+			let telwithoutspace = telephone.replace(/ /g, "");
+			let telephoneSend = prefixCel+telwithoutspace;
 		  formData.append("u-email", $("#email-instkreg").val());
 		  formData.append("u-id_country", $("#flag--numbercountryselect").find("img").attr("id"));
-		  formData.append("u-telephone", telwithoutspace);
+		  formData.append("u-telephone", telephoneSend);
 		  formData.append("u-password", $("#pass-instkreg").val());
 		  $.ajax({
 		  	url: "./php/process_register-client.php",

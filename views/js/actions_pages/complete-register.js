@@ -108,17 +108,26 @@ $(document).on("keyup", "#lastnames-micambista", function(){
 	($(this).val() != 0) ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
 });
 // ------------ VALIDAR SI EL CAMPO DE NÚMERO DE DOCUMENTO ESTÁ VACÍO 
-$(document).on("keyup", "#nrodocument-micambista", function(){
-	($(this).val() != 0) ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
+$(document).on("keypress keyup", "#nrodocument-micambista", function(e){
+	var charCode = (e.which) ? e.which : e.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57)){
+    $(this).addClass("non-validval");
+    $("#msgerrorNounNroDocumentCli").text("Ingresar solo números *");
+    return false;
+  }else{
+  	$(this).removeClass("non-validval");
+  	$("#msgerrorNounNroDocumentCli").text("")
+  	return true;
+  }
 });
-$(document).on("click", "#btn-CompleteRegister", function(e){
+$(document).on("submit", "#frm-complAccRegCli", function(e){
 	e.preventDefault();
 	($("#names-micambista").val() != "") ? $("#msgerrorNounNamesCli").text("") : $("#msgerrorNounNamesCli").text("Debes colocar un nombre");
 	($("#lastnames-micambista").val() != "") ? $("#msgerrorNounLastnamesCli").text("") : $("#msgerrorNounLastnamesCli").text("Debes colocar un apellido");
 	($("#nrodocument-micambista").val() != "") ? $("#msgerrorNounNroDocumentCli").text("") : $("#msgerrorNounNroDocumentCli").text("Debes colocar tu nro. de documento");
-	($("#selListtypeSex--input").attr("idtypesex")) ? $("#msgerrorNounSelTypeSex").text("") : $("#msgerrorNounSelTypeSex").text("Debes seleccionar una opción");
+	($("#selListtypeSex--input").attr("idtypesex") && $("#selListtypeSex--input").attr("idtypesex") != undefined) ? $("#msgerrorNounSelTypeSex").text("") : $("#msgerrorNounSelTypeSex").text("Debes seleccionar una opción");
 
-	if($("#selListtypeSex--input").attr("idtypesex")){
+	if($("#selListtypeSex--input").attr("idtypesex") != "" && $("#selListtypeSex--input").attr("idtypesex") != undefined){
 		var obj_cClient = {
 			namescli: $("#names-micambista").val(),
 			lastnamescli: $("#lastnames-micambista").val(),

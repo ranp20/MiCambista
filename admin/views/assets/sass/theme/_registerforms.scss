@@ -1001,18 +1001,43 @@
 						&__Grpitem{
 							display: flex;
 					    align-items: flex-start;
-					    justify-content: space-between;
+					    justify-content: flex-start;
 					    flex-flow: wrap row;
 					    flex: 0 0 100%;
+
+					    &.fxj-tb-sbetween{
+					    	@media (min-width: 768px){
+					    		justify-content: space-between;
+					    	}
+					    }
+					    &.fxj-lg-start{
+					    	@media (min-width: 991px){
+					    		justify-content: flex-start;
+					    	}
+					    }
 						}
 						&__item{
 							display: block;
-							&.wcol-lg-2{
+							&.wcol-tb-2,
+							&.wcol-lg-2,
+							&.wcol-lg-3{
 								display: block;
 								width: 100%;
+								@media(min-width: 768px){
+									display: inline-block;
+									width: 45%;
+								}
+							}
+							&.wcol-lg-2{
 								@media(min-width: 991px){
 									display: inline-block;
 									width: 45%;
+								}
+							}
+							&.wcol-lg-3{
+								@media(min-width: 991px){
+									display: inline-block;
+									width: 33.33333%;
 								}
 							}
 							&__label{

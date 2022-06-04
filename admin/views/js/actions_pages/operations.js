@@ -456,6 +456,7 @@ function listDetailsByIdTransac(idtrans){
     	var c_itemsDetailTrans = $("#c-listDetailsTransaction");
     	if(e != "" && e.length > 0){
     		var estado = "";
+    		var st_valid_biom = "";
       	let valOriginalFinal = "";
 				let valFormat = "";
 				let noperation = (e[0].n_operation != "" && e[0].n_operation != 0) ? e[0].n_operation : "Sin agregar";
@@ -486,9 +487,11 @@ function listDetailsByIdTransac(idtrans){
 					valOriginal_transFinal = valOriginal_transsplit[0]+"."+valOriginal_transsplit[1];
 				}
       	valFormat_trans = valOriginal_transFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    		
-      	tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
-      										<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+    		let completename = e[0].u_name+e[0].u_lastname;
+    		let completedoc = e[0].type_doc+": "+e[0].n_document;
+
+      	tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
+      										<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">ID:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${e[0].codigo}</p>
@@ -496,7 +499,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>`;
 				if(e[0].estado == "Pending"){
 					estado = "Pendiente";
-					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Estado:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${estado}</p>
@@ -504,7 +507,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>`;
 				}else if(e[0].estado == "Inreview"){
 					estado = "En revisión";
-					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Estado:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${estado}</p>
@@ -512,7 +515,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>`;
 				}else if(e[0].estado == "Cancel"){
 					estado = "Cancelado";
-					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Estado:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${estado}</p>
@@ -520,7 +523,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>`;
 				}else if(e[0].estado == "Completed"){
 					estado = "Finalizado";
-					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+					tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Estado:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${estado}</p>
@@ -531,19 +534,31 @@ function listDetailsByIdTransac(idtrans){
 					tmpDetailTrans += ``;
 				}
 
-				tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+				if(e[0].valid_biom == "accepted"){
+					st_valid_biom = "Completado";
+				}else if(e[0].valid_biom == "inreview"){
+					st_valid_biom = "En revisión";
+				}else if(e[0].valid_biom == "rejected"){
+					st_valid_biom = "Rechazado";
+				}else if(e[0].valid_biom == "incomplete"){
+					st_valid_biom = "Sin información subida";
+				}else{
+					st_valid_biom = "Sin información subida";
+				}
+
+				tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Solicitado:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${e[0].prefijosend+" "+valFormat}</p>
 								        		</div>
 								        	</div>
-								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Tasa de cambio:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${e[0].tasa}</p>
 								        		</div>
 								        	</div>
-								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Cuenta que recibe:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt__cImg">
@@ -555,7 +570,7 @@ function listDetailsByIdTransac(idtrans){
 								        </div>
 								        <hr>
 								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
-									        <div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+									        <div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Cuenta a transferir:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt__cImg">
@@ -564,7 +579,7 @@ function listDetailsByIdTransac(idtrans){
 								        			<p>${e[0].naccplatform}</p>
 								        		</div>
 								        	</div>
-								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Monto a enviar:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${e[0].prefijosend+" "+valFormat_trans}</p>
@@ -573,10 +588,43 @@ function listDetailsByIdTransac(idtrans){
 								        </div>
 								        <hr>
 								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
-								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-2">
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Nro. de Operación:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
 								        			<p>${noperation}</p>
+								        		</div>
+								        	</div>
+								        </div>
+								        <hr>
+								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Nombre completo:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${completename}</p>
+								        		</div>
+								        	</div>
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Email:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${e[0].email}</p>
+								        		</div>
+								        	</div>
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Teléfono:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${e[0].telephone}</p>
+								        		</div>
+								        	</div>
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Documento:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${completedoc}</p>
+								        		</div>
+								        	</div>
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Valid. Biometrica:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${st_valid_biom}</p>
 								        		</div>
 								        	</div>
 								        </div>`;

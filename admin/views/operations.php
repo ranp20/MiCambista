@@ -69,7 +69,7 @@ if(!isset($_SESSION['admin_sessmemopay'])){
 						</div>
 					</div>
 				</div>
-				<!-- MODAL - EDITAR PAÍS -->
+				<!-- MODAL - DETALLES DE ITEM -->
 				<div class="modal fade bootstrapmodalupdate-custom" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">

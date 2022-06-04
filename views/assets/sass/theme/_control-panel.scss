@@ -88,6 +88,7 @@ $top-header-desktop: 85px;
 							color: $theme_color-text-header;
 							line-height: 1.4;
 							margin-bottom: 0.3rem;
+							font-size: 0.9rem;
 						}
 					}
 				}
@@ -723,7 +724,7 @@ $top-header-desktop: 85px;
 
 					svg{
 						fill: none;
-						stroke: $theme_color-text;
+						stroke: $theme_color_buttons;
 					}
 				}
 
@@ -756,7 +757,7 @@ $top-header-desktop: 85px;
 					    line-height: 1.5;
 						}
 						span{
-							color: $color-paragraph;
+							color: $theme_color-opaque;
 						}
 					}
 				}

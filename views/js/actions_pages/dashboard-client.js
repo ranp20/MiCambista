@@ -63,9 +63,12 @@ $(() => {
 	// ------------ ITEM SELECCIONADO DEL MENÚ EN CADA PÁGINA - DERECHA
 	var url2 = window.location.pathname;
 	var filename2 = url2.substring(url2.lastIndexOf('/')+1);
-	if(filename2 == "control-panel"){
-		$(".cControlP__cont--sdRight--c--m--item a").eq(1).removeClass("active");
-		$('.cControlP__cont--sdRight--c--m--item a').eq(0).addClass("active");
+	if(filename2 == "select-profile"){
+		$(".cControlP__cont--sdRight--c--m--item a").eq(0).removeClass("active");
+		$('.cControlP__cont--sdRight--c--m--item a').eq(1).addClass("active");
+	}else if(filename2 == "my-profile"){
+		$(".cControlP__cont--sdRight--c--m--item a").eq(0).addClass("active");
+		$('.cControlP__cont--sdRight--c--m--item a').eq(1).removeClass("active");
 	}else{
 		$(".cControlP__cont--sdRight--c--m--item a").removeClass("active");
 		$('.cControlP__cont--sdRight--c--m--item a[href="' + filename2 + '"]').addClass("active");

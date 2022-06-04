@@ -109,6 +109,20 @@ var listAllTransactions = (optionSel = null) => {
 	        return statustmp;
 				}
 			},
+			{"data":"id",
+        "render": function ( data, type, row ){
+          var idTransaction = row.id;
+          var tmpBtnDetail = "";
+          tmpBtnDetail += `<div class="c-btnModal-details center">
+            <a class="btn-update-coupon" data-toggle="modal" data-target="#detailsModal" href="#" data-id="${idTransaction}" title="ver detalle">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="27px" version="1.1" viewBox="0 0 700 700"><g xmlns="http://www.w3.org/2000/svg"><path d="m495.6 43.512h-291.2c-16.336 0-32.004 6.4922-43.555 18.043-11.555 11.551-18.043 27.219-18.043 43.559v349.77c0 16.34 6.4883 32.008 18.043 43.559 11.551 11.551 27.219 18.043 43.555 18.043h291.2c16.336 0 32.004-6.4922 43.555-18.043 11.555-11.551 18.043-27.219 18.043-43.559v-349.77c0-16.34-6.4883-32.008-18.043-43.559-11.551-11.551-27.219-18.043-43.555-18.043zm28 411.38c0 7.4258-2.9531 14.551-8.2031 19.801s-12.371 8.1992-19.797 8.1992h-291.2c-7.4258 0-14.547-2.9492-19.797-8.1992s-8.2031-12.375-8.2031-19.801v-349.77c0-7.4258 2.9531-14.551 8.2031-19.801s12.371-8.1992 19.797-8.1992h291.2c7.4258 0 14.547 2.9492 19.797 8.1992s8.2031 12.375 8.2031 19.801z"/><path d="m251.16 266h-27.719c-6.0039 0-11.551 3.2031-14.551 8.3984-3 5.1992-3 11.605 0 16.801 3 5.1992 8.5469 8.4023 14.551 8.4023h27.719c6 0 11.547-3.2031 14.551-8.4023 3-5.1953 3-11.602 0-16.801-3.0039-5.1953-8.5508-8.3984-14.551-8.3984z"/><path d="m476.56 266h-164.13c-6.0039 0-11.551 3.2031-14.551 8.3984-3 5.1992-3 11.605 0 16.801 3 5.1992 8.5469 8.4023 14.551 8.4023h164.13c6.0039 0 11.551-3.2031 14.551-8.4023 3-5.1953 3-11.602 0-16.801-3-5.1953-8.5469-8.3984-14.551-8.3984z"/><path d="m251.16 165.2h-27.719c-6.0039 0-11.551 3.2031-14.551 8.4023-3 5.1953-3 11.602 0 16.797 3 5.1992 8.5469 8.4023 14.551 8.4023h27.719c6 0 11.547-3.2031 14.551-8.4023 3-5.1953 3-11.602 0-16.797-3.0039-5.1992-8.5508-8.4023-14.551-8.4023z"/><path d="m476.56 165.2h-164.13c-6.0039 0-11.551 3.2031-14.551 8.4023-3 5.1953-3 11.602 0 16.797 3 5.1992 8.5469 8.4023 14.551 8.4023h164.13c6.0039 0 11.551-3.2031 14.551-8.4023 3-5.1953 3-11.602 0-16.797-3-5.1992-8.5469-8.4023-14.551-8.4023z"/><path d="m251.16 366.8h-27.719c-6.0039 0-11.551 3.2031-14.551 8.3984-3 5.1992-3 11.602 0 16.801s8.5469 8.3984 14.551 8.3984h27.719c6 0 11.547-3.1992 14.551-8.3984 3-5.1992 3-11.602 0-16.801-3.0039-5.1953-8.5508-8.3984-14.551-8.3984z"/><path d="m476.56 366.8h-164.13c-6.0039 0-11.551 3.2031-14.551 8.3984-3 5.1992-3 11.602 0 16.801s8.5469 8.3984 14.551 8.3984h164.13c6.0039 0 11.551-3.1992 14.551-8.3984s3-11.602 0-16.801c-3-5.1953-8.5469-8.3984-14.551-8.3984z"/></g></svg>
+              </span>
+            </a>
+          </div>`;
+          return tmpBtnDetail;
+        }
+      },
 		],
 		"language":{
 	    "processing": "Procesando...",
@@ -398,6 +412,30 @@ function listUpdateItems(listAllItems, action){
 	        confirmButtonText: 'Aceptar'
 	      });
     	}
+    },
+	 	statusCode: {
+	    404: function(){
+	      console.log('Error 404: La página de consulta no fue encotrada.');
+	    }
+	  },
+	  error:function(x,xs,xt){
+	    console.log(JSON.stringify(x));
+	  }
+	});
+}
+// ------------ LISTAR DETALLE DE TRANSACCIÓN POR ID
+function listDetailsByIdTransac(id_transaction){
+	$.ajax({
+		url: "../admin/controllers/c_list-detailsTransaction-byIdTrans.php",
+		type: "POST",
+		dataType: "JSON",
+		data: { id_transaction : idtrans},
+    beforeSend: function(){
+    	//console.log('Insertando la información');
+    },
+    success: function(e){
+    	console.log('El detalle de la transación:');
+    	console.log(e);
     },
 	 	statusCode: {
 	    404: function(){

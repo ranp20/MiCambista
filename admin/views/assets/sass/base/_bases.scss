@@ -686,3 +686,21 @@ img{
 		}
 	}
 }
+.c-btnModal-details{
+	padding: 0;
+	margin: auto;
+	text-align: center;
+	a{
+		color: #fff;
+		padding: 0.5rem;
+		border-radius: 5px;
+		background-color: $btn-color-blue;
+		svg{
+			fill: #fff;
+		}
+
+		&:hover{
+			opacity: .6;
+		}
+	}
+}

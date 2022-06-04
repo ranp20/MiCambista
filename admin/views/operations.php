@@ -61,6 +61,7 @@ if(!isset($_SESSION['admin_micambista'])){
 											<th>Monto Recibido</th>
 											<th class='center'>Tasa de Cambio</th>
 											<th class='center'>Estado</th>
+											<th class='center'>Detalle</th>
 										</tr>
 									</thead>
 								</table>
@@ -68,7 +69,35 @@ if(!isset($_SESSION['admin_micambista'])){
 						</div>
 					</div>
 				</div>
-				
+				<!-- MODAL - EDITAR PAÍS -->
+				<div class="modal fade bootstrapmodalupdate-custom" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="update-modal-label">DETALLES DE TRANSACCIÓN</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body cont-total-update-items">
+				      	<div class="cont-modalbootstrapupdate">
+				      		<div class="cont-modalbootstrapupdate__cListInfo">
+				      			<input type="hidden" id="iddetails-transactions">
+					        	<div class="cont-modalbootstrapupdate__cListInfo__item">
+					        		<label for="" class="cont-modalbootstrapupdate__cListInfo__item__label complete">ID:</label>
+					        		<div class="cont-modalbootstrapupdate__cListInfo__item__cTxt">
+					        			<p>E-12967023838483</p>
+					        		</div>
+					        	</div>
+							      <div class="cont-modalbootstrapupdate__footer">
+							        <button type="button" class="cont-modalbootstrapupdate__footer--btncancel" data-dismiss="modal">CERRAR</button>
+							      </div>
+				      		</div>
+				      	</div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 				<!-- FIN MODALS-->
 				<div class="cDash-adm--containRight--cContain__cActionButtonsItems" id="c-action-buttons">
 					<div class="cDash-adm--containRight--cContain__cActionButtonsItems__c-actionButtons" id="c-allActionsButtons">

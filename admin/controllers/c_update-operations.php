@@ -23,8 +23,10 @@ if(isset($_POST) && count($_POST) > 0){
 	}
 
 	require_once 'connection.php';
+	date_default_timezone_set('America/Lima');
+	$dateNow = date("Y-m-d H:i:s");
 	while ($iListIds < count($arr_dataUpdate)){
-		$sql = "UPDATE tbl_transactions SET status_send = '".$arr_dataUpdate[$iListIds][0]."' WHERE id = '".$arr_dataUpdate[$iListIds][1]."'";
+		$sql = "UPDATE tbl_transactions SET updated_date = '".$dateNow."', status_send = '".$arr_dataUpdate[$iListIds][0]."' WHERE id = '".$arr_dataUpdate[$iListIds][1]."'";
 		$result = $con->prepare($sql);
 		$result->execute();
 		if($result == true){

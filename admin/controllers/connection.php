@@ -1,12 +1,13 @@
 <?php
-//CONFIGURACIÓN - SERVIDOR
+//CONFIGURACIÓN - SERVIDOR (SERVIDOR TEMPORAL)
 /*
 $servidor = "158.106.132.103";
-$dbname = "micambis_db_memopay";
-$usuario = "micambis_use_memopay";
+$dbname = "micambis_db_micambista";
+$usuario = "micambis_use_micambista";
 $password = "D^_~M)O%[K&#";
 */
 //CONFIGURACIÓN - LOCALHOST
+
 $servidor = "localhost";
 $dbname = "db_memopay";
 $usuario = "root";

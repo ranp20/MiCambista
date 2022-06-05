@@ -15,7 +15,7 @@ function isNumberKey(evt){
   	return true;
   }
 }
-// ------------ MONTO A ENVIAR Y CUENTA DE TRANSACCIÓN DE MI CAMBISTA, EN BASE A LA OPCIÓN SELECCIONADA
+// ------------ MONTO A ENVIAR Y CUENTA DE TRANSACCIÓN DE MEMOPAY, EN BASE A LA OPCIÓN SELECCIONADA
 function listCompleteExchange(){
 	$.ajax({
 		url: "controllers/c_list-transaction-final.php",

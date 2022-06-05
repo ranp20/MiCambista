@@ -1,12 +1,12 @@
 <?php 
 	class Connection{
 
-		// CONFIGURACIÓN - SERVIDOR
+		// CONFIGURACIÓN - SERVIDOR (SERVIDOR TEMPORAL)
 		/*
 		protected $con = null;
 		private $host = "158.106.132.103";
-		private $dbname = "micambis_db_memopay";
-		private $username = "micambis_use_memopay";
+		private $dbname = "micambis_db_micambista";
+		private $username = "micambis_use_micambista";
 		private $password = "D^_~M)O%[K&#";
 		private $charset = "utf8";
 		*/

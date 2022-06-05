@@ -41,6 +41,7 @@ require_once '../php/process_data-list.php';
 							</div>
 							<img src="<?= $url ?>views/assets/img/svg/exchange-2.svg" alt="">
 						</div>
+<!-- 
 						<div class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend">
 							<div class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend--cTitle">
 								<h3 class="cControlP__cont--containDash--c--cWelcome--cMsgRecomend--cTitle--title">¡Gana KASH </br>recomendado!</h3>
@@ -50,6 +51,7 @@ require_once '../php/process_data-list.php';
 							</div>
 							<img src="<?= $url ?>views/assets/img/svg/affiliate-3.svg" alt="">
 						</div>
+						 -->
 					</div>
 				</div>
 			</section>

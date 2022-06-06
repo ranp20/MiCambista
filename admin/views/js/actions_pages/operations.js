@@ -487,10 +487,31 @@ function listDetailsByIdTransac(idtrans){
 					valOriginal_transFinal = valOriginal_transsplit[0]+"."+valOriginal_transsplit[1];
 				}
       	valFormat_trans = valOriginal_transFinal.toString().replace(/[^\d.]/g, "").replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3').replace(/\.(\d{2})\d+/, '.$1').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    		let completename = e[0].u_name+e[0].u_lastname;
+    		let completename = e[0].u_name+" "+e[0].u_lastname;
     		let completedoc = e[0].type_doc+": "+e[0].n_document;
+    		let fecha_c = e[0].crt_date;
+    		let fecha_u = e[0].upd_date;
+
+    		// let nowtime = moment().format('YYYY-MM-DD hh:mm:ss A');
+    		let fecha_c_format = moment(fecha_c).format('YYYY/MM/DD - hh:mm:ss A');
+    		let fecha_u_format = moment(fecha_u).format('YYYY/MM/DD - hh:mm:ss A');
 
       	tmpDetailTrans += `<div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
+									        <div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">F. creación:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${fecha_c_format}</p>
+								        		</div>
+								        	</div>
+								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
+								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">F. actualización:</label>
+								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
+								        			<p>${fecha_u_format}</p>
+								        		</div>
+								        	</div>
+								        </div>
+								        <hr>
+      									<div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
       										<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">ID:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
@@ -569,7 +590,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>
 								        </div>
 								        <hr>
-								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
+								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
 									        <div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Cuenta a transferir:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
@@ -587,7 +608,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>
 								        </div>
 								        <hr>
-								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
+								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
 								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Nro. de Operación:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">
@@ -596,7 +617,7 @@ function listDetailsByIdTransac(idtrans){
 								        	</div>
 								        </div>
 								        <hr>
-								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem">
+								        <div class="cont-modalbootstrapdetail__cListInfo__Grpitem fxj-lg-start fxj-tb-sbetween">
 								        	<div class="cont-modalbootstrapdetail__cListInfo__item wcol-lg-3 wcol-tb-2">
 								        		<label for="" class="cont-modalbootstrapdetail__cListInfo__item__label complete">Nombre completo:</label>
 								        		<div class="cont-modalbootstrapdetail__cListInfo__item__cTxt">

@@ -17,6 +17,11 @@ if(!isset($_SESSION['admin_sessmemopay'])){
 	<!-- INCLUIR SWEETALERTS2 -->
 	<link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<!-- INCLUIR MOMENT.JS -->
+	<script type="text/javascript" src="../node_modules/moment/moment.js"></script>
+	<!-- INCLUIR MOMENT-TIMEZONE.JS -->
+	<script type="text/javascript" src="../node_modules/moment-timezone/moment-timezone.js"></script>
+	<script type="text/javascript" src="../node_modules/moment-timezone/moment-timezone-utils.js"></script>
 </head>
 <body>
 	<main class="cDash-adm">

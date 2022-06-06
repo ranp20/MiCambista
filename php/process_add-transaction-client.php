@@ -12,6 +12,7 @@ function genId() {
     }
   }, "E-".$format);
 }
+$timer = 15;
 if(isset($_POST) && !empty($_POST)){
 	require_once '../controllers/c_list-random-codegen.php';
 	require_once 'class/transactions.php';
@@ -42,6 +43,12 @@ if(isset($_POST) && !empty($_POST)){
 		];
 		$listByCodes = $trans->get_transaction_by_codes($arr_listbycodes);
 		if(count($listByCodes) > 0){
+			$arr_itemforevent = [
+				"id" => $listByCodes[0]['id'],
+				"id_client" => $arr_listbycodes['id_client'],
+				"timer" => $timer
+			];
+			$trans->event_update_status_transaction($arr_itemforevent['id'],$arr_itemforevent['id_client'],$arr_itemforevent['timer']);
 			$r = array(
 				"res" => "add",
 				"received" => $listByCodes

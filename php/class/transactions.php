@@ -64,4 +64,25 @@ class Transactions extends Connection{
 			return $e->getMessage();
 		}
 	}
+	// -------------- TIMER PARA CANCELAR LA OPERACIÓN
+	function event_update_status_transaction($idtrans, $idclient, $timer){
+		try{
+      $sql = "CREATE EVENT evt_updateStatusTrans_idtrans{$idtrans}
+      ON SCHEDULE
+      AT CURRENT_TIMESTAMP + INTERVAL {$timer} MINUTE
+      ON COMPLETION NOT PRESERVE
+      ENABLE
+      DO BEGIN
+      	DECLARE regtrans CHAR(15);
+      	SET regtrans = (SELECT status_send FROM tbl_transactions WHERE id = {$idtrans} AND id_client = {$idclient} LIMIT 1);
+      	IF(regtrans = 'Pending') THEN
+        	UPDATE tbl_transactions SET status_send = 'Cancel' WHERE id = {$idtrans} AND id_client = {$idclient} LIMIT 1;
+        END IF;
+      END";
+			$stm = $this->con->query($sql);
+			$stm->execute();
+		}catch(PDOException $e){
+			return $e->getMessage();
+		}
+	}
 }

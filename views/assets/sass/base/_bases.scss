@@ -64,6 +64,9 @@ strong, b{
 	text-shadow: 0 0 6px #ccc;
 }
 /* UTILITIES CLASS */
+.txt-clr-paragraph{
+	color: $color-paragraph;
+}
 .btn-pri_theme-def{
 	opacity: 1;
   cursor: pointer;

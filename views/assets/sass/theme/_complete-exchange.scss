@@ -203,6 +203,27 @@
 
 				}
 				&__cfOpTimeout{
+					div#c_tmoutTransFinalZon.hidden{
+						display: none;
+						visibility: hidden;
+						pointer-events: none;
+						user-select: none;
+						opacity: 0;
+					}
+					div#timeoutChangeDiviseFinal_two{
+						display: none;
+						visibility: hidden;
+						pointer-events: none;
+						user-select: none;
+						opacity: 0;
+					}
+					div#timeoutChangeDiviseFinal_two.active{
+						display: inline-block;
+						visibility: visible;
+						pointer-events: auto;
+						user-select: auto;
+						opacity: 1;
+					}
 					div{				
 						svg{
 							position: relative;
@@ -219,29 +240,6 @@
 						span{
 							vertical-align: middle;
 							color: $color-paragraph;
-						}
-						#timeoutChangeDiviseFinal{
-							&.hidden{
-								display: none;
-								visibility: hidden;
-								pointer-events: none;
-								user-select: none;
-								opacity: 0;	
-							}
-						}
-						#timeoutChangeDiviseFinal_two{
-							display: none;
-							visibility: hidden;
-							pointer-events: none;
-							user-select: none;
-							opacity: 0;
-							&.active{
-								display: inline-block;
-								visibility: visible;
-								pointer-events: auto;
-								user-select: auto;
-								opacity: 1;
-							}
 						}
 					}
 				}

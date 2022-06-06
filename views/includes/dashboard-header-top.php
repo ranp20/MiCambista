@@ -23,13 +23,15 @@ $g_setting = $call_config->get_config();
 		</div>
 		<div class="cControlP__cont--hTop--c--cWpsNameCli">
 			<a href="https://api.whatsapp.com/send?phone=51<?= $g_setting("whatsapp_phone")['setting_value']; ?>&text=<?= $g_setting("whatsapp_text")['setting_value']; ?>" class="cControlP__cont--hTop--c--cWpsNameCli--wpsMobile" target="_blank">
-				<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="" width="100" height="100">
+				<span class="cControlP__cont--hTop--c--cWpsNameCli--wpsMobile--cIcon">
+					<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="" width="100" height="100">
+				</span>
 			</a>
 			<a href="https://api.whatsapp.com/send?phone=51<?= $g_setting("whatsapp_phone")['setting_value']; ?>&text=<?= $g_setting("whatsapp_text")['setting_value']; ?>" class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb" target="_blank">
-				<p><?= preg_replace('/(\d{1,3})(?=(\d{3})+$)/', '$1 ', $g_setting('whatsapp_phone')['setting_value']); ?></p>
-				<div class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb--cIcon">
+				<span><?= preg_replace('/(\d{1,3})(?=(\d{3})+$)/', '$1 ', $g_setting('whatsapp_phone')['setting_value']); ?></span>
+				<span class="cControlP__cont--hTop--c--cWpsNameCli--wpsWeb--cIcon">
 					<img src="<?= $url ?>views/assets/img/svg/whatsapp-green.svg" alt="" width="100" height="100">
-				</div>
+				</span>
 			</a>
 			<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli">
 				<div class="cControlP__cont--hTop--c--cWpsNameCli--ndataCli--cIcon">

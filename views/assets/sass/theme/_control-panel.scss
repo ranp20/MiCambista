@@ -99,11 +99,17 @@ $top-header-desktop: 85px;
 					justify-content: space-between;
 					margin-left: auto;
 					&--wpsMobile{
+						&--cIcon{
+							display: table;
+					    max-width: 1.2rem;
+    					width: auto;
+							img{
+								width: 100%;
+								height: auto;
+							}
+						}
 						@media (min-width: 991px){
 							display: none;
-						}
-						img{
-							width: auto;
 						}
 					}
 
@@ -112,23 +118,24 @@ $top-header-desktop: 85px;
 						background-color: #e1f2ec;
 						padding: .5rem 1rem;
 						border-radius: .5rem;
-
 						@media (min-width: 991px){
 							display: flex;
 							align-items: center;
 							justify-content: space-between;
 						}
-
-						p{
+						span{
 							color: $theme_color-text;
-							position: relative;
-							top: 2px;
 						}
-
 						&--cIcon{
+							position: relative;
+							top: -2px;
+							display: table;
 							margin-left: 0.5rem;
+							max-width: 1.35rem;
+    					width: auto;
 							img{
-								width: auto;
+								width: 100%;
+								height: auto;
 							}
 						}
 					}

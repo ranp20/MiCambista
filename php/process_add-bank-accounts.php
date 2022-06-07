@@ -1,6 +1,6 @@
 <?php
 session_start();
-$r = 0;
+$r = "";
 if(isset($_POST) && !empty($_POST) && isset($_POST['id_client'])){
 	$arr_addbankaccounts = [
 		"id_client" => $_POST['id_client'],

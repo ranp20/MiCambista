@@ -1,9 +1,10 @@
-<?php 
-if (isset($_POST) && count($_POST) > 0) {
-	if (preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['u-email'])) {
+<?php
+$r = "";
+if(isset($_POST) && count($_POST) > 0){
+	if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['u-email'])){
 		$arr_data_client = [
-			"email" 	=> $_POST['u-email'],
-			"password" 		=> $_POST['u-password']
+			"email" => $_POST['u-email'],
+			"password" => $_POST['u-password']
 		];
 		require_once '../controllers/c_login-client.php';
 		$login = new Login();

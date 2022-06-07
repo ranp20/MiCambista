@@ -68,7 +68,7 @@ class Transactions extends Connection{
 	function event_update_status_transaction($idtrans, $idclient, $timer){
 		try{
       $sql = "SET GLOBAL event_scheduler = ON;
-      CREATE EVENT evt_updateStatusTrans_idtrans_{$idtrans}
+      CREATE DEFINER=CURRENT_USER EVENT evt_updateStatusTrans_idtrans_{$idtrans}
       ON SCHEDULE
       AT CURRENT_TIMESTAMP + INTERVAL {$timer} MINUTE
       ON COMPLETION NOT PRESERVE

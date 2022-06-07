@@ -1,4 +1,5 @@
 <?php
+session_start();
 $r = "";
 if(isset($_POST) && !empty($_POST) && isset($_POST['p_idclient'])){
 	require_once '../admin/controllers/connection.php';

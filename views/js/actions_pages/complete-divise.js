@@ -647,6 +647,11 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 								</div>
 							</div>
 						</div>`);
+					/*
+					var elementTConvertDiviseFinal = document.querySelector('#timeoutChangeDiviseFinal');
+					var minTimeoutFinal = 60 * 2;
+				  startTimerFinal(minTimeoutFinal, elementTConvertDiviseFinal);
+				  */
 					
 					var minTimeoutFinal = 60 * 15;
 					countDownFinal(minTimeoutFinal, function(){
@@ -735,6 +740,7 @@ $(document).on("click", "#btn-cCompleteDiviseCli", function(e){
 							}
 					  });
 					});
+					
 
 					// ------------ HOVER EN EL SVG - EJEMPLO DE NÚMERO DE OPERACIÓN
 					$("a[data-showModalHov='transfer_numOpBankExample']").hover(function(e){
@@ -1032,6 +1038,7 @@ $(document).on("click", "#btn-canceltranscclicurrthis", function(e){
 		}
   });
 });
+
 // ------------ CUENTA REGRESIVA PARA LA TRANSACCIÓN FINAL
 function countDownFinal(i, callback){
   timerfinal = setInterval(function() {
@@ -1047,3 +1054,107 @@ function countDownFinal(i, callback){
     }
   }, 1000);
 }
+
+/*
+// ------------ FUNCIÓN - CUENTA REGRESIVA PARA LA TRANSACCIÓN FINAL
+var timerUpdateFinal = null;
+function startTimerFinal(minTimeoutFinal = null, elementTConvertDiviseFinal = null){
+  //intervalId = setInterval(actualizar, 1000); // Cada segundo
+  var timerFinal = minTimeoutFinal, minutesFinal, secondsFinal;
+  timerUpdateFinal = setInterval(function () {
+	  minutesFinal = parseInt(timerFinal / 60, 10)
+	  secondsFinal = parseInt(timerFinal % 60, 10);
+	  minutesFinal = minutesFinal < 10 ? "" + minutesFinal : minutesFinal;
+	  secondsFinal = secondsFinal < 10 ? "0" + secondsFinal : secondsFinal;
+	  elementTConvertDiviseFinal.textContent = minutesFinal + ":" + secondsFinal;
+	  if (--timerFinal < 0){
+	    timerFinal = minTimeoutFinal;
+	    elementTConvertDiviseFinal.textContent = "0:00";
+	  	$("#c_tmoutTransFinalZon").addClass("hidden");
+		  $("#timeoutChangeDiviseFinal_two").addClass("active");
+			Swal.fire({
+			  title: '',
+			  html: `<div class="alertSwal">
+				  			<div class="alertSwal__cIcon">
+				  				<svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" version="1.1" viewBox="0 0 700 700">
+									 <path d="m350 46.668c128.87 0 233.33 104.46 233.33 233.33s-104.46 233.33-233.33 233.33-233.33-104.46-233.33-233.33 104.46-233.33 233.33-233.33zm0 46.664c-103.09 0-186.67 83.574-186.67 186.67s83.574 186.67 186.67 186.67 186.67-83.574 186.67-186.67-83.574-186.67-186.67-186.67zm0 70c11.965 0 21.828 9.0078 23.176 20.613l0.15625 2.7227v83.16l63.234 63.738c8.375 8.4453 8.9688 21.684 1.8164 30.809l-1.9492 2.1914c-8.4453 8.375-21.684 8.9688-30.809 1.8164l-2.1914-1.9492-70-70.562c-3.6133-3.6406-5.9023-8.3516-6.5664-13.383l-0.19922-3.0508v-92.77c0-12.887 10.445-23.336 23.332-23.336z"/>
+									</svg>
+				  			</div>
+				  			<div class="alertSwal__cTitle">
+				  				<h3>¡Se acabó el tiempo!</h3>
+				  			</div>
+				  			<div class="alertSwal__cText">
+					  		 	<p>Los 15 minutos de cambio garantizado han finalizado.</p>
+								 	<p>El tipo de cambio se actualizará y puede haber variado.</p>
+								</div>
+								<button type="button" role="button" tabindex="0" class="SwalBtn1 customSwalBtn">Aceptar</button>
+							</div>`,
+			  icon: '',
+			  showCancelButton: false,
+			  showConfirmButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: 'Aceptar',
+			  allowOutsideClick: false,
+			  allowEscapeKey:false,
+			  allowEnterKey:true
+			});
+			$(document).on('click', '.SwalBtn1', function() {
+		    swal.clickConfirm();
+		    if($("#v_transccodeordercurrtime-clisel").val() != "" && $("#v_transccodeordercurrtime-clisel").val() != null && 
+					$("#v_transccodeordercurrtime-clisel").val() != undefined && $("#v_transccodeordercurrtime-clisel").val() != 0){	
+					let ipt_codeorder = $("#v_transccodeordercurrtime-clisel").val();
+					let ipt_idtransac = $("#v_transcidcurrtime-clisel").val();
+					let formdata = new FormData();
+					formdata.append("code_order", ipt_codeorder);
+					formdata.append("id_transaction", ipt_idtransac);
+					formdata.append("id_client", idClient.value);
+					$.ajax({
+						url: "./php/process_update-cancel-transaction.php",
+						method: "POST",
+						data: formdata,
+						contentType: false,
+				    cache: false,
+				    processData: false,
+				    beforeSend: function(){
+				    	//console.log('Insertando la información');
+				    },
+				    success: function(e){
+				    	if(e != ""){
+				    		let r = JSON.parse(e);
+					    	if(r.res == "true"){
+					    		window.onbeforeunload = null;
+									window.location.href = "convert-divise";
+					    	}else{		    		
+					    		Swal.fire({
+							      title: 'Error!',
+							      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+							      icon: 'error',
+							      confirmButtonText: 'Aceptar'
+							    });
+					    	}
+				    	}else{
+				    		Swal.fire({
+						      title: 'Error!',
+						      html: `<span class='font-w-300'>Lo sentimos, hubo un error al procesar su información.</span>`,
+						      icon: 'error',
+						      confirmButtonText: 'Aceptar'
+						    });
+				    	}
+				    },
+					 	statusCode: {
+					    404: function(){
+					      console.log('Error 404: La página de consulta no fue encotrada.');
+					    }
+					  },
+					  error:function(x,xs,xt){
+					    console.log(JSON.stringify(x));
+					  }
+					});
+				}else{
+					console.log('Error, no existe el código del pedido');
+				}
+		  });
+	  }
+	}, 1000);
+}
+*/

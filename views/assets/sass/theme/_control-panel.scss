@@ -117,7 +117,11 @@ $top-header-desktop: 85px;
 						display: none;
 						background-color: #e1f2ec;
 						padding: .5rem 1rem;
-						border-radius: .5rem;
+						border-radius: 5px;
+						transition: ease-out .2s;
+						&:hover{
+							background-color: darken(#e1f2ec, 10%);
+						}
 						@media (min-width: 991px){
 							display: flex;
 							align-items: center;

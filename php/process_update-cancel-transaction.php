@@ -1,4 +1,6 @@
 <?php
+session_start();
+$r = "";
 if(isset($_POST) && !empty($_POST) && isset($_POST['id_client']) && $_POST['id_client'] != ""){
 	$arr_updtransacwithnope = [
 		"code_order" => $_POST['code_order'],

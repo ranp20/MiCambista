@@ -203,6 +203,8 @@
 
 				}
 				&__cfOpTimeout{
+					user-select: none;
+					pointer-events: none;
 					div#c_tmoutTransFinalZon.hidden{
 						display: none;
 						visibility: hidden;

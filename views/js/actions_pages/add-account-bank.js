@@ -1,11 +1,13 @@
 $(function(){
 	listAccountsUser();
 	// ------------ MOSTRAR/OCULTAR EL FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS
-	const btn_frmOpenAddAccount = document.querySelector("#btn-addAccountform");
-	const btn_frmCloseAddAccount = document.querySelector("#icon_frmbtnClose");
-	const c_totalfrmAddAccount = document.querySelector(".cformAddAccountBank");
-	const c_containfrmAddAccount = document.querySelector(".cformAddAccountBank--form");
-	const contformUpdAccount = document.querySelector('.cformDetailsAccount');
+	const btn_frmOpenAddAccount = document.querySelector("#btn-addAccountform"),
+				btn_frmCloseAddAccount = document.querySelector("#icon_frmbtnClose"),
+				c_totalfrmAddAccount = document.querySelector(".cformAddAccountBank"),
+				c_containfrmAddAccount = document.querySelector(".cformAddAccountBank--form"),
+				contformUpdAccount = document.querySelector('.cformDetailsAccount'),
+				contformUpdAccount_frm = document.querySelector(".cformDetailsAccount--contDetails"),
+				btn_frmDetailsAccClose = document.querySelector('#icon_frmbtnCloseDetailsAcc');
 	btn_frmOpenAddAccount.addEventListener("click", function(){
 		c_totalfrmAddAccount.classList.add("show");
 		c_containfrmAddAccount.classList.add("show");
@@ -25,6 +27,12 @@ $(function(){
 			contformUpdAccount.classList.remove('show');
 		}
 	});
+	if(btn_frmDetailsAccClose != undefined && btn_frmDetailsAccClose != null){
+		btn_frmDetailsAccClose.addEventListener("click", function(){
+			contformUpdAccount.classList.remove("show");
+			contformUpdAccount_frm.classList.remove("show");
+		});
+	}
 });
 var idClient = $("#input-idClientVal").val();
 /*
@@ -461,13 +469,33 @@ $(document).on("click", "#btn-updateDetailsAccount", function(e){
 	    cache: false,
 	    processData: false,
 		}).done((e) => {
-			if(e == "true"){
-				$("#menuListUpdateAccount").removeClass("hidden");
-				$("#formListUpdateAccount").removeClass("show");
-				listAccountDetails();
-				listAccountsUser();
+			if(e != ""){
+				if(e == "true"){
+					$("#menuListUpdateAccount").removeClass("hidden");
+					$("#formListUpdateAccount").removeClass("show");
+					listAccountDetails();
+					listAccountsUser();
+					Swal.fire({
+		        title: 'Éxito!',
+		        text: 'Se actualizó la cuenta.',
+		        icon: 'success',
+		        confirmButtonText: 'Aceptar'
+		      });
+				}else{
+					Swal.fire({
+		        title: 'Error!',
+		        text: 'No se actualizó la cuenta.',
+		        icon: 'error',
+		        confirmButtonText: 'Aceptar'
+		      });
+				}
 			}else{
-				console.log('No se actualizó');
+				Swal.fire({
+	        title: 'Error!',
+	        text: 'No se actualizó la cuenta.',
+	        icon: 'error',
+	        confirmButtonText: 'Aceptar'
+	      });
 			}
 		});
 	}else{
@@ -503,16 +531,36 @@ $(document).on("click", "#btn-AceptDeleteAccount", function(e){
 	  datatype: "JSON",
 	  contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 	  data: { id_client : idClient, id_account : idaccountdetail}
-	}).done( function (res){
-		if(res == "true"){
-			$(".alert-DeleteAccount").removeClass("show");
-			$(".alert-DeleteAccount--c").removeClass("show");
-			$(".cformDetailsAccount").removeClass("show");
-			$(".cformDetailsAccount--contDetails").removeClass("show");
-			listAccountDetails();
-			listAccountsUser();
+	}).done((e) => {
+		if(e != ""){
+			if(e == "true"){
+				$(".alert-DeleteAccount").removeClass("show");
+				$(".alert-DeleteAccount--c").removeClass("show");
+				$(".cformDetailsAccount").removeClass("show");
+				$(".cformDetailsAccount--contDetails").removeClass("show");
+				listAccountDetails();
+				listAccountsUser();
+				Swal.fire({
+	        title: 'Éxito!',
+	        text: 'Se eliminó la cuenta.',
+	        icon: 'success',
+	        confirmButtonText: 'Aceptar'
+	      });
+			}else{
+				Swal.fire({
+	        title: 'Error!',
+	        text: 'Lo sentimos, hubo un error al procesar la información.',
+	        icon: 'error',
+	        confirmButtonText: 'Aceptar'
+	      });
+			}
 		}else{
-			console.log('Error al eliminar el registro');
+			Swal.fire({
+        title: 'Error!',
+        text: 'Lo sentimos, hubo un error al procesar la información.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
 		}
 	});
 });

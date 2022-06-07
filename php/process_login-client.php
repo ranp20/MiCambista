@@ -20,36 +20,36 @@ if (isset($_POST) && count($_POST) > 0) {
 				if($status <= 16){
 					session_start();
 					$_SESSION['cli_sessmemopay'] = $getbyid;
-					$res = array(
+					$r = array(
             'response' => 'reg_incomplete',
             'received' => $getbyid,
           );
 				}else{
 					session_start();
 					$_SESSION['cli_sessmemopay'] = $getbyid;
-					$res = array(
+					$r = array(
             'response' => 'reg_complete',
             'received' => $getbyid,
           );
 				}
 			}else{
-				$res = array(
+				$r = array(
 			    'response' => 'false',
 			  );
 			}
 		}else{
-			$res = array(
+			$r = array(
 		    'response' => 'false',
 		  );
 		}
 	}else{
-		$res = array(
+		$r = array(
       'response' => 'error_email',
     );
 	}
 }else{
-	$res = array(
+	$r = array(
     'response' => 'false',
   );
 }
-die(json_encode($res));
+die(json_encode($r));

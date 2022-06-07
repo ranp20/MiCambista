@@ -145,4 +145,60 @@ class Client extends Connection{
 			return $err->getMessage();
 		}
   }
+  // -------------- AGREGAR CUENTA DE BANCO EN DÓLARES
+  function add_bank_accounts_dollars($arr_accountsdollars){
+  	try{
+			$sql = "CALL sp_add_account_bank_dolares(:id_client, :id_bank, :n_account, :a_account, :id_type_account, :id_currency)";
+			$stm = $this->con->prepare($sql);
+			foreach ($arr_accountsdollars as $key => $value) {
+				$stm->bindValue($key, $value);
+			}
+			$stm->execute();
+			$res = $stm->fetch(PDO::FETCH_ASSOC);
+			return $res;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
+  // -------------- AGREGAR CUENTA DE BANCO EN SOLES
+  function add_bank_accounts_soles($arr_accountssoles){
+  	try{
+			$sql = "CALL sp_add_account_bank_soles(:id_client, :id_bank, :n_account, :a_account, :id_type_account, :id_currency)";
+			$stm = $this->con->prepare($sql);
+			foreach ($arr_accountssoles as $key => $value) {
+				$stm->bindValue($key, $value);
+			}
+			$stm->execute();
+			$res = $stm->fetch(PDO::FETCH_ASSOC);
+			return $res;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
+  // -------------- DEVOLVER EL TOTAL DE CUENTAS EN DÓLARES
+  function count_total_accounts_dollars($id_client){
+  	try{
+			$sql = "SELECT COUNT(*) as 'total' FROM tbl_client_account_bank WHERE id_currency = 1 AND id_client = :id_client LIMIT 1";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			$res = $stm->fetch(PDO::FETCH_ASSOC);
+			return $res;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
+  // -------------- DEVOLVER EL TOTAL DE CUENTAS EN SOLES
+  function count_total_accounts_soles($id_client){
+  	try{
+			$sql = "SELECT COUNT(*) as 'total' FROM tbl_client_account_bank WHERE id_currency = 2 AND id_client = :id_client LIMIT 1";
+			$stm = $this->con->prepare($sql);
+			$stm->bindValue(":id_client", $id_client);
+			$stm->execute();
+			$res = $stm->fetch(PDO::FETCH_ASSOC);
+			return $res;
+		}catch(PDOException $err){
+			return $err->getMessage();
+		}
+  }
 }

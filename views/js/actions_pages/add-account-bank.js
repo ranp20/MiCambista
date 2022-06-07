@@ -27,7 +27,14 @@ $(function(){
 	});
 });
 var idClient = $("#input-idClientVal").val();
-// ------------ LISTAR LOS BANCOS JUNTO AL NOMBRE 
+/*
+// ------------ DESPLEGAR LAS CUENTAS DEL USUARIO
+$(".cControlP__cont--containDash--c--myAccounts--cAddAccountList--cListAccounts--cTitle").on("click", function(){
+	$(this).toggleClass("active");
+	$(this).next().slideToggle();
+});
+*/
+// ------------ LISTAR LOS BANCOS JUNTO AL NOMBRE
 $(document).on("click", "#selListallBanks", function(e){
 	var btnshow = $("#listAllsBanks");
 	$.ajax({
@@ -221,30 +228,38 @@ $(document).on("click", "#btn-AddAccountBank", function(e){
 	  formdata.append("id_currencytype", obj_form['idcurrenttype']);
 	  formdata.append("aliasaccount", obj_form['aliasaccount']);
 	  $.ajax({
-	    url: "./controllers/c_add-account-banks.php",
+	    url: "./php/process_add-bank-accounts.php",
 	    method: "POST",
 	    data: formdata,
 	    contentType: false,
 	    cache: false,
 	    processData: false,
 	  }).done((e) => {
-	  	if(e.length > 0){
+	  	if(e != "" && e.length > 0){
 	  		var r = JSON.parse(e);
-		  	if(r[0].res == "soles_limit"){
+		  	if(r.res == "soles_limit"){
 		  		Swal.fire({
 		        title: 'Agotado!',
 		        html: `<span class='font-w-300'>Se ha llegado al límite de cuentas en <strong>Soles</strong>.</span>`,
-		        icon: 'error',
+		        icon: 'warning',
 		        confirmButtonText: 'Aceptar'
 		      });
-		  	}else if(r[0].res == "dollar_limit"){
+		  	}else if(r.res == "dollar_limit"){
 		  		Swal.fire({
 		        title: 'Agotado!',
 		        html: `<span class='font-w-300'>Se ha llegado al límite de cuentas en <strong>Dólares</strong>.</span>`,
-		        icon: 'error',
+		        icon: 'warning',
 		        confirmButtonText: 'Aceptar'
 		      });
-		  	}else if(r[0].res == "true"){
+		  	}else if(r.res == "accounts_limit"){
+		  		Swal.fire({
+		        title: 'CUENTAS AGOTADAS',
+		        text: 'Has llegado al límite máximo de cuentas creadas en ambas monedas.',
+		        icon: 'warning',
+		        confirmButtonText: 'Aceptar',
+		        timer: 3500
+		      });
+		  	}else if(r.res == "true"){
 		  		Swal.fire({
 		        title: 'Éxito!',
 		        text: 'Se ha agregado la cuenta.',

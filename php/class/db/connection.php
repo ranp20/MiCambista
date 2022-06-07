@@ -1,8 +1,17 @@
 <?php 
 	class Connection{
 
+		// CREDENCIALES - MEMOPAY (HOSTING FINAL)
+    /*
+    protected $con = null;
+    private $host = "108.160.152.119";
+    private $dbname = "memopay_db";
+    private $username = "memopay_user";
+    private $password = "[S,&S-)XKPZ_";
+    private $charset = "utf8";
+
 		// CONFIGURACIÓN - SERVIDOR (SERVIDOR TEMPORAL)
-		/*
+		
 		protected $con = null;
 		private $host = "158.106.132.103";
 		private $dbname = "micambis_db_micambista";

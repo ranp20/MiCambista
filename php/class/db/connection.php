@@ -4,10 +4,10 @@
 		// CREDENCIALES - MEMOPAY (HOSTING FINAL)
     /*
     protected $con = null;
-    private $host = "108.160.152.119";
+    private $host = "207.7.82.106";
     private $dbname = "memopay_db";
     private $username = "memopay_user";
-    private $password = "[S,&S-)XKPZ_";
+    private $password = "XM@?E,@^@[DL";
     private $charset = "utf8";
 
 		// CONFIGURACIÓN - SERVIDOR (SERVIDOR TEMPORAL)

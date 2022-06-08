@@ -68,8 +68,8 @@
 	</div>
 	<div class="cFooter--contB">
 		<div class="cFooter--contB--c box pl-pr-15">
-			<p>2021&copy; Todos los derechos reservados <b>Memopay</b> </p>
-			<p>Memopay S.A.C RUC 1070446633 | Registro SBS: 04448888- 2019</p>
+			<p><?php echo date("Y"); ?>&copy; Todos los derechos reservados <b>Memopay</b> </p>
+			<p>Memopay S.A.C RUC 20609001691 | Registro SBS: 04448888- 2019</p>
 		</div>
 	</div>
 </footer>

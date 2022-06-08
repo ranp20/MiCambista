@@ -210,7 +210,7 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 	});
 });
 // ------------ VALIDAR SI EL NÚMERO DE CUENTA ESTÁ VACÍO
-$(document).on("keyup", "#numaccount-cli", function(e){
+$(document).on("keypress keyup", "#numaccount-cli", function(e){
 	let charCode = (e.which) ? e.which : e.keyCode;
   if (charCode > 31 && (charCode < 48 || charCode > 57)){
     $(this).addClass("non-validval");

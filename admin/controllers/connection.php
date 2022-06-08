@@ -1,10 +1,10 @@
 <?php
-// CREDENCIALES - MEMOPAY (HOSTING FINAL)
 /*
-$servidor = "108.160.152.119";
+// CREDENCIALES - MEMOPAY (HOSTING FINAL)
+$servidor = "207.7.82.106";
 $dbname = "memopay_db";
 $usuario = "memopay_user";
-$password = "[S,&S-)XKPZ_";
+$password = "XM@?E,@^@[DL";
 //CONFIGURACIÓN - SERVIDOR (SERVIDOR TEMPORAL)
 $servidor = "158.106.132.103";
 $dbname = "micambis_db_micambista";

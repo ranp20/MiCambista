@@ -25,7 +25,7 @@
 		</div>
 		<div class="cformAddAccountBank--form--cControl">
 			<label for="numaccount-cli" class="cformAddAccountBank--form--cControl--label">Número de cuenta</label>
-			<input type="text" id="numaccount-cli" maxlength="14" required name="numaccount-cli" class="cformAddAccountBank--form--cControl--input" placeholder="Ingresa tu nro. de cuenta">
+			<input type="text" id="numaccount-cli" maxlength="14" required name="numaccount-cli" class="cformAddAccountBank--form--cControl--input" placeholder="Ingresa tu nro. de cuenta" autocomplete='off' spellcheck='false'>
 			<span id="msgerrorNounNumAccount"></span>
 			<span class="cformAddAccountBank--form--cControl--span">* Entre 13 y 14 caracteres</span>
 		</div>
@@ -55,7 +55,7 @@
 		</div>
 		<div class="cformAddAccountBank--form--cControl">
 			<label for="aliasaccount-cli" class="cformAddAccountBank--form--cControl--label">Alias de la cuenta</label>
-			<input type="text" id="aliasaccount-cli" required name="aliasaccount-cli" class="cformAddAccountBank--form--cControl--input" placeholder="nombre + banco + moneda">
+			<input type="text" id="aliasaccount-cli" maxlength="70" required name="aliasaccount-cli" class="cformAddAccountBank--form--cControl--input" placeholder="nombre + banco + moneda">
 			<span id="msgerrorNounAliasAccount"></span>
 		</div>
 		<div class="cformAddAccountBank--form--cControlcheck">

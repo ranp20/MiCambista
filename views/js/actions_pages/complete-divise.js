@@ -210,8 +210,17 @@ $(document).on("click", ".cformAddAccountBank--form--cControl--cSelItem--MenuLis
 	});
 });
 // ------------ VALIDAR SI EL NÚMERO DE CUENTA ESTÁ VACÍO
-$(document).on("keyup", "#numaccount-cli", function(){
-	($(this).val() != 0) ? $("#msgerrorNounNumAccount").text("") : $("#msgerrorNounNumAccount").text("Debes ingresar tu número de cuenta");
+$(document).on("keyup", "#numaccount-cli", function(e){
+	let charCode = (e.which) ? e.which : e.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57)){
+    $(this).addClass("non-validval");
+    $("#msgerrorNounNumAccount").text("Solo se permiten números en este campo")
+    return false;
+  }else{
+  	$(this).removeClass("non-validval");
+  	$("#msgerrorNounNumAccount").text("")
+  	return true;
+  }
 });
 // ------------ VALIDAR SI EL ALIAS DE LA CUENTA ESTÁ VACÍO
 $(document).on("keyup", "#aliasaccount-cli", function(){

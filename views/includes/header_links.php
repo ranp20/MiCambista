@@ -29,9 +29,9 @@
 <meta property="og:url" name="twitter.url" content="https://localhost/Memopay">
 <meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Memopay"/>
 <meta property="og:description" name="twitter.description" content="¡Gana cambiando con Memopay! Dale a tu dinero el valor que merece."/>
-<meta property="og:image" name="twitter.image" content="views/assets/img/svg/logo.svg"/>
-<link rel="icon" type="image/x-icon" href="views/assets/img/svg/logo.svg"/>
-<link rel="apple-touch-icon" href="views/assets/img/svg/logo.svg">
+<meta property="og:image" name="twitter.image" content="./admin/views/assets/img/favicon/Memopay_logo.ico"/>
+<link rel="icon" type="image/x-icon" href="./admin/views/assets/img/favicon/Memopay_logo.ico"/>
+<link rel="apple-touch-icon" href="./admin/views/assets/img/favicon/Memopay_logo.ico">
 <link rel="canonical" href="https://localhost/Memopay">
 <!-- JQUERY UNCOMPRESSED -->
 <script type="text/javascript" src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>

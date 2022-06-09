@@ -67,8 +67,10 @@ class Transactions extends Connection{
 	// -------------- TIMER PARA CANCELAR LA OPERACIÓN
 	function event_update_status_transaction($idtrans, $idclient, $timer){
 		try{
-      $sql = "SET GLOBAL event_scheduler = ON;
-      CREATE DEFINER=CURRENT_USER EVENT evt_updateStatusTrans_idtrans_{$idtrans}
+      /* SERVIDOR - ACTIVANDO LOS EVENTOS */
+      /*
+      $sql = "
+      CREATE EVENT evt_updateStatusTrans_idtrans_{$idtrans}
       ON SCHEDULE
       AT CURRENT_TIMESTAMP + INTERVAL {$timer} MINUTE
       ON COMPLETION NOT PRESERVE
@@ -80,6 +82,22 @@ class Transactions extends Connection{
         	UPDATE tbl_transactions SET status_send = 'Cancel' WHERE id = {$idtrans} AND id_client = {$idclient} LIMIT 1;
         END IF;
       END";
+      */
+      /* LOCALHOST - SI NO SE ACTIVAN LOS EVENTOS */
+      $sql = "SET GLOBAL event_scheduler = ON;
+      CREATE EVENT evt_updateStatusTrans_idtrans_{$idtrans}
+      ON SCHEDULE
+      AT CURRENT_TIMESTAMP + INTERVAL {$timer} MINUTE
+      ON COMPLETION NOT PRESERVE
+      ENABLE
+      DO BEGIN
+      	DECLARE regtrans CHAR(15);
+      	SET regtrans = (SELECT status_send FROM tbl_transactions WHERE id = {$idtrans} AND id_client = {$idclient} LIMIT 1);
+      	IF(regtrans = 'Pending') THEN
+        	UPDATE tbl_transactions SET status_send = 'Cancel' WHERE id = {$idtrans} AND id_client = {$idclient} LIMIT 1;
+        END IF;
+      END";
+
 			$stm = $this->con->query($sql);
 			$stm->execute();
 		}catch(PDOException $e){

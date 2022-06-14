@@ -734,6 +734,8 @@ $top-header-desktop: 85px;
 					padding: 1rem 1rem 0 1rem;
 
 					svg{
+						display: table;
+						vertical-align: middle;
 						fill: none;
 						stroke: $theme_color_buttons;
 					}

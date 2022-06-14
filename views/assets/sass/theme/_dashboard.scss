@@ -338,18 +338,18 @@
 							flex-flow: wrap row;
 							align-items: center;
 							justify-content: flex-start;
-							vertical-align: middle;
 							@media (min-width: 768px){
 								font-size: 1.5rem;
 							}
 							svg{
+								display: table;
+								vertical-align: middle;
 								max-width: 30px;
 								width: auto;
 								fill: $theme_color_buttons;
 							}
 							span{
 								margin-left: .5rem;
-								vertical-align: middle;
 								color: $theme_color-text;
 							}
 						}
@@ -423,7 +423,6 @@
 }
 #all_transac-cli_wrapper .row:nth-child(3) #all_transac-cli_info{
 	text-align: left;
-  left: 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -431,7 +430,6 @@
 }
 #all_transac-cli_wrapper .row:nth-child(3) #all_transac-cli_paginate{
 	text-align: right;
-  right: 0;
   display: flex;
   align-items: flex-end;
   justify-content: end;

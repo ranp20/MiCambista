@@ -114,6 +114,10 @@
 								width: 4.1rem;
 							}
 						}
+						&--icon{
+							display: table;
+							vertical-align: middle;
+						}
 
 						&--inputVal{
 							width: 0;
@@ -275,6 +279,8 @@
 						}
 
 						&--user{
+							display: table;
+							vertical-align: middle;
 							fill: #ccc;
 						}
 					}
@@ -368,6 +374,8 @@
 							}
 
 							&--document{
+								display: table;
+								vertical-align: middle;
 								fill: #ccc;
 							}
 						}
@@ -404,6 +412,10 @@
 								}
 							}
 
+							&--icon{
+								display: table;
+								vertical-align: middle;
+							}
 							&--inputVal{
 								width: 0;
 								cursor: pointer;

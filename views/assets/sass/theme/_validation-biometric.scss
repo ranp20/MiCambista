@@ -65,7 +65,7 @@
 					&:before{
 						content: "";
 						cursor: initial;
-						border-left: 3px solid $color-links-gradient;
+						border-left: 3px solid $theme_color-text-white;
 						width: 0px;
 				    height: 100%;
 				    position: absolute;
@@ -173,7 +173,6 @@
 						align-items: center;
 						justify-content: center;
 						text-align: center;
-						vertical-align: middle;
 						z-index: 2;
 						color: #9999;
 

@@ -88,9 +88,13 @@
 						justify-content: center;
 						text-align: center;
 						&--email{
+							display: table;
+							vertical-align: middle;
 							fill: #ccc;
 						}
 						&--pass{
+							display: table;
+							vertical-align: middle;
 							fill: #ccc;
 						}
 					}

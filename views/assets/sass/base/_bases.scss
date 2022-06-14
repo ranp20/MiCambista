@@ -2308,6 +2308,7 @@ strong, b{
   }
 
   img{
+  	display: table;
   	width: 36px;
     height: 36px;
     vertical-align: middle;
@@ -2735,7 +2736,7 @@ strong, b{
 		&__cValRatesAll{
 			max-width: 305px;
 	    width: auto;
-	    display: block;
+	    display: table;
 	    text-align: center;
 	    vertical-align: middle;
 	    margin: 0 auto;
@@ -2971,7 +2972,6 @@ strong, b{
 				  align-items: center;
 				  justify-content: center;
 				  text-align: center;
-				  vertical-align: middle;
 				  border: none;
 				  border-radius: 50%;
 				  box-shadow: inset 0 0 0 3px #fff;
@@ -2984,7 +2984,7 @@ strong, b{
 				  transition: all ease-in-out .4s;
 
 					span{
-						display: flex;
+						display: table;
 					  align-items: center;
 					  justify-content: center;
 					  text-align: center;
@@ -3055,6 +3055,7 @@ strong, b{
 						text-align: left;
 					}
 					svg{
+						display: table;
 						margin-right: 0.85rem;
 					}
 				}

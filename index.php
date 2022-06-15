@@ -98,7 +98,7 @@
 							</div>
 						</div>
 						<div class="cMain__cont--heroI--c--formuser--cimg">
-							<img src="./views/assets/img/svg/welcome.svg" alt="" width="100" height="100">
+							<img src="./views/assets/img/svg/welcome.svg" alt="icon-welcome" width="100" height="100">
 						</div>
 					</section>
 				</div>
@@ -158,7 +158,7 @@
 				<h3 class="cMain__cont--stepsU--title-two">Memopay es una Fintech que te permitirá hacer los cambios desde donde estés, solo debes seguir estos sencillos pasos:</h3>
 				<ul class="cMain__cont--stepsU--m">
 					<li class="cMain__cont--stepsU--m--item">
-						<img src="./views/assets/img/svg/step-1.svg" alt="" class="cMain__cont--stepsU--m--item--img">
+						<img src="./views/assets/img/svg/step-1.svg" alt="icon-step-1" class="cMain__cont--stepsU--m--item--img" width="100" height="100">
 						<div class="cMain__cont--stepsU--m--item--c">
 							<h4 class="cMain__cont--stepsU--m--item--c--title">Paso 1</h4>
 							<p class="cMain__cont--stepsU--m--item--c--desc">
@@ -168,7 +168,7 @@
 						</div>
 					</li>
 					<li class="cMain__cont--stepsU--m--item">
-						<img src="./views/assets/img/svg/step-2.svg" alt="" class="cMain__cont--stepsU--m--item--img">
+						<img src="./views/assets/img/svg/step-2.svg" alt="icon-step-2" class="cMain__cont--stepsU--m--item--img" width="100" height="100">
 						<div class="cMain__cont--stepsU--m--item--c">
 							<h4 class="cMain__cont--stepsU--m--item--c--title">Paso 2</h4>
 							<p class="cMain__cont--stepsU--m--item--c--desc">
@@ -178,7 +178,7 @@
 						</div>
 					</li>
 					<li class="cMain__cont--stepsU--m--item">
-						<img src="./views/assets/img/svg/step-3.svg" alt="" class="cMain__cont--stepsU--m--item--img">
+						<img src="./views/assets/img/svg/step-3.svg" alt="icon-step-3" class="cMain__cont--stepsU--m--item--img" width="100" height="100">
 						<div class="cMain__cont--stepsU--m--item--c">
 							<h4 class="cMain__cont--stepsU--m--item--c--title">Paso 3</h4>
 							<p class="cMain__cont--stepsU--m--item--c--desc">
@@ -196,7 +196,7 @@
 				</div>
 				<div class="cMain__cont--affiliateU--cCenter">
 					<div class="cMain__cont--affiliateU--cCenter--cimginitial">
-					<img src="./views/assets/img/svg/affiliates-1.svg" alt="" width="100" height="100">
+					<img src="./views/assets/img/svg/affiliates-1.svg" alt="icon-affiliate-left" width="100" height="100">
 					</div>
 					<div class="cMain__cont--affiliateU--cCenter--csteps">
 						<ul class="cMain__cont--affiliateU--cCenter--csteps--msteps">
@@ -223,7 +223,7 @@
 					</div>
 				</div>
 				<div class="cMain__cont--affiliateU--cimgfinal">
-					<img src="./views/assets/img/svg/affiliates-2.svg" alt="" width="100" height="100">
+					<img src="./views/assets/img/svg/affiliates-2.svg" alt="icon-affiliate-right" width="100" height="100">
 				</div>
 			</section>
 			<section class="cMain__cont--benefits box section-wrapper">
@@ -237,7 +237,7 @@
 					</ul>
 				</div>
 				<div class="cMain__cont--benefits--cimg">
-					<img src="./views/assets/img/svg/benefits.svg" alt="" width="100" height="100">
+					<img src="./views/assets/img/svg/benefits.svg" alt="icon-benefits" width="100" height="100">
 				</div>
 			</section>
 			<?php /*require_once 'views/home_includes/home-contact.php';*/ ?>

@@ -109,6 +109,7 @@
 								text-decoration: underline;
     						margin-bottom: .8rem;
     						color: $theme_color-text;
+    						transition: ease-out .2s;
 
     						@media (min-width: 991px){
 							    margin: 0;
@@ -851,6 +852,8 @@
 					}
 
 					&--img{
+						max-width: 14rem;
+						width: 95%;
 						display: table;
 						vertical-align: middle;
 						margin-bottom: .5rem;

@@ -265,6 +265,7 @@ $top-header-desktop: 85px;
 					}
 
 					&--link{
+						text-decoration: none !important;
 						display: block;
 						padding: 1rem 0 1rem 1.5rem;
 						color: $theme_color-text-header;
@@ -374,11 +375,17 @@ $top-header-desktop: 85px;
 					display: inline-block;
 					margin-left: auto;
 					a{
+						display: flex;
+				    align-items: center;
+				    justify-content: flex-end;
 						color: $white;
 					}
 					&__cIcon{
+						margin-right: 0.3rem;
 						svg{
 							fill: $white;
+							position: relative;
+    					top: 3px;
 						}
 					}
 					&__cTxt{
@@ -783,6 +790,7 @@ $top-header-desktop: 85px;
 					}
 
 					&--link{
+						text-decoration: none !important;
 						display: block;
 						padding: 1rem 0 1rem 1.5rem;
 						color: $theme_color-text-header;

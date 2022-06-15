@@ -2108,6 +2108,7 @@ strong, b{
 							}
 							p{
 								color: $theme_color-text;
+								margin-bottom: 0;
 							}
 							span{
 								color: $color-paragraph;
@@ -2267,6 +2268,7 @@ strong, b{
 			}
 
 			&--btnclose{
+				text-decoration: none !important;
 				text-align: center;
 				display: block;
 				max-width: 320px;

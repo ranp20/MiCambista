@@ -93,8 +93,8 @@
 						<div class="cMain__cont--heroI--c--formuser--cTransBank">
 							<h3 class="cMain__cont--heroI--c--formuser--cTransBank--T">Transferencias inmediatas (5-25min):</h3>
 							<div class="cMain__cont--heroI--c--formuser--cTransBank--cBanks">
-								<img src="./views/assets/img/svg/interbank.svg" alt="" width="100" height="100">
-								<img src="./views/assets/img/svg/bcp.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/interbank.svg" alt="icon-bank-1" width="100" height="100">
+								<img src="./views/assets/img/svg/bcp.svg" alt="icon-bank-2" width="100" height="100">
 							</div>
 						</div>
 						<div class="cMain__cont--heroI--c--formuser--cimg">
@@ -108,7 +108,7 @@
 					<ul class="cMain__cont--manualU--c--m">
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/badge.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/badge.svg" alt="icon-manual-badge" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
@@ -119,7 +119,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIconspecial">
-								<img src="./views/assets/img/svg/laptop.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/laptop.svg" alt="icon-manual-laptop" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>20 Mil</b></h3>
@@ -130,7 +130,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/soles.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/soles.svg" alt="icon-manual-soles" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>132 Millones</b></h3>
@@ -141,7 +141,7 @@
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
 							<div class="cMain__cont--manualU--c--m--item--cIcon">
-								<img src="./views/assets/img/svg/users.svg" alt="" width="100" height="100">
+								<img src="./views/assets/img/svg/users.svg" alt="icon-manual-users" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
 								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b> 8 Mil</b></h3>

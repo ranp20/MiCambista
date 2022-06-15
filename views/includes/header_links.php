@@ -36,8 +36,8 @@
 <!-- JQUERY UNCOMPRESSED -->
 <script type="text/javascript" src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>
 <!-- BOOSTRAP DOWNLOADED -->
-<link rel="stylesheet" href="<?= $url ?>views/js/bootstrap/css/bootstrap.min.css">
-<script type="text/javascript" src="<?= $url ?>views/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- <link rel="stylesheet" href="<?= $url ?>views/js/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="<?= $url ?>views/js/bootstrap/js/bootstrap.min.js"></script> -->
 <!-- STYLESSHEET -->
 <link rel="stylesheet" href="<?= $url ?>views/assets/css/styles.min.css">
 <!-- GOOGLE FONTS -->

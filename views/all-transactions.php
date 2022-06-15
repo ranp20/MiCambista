@@ -16,9 +16,13 @@ require_once '../php/process_data-list.php';
 <head>
 	<title>Memopay | Todas las transacciones </title>
 	<?php require_once 'includes/header_links.php'; ?>
+	<!-- INCLUIR BOOTSTRAP -->
+	<link rel="stylesheet" href="<?= $url ?>views/js/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="<?= $url ?>views/js/bootstrap/js/bootstrap.min.js"></script>
 	<!-- INCLUIR DATATABLES -->
 	<link rel="stylesheet" type="text/css" href="<?= $url ?>views/js/DataTables/datatables.min.css">
 	<script type="text/javascript" charset="utf8" src="<?= $url ?>views/js/DataTables/datatables.min.js"></script>
+	<!-- INCLUIR SWEETALERT2 -->
 	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>

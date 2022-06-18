@@ -13,7 +13,7 @@
 <html lang="es">
 <head>
 	<?php require_once 'views/includes/header_links.php' ?> 
-	<title>Memopay | centro de cambio en línea con las mejores tasas</title>
+	<title>Memopay | Centro de cambio en línea con las mejores tasas</title>
 </head>
 <body>
 	<?php require_once 'views/includes/api_whatsapp.php';?>
@@ -82,10 +82,6 @@
 												<span class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub__contloader__loader"></span>
 											</div>
 										</a>
-										<!--
-										<button type="button" class="c-convert__cFrmConvert__mxFrmC__cFrm__sButtonSub">
-										</button>
-										-->
 									</form>
 								</div>
 							</div>
@@ -246,14 +242,5 @@
 	<?php require_once 'views/home_includes/home-footer.php'; ?>
 	<script type="text/javascript" src="<?= $url ?>views/js/main.js"></script>
 	<script type="text/javascript" src="<?= $url ?>views/js/actions_pages/home_convert-divise.js"></script>
-	<script type="text/javascript">
-	  document.body.addEventListener("load", (e) => {
-      if (e.target.tagName != "img") {
-        return;
-      }
-      // Remove the blurry placeholder.
-      e.target.style.backgroundImage = "none";
-    },true);
-	</script>
 </body>
 </html>

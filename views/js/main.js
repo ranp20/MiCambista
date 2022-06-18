@@ -22,3 +22,10 @@
 	});
 	localStorage.clear();
 })(document);
+document.body.addEventListener("load", (e) => {
+	if (e.target.tagName != "img") {
+	  return;
+	}
+	// Remove the blurry placeholder.
+	e.target.style.backgroundImage = "none";
+},true);

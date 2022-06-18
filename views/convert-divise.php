@@ -57,7 +57,7 @@ $g_setting = $call_config->get_config();
 						</div>
 					</div>
 					<div class="cControlP__cont--containDash--c--cConvertDivise">
-						<div class="cControlP__cont--containDash--c--cConvertDivise--cF">
+						<div class="cControlP__cont--containDash--c--cConvertDivise--cF box">
 							<div class="c-convert__cFrmConvert pt-3rem">
 								<div class="c-convert__cFrmConvert__cSlogOfSite">
 									<h3>¡Gana cambiando con Memopay!</h3>
@@ -137,9 +137,9 @@ $g_setting = $call_config->get_config();
 					</div>
 				</div>
 				<!-- CONTENIDO - FORMULARIO DE COMPLETADO DE CAMBIO -->
-				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-divise"></div>
+				<div class="cControlP__cont--containDash--c pt-3rem box" id="cont-complete-divise"></div>
 				<!-- CONTENIDO - RESUMEN TRANSACCIÓN Y CONTROL AGREGAR NRO DE OPERACIÓN -->
-				<div class="cControlP__cont--containDash--c pt-3rem" id="cont-complete-exchange"></div>
+				<div class="cControlP__cont--containDash--c pt-3rem box" id="cont-complete-exchange"></div>
 				<?php require_once 'includes/dashboard-contain-footer.php';?>
 				<div>
 					<div>

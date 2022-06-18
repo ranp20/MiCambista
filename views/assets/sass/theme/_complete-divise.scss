@@ -32,14 +32,12 @@
 		pointer-events: none;
 		transition: all ease-in-out .4s;
 		cursor: not-allowed !important;
-
 		form, input, button, select, textarea{
 			user-select: none;
 			pointer-events: none;
 			cursor: not-allowed !important;
 		}
 	}
-
 	@keyframes sendTwoStepShowConvert{
 		0%{
 			display: block;
@@ -75,7 +73,7 @@
 	.cControlP__cont--containDash--c--cCdivise{
 		text-align: center;
 		max-width: 450px;
-    width: 95%;
+    width: 100%;
     margin: 0 auto 0 auto;
 		&--cTitle{
 			margin-bottom: 2rem;
@@ -441,7 +439,7 @@
 				justify-content: center;
 				&--submitConvert{
 					display: inline-block;
-					width: 80%;
+					width: 100%;
 					cursor: pointer;
 					border: none;
 					background-color: $theme_color_buttons;
@@ -475,10 +473,13 @@
 							@include loader(white, 16px);
 						}
 					}
+					@media(min-width: 768px){
+						width: 80%;
+					}
 				}
 				&--btnCancel{
 					display: inline-block;
-					width: 80%;
+					width: 100%;
 					cursor: pointer;
 					border: thin solid #000;
 					background-color: #fff;
@@ -486,6 +487,9 @@
 					padding: 0.8rem 2rem;
 					color: $color-paragraph;
 					margin-bottom: 1rem;
+					@media(min-width: 768px){
+						width: 80%;
+					}
 				}
 			}
 		}

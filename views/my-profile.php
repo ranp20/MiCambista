@@ -30,7 +30,7 @@ $list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_s
 			<?php require_once 'includes/dashboard-sidebarleft.php'; ?>
 			<?php require_once 'includes/dashboard-sidebarright.php'; ?>
 			<section class="cControlP__cont--containDash">
-				<div class="cControlP__cont--containDash--c" id="cont-my-profile">
+				<div class="cControlP__cont--containDash--c box" id="cont-my-profile">
 					<div class="cControlP__cont--containDash--c--myProfile">
 						<div class="cControlP__cont--containDash--c--myProfile--cTitle">
 							<h2 class="cControlP__cont--containDash--c--myProfile--cTitle--title">MI PERFIL</h2>

@@ -18,18 +18,15 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 			max-width: 450px;
-			width: 95%;
+			width: 100%;
 			text-align: center;
 			padding: 2.5rem 1rem;
-
 			@media (min-width: 480px){
 				padding: 2rem 0;
 			}
-
 			@media (min-width: 1134px){
 				padding: 0;
 			}
-
 			&--cTitle{
 				display: block;
 				margin-bottom: 2.5rem;
@@ -39,7 +36,6 @@
 					color: $theme_color-text;
 					line-height: 1.5;
 					font-weight: 600;
-
 					@media (min-width: 480px){
 						font-size: 1.5rem;
 					}
@@ -48,7 +44,6 @@
 					font-size: .95rem;
 					margin-top: 0.6rem;
 					color: $color-paragraph;
-
 					@media (min-width: 480px){
 						font-size: 1rem;
 						line-height: 1.5;
@@ -57,15 +52,13 @@
 			}
 			&--form{
 				max-width: 400px;
-				width: 90%;
+				width: 100%;
 				margin-left: auto;
 				margin-right: auto;
-				
 				/* CONTENEDOR DE UN SOLO CONTROL */
 				&--controls{
 					position: relative;
 					margin-bottom: 1.5rem;
-
 					/* MENSAJE DE ERROR - NOMBRES DEL CLIENTE */
 					#msgerrorNounNamesCli{
 						color: red;
@@ -74,7 +67,6 @@
 				    bottom: -22px;
 				    left: 10px;
 					}
-
 					/* MENSAJE DE ERROR - APELLIDOS DEL CLIENTE */
 					#msgerrorNounLastnamesCli{
 						color: red;
@@ -83,7 +75,6 @@
 				    bottom: -22px;
 				    left: 10px;	
 					}
-
 					&--cSelItem{
 						width: 100%;
 				    display: flex;
@@ -93,7 +84,6 @@
 				    cursor: pointer;
 				    position: relative;
 				    border-bottom: thin solid #ccc;
-
 						/* MENSAJE DE ERROR - TIPO DE SEXO*/
 						#msgerrorNounSelTypeSex{
 					    color: red;
@@ -102,13 +92,16 @@
 					    bottom: -22px;
 					    left: 10px;
 						}
-
 						&--cInputFake{
 							display: flex;
 							align-items: center;
 							justify-content: flex-start;
 							&--placeholder{
 								color: $color-paragraph;
+								font-size: 0.85rem;
+								@media(min-width: 480px){
+									font-size: 1rem;
+								}
 							}
 							&--imgbank{
 								width: 4.1rem;
@@ -118,7 +111,6 @@
 							display: table;
 							vertical-align: middle;
 						}
-
 						&--inputVal{
 							width: 0;
 							cursor: pointer;
@@ -126,7 +118,6 @@
 							font-size: 1rem;
 		    			border: thin solid transparent;
 						}
-
 						/* LISTADO DE TIPOS DE SEXOS */
 						&--MenuListTypeSex{
 					    display: none;
@@ -142,7 +133,6 @@
 					    border-bottom: none;
 					    padding: 0;
 					    margin: 0 0 0 0;
-
 					    &.show{
 					    	border-top: thin solid transparent;
 					    	border-left: unset;
@@ -151,18 +141,15 @@
 					    	display: block;
 					    	z-index: 9;
 					    }
-
 					    &--item{
 					    	display: flex;
 					    	align-items: center;
 					    	justify-content: flex-start;
 					    	padding: .5rem 1rem;
 					    	font-size: 0.9rem;
-
 					    	&:hover{
 					    		background-color: #ccc;
 					    	}
-
 					    	&--cImg{
 					    		width: 4.5rem;
 					    		margin-right: 1rem;
@@ -172,7 +159,6 @@
 					    		}
 					    	}
 					    }
-
 					    &--itemanybanks{
 					    	display: flex;
 					    	align-items: center;
@@ -185,19 +171,15 @@
 					    }
 						}
 					}
-
 					@media (min-width: 480px){
 						margin-bottom: 2rem;							
 					}
-
 					&--g-Listprefix{
 						position: relative;
 						margin-bottom: 1.5rem;
-
 						@media (min-width: 480px){
 							margin-bottom: 2rem;							
 						}
-
 						&--fakeselect{
 							position: absolute;
 					    display: flex;
@@ -211,7 +193,6 @@
 					    width: 35px;
 					    border-bottom: thin solid #ccc;
 					    cursor: pointer;
-
 							&--cflagIcon{
 								width: 17px;
 								height: 12px;
@@ -245,7 +226,6 @@
 							width: 87%;
 							font-size: .85rem;
 							margin-left: 35px;
-
 							&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
 					    	-webkit-appearance: none;
 					    	margin: 0;
@@ -253,14 +233,12 @@
 							&[type=number]{ 
 								-moz-appearance:textfield;
 							}
-
 							@media (min-width: 480px){
 								font-size: 1rem;
 								width: 90%;
 							}
 						}
 					}
-
 					&--cIcon{
 						position: absolute;
 						right: .5rem;
@@ -272,12 +250,10 @@
 						align-items: center;
 						justify-content: center;
 						text-align: center;
-
 						@media (min-width: 480px){
 							width: 28px;
 							height: 28px;
 						}
-
 						&--user{
 							display: table;
 							vertical-align: middle;
@@ -293,7 +269,6 @@
 						border-right: none;
 						font-size: .85rem;
 						width: 100%;
-
 						&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
 				    	-webkit-appearance: none;
 				    	margin: 0;
@@ -301,11 +276,9 @@
 						&[type=number]{ 
 							-moz-appearance:textfield;
 						}
-
 						@media (min-width: 480px){
 							font-size: 1rem;
 						}
-
 						&.focus{
 							border-bottom: thin solid $color-paragraph;
 						}
@@ -316,13 +289,11 @@
 							border-bottom: thin solid green;
 						}
 					}
-
 					&--spanmsgalertcm{
 				    position: absolute;
 				    left: 0;
 				    bottom: -20px;
 				    font-size: .95rem;
-
 				    &.success{
 				    	color: green;
 				    }
@@ -331,7 +302,6 @@
 				    }
 					}
 				}
-
 				/* CONTENEDOR DE DOS CONTROLES */
 				&--controlsTwo{
 					position: relative;
@@ -344,10 +314,8 @@
 			    width: auto;
 			    margin-left: auto;
 			    margin-right: auto;
-
 					&--c{
 						position: relative;
-
 						#msgerrorNounNroDocumentCli{
 							color: red;
 					    font-size: .9rem;
@@ -355,7 +323,6 @@
 					    bottom: -22px;
 					    left: 0;
 						}
-
 						&--cIcon{
 							position: absolute;
 							right: .5rem;
@@ -367,29 +334,24 @@
 							align-items: center;
 							justify-content: center;
 							text-align: center;
-
 							@media (min-width: 480px){
 								width: 28px;
 								height: 28px;
 							}
-
 							&--document{
 								display: table;
 								vertical-align: middle;
 								fill: #ccc;
 							}
 						}
-
 						&:first-child{
 							flex: 0 0 30%;
     					margin-right: .25rem;
 						}
-
 						&:nth-child(2){
 							flex: 0 0 60%;
     					margin-left: .25rem;
 						}
-
 						&--cSelItem{
 							width: 100%;
 					    display: flex;
@@ -399,19 +361,21 @@
 					    cursor: pointer;
 					    position: relative;
 					    border-bottom: thin solid #ccc;
-
 							&--cInputFake{
 								display: flex;
 								align-items: center;
 								justify-content: flex-start;
 								&--placeholder{
 									color: $color-paragraph;
+									font-size: 0.85rem;
+									@media(min-width: 480px){
+										font-size: 1rem;
+									}
 								}
 								&--imgbank{
 									width: 4.1rem;
 								}
 							}
-
 							&--icon{
 								display: table;
 								vertical-align: middle;
@@ -423,7 +387,6 @@
 								font-size: 1rem;
 			    			border: thin solid transparent;
 							}
-
 							/* LISTADO DE TIPOS DE CUENTAS */
 							&--MenuListTypeDocuments{
 						    display: none;
@@ -440,7 +403,6 @@
 						    min-width: 125px;
 						    padding: 0;
 						    margin: 0 0 0 0;
-
 						    &.show{
 						    	border-top: thin solid transparent;
 						    	border-left: unset;
@@ -449,19 +411,16 @@
 						    	display: block;
 						    	z-index: 9;
 						    }
-
 						    &--item{
 						    	display: flex;
 							    align-items: center;
 							    justify-content: flex-start;
 							    padding: 0.5rem 1rem;
 							    font-size: .9rem;
-
 						    	&:hover{
 						    		background-color: #ccc;
 						    	}
 						    }
-
 						    &--itemanybanks{
 						    	display: flex;
 						    	align-items: center;
@@ -476,7 +435,6 @@
 						}
 					}
 				}
-
 				&--cBtnsActions{
 					&--btnCRegister{
 						cursor: pointer;
@@ -500,12 +458,10 @@
 						@media (min-width: 480px){
 							font-size: 1rem;
 						}
-
 						a{
 							display: block;
 							color: $theme_color-text;
 							margin-bottom: 1rem;
-
 							&:hover{
 								text-decoration: underline;
 							}

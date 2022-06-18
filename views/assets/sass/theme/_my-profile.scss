@@ -2,11 +2,10 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-	
 	.cControlP__cont--containDash--c--myProfile{
-		padding: 2rem 0;
+		padding: 0;
 		max-width: 51.5rem;
-		width: 95%;
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 		min-height: 100vh;
@@ -199,7 +198,7 @@
 							margin-bottom: 1.5rem;
 							&__mssgValidOpt{
 								display: inline-block;
-								margin-bottom: 0.5rem;
+								margin-bottom: 0;
 								&.c-colormssg-process{
 									span{
 										color: orange;

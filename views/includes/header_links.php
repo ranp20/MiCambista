@@ -11,35 +11,36 @@
   $url_adm_assets =  $actual_link . "/admin/";
   */
 ?>
-<meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover"/>
+<meta name="keywords" content="memopay, Casa de cambio online, Cambiar soles en Perú, Cambiar soles ahora"/>
 <meta name="description" content="¡Gana cambiando con Memopay! Dale a tu dinero el valor que merece."/>
-<meta name="theme-color" content="#FFF394">
+<meta name="theme-color" content="#FFF394"/>
 <meta name="author" content="R@np-2021"/>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-<meta name="twitter.card" content="summary">
+<meta name="twitter.card" content="summary"/>
 <meta property="og:locale" content="es_ES"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Memopay"/>
-<meta property="og:url" name="twitter.url" content="https://localhost/Memopay">
+<meta property="og:url" name="twitter.url" content="https://localhost/Memopay"/>
 <meta property="og:title" name="twitter.title" content="Centro de cambio en línea con las mejores tasas | Memopay"/>
 <meta property="og:description" name="twitter.description" content="¡Gana cambiando con Memopay! Dale a tu dinero el valor que merece."/>
 <meta property="og:image" name="twitter.image" content="./admin/views/assets/img/favicon/Memopay_logo.ico"/>
 <link rel="icon" type="image/x-icon" href="./admin/views/assets/img/favicon/Memopay_logo.ico"/>
-<link rel="apple-touch-icon" href="./admin/views/assets/img/favicon/Memopay_logo.ico">
-<link rel="canonical" href="https://localhost/Memopay">
+<link rel="apple-touch-icon" href="./admin/views/assets/img/favicon/Memopay_logo.ico"/>
+<link rel="canonical" href="https://localhost/Memopay"/>
 <!-- JQUERY UNCOMPRESSED -->
 <script type="text/javascript" src="<?= $url ?>views/js/jquery/jquery-3.6.0.min.js"></script>
 <!-- BOOSTRAP DOWNLOADED -->
 <!-- <link rel="stylesheet" href="<?= $url ?>views/js/bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="<?= $url ?>views/js/bootstrap/js/bootstrap.min.js"></script> -->
 <!-- STYLESSHEET -->
-<link rel="stylesheet" href="<?= $url ?>views/assets/css/styles.min.css">
+<link rel="stylesheet" href="<?= $url ?>views/assets/css/styles.min.css"/>
 <!-- GOOGLE FONTS -->
 <!--
 <link rel="preconnect" href="https://fonts.googleapis.com">

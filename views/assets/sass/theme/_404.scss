@@ -1,0 +1,128 @@
+.cErr-404_cont{
+	min-height: 100vh;
+  width: 100%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 0 1rem .75rem;
+  background: radial-gradient(50% 87.9% at 50% 50%,hsla(0,0%,76.9%,0) 0,rgba(0,163,143,.03) 100%);
+  @media (min-width: 768px){
+  	padding: 0 0 0 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  @media (min-width: 1280px){
+  	grid-template-columns: 1fr 1.2fr;
+  }
+	&__desc{
+		display: grid;
+	  justify-items: center;
+	  @media (min-width: 768px){
+	  	grid-column: 1/span 2;
+	    grid-row: 1/span 2;
+	    align-self: center;
+	    justify-items: flex-start;
+	  }
+	  @media (min-width: 1020px){
+	  	justify-self: flex-start;
+	  }
+	  @media (min-width: 1280px){
+	  	margin-top: 19%;
+	    padding-left: 13.9%;
+	    grid-column: 1/span 1;
+	    justify-self: flex-end;
+	  }
+	  & h1{
+			font-weight: 900;
+		  font-size: 5rem;
+		  color: $theme_color-text;
+		  text-transform: uppercase;
+		  display: flex;
+		  align-items: baseline;
+		  justify-content: center;
+		  @media (min-width: 768px){
+				font-size: 5.2562417871rem;
+			}
+			@media (min-width: 1280px){
+				font-size: 10rem;
+	  		margin-bottom: -1.25rem;
+			}
+	  }
+
+	  & h2{
+			font-weight: 700;
+		  font-size: 1.3504388926rem;
+		  color: $theme_color-text;
+		  @media (min-width: 768px){
+				font-size: 1.5003750938rem;
+			}
+			@media (min-width: 1280px){
+				font-size: 1.7006802721rem;
+			}
+	  }
+	  & p{
+			font-size: 1.0204081633rem;
+		  font-weight: 400;
+		  margin: .6rem 0;
+		  color: $theme_color-text;
+		  @media (min-width: 768px){
+				text-align: left;
+		    text-align: initial;
+		    font-size: 1.1rem;
+			}
+			@media (min-width: 1280px){
+				font-size: 1.25rem;
+			}
+	  }
+	  & a{
+	  	opacity: 1;
+		  cursor: pointer;
+		  display: inline-block;
+		  max-width: 10rem;
+		  width: 100%;
+		  border: none;
+		  background-color: $theme_color_buttons;
+		  padding: 1rem;
+		  border-radius: 5px;
+		  color: $theme_color-text-header;
+		  transition: ease-out .2s;
+		  margin-top: 0.625rem;
+		  @media (min-width: 768px){
+		  	max-width: 19rem;
+		  	width: 90%;
+		  }
+		  &.active{
+		  	opacity: 1;
+		  }
+		  &:hover{
+		  	background-color: darken($theme_color_buttons, 10%);
+		  }
+	  }
+	}
+	&__sbanner{
+		background-image: url(../../../views/assets/img/svg/404_memopay_mobile.svg);
+	  background-size: 100%;
+	  background-position: bottom;
+	  background-repeat: no-repeat;
+	  width: 235px;
+	  height: 225px;
+	  @media (min-width: 768px){
+	  	margin: 0;
+	    background-image: url(../../../views/assets/img/svg/404_memopay_desktop.svg);
+	    width: 100%;
+	    height: 100%;
+	    grid-column: 2/span 1;
+	    grid-row: 1/span 2;
+	    align-self: flex-end;
+	    justify-self: flex-end;
+	  }
+	  @media (min-width: 1020px){  	
+			background-size: 78%;
+	  	background-position: 100% 100%;
+	  }
+	  @media (min-width: 1280px){
+	  	background-size: 100%;
+	  }
+	}
+}

@@ -39,3 +39,7 @@ RewriteRule my-profile?$ views/my-profile.php
 RewriteRule validation-biometric?$ views/validation-biometric.php
 RewriteRule go-with-profile?$ php/process_select-profile.php
 RewriteRule change-profile?$ php/process_unset-profile-select.php
+
+############# MENSAJE DE ERROR PERSONALIZADO
+#RewriteRule 404?$ views/404.php
+ErrorDocument 404 /views/404.php

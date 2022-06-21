@@ -8,7 +8,7 @@ $g_setting = $call_config->get_config();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Memopay | Políticas de Privacidad</title>
+	<title>Términos y condiciones</title>
 	<?php require_once 'includes/header_links.php' ?> 
 </head>
 <body>

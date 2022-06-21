@@ -1243,9 +1243,15 @@
 			width: 95%;
 			margin: 0 auto;
 			padding: 1.25rem 0;
+			@media (min-width: 768px){
+				padding: 3rem 0 1.25rem 0;
+			}
 			&__c{
 				p{
 					margin-bottom: 1rem;
+					@media (min-width: 768px){
+    				line-height: 1.8;
+					}
 				}
 
 				&__title{
@@ -1368,6 +1374,9 @@
 										top: auto;
     								left: 13px;
     								transform: translateY(8px);
+									}
+									@media (min-width: 768px){
+				    				margin-bottom: 0.5rem;
 									}
 								}
 							}

@@ -702,6 +702,7 @@
 				margin-bottom: 3rem;
 				line-height: 1.35;
 				font-size: 1.1rem;
+				font-weight: 300;
 				@media (min-width: 897px){
 					font-size: 1.25rem;
 				}
@@ -760,8 +761,14 @@
 							&--bold{
 								color: $theme_color-text;
 								display: block;
+								font-weight: 600;
+								@media (min-width: 768px){
+									margin-bottom: 0.5rem;
+								}
 							}
 							&--light{
+								font-weight: 300;
+								font-size: 1rem;
 							}
 						}
 					}
@@ -787,7 +794,7 @@
 	    	grid-column-gap: 1rem;
 	    	background: url("../../assets/img/svg/affiliates.svg");
 		    background-repeat: no-repeat;
-		    background-position: center;
+		    background-position: top center;
 		    background-size: cover;
 		    padding: 20px;
 	    }
@@ -812,6 +819,7 @@
 					margin-bottom: 0.5rem;
 					line-height: 1.35;
 					font-size: 1.1rem;
+					font-weight: 300;
 					@media (min-width: 897px){
 						font-size: 1.25rem;
 					}
@@ -872,6 +880,7 @@
 								&--desc{
 									line-height: 1.5;
 									font-size: 1.05rem;
+									font-weight: 300;
 									@media (min-width: 692px){
 						    		font-size: 1.2rem;
 						    	}
@@ -914,6 +923,7 @@
 								&--desc{
 									line-height: 1.5;
 									font-size: 1.05rem;
+									font-weight: 300;
 									@media (min-width: 692px){
 						    		font-size: 1.2rem;
 						    		text-align: left;
@@ -1024,6 +1034,7 @@
     				color: $color-paragraph;
     				line-height: 1.8;
     				margin-bottom: 1rem;
+    				font-weight: 300;
     				@media (min-width: 480px){
     					font-size: 1rem;
     				}
@@ -1305,6 +1316,14 @@
 			    grid-template-columns: 1fr 1fr 1fr 1fr;
 			    grid-column-gap: 1.5rem;
 			    justify-content: space-between;
+				}
+				@media (min-width: 1280px){
+					&--c:nth-child(2){
+						margin-left: 3.5rem;
+					}
+					&--c:nth-child(3){
+						margin-left: 2rem;
+					}
 				}
 				&--c{
 					&--logo,

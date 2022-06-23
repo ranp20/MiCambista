@@ -278,15 +278,17 @@
 						}
 						@media (min-width: 1280px){
 							font-size: 3.7rem;
+							margin-bottom: 0.5rem;
 						}
 					}
 					&--desc{
 						font-size: 1.4rem;
+						font-weight: 400;
 						@media (min-width: 897px){
 							font-size: 1.6rem;
 						}
 						@media (min-width: 1440px){
-							font-size: 1.8rem;
+							font-size: 1.7rem;
 						}
 					}
 				}
@@ -693,7 +695,10 @@
 				@media (min-width: 897px){
 					font-size: 2.2rem;
 				}
-				@media (min-width: 1440px){
+				@media (min-width: 1280px){
+					margin-bottom: 0.85rem;
+				}
+				@media (min-width: 1280px){
 					font-size: 3rem;
 				}
 			}
@@ -810,8 +815,9 @@
 					@media (min-width: 897px){
 						font-size: 2.2rem;
 					}
-					@media (min-width: 1440px){
+					@media (min-width: 1280px){
 						font-size: 3rem;
+						margin-bottom: 0.85rem;
 					}
 				}
 				&--title-two{
@@ -1019,7 +1025,7 @@
 					@media (min-width: 897px){
 						font-size: 2.2rem;
 					}
-					@media (min-width: 1440px){
+					@media (min-width: 1280px){
 						font-size: 3rem;
 					}
 				}

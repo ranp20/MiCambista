@@ -1,4 +1,5 @@
-<?php 
+<?php
+$r = "";
 if(isset($_POST) && count($_POST) > 0){
 	if (preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST['email-adm'])) {
 		$arr_data_adm = [
@@ -18,28 +19,28 @@ if(isset($_POST) && count($_POST) > 0){
 				session_start();
 				$_SESSION['admin_sessmemopay'] = $getbyid; 
 				
-				$res = array(
-          'response' => 'true',
+				$r = array(
+          'res' => 'true',
           'received' => $getbyid,
         );
 			}else{
-				$res = array(
-					'response' => 'false'
+				$r = array(
+					'res' => 'false'
 				);
 			}
 		}else{
-			$res = array(
-				'response' => 'false'
+			$r = array(
+				'res' => 'false'
 			);
 		}
 	}else{
-		$res = array(
-      'response' => 'error_email',
+		$r = array(
+      'res' => 'error_email',
     );
 	}
 }else{
-	$res = array(
-		'response' => 'false'
+	$r = array(
+		'res' => 'false'
 	);
 }
-die(json_encode($res));
+die(json_encode($r));

@@ -31,12 +31,12 @@
 							<div class="c-convert__cFrmConvert">
 								<div class="c-convert__cFrmConvert__mxFrmC w-100">
 									<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll">
-										<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates">
+										<div class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates" id="cIdsVls_rates">
 											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
 												<span>Compramos a:</span>
 												<span id="refval_buy_at"></span>
 											</p>
-											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable">
+											<p class="c-convert__cFrmConvert__mxFrmC__cValRatesAll__cValuesRates__vRateVariable active">
 												<span>Vendemos a:</span>
 												<span id="refval_sell_at"></span>
 											</p>

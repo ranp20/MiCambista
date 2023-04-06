@@ -13,6 +13,7 @@ var current_PEN = "";
 var result = 0;
 
 const btnconvert = document.querySelector("#convert_divise");
+var cIdsVls_rates = document.querySelector("#cIdsVls_rates");
 var name_currsend = document.querySelector("#name_current_send");
 var name_currreceived = document.querySelector("#name_current_received");
 var ipt_amount_send = document.querySelector("#val_amount_send");
@@ -80,6 +81,8 @@ btnconvert.addEventListener("click", function(e){
 	e.preventDefault();
 	this.classList.toggle("active");
 	if(this.classList.contains("active")){
+		cIdsVls_rates.children[0].classList.add('active'); //ACTIVAR LA TARIFA DE VENTA
+		cIdsVls_rates.children[1].classList.remove('active'); //DESACTIVAR LA TARIFA DE VENTA
 		name_currsend.children[0].textContent = namecurr[1];
 		name_currreceived.children[0].textContent = namecurr[0];
 		ipt_amount_send.previousElementSibling.textContent = prefixs[1];
@@ -104,6 +107,8 @@ btnconvert.addEventListener("click", function(e){
 		ipt_amount_received.value = val_formatfinal;
 		//console.log(val_formatfinal);
 	}else{
+		cIdsVls_rates.children[1].classList.add('active'); //ACTIVAR LA TARIFA DE COMPRA
+		cIdsVls_rates.children[0].classList.remove('active'); //DESACTIVAR LA TARIFA DE COMPRA
 		name_currsend.children[0].textContent = namecurr[0];
 		name_currreceived.children[0].textContent = namecurr[1];
 		ipt_amount_send.previousElementSibling.textContent = prefixs[0];

@@ -85,7 +85,7 @@ $top-header-desktop: 85px;
 
 					&--cHorario{
 						p{
-							color: $theme_color-text-header;
+							color: $theme_color-text-header-2;
 							line-height: 1.4;
 							margin-bottom: 0.3rem;
 							font-size: 0.9rem;
@@ -119,6 +119,7 @@ $top-header-desktop: 85px;
 						padding: .5rem 1rem;
 						border-radius: 5px;
 						transition: ease-out .2s;
+						text-decoration: none;
 						&:hover{
 							background-color: darken(#e1f2ec, 10%);
 						}
@@ -169,7 +170,7 @@ $top-header-desktop: 85px;
 							p{
 								font-size: 0.85rem;
 								font-weight: 400;
-								color: $theme_color-text-header;
+								color: $theme_color-text-header-2;
 								span{
 
 								}
@@ -268,7 +269,7 @@ $top-header-desktop: 85px;
 						text-decoration: none !important;
 						display: block;
 						padding: 1rem 0 1rem 1.5rem;
-						color: $theme_color-text-header;
+						color: $theme_color-text-header-2;
 						font-weight: 600;
 						transition: .2s ease-in-out;
 						&__cIcon{
@@ -282,12 +283,12 @@ $top-header-desktop: 85px;
 								height: auto;
 							}
 							svg{
-								fill: $theme_color-text-header;
+								fill: $theme_color-text-header-2;
 							}
 							&__svgstroke{
 								fill: none !important;
 								path{
-									stroke: $theme_color-text-header;
+									stroke: $theme_color-text-header-2;
 								}
 							}
 						}
@@ -771,7 +772,7 @@ $top-header-desktop: 85px;
 					}
 					&--cnamcli{
 						p{
-							color: $theme_color-text-header;
+							color: $theme_color-text-header-2;
 							font-size: 1.1rem;
 					    font-weight: bold;
 					    line-height: 1.5;
@@ -793,7 +794,7 @@ $top-header-desktop: 85px;
 						text-decoration: none !important;
 						display: block;
 						padding: 1rem 0 1rem 1.5rem;
-						color: $theme_color-text-header;
+						color: $theme_color-text-header-2;
 						transition: unset;
 						&__cIcon{
 							max-width: 20px;
@@ -806,7 +807,7 @@ $top-header-desktop: 85px;
 								height: auto;
 							}
 							svg{
-								fill: $theme_color-text-header;
+								fill: $theme_color-text-header-2;
 							}
 						}
 						span{

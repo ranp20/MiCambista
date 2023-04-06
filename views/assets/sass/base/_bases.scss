@@ -876,7 +876,7 @@ strong, b{
 			background-color: $theme_color_buttons;
 			padding: 1rem;
 			border-radius: 5px;
-			color: $theme_color-text-header;
+			color: $theme_color-text-header-2;
 			transition: ease-out .2s;
 			&.active{
 				opacity: 1;
@@ -1078,7 +1078,7 @@ strong, b{
 			background-color: $theme_color_buttons;
 			padding: 1rem;
 			border-radius: 5px;
-			color: $theme_color-text-header;
+			color: $theme_color-text-header-2;
 			transition: ease-out .2s;
 
 			&.active{
@@ -1334,7 +1334,7 @@ strong, b{
 						background-color: $theme_color_buttons;
 						padding: .8rem 1rem;
 						border-radius: 5px;
-						color: $theme_color-text-header;
+						color: $theme_color-text-header-2;
 						display: flex;
 						align-items: center;	
 						justify-content: center;
@@ -1359,7 +1359,7 @@ strong, b{
 							position: relative;
 							top: 3px;
 							margin-left: 0.5rem;
-							fill: $theme_color-text-header;
+							fill: $theme_color-text-header-2;
 							width: 25px;
 							height: 25px;
 						}
@@ -1494,7 +1494,7 @@ strong, b{
 					display: inline-block;
 					border: thin solid transparent;
 					background-color: $theme_color_buttons;
-					color: $theme_color-text-header;
+					color: $theme_color-text-header-2;
 					width: 100%;
 					padding: 1rem;
 					border-radius: 5px;
@@ -2764,6 +2764,12 @@ strong, b{
 					display: inline-block;
 					padding: 0.65rem 1.15rem;
 					user-select: none;
+					color: $theme_color-text;
+					opacity: 0.45;
+
+					&.active{
+						opacity: 1;
+					}
 
 					&:nth-child(2){
 						border-left: thin solid steelblue;
@@ -2771,7 +2777,6 @@ strong, b{
 					& span{
 						display: block;
 						line-height: 1.5rem;
-						color: $theme_color-text;
 						user-select: none;
 					}
 					& > span:first-child{

@@ -5,6 +5,7 @@
   }	
 }
 .cMain{
+	background-color: $bg-color-main;
 	&__cont{
 		/* HEADER TOP */
 		&--infTop{
@@ -15,8 +16,10 @@
 	    z-index: 99;
 	    transition: .3s ease-in-out;
 	    transform: translateY(0);
-	    background-color: $theme_color-text;
+	    // background-color: $theme_color-text;
+	    background-color: #fff;
 	    padding: 0;
+	    border-bottom: thin solid #ded5d855;
 	    @media (min-width: 991px){
 	      height: 5rem;
 		    display: flex;
@@ -68,6 +71,7 @@
 					    background-color: transparent;
 					    justify-content: flex-end;
 					    order: 2;
+					    padding-right: 0;
 				    }
 						&--Tm{
     					display: inline-block;
@@ -88,12 +92,20 @@
 								justify-content: flex-end;
 						   }	
 							&--item{
+								display: block;
+				    		user-select: auto;
+				    		visibility: visible;
+				    		opacity: 1;
+				    		appearance: auto;
 								@media (min-width: 991px){
-						    	&:nth-child(2),
-						    	&:nth-child(4){
+						    	&.d-non_desk{
 						    		display: none;
+						    		user-select: none;
+						    		visibility: hidden;
+						    		opacity: 0;
+						    		appearance: none;
 						    	}
-						    }					
+						    }
 							}
 							&--link{
 								display: block;
@@ -140,7 +152,7 @@
 							    border: none;
 							    color: $theme_color-text-header;
 							    padding: 0.8rem 0.5rem;
-							    border-radius: 0.6rem;
+							    border-radius: $border-radius_pri;
 							    margin-bottom: 1rem;
 							    font-size: 0.8rem;
 							    transition: ease-out 0.2s;
@@ -153,7 +165,7 @@
 							    @media (min-width: 991px){
 								    font-size: 0.9rem;
 								    margin: 0 1rem;
-								    padding: .8rem 1.5rem;
+								    padding: .6rem 1.5rem;
 								    display: inline;
 								    background-color: transparent;
 								    border: thin solid $theme_color_buttons;
@@ -174,7 +186,7 @@
 							    color: $theme_color_buttons;
 							    padding: 0.8rem 0.5rem;
 							    border: thin solid $theme_color_buttons;
-							    border-radius: 0.6rem;
+							    border-radius: $border-radius_pri;
 							    margin-bottom: 1rem;
 							    font-size: 0.8rem;
 							    transition: ease-out 0.2s;
@@ -188,11 +200,11 @@
 							    @media (min-width: 991px){
 								    font-size: 0.9rem;
 								    margin: 0 0 0 0;
-								    padding: .8rem 1.5rem;
+								    padding: .6rem 1.5rem;
 								    display: inline;
 								    background-color: $theme_color_buttons;
 								    border: thin solid transparent;
-								    color: $theme_color-text-header;
+								    color: $theme_color-text-header-2;
 							    }
 								}
 							}
@@ -249,7 +261,7 @@
 	    	padding: 3rem 0 6.5rem 0;
 	    }
 	    @media (min-width: 1200px){
-	    	padding: 2.55rem 0 6.5rem 0;
+	    	padding: 1.25rem 0 6.5rem 0;
 	    }
 			&--c{
 				@media (min-width: 768px){
@@ -311,10 +323,10 @@
     				}
     				@media (min-width: 897px){
     					background-color: #fff;
-					    border-radius: 1rem;
+					    border-radius: 10px;
 					    padding: 1rem 2.5rem;
-					    box-shadow: 0 0 20px 1px rgba(0, 0, 0, .1);
-					    max-width: 520px;
+					    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.1);
+					    max-width: 495px;
 					    margin-right: 0;
     				}
     				@media (min-width: 1440px){
@@ -514,7 +526,7 @@
     				border-radius: 1rem;
 				    max-width: 420px;
 				    width: 95%;
-				    border-radius: 1rem;
+				    border-radius: 10px;
 				    margin-left: auto;
 				    margin-right: auto;
   					@media (min-width: 480px){
@@ -525,9 +537,9 @@
     				}
     				@media (min-width: 897px){
     					background-color: #fff;
-					    box-shadow: 0 0 20px 1px rgba(0, 0, 0, .1);
+					    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.1);
 					    justify-content: flex-start;
-    					max-width: 520px;
+    					max-width: 495px;
     					margin-right: 0;
     				}
     				@media (min-width: 1440px){
@@ -537,7 +549,7 @@
     				}
 						&--T{
 							color: $theme_color-text;
-							font-size: 1.09rem;
+							font-size: 1.05rem;
     					font-weight: bold;
     					margin-bottom: 0.5rem;
 						}
@@ -595,7 +607,7 @@
 			&--c{
 				padding: 1.5rem 1.5rem 2rem 1.5rem;
 				margin-bottom: .5rem;
-			  border-radius: 1rem;
+			  border-radius: 10px;
 			  margin-left: auto;
 			  margin-right: auto;
 			  background-color: #fff;
@@ -730,7 +742,7 @@
 					align-items: center;
 					justify-content: flex-start;
 					padding: 2rem 1.8rem;
-					border-radius: 1rem;
+					border-radius: 10px;
 					margin-bottom: 1.8rem;
 					width: 100%;
 					@media (min-width: 768px){
@@ -904,7 +916,7 @@
 					    background-color: #fff;
 					    box-shadow: 0 0 10px 1px rgba(0,0,0,.15);
 					    padding: 1rem;
-					    border-radius: 1rem;
+					    border-radius: 10px;
 					    @media (min-width: 897px){
 					    	position: relative;
 						    left: -12px;
@@ -946,9 +958,9 @@
 								width: 100%;
 								background-color: $theme_color_buttons;
 								border: none;
-								color: $theme_color-text-header;
+								color: $theme_color-text-header-2;
 								padding: 0.8rem 0.5rem;
-								border-radius: 0.6rem;
+								border-radius: 10px;
 								margin-top: 1rem;
 								font-size: 0.8rem;
 								transition: ease-out 0.2s;
@@ -956,7 +968,7 @@
 								margin-left: auto;
 								margin-right: auto;
 								&:hover{
-									color: $theme_color-text-header;
+									color: $theme_color-text-header-2;
 									background-color: darken($theme_color_buttons, 10%);
 								}
 								@media (min-width: 692px){
@@ -1398,7 +1410,8 @@
 	}
 	/* FOOTER BOTTOM */
 	&--contB{
-		background-color: $theme_color-text-white;
+		// background-color: darken($theme_color-text, 10%);
+		background-color: lighten($theme_color-text, 10%);
 		color: #fff;
 		padding: 1.5rem 0;
 		&--c{

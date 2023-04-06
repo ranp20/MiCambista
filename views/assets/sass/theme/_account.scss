@@ -369,9 +369,9 @@
 						width: 100%;
 						background-color: $theme_color_buttons;
 						border: none;
-						color: $theme_color-text-header;
+						color: $theme_color-text-header-2;
 						padding: 0.8rem .5rem;
-						border-radius: .5rem;
+						border-radius: $border-radius_pri;
 						margin-bottom: 1rem;
 						font-size: .95rem;
 						transition: ease-out .2s;  

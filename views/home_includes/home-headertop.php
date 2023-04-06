@@ -14,20 +14,23 @@
 			<div class="cMain__cont--infTop--hTop--citem--cm" id="main-m-htop">
 				<span class="cMain__cont--infTop--hTop--citem--cm--Tm">Menú</span>
 				<ul class="cMain__cont--infTop--hTop--citem--cm--m">
-					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
+					<li class="cMain__cont--infTop--hTop--citem--cm--m--item d-non_desk">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¿Cómo funciona?</a>
 					</li>
 					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">Nosotros</a>
 					</li>
-					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
+					<li class="cMain__cont--infTop--hTop--citem--cm--m--item d-non_desk">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¡Gana con tus referidos!</a>
 					</li>
-					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
+					<li class="cMain__cont--infTop--hTop--citem--cm--m--item d-non_desk">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">¿Por qué Memopay?</a>
 					</li>
 					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
 						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">Beneficios</a>
+					</li>
+					<li class="cMain__cont--infTop--hTop--citem--cm--m--item">
+						<a href="javascript:void(0);" class="cMain__cont--infTop--hTop--citem--cm--m--link">FAQ</a>
 					</li>
 					<li class="cMain__cont--infTop--hTop--citem--cm--m--rcInfoitem">
 						<span class="cMain__cont--infTop--hTop--citem--cm--m--rcInfoitem--Thours">Horario</span>

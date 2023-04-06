@@ -3181,7 +3181,7 @@ strong, b{
 				max-width: 420px;
 				width: 100%;
 				background-color: $theme_color_buttons;
-				color: $theme_color-text-header;
+				color: $theme_color-text-header-2;
 				font-weight: bold;
 				padding: 0 1rem;
 				line-height: 2.85rem;
@@ -3199,7 +3199,7 @@ strong, b{
 		    transition: ease-out .2s;
 
 				&:hover{
-					color: $theme_color-text-header;
+					color: $theme_color-text-header-2;
 					background-color: darken($theme_color_buttons, 10%);
 				}
 				@media (min-width: 768px){

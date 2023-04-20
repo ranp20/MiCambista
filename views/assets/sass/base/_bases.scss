@@ -3356,3 +3356,7 @@ strong, b{
   	background-color: darken($theme_color_buttons, 10%);
   }
 }
+/* CAMBIAR EL TEMA DE LA PÁGINA WEB - ENTRE DARK Y LIGHT */
+@media (prefers-color-scheme: dark){
+	
+}

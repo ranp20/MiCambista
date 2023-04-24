@@ -48,7 +48,7 @@
 			<div class="cMain__cont--infTop--hTop--citem--cLogo">
 				<div class="cMain__cont--infTop--hTop--citem--cLogo--logo">
 					<a href="./">
-						<img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logo_Memopay" width="100" height="100" decoding="async">
+						<img src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo-resize-3.png" alt="logo_Memopay" width="100" height="100" decoding="async">
 					</a>
 				</div>
 			</div>

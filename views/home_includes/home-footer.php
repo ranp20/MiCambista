@@ -3,7 +3,9 @@
 		<div class="cFooter--contT--c box">
 			<section class="cFooter--contT--c--sec pl-pr-15">
 				<div class="cFooter--contT--c--sec--c">
-					<img class="cFooter--contT--c--sec--c--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo.png" alt="logofooter_Memopay" width="100" height="100" decoding="async">
+					<a href="./" class="cFooter--contT--c--sec--c--cLogo">
+						<img class="cFooter--contT--c--sec--c--cLogo--img" src="<?= $url_adm_assets; ?>views/assets/img/logos/logo_principal/Memopay_logo-resize-2.png" alt="logofooter_Memopay" width="100" height="100" decoding="async">
+					</a>
 					<p class="cFooter--contT--c--sec--c--text">Somos la startup financiera que revoluciona la forma de administrar el dinero a través de una plataforma 100% digital.</p>
 					<div class="cFooter--contT--c--sec--c--cIcon">
 						<a href="javascript:void(0);" class="cFooter--contT--c--sec--c--cIcon--link" title="Instagram">

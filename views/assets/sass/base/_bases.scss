@@ -81,11 +81,9 @@ strong, b{
   border-radius: 5px;
   color: $theme_color-text-header;
   transition: ease-out .2s;
-
   @media (min-width: 768px){
   	width: 90%;
   }
-
   &.active{
   	opacity: 1;
   }
@@ -271,13 +269,11 @@ strong, b{
     height: 100%;
     background-color: rgba(0,0,0,.3);
     z-index: 999;
-
     &.disabled{
 			transition: ease .3s;			
 			opacity: 0;			
 			display: none;		
 		}
-
 		&--c{
 			max-width: 400px;
 	    width: 90%;
@@ -290,7 +286,6 @@ strong, b{
 			animation-duration: .3s;			
 			animation-timing-function: ease;			
 			animation-iteration-count: inherit;
-
 			&--close{
 				width: 18px;
 				height: 18px;
@@ -317,7 +312,6 @@ strong, b{
 				margin: 0;
 				font-size: 0.9rem;
 			}
-
 			@keyframes alert{
 				0%{
 					transform: translateY(-100%);
@@ -338,13 +332,11 @@ strong, b{
     align-items: center;
     justify-content: center;
     background-color: rgba(255,255,255,.7);
-    z-index: 999;
-    
+    z-index: 999;    
 		&--loader{
 			@include loader($theme_color_buttons, 55px);
 		}
 	}
-
 	.message-success{
 		z-index: 9999999;
 		position: absolute;		
@@ -360,14 +352,12 @@ strong, b{
 		left: 0;		
 		bottom: 0;		
 		right: 0;		
-		background-color: rgba(0,0,0,.4);
-		
+		background-color: rgba(0,0,0,.4);		
 		&.disabled{
 			transition: ease .3s;			
 			opacity: 0;			
 			display: none;		
 		}
-
 		&__content{
 			padding: 1rem .5rem;
 			width: 90%;			
@@ -380,32 +370,26 @@ strong, b{
 			animation-iteration-count: inherit;			
 			position:	relative;
 			text-align: center;
-
 			@media (min-width: 991px){
 				text-align: left;
 				padding: 1.4rem;
 			}
-
 			&--title{
 				color: green;
 				font-size: 1rem;
 				margin-bottom: 0.5rem;
 				text-transform: uppercase;
-
 				@media (min-width: 991px){
 					font-size: 1.5rem;
 				}
 			}
-
 			&--text{
 				color: #444;
 				font-size: 0.9rem;
-
 				@media (min-width: 991px){
 					font-size: 1.1rem;
 				}
 			}
-
 			@keyframes alert{
 				0%{
 					transform: translateY(-100%);
@@ -416,7 +400,6 @@ strong, b{
 					margin-top: 1rem;
 				}
 			}
-
 			&--btnclosed{
 				width: 18px;
 				height: 18px;
@@ -430,12 +413,10 @@ strong, b{
     		right: -5px;
     		cursor: pointer;
 			}
-
 			/* TAMAÑO - MÓVIL(480px) */
 			@media (min-width: 480px){
 				width: 80%;
 			}
-
 			/* TAMAÑO - TABLET(768px) */
 			@media (min-width: 768px){
 				width: 450px;
@@ -443,7 +424,6 @@ strong, b{
 		}
 	}
 }
-
 /* FORMULARIO DE REGISTRO DE CUENTAS BANCARIAS */
 .cformAddAccountBank{
 	position: fixed;
@@ -485,7 +465,6 @@ strong, b{
 		display: flex;
 		pointer-events: auto;
 	}
-
 	&--form{
 		text-align: center;
 		max-width: 540px;
@@ -499,7 +478,6 @@ strong, b{
 		animation-timing-function: linear;
 		pointer-events: none;
 		position: relative;
-
 		@keyframes moveToTop{
 			0%{
 				transform: translateY(-200%);
@@ -508,16 +486,13 @@ strong, b{
 				transform: translateY(0);
 			}
 		}
-
 		&.show{
 			transform: translateY(0);
 			pointer-events: auto;
 		}
-
 		@media (min-width: 768px){
 			padding: 1.5rem 2.2rem;
 		}
-
 		&--cBtnClose{
 			position: absolute;
 	    top: 10px;
@@ -548,26 +523,22 @@ strong, b{
 				}
 			}
 		}
-
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
 				color: $theme_color-text;
 				font-size: 1.25rem;
-
 				@media (min-width: 768px){
 					font-size: 1.65rem;
 				}
 			}
 		}
-
 		&--cControl{
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			margin-bottom: 1.25rem;
-			position: relative;
-			
+			position: relative;			
 			/* MENSAJE DE ERROR - NÚMERO DE CUENTA */
 			#msgerrorNounNumAccount{
 				color: red;
@@ -576,7 +547,6 @@ strong, b{
 		    bottom: 8px;
 		    left: 10px;	
 			}
-
 			/* MENSAJE DE ERROR - ALIAS DE LA CUENTA */
 			#msgerrorNounAliasAccount{
 				color: red;
@@ -585,11 +555,9 @@ strong, b{
 		    bottom: -18px;
 		    left: 10px;		
 			}
-
 			&--label{
 				margin-bottom: 0.4rem;
 			}
-
 			&--input{
 				width: 100%;
 				border: thin solid #ddd;
@@ -602,14 +570,12 @@ strong, b{
 				max-height: 48px;
 				height: auto;
 			}
-
 			&--span{
 				padding-top: 0.5rem;
 				padding-left: .8rem;
 				position: relative;
 				top: 8px;
 			}
-
 			&--cSelItem{
 				width: 100%;
 				border: thin solid #ddd;
@@ -625,7 +591,6 @@ strong, b{
 				min-height: 48px;
 				max-height: 48px;
 				height: auto;
-
 				/* MENSAJE DE ERROR - NOMBRE DE BANO */
 				#msgerrorNounSelBank{
 			    color: red;
@@ -634,7 +599,6 @@ strong, b{
 			    bottom: -22px;
 			    left: 10px;
 				}
-
 				/* MENSAJE DE ERROR - TIPO DE CUENTA */
 				#msgerrorNounSelTypeAccount{
 					color: red;
@@ -643,7 +607,6 @@ strong, b{
 			    bottom: -22px;
 			    left: 10px;
 				}
-
 				/* MENSAJE DE ERROR - TIPO DE MONEDA */
 				#msgerrorNounSelCurrentType{
 					color: red;
@@ -652,7 +615,6 @@ strong, b{
 			    bottom: -22px;
 			    left: 10px;
 				}
-
 				&--cInputFake{
 					display: flex;
 					align-items: center;
@@ -677,7 +639,6 @@ strong, b{
     			border: thin solid transparent;
     			width: 0;	
 				}
-
 				/* LISTADO DE BANCOS */
 				&--MenuListBanks{
 			    display: none;
@@ -694,7 +655,6 @@ strong, b{
 			    border-bottom: none;
 			    padding: 0;
 			    margin: 0;
-
 			    &.show{
 			    	border-top: thin solid transparent;
 			    	border-left: thin solid #ddd;
@@ -704,17 +664,14 @@ strong, b{
 			    	display: block;
 			    	z-index: 9;
 			    }
-
 			    &--item{
 			    	display: flex;
 			    	align-items: center;
 			    	justify-content: flex-start;
 			    	padding: .9rem 1rem;
-
 			    	&:hover{
 			    		background-color: #CFEADE;
 			    	}
-
 			    	&--cImg{
 			    		width: 4.5rem;
 			    		margin-right: 1rem;
@@ -724,7 +681,6 @@ strong, b{
 			    		}
 			    	}
 			    }
-
 			    &--itemanybanks{
 			    	display: flex;
 			    	align-items: center;
@@ -736,7 +692,6 @@ strong, b{
 			    	}
 			    }
 				}
-
 				/* LISTADO DE TIPOS DE CUENTAS */
 				&--MenuListTypeAccounts{
 			    display: none;
@@ -753,7 +708,6 @@ strong, b{
 			    border-bottom: none;
 			    padding: 0;
 			    margin: 0;
-
 			    &.show{
 			    	border-top: thin solid transparent;
 			    	border-left: thin solid #ddd;
@@ -763,18 +717,15 @@ strong, b{
 			    	display: block;
 			    	z-index: 9;
 			    }
-
 			    &--item{
 			    	display: flex;
 			    	align-items: center;
 			    	justify-content: flex-start;
 			    	padding: .9rem 1rem;
-
 			    	&:hover{
 			    		background-color: #CFEADE;
 			    	}
 			    }
-
 			    &--itemanybanks{
 			    	display: flex;
 			    	align-items: center;
@@ -786,7 +737,6 @@ strong, b{
 			    	}
 			    }
 				}
-
 				/* LISTADO DE TIPOS DE MONEDA */
 				&--MenuListCurrencyTypes{
 			    display: none;
@@ -803,7 +753,6 @@ strong, b{
 			    border-bottom: none;
 			    padding: 0;
 			    margin: 0;
-
 			    &.show{
 			    	border-top: thin solid transparent;
 			    	border-left: thin solid #ddd;
@@ -813,18 +762,15 @@ strong, b{
 			    	display: block;
 			    	z-index: 9;
 			    }
-
 			    &--item{
 			    	display: flex;
 			    	align-items: center;
 			    	justify-content: flex-start;
 			    	padding: .9rem 1rem;
-
 			    	&:hover{
 			    		background-color: #CFEADE;
 			    	}
 			    }
-
 			    &--itemanybanks{
 			    	display: flex;
 			    	align-items: center;
@@ -838,7 +784,6 @@ strong, b{
 				}
 			}
 		}
-
 		&--cControlcheck{
 			text-align: left;
 			margin-bottom: 1.8rem;
@@ -863,7 +808,6 @@ strong, b{
 		    left: 10px;
 			}
 		}
-
 		&--cBtnAddAccount{
 			opacity: 1;
 			cursor: pointer;
@@ -888,7 +832,6 @@ strong, b{
 		}
 	}
 }
-
 /* FORMULARIO DE REGISTRO DE EMPRESA */
 .cformAddAccountEnterprise{
 	position: fixed;
@@ -3355,6 +3298,96 @@ strong, b{
   &:hover{
   	background-color: darken($theme_color_buttons, 10%);
   }
+}
+/* SWTICH PARA CAMBIAR DE TEMA - BLACK/WHITE */
+.cSwitchTgg__scheme{
+  display: inline-block;
+	position: fixed;
+  bottom: 110px;
+  right: 0px;
+  background-color: #fefefe;
+  z-index: 999;
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,.2);
+  border-radius: 30px 0px 0px 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cSwitchTgg__scheme label {
+	width: 70px;
+	height: 30px;
+	position: relative;
+	display: block;
+	background: #ebebeb;
+	border-radius: 200px;
+	box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+	cursor: pointer;
+	transition: 0.3s;
+}
+.cSwitchTgg__scheme label:after {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: linear-gradient(180deg,#ffcc89,#d8860b);
+	border-radius: 180px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+	transition: 0.3s;
+}
+.cSwitchTgg__scheme input {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+.cSwitchTgg__scheme input:checked + label {
+	background: #242424;
+}
+.cSwitchTgg__scheme input:checked + label:after {
+	left: 70px;
+	transform: translateX(-100%);
+	background: linear-gradient(180deg,#777,#3a3a3a);
+}
+.cSwitchTgg__scheme label:active:after{
+	width: 30px;
+}
+.background {
+	width:100vw;
+	height: 100vh;
+	background: #fff;
+	z-index: -1;
+	position: absolute;
+	transition: 0.3s;
+}
+.cSwitchTgg__scheme input:checked + label + .background {
+	background:#242424;
+}
+.cSwitchTgg__scheme label svg {
+	position: absolute;
+	width: 26px;
+	top: 4px;
+	z-index: 100;
+}
+.cSwitchTgg__scheme label svg.sun {
+	left: 1px;
+	fill: #fff;
+	transition: 0.3s;
+}
+.cSwitchTgg__scheme label svg.moon {
+	left: 42px;
+	fill:#7e7e7e;
+	transition: 0.3s;
+}
+.cSwitchTgg__scheme input:checked + label svg.sun {
+	fill:#7e7e7e;
+}
+.cSwitchTgg__scheme input:checked + label svg.moon {
+	fill:#fff;
 }
 /* CAMBIAR EL TEMA DE LA PÁGINA WEB - ENTRE DARK Y LIGHT */
 @media (prefers-color-scheme: dark){

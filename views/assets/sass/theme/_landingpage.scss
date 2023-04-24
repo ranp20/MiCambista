@@ -1348,11 +1348,14 @@
 					}
 				}
 				&--c{
-					&--logo,
-					&--img{
-						max-width: 207px;
-						width: 13rem;
-						margin-bottom: 0.85rem;
+					&--cLogo{
+						display: table;
+						&--logo,
+						&--img{
+							max-width: 207px;
+							width: 95%;
+							margin-bottom: 0.85rem;
+						}
 					}
 					&--text{
 						color: #fff;

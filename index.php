@@ -12,99 +12,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<?php require_once 'views/includes/header_links.php' ?> 
 	<title>Memopay | Centro de cambio en línea con las mejores tasas</title>
-	<style type="text/css">
-		.cSwitchTgg__scheme{
-	    display: inline-block;
-			position: fixed;
-	    bottom: 110px;
-	    right: 0px;
-	    background-color: #fefefe;
-	    z-index: 999;
-	    box-shadow: 0 2px 10px 1px rgba(0,0,0,.2);
-	    border-radius: 30px 0px 0px 30px;
-	    padding-top: 8px;
-	    padding-bottom: 8px;
-	    padding-left: 8px;
-	    padding-right: 8px;
-	    display: flex;
-	    align-items: center;
-	    justify-content: center;
-		}
-		.cSwitchTgg__scheme label {
-			width: 70px;
-			height: 30px;
-			position: relative;
-			display: block;
-			background: #ebebeb;
-			border-radius: 200px;
-			box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
-			cursor: pointer;
-			transition: 0.3s;
-		}
-		.cSwitchTgg__scheme label:after {
-			content: "";
-			width: 30px;
-			height: 30px;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			background: linear-gradient(180deg,#ffcc89,#d8860b);
-			border-radius: 180px;
-			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-			transition: 0.3s;
-		}
-		.cSwitchTgg__scheme input {
-			width: 0;
-			height: 0;
-			visibility: hidden;
-		}
-		.cSwitchTgg__scheme input:checked + label {
-			background: #242424;
-		}
-		.cSwitchTgg__scheme input:checked + label:after {
-			left: 70px;
-			transform: translateX(-100%);
-			background: linear-gradient(180deg,#777,#3a3a3a);
-		}
-		.cSwitchTgg__scheme label:active:after{
-			width: 30px;
-		}
-		.background {
-			width:100vw;
-			height: 100vh;
-			background: #fff;
-			z-index: -1;
-			position: absolute;
-			transition: 0.3s;
-		}
-		.cSwitchTgg__scheme input:checked + label + .background {
-			background:#242424;
-		}
-		.cSwitchTgg__scheme label svg {
-			position: absolute;
-			width: 26px;
-			top: 4px;
-			z-index: 100;
-		}
-		.cSwitchTgg__scheme label svg.sun {
-			left: 1px;
-			fill: #fff;
-			transition: 0.3s;
-		}
-		.cSwitchTgg__scheme label svg.moon {
-			left: 42px;
-			fill:#7e7e7e;
-			transition: 0.3s;
-		}
-		.cSwitchTgg__scheme input:checked + label svg.sun {
-			fill:#7e7e7e;
-		}
-		.cSwitchTgg__scheme input:checked + label svg.moon {
-			fill:#fff;
-		}
-	</style>
+	<?php require_once 'views/includes/header_links.php' ?> 
 </head>
 <body>
 	<?php require_once 'views/includes/api_whatsapp.php';?>
@@ -178,7 +87,7 @@
 							</div>
 						</div>
 						<div class="cMain__cont--heroI--c--formuser--cTransBank">
-							<h3 class="cMain__cont--heroI--c--formuser--cTransBank--T">Transferencias inmediatas (5-25min):</h3>
+							<p class="cMain__cont--heroI--c--formuser--cTransBank--T">Transferencias inmediatas (5-25min):</p>
 							<div class="cMain__cont--heroI--c--formuser--cTransBank--cBanks">
 								<img src="./views/assets/img/svg/interbank.svg" alt="icon-bank-1" width="100" height="100">
 								<img src="./views/assets/img/svg/bcp.svg" alt="icon-bank-2" width="100" height="100">
@@ -201,7 +110,7 @@
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
 									<span class="cMain__cont--manualU--c--m--item--cT--txt--t">Registrados y autorizados por la</span>
 								</p>
-								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>Superintendencia de Banca, Seguros y AFP </b></h3>
+								<p class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>Superintendencia de Banca, Seguros y AFP </b></p>
 							</div>
 						</li>
 						<li class="cMain__cont--manualU--c--m--item">
@@ -209,7 +118,7 @@
 								<img src="./views/assets/img/svg/laptop.svg" alt="icon-manual-laptop" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
-								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>20 Mil</b></h3>
+								<p class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>20 Mil</b></p>
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
 									<span class="cMain__cont--manualU--c--m--item--cT--txt--t">Operaciones Exitosas</span>
 								</p>
@@ -220,7 +129,7 @@
 								<img src="./views/assets/img/svg/soles.svg" alt="icon-manual-soles" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
-								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>132 Millones</b></h3>
+								<p class="cMain__cont--manualU--c--m--item--cT--deskShow"><b>132 Millones</b></p>
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
 									<span class="cMain__cont--manualU--c--m--item--cT--txt--t">Soles transferidos</span>
 								</p>
@@ -231,7 +140,7 @@
 								<img src="./views/assets/img/svg/users.svg" alt="icon-manual-users" width="100" height="100">
 							</div>
 							<div class="cMain__cont--manualU--c--m--item--cT">
-								<h3 class="cMain__cont--manualU--c--m--item--cT--deskShow"><b> 8 Mil</b></h3>
+								<p class="cMain__cont--manualU--c--m--item--cT--deskShow"><b> 8 Mil</b></p>
 								<p class="cMain__cont--manualU--c--m--item--cT--txt">
 									<span class="cMain__cont--manualU--c--m--item--cT--txt--t">Usuarios activos</span>
 								</p>

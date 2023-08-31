@@ -26,7 +26,20 @@ require_once '../php/process_data-list.php';
 	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
 	<script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
-<body class="min-height">
+<?php
+$themeClass = '';
+$themeClassBtn = '';
+if(!empty($_COOKIE['theme'])){
+	if($_COOKIE['theme'] == 'dark'){
+		$themeClass = 'dark-theme';
+		$themeClassBtn = 'checked';
+	}else if($_COOKIE['theme'] == 'light'){
+		$themeClass = 'light-theme';
+		$themeClassBtn = '';
+	}
+}
+?>
+<body class="min-height <?= $themeClass;?>">
 	<div class="cControlP">
 		<div class="cControlP__cont">
 			<?php require_once 'includes/dashboard-header-top.php'; ?>

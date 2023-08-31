@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../fonts/Poppins/Poppins-Light.ttf') format('truetype'),
+			 url('../../fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype'),
+			 url('../../fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype'),
+			 url('../../fonts/Poppins/Poppins-Bold.ttf') format('truetype'),
+			 url('../../fonts/Poppins/Poppins-Black.ttf') format('truetype');
+}
+
 /* FUENTES PRINCIPALES */
-	$theme-font-family							: 'Roboto', sans-serif;
+	$theme-font-family							: 'Poppins', sans-serif;
 
 // VARIABLES GENERALES DEL PROYECTO
 	$max-width											: 1360px;
@@ -14,7 +25,7 @@
 	$border-color-table							: #dee2e6;
 	$bgc-th-table										: #f2f2f2;
 	$border-radius_pri							: 6px;
-	$bg-color-main									: #F8FAFB;
+	// $bg-color-main									: #F8FAFB;
 // VARIABLES SECUNDARIAS
 	
 // CUSTOMS VARIABLES

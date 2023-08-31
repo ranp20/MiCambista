@@ -55,13 +55,16 @@
 					<h3 class="cFooter--contT--c--sec--c--title">Datos de contacto</h3>
 					<ul class="cFooter--contT--c--sec--c--m">
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link" title="contacto@memopay.net">contacto@memopay.net</a>
+							<!-- <a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link" title="contacto@memopay.net">contacto@memopay.net</a> -->
+							<span class="cFooter--contT--c--sec--c--m--txt">contacto@memopay.net</span>
 						</li>
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Lunes a Viernes 9 a.m - 7 p.m</a>
+							<!-- <a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Lunes a Viernes 9 a.m - 7 p.m</a> -->
+							<span class="cFooter--contT--c--sec--c--m--txt">Lunes a Viernes 9 a.m - 7 p.m</span>
 						</li>
 						<li class="cFooter--contT--c--sec--c--m--item">
-							<a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Sábados y Feriados 9 a.m - 2.30 p.m</a>
+							<!-- <a href="javascript:void(0);" id="" class="cFooter--contT--c--sec--c--m--link">Sábados y Feriados 9 a.m - 2.30 p.m</a> -->
+							<span class="cFooter--contT--c--sec--c--m--txt">Sábados y Feriados 9 a.m - 2.30 p.m</span>
 						</li>
 					</ul>
 				</div>

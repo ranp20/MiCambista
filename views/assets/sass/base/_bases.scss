@@ -10,17 +10,121 @@
 	box-sizing: border-box;
 	font-family: $theme-font-family;
 }
+/* CAMBIAR EL TEMA DE LA PÁGINA WEB - ENTRE DARK Y LIGHT */
+body{
+  --theme_color-text: #001F5A;
+  --theme_color-link-1: #001F5A;
+  --theme_color-text-title: #001F5A;
+	--theme_color-text-header-subtitle: #676767;
+  --theme_color-gb-prefixCurr: #001F5A;
+  --theme_color-gb-valuesRatesCurr: #001F5A;
+  --theme_color-input-bg-valuesDiviseCurr: #e9f6f6;
+  --theme_color-input-color-valuesDiviseCurr: #001F5A;
+  --theme_color-text-paragraph: #676767;
+  --theme_color-text-header: #676767;
+	--bkg-color: #fff;
+	--bg-color-main: #F8FAFB;
+	--bg-color-main-sections-bg-1: #fff;
+	--bg-color-main-sections-border-1: #fff;
+	--bg-color-footer: #001f5a;
+	// --bg-color-footer-fBottom: lighten($theme_color-text, 10%);
+	--bg-color-footer-fBottom: #002a8d;
+	--bg-color-footer-link-fBottom: #fff;
+	--theme_color-input-border: #D0D7DE;
+	--theme_color-input-bg: #fff;
+	--theme_color-input-color: #000;
+	--theme_color-button-shadow: 0 4px 3px 0 #DDDDDD;
+}
+body.dark-theme{
+  --theme_color-text: #eee;
+	--theme_color-link-1: #fff;
+	--theme_color-text-title: #fff;
+	--theme_color-text-header-subtitle: #7D858F;
+	// --theme_color-gb-prefixCurr: #010409;
+	--theme_color-gb-prefixCurr: #30363D;
+	--theme_color-gb-valuesRatesCurr: #fff;
+	--theme_color-input-bg-valuesDiviseCurr: #010409;
+	--theme_color-input-color-valuesDiviseCurr: #7D858F;
+	--theme_color-text-paragraph: #7D858F;
+	--theme_color-text-header: #fff;
+  --bkg-color: #010409;
+	--bg-color-main: #010409;
+	--bg-color-main-sections-bg-1: #0D1117;
+	--bg-color-main-sections-border-1: #21262D;
+	--bg-color-footer: #0D1117;
+	--bg-color-footer-fBottom: #010409;
+	--bg-color-footer-link-fBottom: #7D858F;
+	--theme_color-input-border: #30363D;
+	--theme_color-input-bg: #010409;
+	--theme_color-input-color: #fff;
+	--theme_color-button-shadow: 0 4px 3px 0 #0A0A0A;
+}
+
+@media (prefers-color-scheme: dark){
+  /* defaults to dark theme */
+  body{
+    --theme_color-text: #eee;
+		--theme_color-link-1: #fff;
+		--theme_color-text-title: #fff;
+		--theme_color-text-header-subtitle: #7D858F;
+		// --theme_color-gb-prefixCurr: #010409;
+		--theme_color-gb-prefixCurr: #30363D;
+		--theme_color-gb-valuesRatesCurr: #fff;
+		--theme_color-input-bg-valuesDiviseCurr: #010409;
+		--theme_color-input-color-valuesDiviseCurr: #7D858F;
+		--theme_color-text-paragraph: #7D858F;
+		--theme_color-text-header: #fff;
+    --bkg-color: #010409;
+		--bg-color-main: #010409;
+		--bg-color-main-sections-bg-1: #0D1117;
+		--bg-color-main-sections-border-1: #21262D;
+		--bg-color-footer: #0D1117;
+		--bg-color-footer-fBottom: #010409;
+		--bg-color-footer-link-fBottom: #7D858F;
+		--theme_color-input-border: #30363D;
+		--theme_color-input-bg: #010409;
+		--theme_color-input-color: #fff;
+		--theme_color-button-shadow: 0 4px 3px 0 #0A0A0A;
+  }
+  body.light-theme{
+    --theme_color-text: #001F5A;
+		--theme_color-link-1: #001F5A;
+		--theme_color-text-title: #001F5A;
+		--theme_color-text-header-subtitle: #676767;
+		--theme_color-gb-prefixCurr: #001F5A;
+		--theme_color-gb-valuesRatesCurr: #001F5A;
+		--theme_color-input-bg-valuesDiviseCurr: #e9f6f6;
+		--theme_color-input-color-valuesDiviseCurr: #001F5A;
+		--theme_color-text-paragraph: #676767;
+		--theme_color-text-header: #676767;
+    --bkg-color: #fff;
+		--bg-color-main: #F8FAFB;
+		--bg-color-main-sections-bg-1: #fff;
+		--bg-color-main-sections-border-1: #fff;
+		--bg-color-footer: #001f5a;
+		// --bg-color-footer-fBottom: lighten($theme_color-text, 10%);
+		--bg-color-footer-fBottom: #002a8d;
+		--bg-color-footer-link-fBottom: #fff;
+		--theme_color-input-border: #D0D7DE;
+		--theme_color-input-bg: #fff;
+		--theme_color-input-color: #000;
+		--theme_color-button-shadow: 0 4px 3px 0 #DDDDDD;
+  }
+}
+body{
+  background-color: var(--bkg-color);
+}
 a{
 	text-decoration: none;
 }
 ul{
 	list-style: none;
 }
-dl, ol, ul {
+dl, ol, ul{
   margin-top: 0;
   margin-bottom: 1rem;
 }
-ol, ul {
+ol, ul{
   padding-left: 2rem;
 }
 button,
@@ -44,7 +148,7 @@ input[readonly]{
 	user-select: none;
 }
 input::-ms-reveal,
-input::-ms-clear {
+input::-ms-clear{
   display: none;
 }
 strong, b{
@@ -444,22 +548,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
 	&.show{
 		display: flex;
@@ -526,7 +630,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $theme_color-text;
+				color: var(--theme_color-text);
 				font-size: 1.25rem;
 				@media (min-width: 768px){
 					font-size: 1.65rem;
@@ -797,7 +901,7 @@ strong, b{
 			}
 			label{
 				margin-left: 0.4rem;
-				color: $theme_color-text;
+				color: var(--theme_color-text);
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI CUENTA PERSONAL */
 			#msgerrorNouncheckedAccount{
@@ -851,22 +955,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
 
 	&.show{
@@ -909,7 +1013,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $theme_color-text;
+				color: var(--theme_color-text);
 				font-size: 1.25rem;
 
 				@media (min-width: 768px){
@@ -966,7 +1070,7 @@ strong, b{
 				line-height: 1.5;
 				outline: none;
 
-				&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
+				&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button{ 
 		    	-webkit-appearance: none;
 		    	margin: 0;
 		    }
@@ -996,7 +1100,7 @@ strong, b{
 			}
 			label{
 				margin-left: 0.4rem;
-				color: $theme_color-text;
+				color: var(--theme_color-text);
 				cursor: pointer;
 			}
 			/* MENSAJE DE ERROR - DECLARO QUE ES MI EMPRESA */
@@ -1054,22 +1158,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
 
 
@@ -1112,7 +1216,7 @@ strong, b{
 		&--cTitle{
 			margin-bottom: 1rem;
 			&--title{
-				color: $theme_color-text;
+				color: var(--theme_color-text);
 				font-size: 1.2rem;
 
 				@media (min-width: 768px){
@@ -1200,7 +1304,7 @@ strong, b{
 					}
 					span{
 						justify-self: flex-start;
-						color: $theme_color-text;
+						color: var(--theme_color-text);
 					}
 				}
 			}
@@ -1252,7 +1356,7 @@ strong, b{
 							margin-bottom: 0.5rem;
 						}
 						span{
-							color: $theme_color-text;
+							color: var(--theme_color-text);
 						}
 					}
 				}
@@ -1400,7 +1504,7 @@ strong, b{
 					line-height: 1.5;
 					outline: none;
 
-					&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button { 
+					&[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button{ 
 			    	-webkit-appearance: none;
 			    	margin: 0;
 			    }
@@ -1512,22 +1616,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
 	&.show{
 		display: flex;
@@ -1665,22 +1769,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
 	&.show{
 		display: flex;
@@ -1926,22 +2030,22 @@ strong, b{
 
 	/************************** REMOVER EL SCROLL  **************************/
 	/* ANCHO DE LA BARRA DE SCROLL */
-	&::-webkit-scrollbar { width: 0;}
+	&::-webkit-scrollbar{ width: 0;}
 	/* Estilos barra (thumb) de scroll */
-	&::-webkit-scrollbar-thumb {background: transparent;}
-	&::-webkit-scrollbar-thumb:active {background-color: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-thumb{background: transparent;}
+	&::-webkit-scrollbar-thumb:active{background-color: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
 	/* Estilos track de scroll */
-	&::-webkit-scrollbar-track {background: transparent;border-radius: unset;}
-	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active {background: transparent;}
+	&::-webkit-scrollbar-track{background: transparent;border-radius: unset;}
+	&::-webkit-scrollbar-track:hover, &::-webkit-scrollbar-track:active{background: transparent;}
 	/* scrollling */
 	/* ANCHO DEL SCROLLING */
-	&::-webkit-scrollbar {width: 0;}
-	&::-webkit-scrollbar-thumb {background: #cccc;border-radius: unset;}
-	&::-webkit-scrollbar-thumb:active {background: transparent;}
-	&::-webkit-scrollbar-thumb:hover {background: transparent;box-shadow: unset;}
-	&::-webkit-scrollbar-track {background: transparent;}
-	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover {background: transparent;}
+	&::-webkit-scrollbar{width: 0;}
+	&::-webkit-scrollbar-thumb{background: #cccc;border-radius: unset;}
+	&::-webkit-scrollbar-thumb:active{background: transparent;}
+	&::-webkit-scrollbar-thumb:hover{background: transparent;box-shadow: unset;}
+	&::-webkit-scrollbar-track{background: transparent;}
+	&::-webkit-scrollbar-track:active, &::-webkit-scrollbar-track:hover{background: transparent;}
 
   &.show{
   	display: flex;
@@ -1965,7 +2069,7 @@ strong, b{
 		pointer-events: none;
 		overflow-y: auto;
 
-		@keyframes movetobottomTransac {
+		@keyframes movetobottomTransac{
 			0%{
 				transform: translateY(100%);
 			}
@@ -1991,7 +2095,7 @@ strong, b{
 			animation-timing-function: ease-in-out;
 			pointer-events: none;
 
-			@keyframes movetorightTransac {
+			@keyframes movetorightTransac{
 				0%{
 					transform: translateY(0) translateX(100%);
 				}
@@ -2028,7 +2132,7 @@ strong, b{
 					padding: .5rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $theme_color-text;
+						color: var(--theme_color-text);
 						text-align: center;
 						font-weight: 500;
 					}
@@ -2051,7 +2155,7 @@ strong, b{
 								margin-bottom: .85rem;
 							}
 							p{
-								color: $theme_color-text;
+								color: var(--theme_color-text);
 								margin-bottom: 0;
 							}
 							span{
@@ -2106,7 +2210,7 @@ strong, b{
 					padding: 2rem 0 1rem 0;
 					h3{
 						font-size: 1.25rem;
-						color: $theme_color-text;
+						color: var(--theme_color-text);
 						text-align: center;
 						font-weight: 500;
 					}
@@ -2120,7 +2224,7 @@ strong, b{
 						padding: 0;
 						&--item{
 							& > p{
-								color: $theme_color-text;
+								color: var(--theme_color-text);
 							}
 
 							&--cAccBank{
@@ -2137,7 +2241,7 @@ strong, b{
 										display: flex;
 										align-items: center;
 										svg{
-											stroke: $theme_color-text;
+											stroke: var(--theme_color-text);
 											margin-left: 0.5rem;
 											cursor: pointer;
 										}
@@ -2146,10 +2250,10 @@ strong, b{
 									&:last-child{
 										p{
 											&:last-child{
-												color: $theme_color-text;
+												color: var(--theme_color-text);
 
 												svg{
-													stroke: $theme_color-text;
+													stroke: var(--theme_color-text);
 													margin-left: 0.5rem;
 													cursor: pointer;
 												}
@@ -2355,7 +2459,7 @@ strong, b{
 
 		&--title{
 			margin-bottom: 0.5rem;
-			color: $theme_color-text;
+			color: var(--theme_color-text);
 			@media (min-width: 1024px){
 				font-size: 1.65rem;
 			}
@@ -2668,7 +2772,7 @@ strong, b{
 		text-align: center;
 
 		h3{
-			color: $theme_color-text;
+			color: var(--theme_color-text);
 			font-size: 1.75rem;
 			margin-bottom: 0.5rem;
 		}
@@ -2698,7 +2802,7 @@ strong, b{
 
 			&__cValuesRates{
 				display: inline-block;
-				background-color: #fff;
+				background-color: var(--bg-color-main-sections-1);
 			  border-radius: 5px;
 				margin-bottom: 1rem;
 
@@ -2707,7 +2811,8 @@ strong, b{
 					display: inline-block;
 					padding: 0.65rem 1.15rem;
 					user-select: none;
-					color: $theme_color-text;
+					// color: var(--theme_color-text);
+					color: var(--theme_color-gb-valuesRatesCurr);
 					opacity: 0.45;
 
 					&.active{
@@ -2786,7 +2891,7 @@ strong, b{
 				font-size: 0.85rem;
 				
 				& > span{
-					color: $theme_color-text;
+					color: var(--theme_color-text);
 					text-align: left;
 					margin-right: auto;
 					font-size: 1rem;
@@ -2805,7 +2910,7 @@ strong, b{
 				  vertical-align: middle;
 					position: relative;
 				  margin-right: .35rem;
-				  fill: $theme_color-text;
+				  fill: var(--theme_color-text);
 				  width: 1em;
 				  height: 1em;
 				  font-size: 1.5rem;
@@ -2835,10 +2940,12 @@ strong, b{
 					margin: 0 auto 2rem auto;
 					//outline: thin solid $frmconvert_colorschema;
     			border-radius: 5px;
+					border: thin solid var(--bg-color-main-sections-border-1);
 
 					&__cPrefixCurrent{
 						display: inline-block;
-						background-color: $theme_color-text;
+						// background-color: var(--theme_color-text);
+						background-color: var(--theme_color-gb-prefixCurr);
 						max-width: 85px;
 						width: 100%;
 						border-radius: 5px 0 0 5px;
@@ -2860,7 +2967,8 @@ strong, b{
 
 						span{
 							position: absolute;
-						  color: $theme_color-text;
+						  // color: var(--theme_color-text);
+							color: var(--theme_color-input-color-valuesDiviseCurr);
 						  user-select: none;
 						}
 						span:first-child{
@@ -2886,12 +2994,14 @@ strong, b{
 							font-size: $frmconvert_fontsize-convert;
 							line-height: $frmconvert_line-height;
 							border: none;
-							color: $theme_color-text;
+							// color: var(--theme_color-text);
+							color: var(--theme_color-input-color-valuesDiviseCurr);
 							text-align: right;
 						}
 
 						input.w-backgrouncolor{
-							background-color: #e9f6f6;
+							// background-color: #e9f6f6;
+							background-color: var(--theme_color-input-bg-valuesDiviseCurr);
 						}
 
 						&.toInitLeft{
@@ -2936,9 +3046,11 @@ strong, b{
 				  align-items: center;
 				  justify-content: center;
 				  text-align: center;
-				  border: none;
+				  // border: none;
+				  border: 4px solid #fff;
 				  border-radius: 50%;
-				  box-shadow: inset 0 0 0 3px #fff;
+				  // box-shadow: inset 0 0 0 3px #fff;
+				  box-shadow: inset 0 0 0 4px darken($theme_color_buttons, 10);
 				  background-color: $theme_color_buttons;
 				  position: absolute;
 				  top: 50%;
@@ -2953,14 +3065,16 @@ strong, b{
 					  justify-content: center;
 					  text-align: center;
 					  vertical-align: middle;
-					  width: calc($frmconvert_widthyheightbutton) - 20px;
-					  height: calc($frmconvert_widthyheightbutton) - 20px;
+					  width: calc($frmconvert_widthyheightbutton) - 22px;
+					  height: calc($frmconvert_widthyheightbutton) - 22px;
 					  transform: rotate(0);
 					  transition: all ease-in-out .4s;
 						
 						svg{
 							width: 100%;
 							height: 100%;
+							position: relative;
+							top: 2px;
 						}
 					}
 					&.active span{
@@ -2977,7 +3091,7 @@ strong, b{
 				  flex-flow: nowrap row;
 				  align-items: center;
 				  justify-content: center;
-				  color: $theme_color-text;
+				  color: var(--theme_color-text);
 				  margin: 0 .0 .5rem 0;
 
 					h1,h2,h3,h4,h5,h6,span{
@@ -2987,7 +3101,7 @@ strong, b{
 						display: table;
 						vertical-align: middle;
 						margin-left: 0.85rem;
-						fill: $theme_color-text;
+						fill: var(--theme_color-text);
 					}
 				}
 
@@ -2996,7 +3110,7 @@ strong, b{
 				  flex-flow: nowrap row;
 				  align-items: center;
 				  justify-content: center;
-				  color: $theme_color-text;
+				  color: var(--theme_color-text);
 				  margin: 0.75rem 0 .7rem 0;
 
 					h1,h2,h3,h4,h5,h6,span{
@@ -3004,7 +3118,7 @@ strong, b{
 					}
 					svg{
 						margin-left: 0.85rem;
-						fill: $theme_color-text;
+						fill: var(--theme_color-text);
 					}
 				}
 
@@ -3013,7 +3127,7 @@ strong, b{
 				  flex-flow: nowrap row;
 				  align-items: center;
 				  justify-content: center;
-				  color: $theme_color-text;
+				  color: var(--theme_color-text);
 				  margin: 0 .0 .5rem 0;
 
 					h1,h2,h3,h4,h5,h6,span{
@@ -3098,7 +3212,7 @@ strong, b{
 				    justify-content: flex-start;
 
 				    svg{
-				    	fill: $theme_color-text;
+				    	fill: var(--theme_color-text);
 
 				    	&:first-child{
 				    		position: relative;
@@ -3112,7 +3226,7 @@ strong, b{
 				    	}
 				    }
 				    span{
-				    	color: $theme_color-text;
+				    	color: var(--theme_color-text);
 				    }
 			    }
 
@@ -3135,7 +3249,7 @@ strong, b{
 				line-height: 2.85rem;
 				border-radius: 5px;
 				border: none;
-				box-shadow: 0 4px 3px 0 #ddd;
+				box-shadow: var(--theme_color-button-shadow);
 				cursor: pointer;
 				font-size: 1rem;
 				display: flex;
@@ -3202,7 +3316,7 @@ strong, b{
 	}
 	&__cTitle{
 		margin-bottom: 1.15rem;
-		color: $theme_color-text;
+		color: var(--theme_color-text);
 		h1,h2,h3,h4,h5,h6,p{
 			font-size: 1.75rem;
 		}
@@ -3317,18 +3431,18 @@ strong, b{
   align-items: center;
   justify-content: center;
 }
-.cSwitchTgg__scheme label {
+.cSwitchTgg__scheme label{
 	width: 70px;
 	height: 30px;
 	position: relative;
 	display: block;
 	background: #ebebeb;
 	border-radius: 200px;
-	box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+	box-shadow: inset 0px 5px 15px rgba(0,0,0,0.2), inset 0px -5px 15px rgba(255,255,255,0.2);
 	cursor: pointer;
 	transition: 0.3s;
 }
-.cSwitchTgg__scheme label:after {
+.cSwitchTgg__scheme label:after{
 	content: "";
 	width: 30px;
 	height: 30px;
@@ -3340,15 +3454,15 @@ strong, b{
 	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 	transition: 0.3s;
 }
-.cSwitchTgg__scheme input {
+.cSwitchTgg__scheme input{
 	width: 0;
 	height: 0;
 	visibility: hidden;
 }
-.cSwitchTgg__scheme input:checked + label {
+.cSwitchTgg__scheme input:checked + label{
 	background: #242424;
 }
-.cSwitchTgg__scheme input:checked + label:after {
+.cSwitchTgg__scheme input:checked + label:after{
 	left: 70px;
 	transform: translateX(-100%);
 	background: linear-gradient(180deg,#777,#3a3a3a);
@@ -3356,7 +3470,7 @@ strong, b{
 .cSwitchTgg__scheme label:active:after{
 	width: 30px;
 }
-.background {
+.background{
 	width:100vw;
 	height: 100vh;
 	background: #fff;
@@ -3364,32 +3478,28 @@ strong, b{
 	position: absolute;
 	transition: 0.3s;
 }
-.cSwitchTgg__scheme input:checked + label + .background {
+.cSwitchTgg__scheme input:checked + label + .background{
 	background:#242424;
 }
-.cSwitchTgg__scheme label svg {
+.cSwitchTgg__scheme label svg{
 	position: absolute;
 	width: 26px;
 	top: 4px;
 	z-index: 100;
 }
-.cSwitchTgg__scheme label svg.sun {
+.cSwitchTgg__scheme label svg.sun{
 	left: 1px;
 	fill: #fff;
 	transition: 0.3s;
 }
-.cSwitchTgg__scheme label svg.moon {
+.cSwitchTgg__scheme label svg.moon{
 	left: 42px;
 	fill:#7e7e7e;
 	transition: 0.3s;
 }
-.cSwitchTgg__scheme input:checked + label svg.sun {
+.cSwitchTgg__scheme input:checked + label svg.sun{
 	fill:#7e7e7e;
 }
-.cSwitchTgg__scheme input:checked + label svg.moon {
+.cSwitchTgg__scheme input:checked + label svg.moon{
 	fill:#fff;
-}
-/* CAMBIAR EL TEMA DE LA PÁGINA WEB - ENTRE DARK Y LIGHT */
-@media (prefers-color-scheme: dark){
-	
 }

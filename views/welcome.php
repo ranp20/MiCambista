@@ -10,6 +10,17 @@ if(!isset($_SESSION['cli_sessmemopay'])){
 	}
 }
 require_once '../php/process_data-list.php';
+$themeClass = '';
+$themeClassBtn = '';
+if(!empty($_COOKIE['theme'])){
+	if($_COOKIE['theme'] == 'dark'){
+		$themeClass = 'dark-theme';
+		$themeClassBtn = 'checked';
+	}else if($_COOKIE['theme'] == 'light'){
+		$themeClass = 'light-theme';
+		$themeClassBtn = '';
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,7 +28,7 @@ require_once '../php/process_data-list.php';
 	<title>Memopay | Bienvenida </title>
 	<?php require_once 'includes/header_links.php'; ?>
 </head>
-<body>
+<body class="<?php echo $themeClass; ?>">
 	<div class="cControlP">
 		<div class="cControlP__cont">
 			<?php require_once 'includes/dashboard-header-top.php'; ?>

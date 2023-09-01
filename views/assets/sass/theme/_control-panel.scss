@@ -216,7 +216,7 @@ $top-header-desktop: 85px;
 
 			&--c{
 				overflow-y: auto;
-				background-color: $theme_color-text-white;
+				background-color: var(--bg-color-dcli-sideLeft);
 				height: 100%;
 				width: 75%;
 				max-width: 17rem;

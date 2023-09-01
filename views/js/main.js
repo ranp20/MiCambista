@@ -32,25 +32,9 @@ document.body.addEventListener("load", (e) => {
 
 
 $(() => {
-	
-	function getCookie(cookie_name) {
-		let name = cookie_name + "=";
-		let cookie_array = document.cookie.split(';');
-		for(let i = 0; i < cookie_array.length; i++) {
-			let cookie = cookie_array[i];
-			while (cookie.charAt(0) == ' ') {
-				cookie = cookie.substring(1);
-			}
-			if (cookie.indexOf(name) == 0) {
-				return cookie.substring(name.length, cookie.length);
-			}
-		}
-		return "";
-	}
-
+	// ------------ CAMBIAR ENTRE TEMAS - LIGHT/DARK
 	const $btn = document.querySelector("#darkmode-toggle");
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-  
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");  
 	$(document).on("click","#darkmode-toggle",function(){
 		if(prefersDarkScheme.matches){
 			if($(this).is(':checked')){

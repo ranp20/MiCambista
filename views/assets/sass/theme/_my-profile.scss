@@ -17,18 +17,21 @@
 				padding: 0;
 			}
 			&--title{
-				color: $theme_color-text;
+				color: var(--bg-color-dcli-sections-title-1);
 				margin-bottom: 0.5rem;
 			}
 			&--desc{
 				line-height: 1.5;
+				color: var(--theme_color-text-paragraph);
 			}
 		}
 		&--cDataUser{
-			background-color: #fff;
+			// background-color: #fff;
 			border-radius: 1.5rem;
 			box-shadow: 0 5px 30px 1px rgba(0,0,0,.1);
 			padding: 1.5rem;
+			background-color: var(--bg-color-dcli-sections-bg-1);
+			border: thin solid var(--bg-color-dcli-sections-border-1);
 			@media (min-width: 768px){
 				padding: 2.5rem 3rem;
 			}
@@ -45,10 +48,11 @@
 					margin-bottom: 1rem;
 					line-height: 1.35;
 					&--label{
-						color: $theme_color-text;
+						color: var(--bg-color-dcli-sections-title-1);
 						font-weight: 500;
 					}
 					&--input{
+						color: var(--theme_color-text-paragraph);
 					}
 					&--cUptData{
 						display: flex;
@@ -57,7 +61,7 @@
 				    justify-content: space-between;
 				    flex: 0 0 100%;
 				    &--txt{
-
+							color: var(--theme_color-text-paragraph);
 				    }
 				    &--cIcon{
 				    	cursor: pointer;
@@ -80,10 +84,12 @@
 				      position: relative;
 					    display: block;
 					    width: 100%;
-					    border: thin solid #ddd;
-					    border-radius: 5px;
 					    padding: .4rem 4rem .5rem 0.65rem;
 					    margin: 0.5rem 0 0 0;
+							border-radius: 6px;
+							border: thin solid var(--theme_color-input-border);
+							background-color: var(--theme_color-input-bg);
+							color: var(--theme_color-input-color);
 					    input{
 					    	display: block;
 					    	outline: none;
@@ -91,6 +97,9 @@
 					    	line-height: 1;
 					    	width: 100%;
 					    	height: 100%;
+								border: none;
+								background-color: var(--theme_color-input-bg);
+								color: var(--theme_color-input-color);
 					    }
 					    button{
 					    	position: absolute;
@@ -101,6 +110,7 @@
 					    	margin: 0;
 					    	background-color: transparent;
 					    	top: 6px;
+								cursor: pointer;
 					    	svg{
 					    		vertical-align: top;
 					    	}
@@ -252,7 +262,7 @@
 						}
 						span{
 							//vertical-align: middle;
-							color: $color-paragraph;
+							color: var(--theme_color-text-paragraph);
 						}
 					}
 				}

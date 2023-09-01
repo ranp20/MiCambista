@@ -80,7 +80,10 @@
 			margin-left: auto;
 			margin-right: auto;
 			&--title{
-				color: $theme_color-text;
+				color: var(--bg-color-dcli-sections-title-1);
+			}
+			&--desc{
+				color: var(--theme_color-text-paragraph);
 			}
 		}
 		&--cF{
@@ -110,18 +113,19 @@
 			  /* LISTADO DE BANCOS */
 			  &--cSelItem{
 					width: 100%;
-					border: thin solid #ddd;
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-					background-color: #fff;
 					padding: 0.8rem 1rem;
-					border-radius: 5px;
 					cursor: pointer;
 					position: relative;
 					min-height: 48px;
 					max-height: 48px;
 					height: auto;
+					border-radius: 6px;
+					border: thin solid var(--theme_color-input-border);
+					background-color: var(--theme_color-input-bg);
+					color: var(--theme_color-input-color);
 					&--cInputFake_CData{
 						display: flex;
 						align-items: center;
@@ -209,8 +213,8 @@
 					display: block;
 			    width: 100%;
 			    margin-bottom: 0.5rem;
-			    color: $color-paragraph;
 			    font-size: 0.95rem;
+					color: var(--theme_color-text-paragraph);
 				}
 				&--clistaddBanks{
 					width: 100%;
@@ -224,18 +228,19 @@
 					/* LISTADO DE CUENTAS BANCARIAS */
 				  &--cSelItem{
 						width: 100%;
-						border: thin solid #ddd;
 						display: flex;
 						align-items: center;
 						justify-content: space-between;
-						background-color: #fff;
 						padding: 0.8rem 1rem;
-						border-radius: 5px;
 						cursor: pointer;
 						position: relative;
 						min-height: 48px;
 						max-height: 48px;
 						height: auto;
+						border-radius: 6px;
+						border: thin solid var(--theme_color-input-border);
+						background-color: var(--theme_color-input-bg);
+						color: var(--theme_color-input-color);
 						/* MENSAJE DE ERROR - NOMBRE DE BANCO */
 						#msgerrorNounSelBank{
 					    color: red;

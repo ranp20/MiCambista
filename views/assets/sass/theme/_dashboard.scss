@@ -1,7 +1,7 @@
 #genCont-cli-dashboard{
 	min-height: unset;
 	height: 100%;
-  background-color: #eee;
+  background-color: var(--bg-color-dcli-main);
   position: relative;
   top: 80px;
   .cControlP__cont--containDash--c{
@@ -53,27 +53,28 @@
 						margin-bottom: .5rem;
 						&--cIcon{
 							svg{
-								stroke: $theme_color-text;
+								stroke: var(--bg-color-dcli-sections-title-1);
 								margin-right: 0.2rem;
 							}
 							span{
 								position: relative;
 								font-size: 1.1rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								vertical-align: top;
 							}
 						}
 					}
 					&--cList{
-						background-color: #fff;
 						border-radius: 1.2rem;
 						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
 						padding: 1.8rem;
+						background-color: var(--bg-color-dcli-sections-bg-1);
+						border: thin solid var(--bg-color-dcli-sections-border-1);
 						&--cDollarsToSoles{
 							margin-bottom: 2rem;
 							h1,h2,h3,h4,h5,h6{
 								padding-bottom: 0.5rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								font-size: 1.5rem;
 							}
 						}
@@ -81,7 +82,7 @@
 							margin-bottom: 1rem;
 							h1,h2,h3,h4,h5,h6{
 								padding-bottom: 0.5rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								font-size: 1.5rem;
 							}
 						}
@@ -100,27 +101,29 @@
 						margin-bottom: .5rem;
 						&--cIcon{
 							svg{
-								stroke: $theme_color-text;
+								stroke: var(--bg-color-dcli-sections-title-1);
 								margin-right: 0.5rem;
 							}
 							span{
 								position: relative;
 								font-size: 1.1rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								vertical-align: top;
 							}
 						}
 						a{
-							color: $theme_color-text;
+							color: var(--bg-color-dcli-sections-title-1);
 							font-size: 0.8rem;
 							text-decoration: underline;
 						}
 					}
 					&--cList{
-						background-color: #fff;
+						// background-color: #fff;
 						border-radius: 1.2rem;
 						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
 						padding: .65rem 1rem;
+						background-color: var(--bg-color-dcli-sections-bg-1);
+						border: thin solid var(--bg-color-dcli-sections-border-1);
 						&--m{
 							padding: 0;
 							margin: 0;
@@ -241,7 +244,7 @@
 					h2{
 						font-size: 1.2rem;
 						font-weight: bold;
-						color: $theme_color-text;
+						color: var(--bg-color-dcli-sections-title-1);
 					}
 				}
 				&--SolesChanges{
@@ -252,19 +255,19 @@
 						margin-bottom: .8rem;	
 						&--cIcon{
 							svg{
-								stroke: $theme_color-text;
+								stroke: var(--bg-color-dcli-sections-title-1);
 								margin-right: 0.5rem;
 							}
 							span{
 								position: relative;
 								font-size: 1.1rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								vertical-align: top;
 							}
 						}
 					}
 					&--cList{
-						background-color: #fff;
+						// background-color: #fff;
 						border-radius: 1.2rem;
 						overflow: hidden;
 						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
@@ -272,6 +275,8 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						background-color: var(--bg-color-dcli-sections-bg-1);
+						border: thin solid var(--bg-color-dcli-sections-border-1);
 						h2{
 							color: $theme_color-links;
 							font-size: 1.5rem;
@@ -287,19 +292,19 @@
 						margin-bottom: .8rem;	
 						&--cIcon{
 							svg{
-								stroke: $theme_color-text;
+								stroke: var(--bg-color-dcli-sections-title-1);
 								margin-right: 0.2rem;
 							}
 							span{
 								position: relative;
 								font-size: 1.1rem;
-								color: $theme_color-text;
+								color: var(--bg-color-dcli-sections-title-1);
 								vertical-align: top;
 							}
 						}
 					}
 					&--cList{
-						background-color: #fff;
+						// background-color: #fff;
 						border-radius: 1.2rem;
 						overflow: hidden;
 						box-shadow: 0 10px 20px 1px rgba(0,0,0,.05);
@@ -307,6 +312,8 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						background-color: var(--bg-color-dcli-sections-bg-1);
+						border: thin solid var(--bg-color-dcli-sections-border-1);
 						h2{
 							color: $theme_color-links;
 							font-size: 1.5rem;

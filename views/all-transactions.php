@@ -39,7 +39,7 @@ if(!empty($_COOKIE['theme'])){
 	}
 }
 ?>
-<body class="min-height <?= $themeClass;?>">
+<body class="min-height dsh-cli <?= $themeClass;?>">
 	<div class="cControlP">
 		<div class="cControlP__cont">
 			<?php require_once 'includes/dashboard-header-top.php'; ?>

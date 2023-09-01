@@ -83,7 +83,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
 											<span>Perfil ${nametype_profile}</span>
 										</span>
-										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon cxbg-rounded'>
 											<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
@@ -123,7 +123,7 @@ $(document).on("submit", "#form-AddAccountEnterprise", function(e){
 											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
 												<span>Perfil ${nametype_profile}</span>
 											</span>
-											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon cxbg-rounded'>
 												<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 											</span>
 											<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
@@ -308,7 +308,7 @@ function list_multiprofiles(){
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
 										<span>Perfil ${nametype_profile}</span>
 									</span>
-									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon cxbg-rounded'>
 										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
@@ -348,7 +348,7 @@ function list_multiprofiles(){
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
 											<span>Perfil ${nametype_profile}</span>
 										</span>
-										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon cxbg-rounded'>
 											<img src='./views/assets/img/svg/company-or-enterprise.svg' alt='' width='100' height='100'>
 										</span>
 										<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>
@@ -382,7 +382,7 @@ function list_multiprofiles(){
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cNameProfile'>
 										<span>Perfil ${nametype_profile}</span>
 									</span>
-									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon'>
+									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__cIcon cxbg-rounded'>
 										<img src='./views/assets/img/svg/male-dark.svg' alt='' width='100' height='100'>
 									</span>
 									<span class='cControlP__cont--containDash--c__cBtnsOpts-m--link__cInfoProfile__ctitle'>

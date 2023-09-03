@@ -15,11 +15,11 @@ $classCli = new CLient();
 $list_stvalidation = $classCli->get_status_biometric_validation($_SESSION['cli_sessmemopay'][0]['id']);
 $themeClass = '';
 $themeClassBtn = '';
-if(!empty($_COOKIE['theme'])){
-	if($_COOKIE['theme'] == 'dark'){
+if(!empty($_COOKIE['prjMemopay-theme'])){
+	if($_COOKIE['prjMemopay-theme'] == 'dark'){
 		$themeClass = 'dark-theme';
 		$themeClassBtn = 'checked';
-	}else if($_COOKIE['theme'] == 'light'){
+	}else if($_COOKIE['prjMemopay-theme'] == 'light'){
 		$themeClass = 'light-theme';
 		$themeClassBtn = '';
 	}

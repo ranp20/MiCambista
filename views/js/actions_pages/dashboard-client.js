@@ -100,6 +100,6 @@ $(() => {
 				}
 			}
 		}
-		document.cookie = "theme=" + theme;
+		document.cookie = "prjMemopay-theme=" + theme;
 	});
 });

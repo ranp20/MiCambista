@@ -242,6 +242,11 @@
 					    	-webkit-appearance: none;
 					    	margin: 0;
 					    }
+							border: thin solid var(--theme_color-input-border);
+							background-color: var(--theme_color-input-bg);
+							color: var(--theme_color-input-color);
+							padding: .7rem 2.35rem .7rem .5rem;
+    					border-radius: 6px;
 							&[type=number]{ 
 								-moz-appearance:textfield;
 							}

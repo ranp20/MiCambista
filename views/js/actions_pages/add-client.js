@@ -208,3 +208,32 @@ $(document).on("submit", "#frm-accountRegCli", function(e){
     });
 	}
 });
+// ------------ CAMBIAR ENTRE TEMAS - LIGHT/DARK
+const $btn = document.querySelector("#darkmode-toggle");
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");  
+$(document).on("click","#darkmode-toggle",function(){
+	if(prefersDarkScheme.matches){
+		if($(this).is(':checked')){
+			if($('body').hasClass('dark-theme')){
+				$('body').removeClass('dark-theme');
+				$('body').addClass('light-theme');
+				var theme = $('body').hasClass("dark-theme") ? "dark" : "light";
+			}else{
+				$('body').removeClass('light-theme');
+				$('body').addClass('dark-theme');
+				var theme = $('body').hasClass("dark-theme") ? "dark" : "light";
+			}
+		}else{
+			if($('body').hasClass('dark-theme')){
+				$('body').removeClass('dark-theme');
+				$('body').addClass('light-theme');
+				var theme = $('body').hasClass("dark-theme") ? "dark" : "light";
+			}else{
+				$('body').removeClass('light-theme');
+				$('body').addClass('dark-theme');
+				var theme = $('body').hasClass("dark-theme") ? "dark" : "light";
+			}
+		}
+	}
+	document.cookie = "prjMemopay-theme=" + theme;
+});

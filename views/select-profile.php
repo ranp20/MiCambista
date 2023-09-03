@@ -17,11 +17,11 @@ if(!isset($_SESSION['cli_sessmemopay'])){
 require_once '../php/process_data-list.php';
 $themeClass = '';
 $themeClassBtn = '';
-if(!empty($_COOKIE['theme'])){
-	if($_COOKIE['theme'] == 'dark'){
+if(!empty($_COOKIE['prjMemopay-theme'])){
+	if($_COOKIE['prjMemopay-theme'] == 'dark'){
 		$themeClass = 'dark-theme';
 		$themeClassBtn = 'checked';
-	}else if($_COOKIE['theme'] == 'light'){
+	}else if($_COOKIE['prjMemopay-theme'] == 'light'){
 		$themeClass = 'light-theme';
 		$themeClassBtn = '';
 	}

@@ -22,7 +22,6 @@
 		}
 		&--cMsgWelcome{
 			grid-area: welcome;
-			background-color: #fffbdb;
 			background-image: url("../../assets/img/svg/welcome-mobile-1.svg");
 			border-radius: 1.25rem;
 			overflow: hidden;
@@ -34,6 +33,8 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 			min-height: 15rem;
+			background-color: var(--bg-color-main-sections-bg-2);
+    	border: thin solid var(--bg-color-main-sections-border-1);
 			@media (min-width: 768px){
 				background-image: url("../../assets/img/svg/welcome-desktop-1.svg");
 				align-items: center;
@@ -42,10 +43,10 @@
 			&--cTitle{
 				width: 73%;
 				&--title{
-					color: $color-paragraph;
 					margin-bottom: 0.5rem;
 					font-size: 1.2rem;
 					line-height: 1.5;
+					color: var(--bg-color-dcli-sections-title-1);
 					@media (min-width: 768px){
 						font-size: 1.5rem;
 					}
@@ -53,6 +54,7 @@
 				&--desc{
 					line-height: 1.5;
 					font-size: 0.9rem;
+					color: var(--theme_color-text-paragraph);
 					@media (min-width: 768px){
 						font-size: 1rem;
 					}
@@ -61,7 +63,7 @@
 		}
 		&--cGotoConvert{
 			grid-area: convert;
-			background-color: #fff;
+			// background-color: #fff;
 			background-image: url("../../assets/img/svg/card-2.svg");
 			border-radius: 1.25rem;
 			overflow: hidden;
@@ -73,6 +75,8 @@
 			align-items: flex-start;
 			justify-content: center;
 			min-height: 15rem;
+			background-color: var(--bg-color-main-sections-bg-1);
+    	border: thin solid var(--bg-color-main-sections-border-1);
 			@media (min-width: 768px){
 				max-width: 36rem;
     		min-height: 19rem;
@@ -81,10 +85,11 @@
 			}
 			&--cTitle{
 				&--title{
-					color: $theme_color-text;
+					// color: $theme_color-text;
 					margin-bottom: 0.5rem;
 					line-height: 1.5;
 					font-size: 1.1rem;
+					color: var(--bg-color-dcli-sections-title-1);
 					@media (min-width: 768px){
 						font-size: 1.3rem;
 					}
@@ -93,6 +98,7 @@
 					margin-bottom: 1rem;
 					line-height: 1.5;
 					font-size: 0.9rem;
+					color: var(--theme_color-text-paragraph);
 					@media (min-width: 768px){
 						font-size: 1rem;
 					}
@@ -100,7 +106,7 @@
 				&--btnlinkmobile{
 					display: inline-block;
 					padding: 0.8rem 1.5rem;
-					border-radius: .6rem;
+					border-radius: 6px;
 					background-color: $theme_color_buttons;
 					color: $theme_color-text-header;
 					transition: ease-out .2s;
@@ -115,7 +121,7 @@
 				&--btnlinkdesktop{
 					display: none;
 					padding: 0.8rem 1.5rem;
-					border-radius: .6rem;
+					border-radius: 6px;
 					background-color: $theme_color_buttons;
 					color: $theme_color-text-header-2;
 					transition: ease-out .2s;
@@ -181,7 +187,7 @@
 				&--btnlinkmobile{
 					display: inline-block;
 					padding: 0.8rem 1.5rem;
-					border-radius: .6rem;
+					border-radius: 6px;
 					background-color: $theme_color_buttons;
 					color: $theme_color-text-header;
 					transition: ease-out .2s;
@@ -195,7 +201,7 @@
 				&--btnlinkdesktop{
 					display: none;
 					padding: 0.8rem 1.5rem;
-					border-radius: .6rem;
+					border-radius: 6px;
 					background-color: $theme_color_buttons;
 					color: $theme_color-text-header;
 					transition: ease-out .2s;

@@ -6,11 +6,11 @@ $call_config = new Settings_all();
 $g_setting = $call_config->get_config();
 $themeClass = '';
 $themeClassBtn = '';
-if(!empty($_COOKIE['theme'])){
-	if($_COOKIE['theme'] == 'dark'){
+if(!empty($_COOKIE['prjMemopay-theme'])){
+	if($_COOKIE['prjMemopay-theme'] == 'dark'){
 		$themeClass = 'dark-theme';
 		$themeClassBtn = 'checked';
-	}else if($_COOKIE['theme'] == 'light'){
+	}else if($_COOKIE['prjMemopay-theme'] == 'light'){
 		$themeClass = 'light-theme';
 		$themeClassBtn = '';
 	}

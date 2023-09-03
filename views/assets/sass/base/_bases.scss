@@ -26,10 +26,12 @@
 		--theme_color-input-color-valuesDiviseCurr: #7D858F;
 		--theme_color-text-paragraph: #7D858F;
 		--theme_color-text-paragraph-2: #7D858F;
+		--theme_color-text-paragraph-3: #7D858F;
 		--theme_color-text-header: #fff;
     --bkg-color: #010409;
 		--bg-color-main: #010409;
 		--bg-color-main-sections-bg-1: #0D1117;
+		--bg-color-main-sections-bg-2: #0D1117;
 		--bg-color-main-sections-border-1: #21262D;
 		--bg-color-main-sections-shadow-1: 0 4px 3px 0 #0A0A0A;
 		--bg-color-main-sections-select-1: #30363D;
@@ -47,11 +49,11 @@
 		--bg-color-dcli-sections-link-1: #fff;
 		--bg-color-dcli-sections-border-1: #21262D;
 		--bg-color-dcli-sideLeft: #0D1117;
-		--bg-color-dcli-sideRight: #0D1117;
 		--bg-color-dcli-sideLeft-header: #010409;
 		--bg-color-dcli-sideLeft-link: #7D858F;
 		--bg-color-dcli-sideLeft-link-bg-hover: #fff;
 		--bg-color-dcli-sideLeft-link-hover: #0D1117;
+		--bg-color-dcli-sideRight: #0D1117;
 		/* VARIABLES PARA SWEETALERT2 */
 		--theme_color-plugin-swal2-title: #fff;
   }
@@ -67,10 +69,12 @@
 		--theme_color-input-color-valuesDiviseCurr: #001F5A;
 		--theme_color-text-paragraph: #676767;
 		--theme_color-text-paragraph-2: #001F5A;
+		--theme_color-text-paragraph-3: #fff;
 		--theme_color-text-header: #676767;
     --bkg-color: #fff;
 		--bg-color-main: #F8FAFB;
 		--bg-color-main-sections-bg-1: #fff;
+		--bg-color-main-sections-bg-2: #fffbdb;
 		--bg-color-main-sections-border-1: #fff;
 		--bg-color-main-sections-shadow-1: 0 4px 5px 0 #ddd;
 		--bg-color-main-sections-select-1: #fff;
@@ -89,11 +93,11 @@
 		--bg-color-dcli-sections-link-1: #001f5a;
 		--bg-color-dcli-sections-border-1: #ddd;
 		--bg-color-dcli-sideLeft: #002a8d;
-		--bg-color-dcli-sideRight: #001f5a;
 		--bg-color-dcli-sideLeft-header: #001f5a;
 		--bg-color-dcli-sideLeft-link: #fff;
 		--bg-color-dcli-sideLeft-link-bg-hover: #fff;
 		--bg-color-dcli-sideLeft-link-hover: #001f5a;
+		--bg-color-dcli-sideRight: #001f5a;
 		/* VARIABLES PARA SWEETALERT2 */
 		--theme_color-plugin-swal2-title: inherit;
   }
@@ -110,6 +114,7 @@ body{
 	--theme_color-input-color-valuesDiviseCurr: #001F5A;
 	--theme_color-text-paragraph: #676767;
 	--theme_color-text-paragraph-2: #001F5A;
+	--theme_color-text-paragraph-3: #fff;
 	--theme_color-text-header: #676767;
 	--bkg-color: #fff;
 	--bg-color-main: #F8FAFB;
@@ -128,15 +133,16 @@ body{
 	/* VARIABLES PARA EL PANEL DEL CLIENTE */
 	--bg-color-dcli-main: #eee;
 	--bg-color-dcli-sections-bg-1: #fff;
+	--bg-color-main-sections-bg-2: #fffbdb;
 	--bg-color-dcli-sections-title-1: #001f5a;
 	--bg-color-dcli-sections-link-1: #001f5a;
 	--bg-color-dcli-sections-border-1: #ddd;
 	--bg-color-dcli-sideLeft: #002a8d;
-	--bg-color-dcli-sideRight: #001f5a;
 	--bg-color-dcli-sideLeft-header: #001f5a;
 	--bg-color-dcli-sideLeft-link: #fff;
 	--bg-color-dcli-sideLeft-link-bg-hover: #fff;
 	--bg-color-dcli-sideLeft-link-hover: #001f5a;
+	--bg-color-dcli-sideRight: #001f5a;
 	/* VARIABLES PARA SWEETALERT2 */
 	--theme_color-plugin-swal2-title: inherit;
 }
@@ -153,6 +159,7 @@ body.dark-theme{
 	--theme_color-input-color-valuesDiviseCurr: #7D858F;
 	--theme_color-text-paragraph: #7D858F;
 	--theme_color-text-paragraph-2: #7D858F;
+	--theme_color-text-paragraph-3: #7D858F;
 	--theme_color-text-header: #fff;
   --bkg-color: #010409;
 	--bg-color-main: #010409;
@@ -170,15 +177,16 @@ body.dark-theme{
 	/* VARIABLES PARA EL PANEL DEL CLIENTE */
 	--bg-color-dcli-main: #010409;
 	--bg-color-dcli-sections-bg-1: #0d1117;
+	--bg-color-main-sections-bg-2: #0D1117;
 	--bg-color-dcli-sections-title-1: #fff;
 	--bg-color-dcli-sections-link-1: #fff;
 	--bg-color-dcli-sections-border-1: #21262D;
 	--bg-color-dcli-sideLeft: #0D1117;
-	--bg-color-dcli-sideRight: #0D1117;
 	--bg-color-dcli-sideLeft-header: #010409;
 	--bg-color-dcli-sideLeft-link: #7D858F;
 	--bg-color-dcli-sideLeft-link-bg-hover: #fff;
 	--bg-color-dcli-sideLeft-link-hover: #0D1117;
+	--bg-color-dcli-sideRight: #0D1117;
 	/* VARIABLES PARA SWEETALERT2 */
 	--theme_color-plugin-swal2-title: #fff;
 }
@@ -2507,7 +2515,6 @@ strong, b{
 	}
 
 	.box-ModalValidAccBiometric--c{
-		background-color: #fff;
 		max-width: 450px;
 		width: 95%;
 		color: $theme_color-links;
@@ -2519,7 +2526,8 @@ strong, b{
 		animation-duration: .2s;
 		animation-timing-function: ease-in-out;
 		animation-fill-mode: forwards;
-
+		background-color: var(--bg-color-main-sections-bg-1);
+    border: thin solid var(--bg-color-main-sections-border-1);
 		@keyframes showToTop{
 			0%{
 				transform: translateY(-200%);
@@ -2556,7 +2564,7 @@ strong, b{
 
 		&--title{
 			margin-bottom: 0.5rem;
-			color: var(--theme_color-text);
+			color: var(--bg-color-dcli-sections-title-1);
 			@media (min-width: 1024px){
 				font-size: 1.65rem;
 			}
@@ -2564,6 +2572,7 @@ strong, b{
 
 		&--desc{
 			margin-bottom: 1rem;
+			color: var(--theme_color-text-paragraph);
 			@media (min-width: 1024px){
 				font-size: 1.1rem;
 			}
@@ -3412,6 +3421,7 @@ strong, b{
 	color: var(--theme_color-plugin-swal2-title);
 }
 #swal2-html-container{
+	color: var(--theme_color-text-paragraph);
 	span{
 		color: var(--theme_color-text-paragraph);
 	}
@@ -3618,4 +3628,14 @@ strong, b{
 }
 .cSwitchTgg__scheme input:checked + label svg.moon{
 	fill:#fff;
+}
+/* DATATABLES */
+div.dataTables_wrapper div.dataTables_length label{
+	color: var(--theme_color-text-paragraph);
+}
+div.dataTables_wrapper div.dataTables_filter label{
+	color: var(--theme_color-text-paragraph);
+}
+div.dataTables_wrapper div.dataTables_info{
+	color: var(--theme_color-text-paragraph);
 }

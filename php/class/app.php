@@ -4,8 +4,8 @@ class App{
   function getTheme(){
   	$themeClass = '';
     $themeClassBtn = '';
-    if(!empty($_COOKIE['theme'])){
-      if($_COOKIE['theme'] == 'dark'){
+    if(!empty($_COOKIE['prjMemopay-theme'])){
+      if($_COOKIE['prjMemopay-theme'] == 'dark'){
         $themeClass = 'dark-theme';
         $themeClassBtn = 'checked';
       }else if($_COOKIE['theme'] == 'light'){

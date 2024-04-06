@@ -35,6 +35,7 @@
 			<section class="cMain__cont--heroI" id="fromHereFixedHeadTop">
 				<div class="cMain__cont--heroI--c box">
 					<div class="cMain__cont--heroI--c--cheader">
+						<h1 class="cMain__cont--heroI--c--cheader--toptitle">Casa de cambio online</h1>
 						<h1 class="cMain__cont--heroI--c--cheader--title">¡Gana cambiando con Memopay!</h1>
 						<p class="cMain__cont--heroI--c--cheader--desc">Dale a tu dinero el valor que merece</p>
 					</div>

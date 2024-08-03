@@ -10,6 +10,11 @@ if(isset($_POST) && count($_POST) > 0){
 		$login = new Login();
 		$verify = $login->verify($arr_data_client);
 
+		// echo "<pre>";
+		// print_r($verify);
+		// echo "</pre>";
+		// exit();
+
 		if(!empty($verify)){
 			require_once '../controllers/c_list_byIdClient.php';
 			$idcli = $verify[0]['id'];

@@ -54,7 +54,7 @@
 				&--desc{
 					line-height: 1.5;
 					font-size: 0.9rem;
-					color: var(--theme_color-text-paragraph);
+					color: var(--theme_color-text-paragraph-light);
 					@media (min-width: 768px){
 						font-size: 1rem;
 					}
@@ -98,7 +98,7 @@
 					margin-bottom: 1rem;
 					line-height: 1.5;
 					font-size: 0.9rem;
-					color: var(--theme_color-text-paragraph);
+					color: var(--theme_color-text-paragraph-light);
 					@media (min-width: 768px){
 						font-size: 1rem;
 					}

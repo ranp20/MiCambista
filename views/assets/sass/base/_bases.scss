@@ -71,6 +71,7 @@
 		--theme_color-gb-valuesRatesCurr: #001F5A;
 		--theme_color-input-bg-valuesDiviseCurr: #e9f6f6;
 		--theme_color-input-color-valuesDiviseCurr: #001F5A;
+		--theme_color-text-paragraph-light: #676767;
 		// --theme_color-text-paragraph: #676767;
 		--theme_color-text-paragraph: #eee;
 		--theme_color-text-paragraph-2: #001F5A;
@@ -119,6 +120,7 @@ body{
 	--theme_color-gb-valuesRatesCurr: #001F5A;
 	--theme_color-input-bg-valuesDiviseCurr: #e9f6f6;
 	--theme_color-input-color-valuesDiviseCurr: #001F5A;
+	--theme_color-text-paragraph-light: #7D858F;
 	// --theme_color-text-paragraph: #676767;
 	--theme_color-text-paragraph: #eee;
 	--theme_color-text-paragraph-2: #001F5A;
@@ -1177,7 +1179,7 @@ strong, b{
 			&--label{
 				text-align: left;
 				margin-bottom: 0.4rem;
-				color: var(--theme_color-text-paragraph);
+				color: var(--theme_color-text-paragraph-light);
 			}
 
 			&--input{
@@ -1614,7 +1616,7 @@ strong, b{
 				&--label{
 					margin-bottom: 0.4rem;
 					padding-left: .2rem;
-					color: var(--theme_color-text-paragraph);
+					color: var(--theme_color-text-frm-label);
 				}
 
 				&--input{
@@ -2589,7 +2591,7 @@ strong, b{
 
 		&--desc{
 			margin-bottom: 1rem;
-			color: var(--theme_color-text-paragraph);
+			color: var(--theme_color-text-paragraph-light);
 			@media (min-width: 1024px){
 				font-size: 1.1rem;
 			}
@@ -3438,9 +3440,9 @@ strong, b{
 	color: var(--theme_color-plugin-swal2-title);
 }
 #swal2-html-container{
-	color: var(--theme_color-text-paragraph);
+	color: var(--theme_color-text-paragraph-light);
 	span{
-		color: var(--theme_color-text-paragraph);
+		color: var(--theme_color-text-paragraph-light);
 	}
 }
 .alertSwal{
@@ -3464,7 +3466,7 @@ strong, b{
 	&__cText{
 		margin-bottom: 1.65rem;
 		p{
-			color: var(--theme_color-text-paragraph);
+			color: var(--theme_color-text-paragraph-light);
 		}
 	}
 	&__cM{
@@ -3477,7 +3479,7 @@ strong, b{
 	    background-size: 15px;
 	    background-position: 0;
 	    padding-left: 25px;
-			color: var(--theme_color-text-paragraph);
+			color: var(--theme_color-text-paragraph-light);
 			text-align: left;
 		}
 	}

@@ -385,7 +385,7 @@ $top-header-desktop: 85px;
 						}
 					}
 					h3{
-						color: var(--theme_color-text-paragraph);
+						color: var(--theme_color-text-paragraph-light);
 						font-size: 1rem;
 						font-weight: 300;
 						@media (min-width: 991px){
@@ -530,7 +530,7 @@ $top-header-desktop: 85px;
 					    	}
 					    }
 					    &__ctitle{
-								color: var(--theme_color-text-paragraph);
+								color: var(--theme_color-text-paragraph-light);
 								font-size: 0.9rem;
 								font-weight: 400;
 								word-break: break-word;

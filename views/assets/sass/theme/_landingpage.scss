@@ -710,7 +710,7 @@
 							}
 							&--txt{
 								// color: var(--theme_color-text);
-								color: var(--theme_color-text-paragraph);
+								color: var(--theme_color-text-paragraph-light);
 								@media (min-width: 1440px){
 									font-size: .95rem;
 								}
@@ -752,7 +752,7 @@
 				line-height: 1.35;
 				font-size: 1.1rem;
 				font-weight: 300;
-				color: var(--theme_color-text-paragraph);
+				color: var(--theme_color-text-paragraph-light);
 				@media (min-width: 897px){
 					font-size: 1.25rem;
 				}
@@ -823,7 +823,7 @@
 							&--light{
 								font-weight: 300;
 								font-size: 1rem;
-								color: var(--theme_color-text-paragraph);
+								color: var(--theme_color-text-paragraph-light);
 							}
 						}
 					}
@@ -872,7 +872,7 @@
 				}
 				&--title-two{
 					// color: $color-paragraph;
-					color: var(--theme_color-text-paragraph);
+					color: var(--theme_color-text-paragraph-light);
 					margin-bottom: 0.5rem;
 					line-height: 1.35;
 					font-size: 1.1rem;
@@ -938,7 +938,7 @@
 									line-height: 1.5;
 									font-size: 1.05rem;
 									font-weight: 300;
-									color: var(--theme_color-text-paragraph);
+									color: var(--theme_color-text-paragraph-light);
 									@media (min-width: 692px){
 						    		font-size: 1.2rem;
 						    	}
@@ -984,7 +984,7 @@
 									line-height: 1.5;
 									font-size: 1.05rem;
 									font-weight: 300;
-									color: var(--theme_color-text-paragraph);
+									color: var(--theme_color-text-paragraph-light);
 									@media (min-width: 692px){
 						    		font-size: 1.2rem;
 						    		text-align: left;
@@ -1097,7 +1097,7 @@
     				line-height: 1.8;
     				margin-bottom: 1rem;
     				font-weight: 300;
-						color: var(--theme_color-text-paragraph);
+						color: var(--theme_color-text-paragraph-light);
     				@media (min-width: 480px){
     					font-size: 1rem;
     				}
@@ -1224,7 +1224,7 @@
 			&__c{
 				p{
 					margin-bottom: 1rem;
-					color: var(--theme_color-text-paragraph);
+					color: var(--theme_color-text-paragraph-light);
 					@media (min-width: 768px){
     				line-height: 1.8;
 					}
@@ -1326,7 +1326,7 @@
 								position: relative;
 								& > li{
 									// color: $color-paragraph;
-									color: var(--theme_color-text-paragraph);
+									color: var(--theme_color-text-paragraph-light);
 									margin-bottom: 0.5rem;
 								}
 								& > ul{
@@ -1337,7 +1337,7 @@
 								position: relative;
 								li{
 									// color: $color-paragraph;
-									color: var(--theme_color-text-paragraph);
+									color: var(--theme_color-text-paragraph-light);
 									&:before{
 										content: "";
 										position: absolute;

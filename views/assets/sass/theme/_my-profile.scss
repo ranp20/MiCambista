@@ -22,7 +22,7 @@
 			}
 			&--desc{
 				line-height: 1.5;
-				color: var(--theme_color-text-paragraph);
+				color: var(--theme_color-text-paragraph-light);
 			}
 		}
 		&--cDataUser{
@@ -52,7 +52,7 @@
 						font-weight: 500;
 					}
 					&--input{
-						color: var(--theme_color-text-paragraph);
+						color: var(--theme_color-text-paragraph-light);
 					}
 					&--cUptData{
 						display: flex;
@@ -61,7 +61,7 @@
 				    justify-content: space-between;
 				    flex: 0 0 100%;
 				    &--txt{
-							color: var(--theme_color-text-paragraph);
+							color: var(--theme_color-text-paragraph-light);
 				    }
 				    &--cIcon{
 				    	cursor: pointer;
@@ -262,7 +262,7 @@
 						}
 						span{
 							//vertical-align: middle;
-							color: var(--theme_color-text-paragraph);
+							color: var(--theme_color-text-paragraph-light);
 						}
 					}
 				}

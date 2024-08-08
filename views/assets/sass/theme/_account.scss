@@ -284,7 +284,8 @@
 					}
 					&--input{
 						outline: none;
-						padding: 0.7rem 2.35rem 0.7rem .5rem;
+						// padding: 0.7rem 2.35rem 0.7rem .5rem;
+						padding: 0.7rem 2.35rem 0.7rem .7rem;
 						font-size: .85rem;
 						width: 100%;
 						border-radius: 6px;
@@ -390,7 +391,6 @@
 							background-color: darken($theme_color_buttons, 10%);
 						}
 						@media (min-width: 991px){
-							width: 90%;
 							margin-left: auto;
 							margin-right: auto;
 						}
